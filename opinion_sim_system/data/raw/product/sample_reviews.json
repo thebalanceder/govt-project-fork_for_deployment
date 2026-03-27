@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "rating": 5,
+    "comment": "Battery life is great and the app is smooth."
+  },
+  {
+    "id": 2,
+    "rating": 4,
+    "comment": "价格合理，功能实用，日常使用很稳定。"
+  },
+  {
+    "id": 3,
+    "rating": 2,
+    "comment": "The setup was confusing and customer support was slow."
+  },
+  {
+    "id": 4,
+    "rating": 3,
+    "comment": "外观不错，但偶尔会卡顿。"
+  },
+  {
+    "id": 5,
+    "rating": 5,
+    "comment": "Excellent value for money, I would recommend it to my friends."
+  }
+]
