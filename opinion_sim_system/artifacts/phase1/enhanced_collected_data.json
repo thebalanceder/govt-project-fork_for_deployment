@@ -1,0 +1,112 @@
+[
+  {
+    "id": "bls_CES0000000001",
+    "source": "BLS",
+    "category": "economic",
+    "text": "CES0000000001: 158466",
+    "timestamp": "2026-03-29T22:18:39.503264",
+    "url": "https://www.bls.gov/data/",
+    "author": "",
+    "title": "BLS CES0000000001",
+    "value": 158466.0,
+    "metadata": {
+      "series_id": "CES0000000001"
+    }
+  },
+  {
+    "id": "bls_LNS14000000",
+    "source": "BLS",
+    "category": "economic",
+    "text": "LNS14000000: 4.4",
+    "timestamp": "2026-03-29T22:18:39.503277",
+    "url": "https://www.bls.gov/data/",
+    "author": "",
+    "title": "BLS LNS14000000",
+    "value": 4.4,
+    "metadata": {
+      "series_id": "LNS14000000"
+    }
+  },
+  {
+    "id": "bls_CUUR0000SA0",
+    "source": "BLS",
+    "category": "economic",
+    "text": "CUUR0000SA0: 326.785",
+    "timestamp": "2026-03-29T22:18:39.503280",
+    "url": "https://www.bls.gov/data/",
+    "author": "",
+    "title": "BLS CUUR0000SA0",
+    "value": 326.785,
+    "metadata": {
+      "series_id": "CUUR0000SA0"
+    }
+  },
+  {
+    "id": "performance_va _0",
+    "source": "Performance.gov",
+    "category": "service_delivery",
+    "text": "VA Healthcare - Wait Time: 14.2 days",
+    "timestamp": "2026-03-29T22:18:42.305230",
+    "url": "https://www.performance.gov",
+    "author": "",
+    "title": "VA Healthcare Performance Metric",
+    "value": 14.2,
+    "metadata": {
+      "agency": "VA Healthcare",
+      "metric": "Wait Time",
+      "value": 14.2,
+      "unit": "days"
+    }
+  },
+  {
+    "id": "performance_ssa_1",
+    "source": "Performance.gov",
+    "category": "service_delivery",
+    "text": "SSA Benefits - Processing Time: 127 days",
+    "timestamp": "2026-03-29T22:18:42.305245",
+    "url": "https://www.performance.gov",
+    "author": "",
+    "title": "SSA Benefits Performance Metric",
+    "value": 127,
+    "metadata": {
+      "agency": "SSA Benefits",
+      "metric": "Processing Time",
+      "value": 127,
+      "unit": "days"
+    }
+  },
+  {
+    "id": "performance_usp_2",
+    "source": "Performance.gov",
+    "category": "service_delivery",
+    "text": "USPS Delivery - On-Time Rate: 93.5 percent",
+    "timestamp": "2026-03-29T22:18:42.305249",
+    "url": "https://www.performance.gov",
+    "author": "",
+    "title": "USPS Delivery Performance Metric",
+    "value": 93.5,
+    "metadata": {
+      "agency": "USPS Delivery",
+      "metric": "On-Time Rate",
+      "value": 93.5,
+      "unit": "percent"
+    }
+  },
+  {
+    "id": "performance_irs_3",
+    "source": "Performance.gov",
+    "category": "service_delivery",
+    "text": "IRS Response - Phone Answer Rate: 68.2 percent",
+    "timestamp": "2026-03-29T22:18:42.305252",
+    "url": "https://www.performance.gov",
+    "author": "",
+    "title": "IRS Response Performance Metric",
+    "value": 68.2,
+    "metadata": {
+      "agency": "IRS Response",
+      "metric": "Phone Answer Rate",
+      "value": 68.2,
+      "unit": "percent"
+    }
+  }
+]

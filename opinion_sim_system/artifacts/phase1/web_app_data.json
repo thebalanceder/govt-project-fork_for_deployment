@@ -1,0 +1,2146 @@
+{
+  "economic": [
+    {
+      "id": "fred_DGS10_2026-03-26_0",
+      "source": "FRED",
+      "category": "economic",
+      "text": "DGS10: 4.42 (as of 2026-03-26)",
+      "timestamp": "2026-03-26T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/DGS10",
+      "title": "DGS10 - Real-Time Economic Indicator",
+      "value": 4.42,
+      "metadata": {
+        "series_id": "DGS10",
+        "value": "4.42",
+        "date": "2026-03-26",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 0
+      }
+    },
+    {
+      "id": "fred_DGS10_2026-03-25_1",
+      "source": "FRED",
+      "category": "economic",
+      "text": "DGS10: 4.33 (as of 2026-03-25)",
+      "timestamp": "2026-03-25T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/DGS10",
+      "title": "DGS10 - Real-Time Economic Indicator",
+      "value": 4.33,
+      "metadata": {
+        "series_id": "DGS10",
+        "value": "4.33",
+        "date": "2026-03-25",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 1
+      }
+    },
+    {
+      "id": "fred_DGS10_2026-03-24_2",
+      "source": "FRED",
+      "category": "economic",
+      "text": "DGS10: 4.39 (as of 2026-03-24)",
+      "timestamp": "2026-03-24T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/DGS10",
+      "title": "DGS10 - Real-Time Economic Indicator",
+      "value": 4.39,
+      "metadata": {
+        "series_id": "DGS10",
+        "value": "4.39",
+        "date": "2026-03-24",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 2
+      }
+    },
+    {
+      "id": "fred_DGS10_2026-03-23_3",
+      "source": "FRED",
+      "category": "economic",
+      "text": "DGS10: 4.34 (as of 2026-03-23)",
+      "timestamp": "2026-03-23T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/DGS10",
+      "title": "DGS10 - Real-Time Economic Indicator",
+      "value": 4.34,
+      "metadata": {
+        "series_id": "DGS10",
+        "value": "4.34",
+        "date": "2026-03-23",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 3
+      }
+    },
+    {
+      "id": "fred_DGS10_2026-03-20_4",
+      "source": "FRED",
+      "category": "economic",
+      "text": "DGS10: 4.39 (as of 2026-03-20)",
+      "timestamp": "2026-03-20T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/DGS10",
+      "title": "DGS10 - Real-Time Economic Indicator",
+      "value": 4.39,
+      "metadata": {
+        "series_id": "DGS10",
+        "value": "4.39",
+        "date": "2026-03-20",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 4
+      }
+    },
+    {
+      "id": "fred_DGS10_2026-03-19_5",
+      "source": "FRED",
+      "category": "economic",
+      "text": "DGS10: 4.25 (as of 2026-03-19)",
+      "timestamp": "2026-03-19T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/DGS10",
+      "title": "DGS10 - Real-Time Economic Indicator",
+      "value": 4.25,
+      "metadata": {
+        "series_id": "DGS10",
+        "value": "4.25",
+        "date": "2026-03-19",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 5
+      }
+    },
+    {
+      "id": "fred_DGS10_2026-03-18_6",
+      "source": "FRED",
+      "category": "economic",
+      "text": "DGS10: 4.26 (as of 2026-03-18)",
+      "timestamp": "2026-03-18T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/DGS10",
+      "title": "DGS10 - Real-Time Economic Indicator",
+      "value": 4.26,
+      "metadata": {
+        "series_id": "DGS10",
+        "value": "4.26",
+        "date": "2026-03-18",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 6
+      }
+    },
+    {
+      "id": "fred_DGS10_2026-03-17_7",
+      "source": "FRED",
+      "category": "economic",
+      "text": "DGS10: 4.2 (as of 2026-03-17)",
+      "timestamp": "2026-03-17T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/DGS10",
+      "title": "DGS10 - Real-Time Economic Indicator",
+      "value": 4.2,
+      "metadata": {
+        "series_id": "DGS10",
+        "value": "4.2",
+        "date": "2026-03-17",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 7
+      }
+    },
+    {
+      "id": "fred_DGS10_2026-03-16_8",
+      "source": "FRED",
+      "category": "economic",
+      "text": "DGS10: 4.23 (as of 2026-03-16)",
+      "timestamp": "2026-03-16T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/DGS10",
+      "title": "DGS10 - Real-Time Economic Indicator",
+      "value": 4.23,
+      "metadata": {
+        "series_id": "DGS10",
+        "value": "4.23",
+        "date": "2026-03-16",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 8
+      }
+    },
+    {
+      "id": "fred_DGS10_2026-03-13_9",
+      "source": "FRED",
+      "category": "economic",
+      "text": "DGS10: 4.28 (as of 2026-03-13)",
+      "timestamp": "2026-03-13T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/DGS10",
+      "title": "DGS10 - Real-Time Economic Indicator",
+      "value": 4.28,
+      "metadata": {
+        "series_id": "DGS10",
+        "value": "4.28",
+        "date": "2026-03-13",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 9
+      }
+    },
+    {
+      "id": "fred_DGS2_2026-03-26_0",
+      "source": "FRED",
+      "category": "economic",
+      "text": "DGS2: 3.96 (as of 2026-03-26)",
+      "timestamp": "2026-03-26T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/DGS2",
+      "title": "DGS2 - Real-Time Economic Indicator",
+      "value": 3.96,
+      "metadata": {
+        "series_id": "DGS2",
+        "value": "3.96",
+        "date": "2026-03-26",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 0
+      }
+    },
+    {
+      "id": "fred_DGS2_2026-03-25_1",
+      "source": "FRED",
+      "category": "economic",
+      "text": "DGS2: 3.84 (as of 2026-03-25)",
+      "timestamp": "2026-03-25T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/DGS2",
+      "title": "DGS2 - Real-Time Economic Indicator",
+      "value": 3.84,
+      "metadata": {
+        "series_id": "DGS2",
+        "value": "3.84",
+        "date": "2026-03-25",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 1
+      }
+    },
+    {
+      "id": "fred_DGS2_2026-03-24_2",
+      "source": "FRED",
+      "category": "economic",
+      "text": "DGS2: 3.9 (as of 2026-03-24)",
+      "timestamp": "2026-03-24T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/DGS2",
+      "title": "DGS2 - Real-Time Economic Indicator",
+      "value": 3.9,
+      "metadata": {
+        "series_id": "DGS2",
+        "value": "3.9",
+        "date": "2026-03-24",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 2
+      }
+    },
+    {
+      "id": "fred_DGS2_2026-03-23_3",
+      "source": "FRED",
+      "category": "economic",
+      "text": "DGS2: 3.83 (as of 2026-03-23)",
+      "timestamp": "2026-03-23T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/DGS2",
+      "title": "DGS2 - Real-Time Economic Indicator",
+      "value": 3.83,
+      "metadata": {
+        "series_id": "DGS2",
+        "value": "3.83",
+        "date": "2026-03-23",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 3
+      }
+    },
+    {
+      "id": "fred_DGS2_2026-03-20_4",
+      "source": "FRED",
+      "category": "economic",
+      "text": "DGS2: 3.88 (as of 2026-03-20)",
+      "timestamp": "2026-03-20T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/DGS2",
+      "title": "DGS2 - Real-Time Economic Indicator",
+      "value": 3.88,
+      "metadata": {
+        "series_id": "DGS2",
+        "value": "3.88",
+        "date": "2026-03-20",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 4
+      }
+    },
+    {
+      "id": "fred_DGS2_2026-03-19_5",
+      "source": "FRED",
+      "category": "economic",
+      "text": "DGS2: 3.79 (as of 2026-03-19)",
+      "timestamp": "2026-03-19T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/DGS2",
+      "title": "DGS2 - Real-Time Economic Indicator",
+      "value": 3.79,
+      "metadata": {
+        "series_id": "DGS2",
+        "value": "3.79",
+        "date": "2026-03-19",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 5
+      }
+    },
+    {
+      "id": "fred_DGS2_2026-03-18_6",
+      "source": "FRED",
+      "category": "economic",
+      "text": "DGS2: 3.76 (as of 2026-03-18)",
+      "timestamp": "2026-03-18T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/DGS2",
+      "title": "DGS2 - Real-Time Economic Indicator",
+      "value": 3.76,
+      "metadata": {
+        "series_id": "DGS2",
+        "value": "3.76",
+        "date": "2026-03-18",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 6
+      }
+    },
+    {
+      "id": "fred_DGS2_2026-03-17_7",
+      "source": "FRED",
+      "category": "economic",
+      "text": "DGS2: 3.68 (as of 2026-03-17)",
+      "timestamp": "2026-03-17T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/DGS2",
+      "title": "DGS2 - Real-Time Economic Indicator",
+      "value": 3.68,
+      "metadata": {
+        "series_id": "DGS2",
+        "value": "3.68",
+        "date": "2026-03-17",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 7
+      }
+    },
+    {
+      "id": "fred_DGS2_2026-03-16_8",
+      "source": "FRED",
+      "category": "economic",
+      "text": "DGS2: 3.68 (as of 2026-03-16)",
+      "timestamp": "2026-03-16T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/DGS2",
+      "title": "DGS2 - Real-Time Economic Indicator",
+      "value": 3.68,
+      "metadata": {
+        "series_id": "DGS2",
+        "value": "3.68",
+        "date": "2026-03-16",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 8
+      }
+    },
+    {
+      "id": "fred_DGS2_2026-03-13_9",
+      "source": "FRED",
+      "category": "economic",
+      "text": "DGS2: 3.73 (as of 2026-03-13)",
+      "timestamp": "2026-03-13T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/DGS2",
+      "title": "DGS2 - Real-Time Economic Indicator",
+      "value": 3.73,
+      "metadata": {
+        "series_id": "DGS2",
+        "value": "3.73",
+        "date": "2026-03-13",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 9
+      }
+    },
+    {
+      "id": "fred_UNRATE_2026-02-01_0",
+      "source": "FRED",
+      "category": "economic",
+      "text": "UNRATE: 4.4 (as of 2026-02-01)",
+      "timestamp": "2026-02-01T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/UNRATE",
+      "title": "UNRATE - Real-Time Economic Indicator",
+      "value": 4.4,
+      "metadata": {
+        "series_id": "UNRATE",
+        "value": "4.4",
+        "date": "2026-02-01",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 0
+      }
+    },
+    {
+      "id": "fred_UNRATE_2026-01-01_1",
+      "source": "FRED",
+      "category": "economic",
+      "text": "UNRATE: 4.3 (as of 2026-01-01)",
+      "timestamp": "2026-01-01T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/UNRATE",
+      "title": "UNRATE - Real-Time Economic Indicator",
+      "value": 4.3,
+      "metadata": {
+        "series_id": "UNRATE",
+        "value": "4.3",
+        "date": "2026-01-01",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 1
+      }
+    },
+    {
+      "id": "fred_UNRATE_2025-12-01_2",
+      "source": "FRED",
+      "category": "economic",
+      "text": "UNRATE: 4.4 (as of 2025-12-01)",
+      "timestamp": "2025-12-01T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/UNRATE",
+      "title": "UNRATE - Real-Time Economic Indicator",
+      "value": 4.4,
+      "metadata": {
+        "series_id": "UNRATE",
+        "value": "4.4",
+        "date": "2025-12-01",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 2
+      }
+    },
+    {
+      "id": "fred_UNRATE_2025-11-01_3",
+      "source": "FRED",
+      "category": "economic",
+      "text": "UNRATE: 4.5 (as of 2025-11-01)",
+      "timestamp": "2025-11-01T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/UNRATE",
+      "title": "UNRATE - Real-Time Economic Indicator",
+      "value": 4.5,
+      "metadata": {
+        "series_id": "UNRATE",
+        "value": "4.5",
+        "date": "2025-11-01",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 3
+      }
+    },
+    {
+      "id": "fred_UNRATE_2025-10-01_4",
+      "source": "FRED",
+      "category": "economic",
+      "text": "UNRATE: . (as of 2025-10-01)",
+      "timestamp": "2025-10-01T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/UNRATE",
+      "title": "UNRATE - Real-Time Economic Indicator",
+      "value": 0.0,
+      "metadata": {
+        "series_id": "UNRATE",
+        "value": ".",
+        "date": "2025-10-01",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 4
+      }
+    },
+    {
+      "id": "fred_UNRATE_2025-09-01_5",
+      "source": "FRED",
+      "category": "economic",
+      "text": "UNRATE: 4.4 (as of 2025-09-01)",
+      "timestamp": "2025-09-01T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/UNRATE",
+      "title": "UNRATE - Real-Time Economic Indicator",
+      "value": 4.4,
+      "metadata": {
+        "series_id": "UNRATE",
+        "value": "4.4",
+        "date": "2025-09-01",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 5
+      }
+    },
+    {
+      "id": "fred_UNRATE_2025-08-01_6",
+      "source": "FRED",
+      "category": "economic",
+      "text": "UNRATE: 4.3 (as of 2025-08-01)",
+      "timestamp": "2025-08-01T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/UNRATE",
+      "title": "UNRATE - Real-Time Economic Indicator",
+      "value": 4.3,
+      "metadata": {
+        "series_id": "UNRATE",
+        "value": "4.3",
+        "date": "2025-08-01",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 6
+      }
+    },
+    {
+      "id": "fred_UNRATE_2025-07-01_7",
+      "source": "FRED",
+      "category": "economic",
+      "text": "UNRATE: 4.3 (as of 2025-07-01)",
+      "timestamp": "2025-07-01T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/UNRATE",
+      "title": "UNRATE - Real-Time Economic Indicator",
+      "value": 4.3,
+      "metadata": {
+        "series_id": "UNRATE",
+        "value": "4.3",
+        "date": "2025-07-01",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 7
+      }
+    },
+    {
+      "id": "fred_UNRATE_2025-06-01_8",
+      "source": "FRED",
+      "category": "economic",
+      "text": "UNRATE: 4.1 (as of 2025-06-01)",
+      "timestamp": "2025-06-01T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/UNRATE",
+      "title": "UNRATE - Real-Time Economic Indicator",
+      "value": 4.1,
+      "metadata": {
+        "series_id": "UNRATE",
+        "value": "4.1",
+        "date": "2025-06-01",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 8
+      }
+    },
+    {
+      "id": "fred_UNRATE_2025-05-01_9",
+      "source": "FRED",
+      "category": "economic",
+      "text": "UNRATE: 4.3 (as of 2025-05-01)",
+      "timestamp": "2025-05-01T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/UNRATE",
+      "title": "UNRATE - Real-Time Economic Indicator",
+      "value": 4.3,
+      "metadata": {
+        "series_id": "UNRATE",
+        "value": "4.3",
+        "date": "2025-05-01",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 9
+      }
+    },
+    {
+      "id": "fred_CPIAUCSL_2026-02-01_0",
+      "source": "FRED",
+      "category": "economic",
+      "text": "CPIAUCSL: 327.460 (as of 2026-02-01)",
+      "timestamp": "2026-02-01T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/CPIAUCSL",
+      "title": "CPIAUCSL - Real-Time Economic Indicator",
+      "value": 327.46,
+      "metadata": {
+        "series_id": "CPIAUCSL",
+        "value": "327.460",
+        "date": "2026-02-01",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 0
+      }
+    },
+    {
+      "id": "fred_CPIAUCSL_2026-01-01_1",
+      "source": "FRED",
+      "category": "economic",
+      "text": "CPIAUCSL: 326.588 (as of 2026-01-01)",
+      "timestamp": "2026-01-01T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/CPIAUCSL",
+      "title": "CPIAUCSL - Real-Time Economic Indicator",
+      "value": 326.588,
+      "metadata": {
+        "series_id": "CPIAUCSL",
+        "value": "326.588",
+        "date": "2026-01-01",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 1
+      }
+    },
+    {
+      "id": "fred_CPIAUCSL_2025-12-01_2",
+      "source": "FRED",
+      "category": "economic",
+      "text": "CPIAUCSL: 326.031 (as of 2025-12-01)",
+      "timestamp": "2025-12-01T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/CPIAUCSL",
+      "title": "CPIAUCSL - Real-Time Economic Indicator",
+      "value": 326.031,
+      "metadata": {
+        "series_id": "CPIAUCSL",
+        "value": "326.031",
+        "date": "2025-12-01",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 2
+      }
+    },
+    {
+      "id": "fred_CPIAUCSL_2025-11-01_3",
+      "source": "FRED",
+      "category": "economic",
+      "text": "CPIAUCSL: 325.063 (as of 2025-11-01)",
+      "timestamp": "2025-11-01T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/CPIAUCSL",
+      "title": "CPIAUCSL - Real-Time Economic Indicator",
+      "value": 325.063,
+      "metadata": {
+        "series_id": "CPIAUCSL",
+        "value": "325.063",
+        "date": "2025-11-01",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 3
+      }
+    },
+    {
+      "id": "fred_CPIAUCSL_2025-10-01_4",
+      "source": "FRED",
+      "category": "economic",
+      "text": "CPIAUCSL: . (as of 2025-10-01)",
+      "timestamp": "2025-10-01T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/CPIAUCSL",
+      "title": "CPIAUCSL - Real-Time Economic Indicator",
+      "value": 0.0,
+      "metadata": {
+        "series_id": "CPIAUCSL",
+        "value": ".",
+        "date": "2025-10-01",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 4
+      }
+    },
+    {
+      "id": "fred_CPIAUCSL_2025-09-01_5",
+      "source": "FRED",
+      "category": "economic",
+      "text": "CPIAUCSL: 324.245 (as of 2025-09-01)",
+      "timestamp": "2025-09-01T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/CPIAUCSL",
+      "title": "CPIAUCSL - Real-Time Economic Indicator",
+      "value": 324.245,
+      "metadata": {
+        "series_id": "CPIAUCSL",
+        "value": "324.245",
+        "date": "2025-09-01",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 5
+      }
+    },
+    {
+      "id": "fred_CPIAUCSL_2025-08-01_6",
+      "source": "FRED",
+      "category": "economic",
+      "text": "CPIAUCSL: 323.291 (as of 2025-08-01)",
+      "timestamp": "2025-08-01T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/CPIAUCSL",
+      "title": "CPIAUCSL - Real-Time Economic Indicator",
+      "value": 323.291,
+      "metadata": {
+        "series_id": "CPIAUCSL",
+        "value": "323.291",
+        "date": "2025-08-01",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 6
+      }
+    },
+    {
+      "id": "fred_CPIAUCSL_2025-07-01_7",
+      "source": "FRED",
+      "category": "economic",
+      "text": "CPIAUCSL: 322.169 (as of 2025-07-01)",
+      "timestamp": "2025-07-01T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/CPIAUCSL",
+      "title": "CPIAUCSL - Real-Time Economic Indicator",
+      "value": 322.169,
+      "metadata": {
+        "series_id": "CPIAUCSL",
+        "value": "322.169",
+        "date": "2025-07-01",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 7
+      }
+    },
+    {
+      "id": "fred_CPIAUCSL_2025-06-01_8",
+      "source": "FRED",
+      "category": "economic",
+      "text": "CPIAUCSL: 321.435 (as of 2025-06-01)",
+      "timestamp": "2025-06-01T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/CPIAUCSL",
+      "title": "CPIAUCSL - Real-Time Economic Indicator",
+      "value": 321.435,
+      "metadata": {
+        "series_id": "CPIAUCSL",
+        "value": "321.435",
+        "date": "2025-06-01",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 8
+      }
+    },
+    {
+      "id": "fred_CPIAUCSL_2025-05-01_9",
+      "source": "FRED",
+      "category": "economic",
+      "text": "CPIAUCSL: 320.620 (as of 2025-05-01)",
+      "timestamp": "2025-05-01T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/CPIAUCSL",
+      "title": "CPIAUCSL - Real-Time Economic Indicator",
+      "value": 320.62,
+      "metadata": {
+        "series_id": "CPIAUCSL",
+        "value": "320.620",
+        "date": "2025-05-01",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 9
+      }
+    },
+    {
+      "id": "fred_PCE_2026-01-01_0",
+      "source": "FRED",
+      "category": "economic",
+      "text": "PCE: 21536.6 (as of 2026-01-01)",
+      "timestamp": "2026-01-01T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/PCE",
+      "title": "PCE - Real-Time Economic Indicator",
+      "value": 21536.6,
+      "metadata": {
+        "series_id": "PCE",
+        "value": "21536.6",
+        "date": "2026-01-01",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 0
+      }
+    },
+    {
+      "id": "fred_PCE_2025-12-01_1",
+      "source": "FRED",
+      "category": "economic",
+      "text": "PCE: 21455.5 (as of 2025-12-01)",
+      "timestamp": "2025-12-01T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/PCE",
+      "title": "PCE - Real-Time Economic Indicator",
+      "value": 21455.5,
+      "metadata": {
+        "series_id": "PCE",
+        "value": "21455.5",
+        "date": "2025-12-01",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 1
+      }
+    },
+    {
+      "id": "fred_PCE_2025-11-01_2",
+      "source": "FRED",
+      "category": "economic",
+      "text": "PCE: 21361.0 (as of 2025-11-01)",
+      "timestamp": "2025-11-01T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/PCE",
+      "title": "PCE - Real-Time Economic Indicator",
+      "value": 21361.0,
+      "metadata": {
+        "series_id": "PCE",
+        "value": "21361.0",
+        "date": "2025-11-01",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 2
+      }
+    },
+    {
+      "id": "fred_PCE_2025-10-01_3",
+      "source": "FRED",
+      "category": "economic",
+      "text": "PCE: 21287.7 (as of 2025-10-01)",
+      "timestamp": "2025-10-01T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/PCE",
+      "title": "PCE - Real-Time Economic Indicator",
+      "value": 21287.7,
+      "metadata": {
+        "series_id": "PCE",
+        "value": "21287.7",
+        "date": "2025-10-01",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 3
+      }
+    },
+    {
+      "id": "fred_PCE_2025-09-01_4",
+      "source": "FRED",
+      "category": "economic",
+      "text": "PCE: 21202.4 (as of 2025-09-01)",
+      "timestamp": "2025-09-01T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/PCE",
+      "title": "PCE - Real-Time Economic Indicator",
+      "value": 21202.4,
+      "metadata": {
+        "series_id": "PCE",
+        "value": "21202.4",
+        "date": "2025-09-01",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 4
+      }
+    },
+    {
+      "id": "fred_PCE_2025-08-01_5",
+      "source": "FRED",
+      "category": "economic",
+      "text": "PCE: 21123.8 (as of 2025-08-01)",
+      "timestamp": "2025-08-01T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/PCE",
+      "title": "PCE - Real-Time Economic Indicator",
+      "value": 21123.8,
+      "metadata": {
+        "series_id": "PCE",
+        "value": "21123.8",
+        "date": "2025-08-01",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 5
+      }
+    },
+    {
+      "id": "fred_PCE_2025-07-01_6",
+      "source": "FRED",
+      "category": "economic",
+      "text": "PCE: 21007.3 (as of 2025-07-01)",
+      "timestamp": "2025-07-01T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/PCE",
+      "title": "PCE - Real-Time Economic Indicator",
+      "value": 21007.3,
+      "metadata": {
+        "series_id": "PCE",
+        "value": "21007.3",
+        "date": "2025-07-01",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 6
+      }
+    },
+    {
+      "id": "fred_PCE_2025-06-01_7",
+      "source": "FRED",
+      "category": "economic",
+      "text": "PCE: 20868.4 (as of 2025-06-01)",
+      "timestamp": "2025-06-01T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/PCE",
+      "title": "PCE - Real-Time Economic Indicator",
+      "value": 20868.4,
+      "metadata": {
+        "series_id": "PCE",
+        "value": "20868.4",
+        "date": "2025-06-01",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 7
+      }
+    },
+    {
+      "id": "fred_PCE_2025-05-01_8",
+      "source": "FRED",
+      "category": "economic",
+      "text": "PCE: 20755.0 (as of 2025-05-01)",
+      "timestamp": "2025-05-01T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/PCE",
+      "title": "PCE - Real-Time Economic Indicator",
+      "value": 20755.0,
+      "metadata": {
+        "series_id": "PCE",
+        "value": "20755.0",
+        "date": "2025-05-01",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 8
+      }
+    },
+    {
+      "id": "fred_PCE_2025-04-01_9",
+      "source": "FRED",
+      "category": "economic",
+      "text": "PCE: 20746.4 (as of 2025-04-01)",
+      "timestamp": "2025-04-01T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/PCE",
+      "title": "PCE - Real-Time Economic Indicator",
+      "value": 20746.4,
+      "metadata": {
+        "series_id": "PCE",
+        "value": "20746.4",
+        "date": "2025-04-01",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 9
+      }
+    },
+    {
+      "id": "fred_VIXCLS_2026-03-26_0",
+      "source": "FRED",
+      "category": "economic",
+      "text": "VIXCLS: 27.44 (as of 2026-03-26)",
+      "timestamp": "2026-03-26T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/VIXCLS",
+      "title": "VIXCLS - Real-Time Economic Indicator",
+      "value": 27.44,
+      "metadata": {
+        "series_id": "VIXCLS",
+        "value": "27.44",
+        "date": "2026-03-26",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 0
+      }
+    },
+    {
+      "id": "fred_VIXCLS_2026-03-25_1",
+      "source": "FRED",
+      "category": "economic",
+      "text": "VIXCLS: 25.33 (as of 2026-03-25)",
+      "timestamp": "2026-03-25T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/VIXCLS",
+      "title": "VIXCLS - Real-Time Economic Indicator",
+      "value": 25.33,
+      "metadata": {
+        "series_id": "VIXCLS",
+        "value": "25.33",
+        "date": "2026-03-25",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 1
+      }
+    },
+    {
+      "id": "fred_VIXCLS_2026-03-24_2",
+      "source": "FRED",
+      "category": "economic",
+      "text": "VIXCLS: 26.95 (as of 2026-03-24)",
+      "timestamp": "2026-03-24T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/VIXCLS",
+      "title": "VIXCLS - Real-Time Economic Indicator",
+      "value": 26.95,
+      "metadata": {
+        "series_id": "VIXCLS",
+        "value": "26.95",
+        "date": "2026-03-24",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 2
+      }
+    },
+    {
+      "id": "fred_VIXCLS_2026-03-23_3",
+      "source": "FRED",
+      "category": "economic",
+      "text": "VIXCLS: 26.15 (as of 2026-03-23)",
+      "timestamp": "2026-03-23T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/VIXCLS",
+      "title": "VIXCLS - Real-Time Economic Indicator",
+      "value": 26.15,
+      "metadata": {
+        "series_id": "VIXCLS",
+        "value": "26.15",
+        "date": "2026-03-23",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 3
+      }
+    },
+    {
+      "id": "fred_VIXCLS_2026-03-20_4",
+      "source": "FRED",
+      "category": "economic",
+      "text": "VIXCLS: 26.78 (as of 2026-03-20)",
+      "timestamp": "2026-03-20T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/VIXCLS",
+      "title": "VIXCLS - Real-Time Economic Indicator",
+      "value": 26.78,
+      "metadata": {
+        "series_id": "VIXCLS",
+        "value": "26.78",
+        "date": "2026-03-20",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 4
+      }
+    },
+    {
+      "id": "fred_VIXCLS_2026-03-19_5",
+      "source": "FRED",
+      "category": "economic",
+      "text": "VIXCLS: 24.06 (as of 2026-03-19)",
+      "timestamp": "2026-03-19T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/VIXCLS",
+      "title": "VIXCLS - Real-Time Economic Indicator",
+      "value": 24.06,
+      "metadata": {
+        "series_id": "VIXCLS",
+        "value": "24.06",
+        "date": "2026-03-19",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 5
+      }
+    },
+    {
+      "id": "fred_VIXCLS_2026-03-18_6",
+      "source": "FRED",
+      "category": "economic",
+      "text": "VIXCLS: 25.09 (as of 2026-03-18)",
+      "timestamp": "2026-03-18T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/VIXCLS",
+      "title": "VIXCLS - Real-Time Economic Indicator",
+      "value": 25.09,
+      "metadata": {
+        "series_id": "VIXCLS",
+        "value": "25.09",
+        "date": "2026-03-18",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 6
+      }
+    },
+    {
+      "id": "fred_VIXCLS_2026-03-17_7",
+      "source": "FRED",
+      "category": "economic",
+      "text": "VIXCLS: 22.37 (as of 2026-03-17)",
+      "timestamp": "2026-03-17T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/VIXCLS",
+      "title": "VIXCLS - Real-Time Economic Indicator",
+      "value": 22.37,
+      "metadata": {
+        "series_id": "VIXCLS",
+        "value": "22.37",
+        "date": "2026-03-17",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 7
+      }
+    },
+    {
+      "id": "fred_VIXCLS_2026-03-16_8",
+      "source": "FRED",
+      "category": "economic",
+      "text": "VIXCLS: 23.51 (as of 2026-03-16)",
+      "timestamp": "2026-03-16T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/VIXCLS",
+      "title": "VIXCLS - Real-Time Economic Indicator",
+      "value": 23.51,
+      "metadata": {
+        "series_id": "VIXCLS",
+        "value": "23.51",
+        "date": "2026-03-16",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 8
+      }
+    },
+    {
+      "id": "fred_VIXCLS_2026-03-13_9",
+      "source": "FRED",
+      "category": "economic",
+      "text": "VIXCLS: 27.19 (as of 2026-03-13)",
+      "timestamp": "2026-03-13T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/VIXCLS",
+      "title": "VIXCLS - Real-Time Economic Indicator",
+      "value": 27.19,
+      "metadata": {
+        "series_id": "VIXCLS",
+        "value": "27.19",
+        "date": "2026-03-13",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 9
+      }
+    },
+    {
+      "id": "fred_SP500_2026-03-27_0",
+      "source": "FRED",
+      "category": "economic",
+      "text": "SP500: 6368.85 (as of 2026-03-27)",
+      "timestamp": "2026-03-27T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/SP500",
+      "title": "SP500 - Real-Time Economic Indicator",
+      "value": 6368.85,
+      "metadata": {
+        "series_id": "SP500",
+        "value": "6368.85",
+        "date": "2026-03-27",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 0
+      }
+    },
+    {
+      "id": "fred_SP500_2026-03-26_1",
+      "source": "FRED",
+      "category": "economic",
+      "text": "SP500: 6477.16 (as of 2026-03-26)",
+      "timestamp": "2026-03-26T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/SP500",
+      "title": "SP500 - Real-Time Economic Indicator",
+      "value": 6477.16,
+      "metadata": {
+        "series_id": "SP500",
+        "value": "6477.16",
+        "date": "2026-03-26",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 1
+      }
+    },
+    {
+      "id": "fred_SP500_2026-03-25_2",
+      "source": "FRED",
+      "category": "economic",
+      "text": "SP500: 6591.9 (as of 2026-03-25)",
+      "timestamp": "2026-03-25T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/SP500",
+      "title": "SP500 - Real-Time Economic Indicator",
+      "value": 6591.9,
+      "metadata": {
+        "series_id": "SP500",
+        "value": "6591.9",
+        "date": "2026-03-25",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 2
+      }
+    },
+    {
+      "id": "fred_SP500_2026-03-24_3",
+      "source": "FRED",
+      "category": "economic",
+      "text": "SP500: 6556.37 (as of 2026-03-24)",
+      "timestamp": "2026-03-24T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/SP500",
+      "title": "SP500 - Real-Time Economic Indicator",
+      "value": 6556.37,
+      "metadata": {
+        "series_id": "SP500",
+        "value": "6556.37",
+        "date": "2026-03-24",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 3
+      }
+    },
+    {
+      "id": "fred_SP500_2026-03-23_4",
+      "source": "FRED",
+      "category": "economic",
+      "text": "SP500: 6581.0 (as of 2026-03-23)",
+      "timestamp": "2026-03-23T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/SP500",
+      "title": "SP500 - Real-Time Economic Indicator",
+      "value": 6581.0,
+      "metadata": {
+        "series_id": "SP500",
+        "value": "6581.0",
+        "date": "2026-03-23",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 4
+      }
+    },
+    {
+      "id": "fred_SP500_2026-03-20_5",
+      "source": "FRED",
+      "category": "economic",
+      "text": "SP500: 6506.48 (as of 2026-03-20)",
+      "timestamp": "2026-03-20T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/SP500",
+      "title": "SP500 - Real-Time Economic Indicator",
+      "value": 6506.48,
+      "metadata": {
+        "series_id": "SP500",
+        "value": "6506.48",
+        "date": "2026-03-20",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 5
+      }
+    },
+    {
+      "id": "fred_SP500_2026-03-19_6",
+      "source": "FRED",
+      "category": "economic",
+      "text": "SP500: 6606.49 (as of 2026-03-19)",
+      "timestamp": "2026-03-19T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/SP500",
+      "title": "SP500 - Real-Time Economic Indicator",
+      "value": 6606.49,
+      "metadata": {
+        "series_id": "SP500",
+        "value": "6606.49",
+        "date": "2026-03-19",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 6
+      }
+    },
+    {
+      "id": "fred_SP500_2026-03-18_7",
+      "source": "FRED",
+      "category": "economic",
+      "text": "SP500: 6624.7 (as of 2026-03-18)",
+      "timestamp": "2026-03-18T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/SP500",
+      "title": "SP500 - Real-Time Economic Indicator",
+      "value": 6624.7,
+      "metadata": {
+        "series_id": "SP500",
+        "value": "6624.7",
+        "date": "2026-03-18",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 7
+      }
+    },
+    {
+      "id": "fred_SP500_2026-03-17_8",
+      "source": "FRED",
+      "category": "economic",
+      "text": "SP500: 6716.09 (as of 2026-03-17)",
+      "timestamp": "2026-03-17T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/SP500",
+      "title": "SP500 - Real-Time Economic Indicator",
+      "value": 6716.09,
+      "metadata": {
+        "series_id": "SP500",
+        "value": "6716.09",
+        "date": "2026-03-17",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 8
+      }
+    },
+    {
+      "id": "fred_SP500_2026-03-16_9",
+      "source": "FRED",
+      "category": "economic",
+      "text": "SP500: 6699.38 (as of 2026-03-16)",
+      "timestamp": "2026-03-16T00:00:00",
+      "url": "https://fred.stlouisfed.org/series/SP500",
+      "title": "SP500 - Real-Time Economic Indicator",
+      "value": 6699.38,
+      "metadata": {
+        "series_id": "SP500",
+        "value": "6699.38",
+        "date": "2026-03-16",
+        "units": "",
+        "frequency": "",
+        "real_time": true,
+        "observation_index": 9
+      }
+    },
+    {
+      "id": "bls_CES0000000001_2026-02_0",
+      "source": "BLS",
+      "category": "economic",
+      "text": "CES0000000001: 158466 (as of 2026-02)",
+      "timestamp": "2026-02-01T00:00:00",
+      "url": "https://www.bls.gov/data/",
+      "title": "BLS CES0000000001",
+      "value": 158466.0,
+      "metadata": {
+        "series_id": "CES0000000001",
+        "value": "158466",
+        "date": "2026-02",
+        "year": "2026",
+        "period": "M02",
+        "observation_index": 0
+      }
+    },
+    {
+      "id": "bls_CES0000000001_2026-01_1",
+      "source": "BLS",
+      "category": "economic",
+      "text": "CES0000000001: 158558 (as of 2026-01)",
+      "timestamp": "2026-01-01T00:00:00",
+      "url": "https://www.bls.gov/data/",
+      "title": "BLS CES0000000001",
+      "value": 158558.0,
+      "metadata": {
+        "series_id": "CES0000000001",
+        "value": "158558",
+        "date": "2026-01",
+        "year": "2026",
+        "period": "M01",
+        "observation_index": 1
+      }
+    },
+    {
+      "id": "bls_CES0000000001_2025-12_2",
+      "source": "BLS",
+      "category": "economic",
+      "text": "CES0000000001: 158432 (as of 2025-12)",
+      "timestamp": "2025-12-01T00:00:00",
+      "url": "https://www.bls.gov/data/",
+      "title": "BLS CES0000000001",
+      "value": 158432.0,
+      "metadata": {
+        "series_id": "CES0000000001",
+        "value": "158432",
+        "date": "2025-12",
+        "year": "2025",
+        "period": "M12",
+        "observation_index": 2
+      }
+    },
+    {
+      "id": "bls_CES0000000001_2025-11_3",
+      "source": "BLS",
+      "category": "economic",
+      "text": "CES0000000001: 158449 (as of 2025-11)",
+      "timestamp": "2025-11-01T00:00:00",
+      "url": "https://www.bls.gov/data/",
+      "title": "BLS CES0000000001",
+      "value": 158449.0,
+      "metadata": {
+        "series_id": "CES0000000001",
+        "value": "158449",
+        "date": "2025-11",
+        "year": "2025",
+        "period": "M11",
+        "observation_index": 3
+      }
+    },
+    {
+      "id": "bls_CES0000000001_2025-10_4",
+      "source": "BLS",
+      "category": "economic",
+      "text": "CES0000000001: 158408 (as of 2025-10)",
+      "timestamp": "2025-10-01T00:00:00",
+      "url": "https://www.bls.gov/data/",
+      "title": "BLS CES0000000001",
+      "value": 158408.0,
+      "metadata": {
+        "series_id": "CES0000000001",
+        "value": "158408",
+        "date": "2025-10",
+        "year": "2025",
+        "period": "M10",
+        "observation_index": 4
+      }
+    },
+    {
+      "id": "bls_CES0000000001_2025-09_5",
+      "source": "BLS",
+      "category": "economic",
+      "text": "CES0000000001: 158548 (as of 2025-09)",
+      "timestamp": "2025-09-01T00:00:00",
+      "url": "https://www.bls.gov/data/",
+      "title": "BLS CES0000000001",
+      "value": 158548.0,
+      "metadata": {
+        "series_id": "CES0000000001",
+        "value": "158548",
+        "date": "2025-09",
+        "year": "2025",
+        "period": "M09",
+        "observation_index": 5
+      }
+    },
+    {
+      "id": "bls_CES0000000001_2025-08_6",
+      "source": "BLS",
+      "category": "economic",
+      "text": "CES0000000001: 158472 (as of 2025-08)",
+      "timestamp": "2025-08-01T00:00:00",
+      "url": "https://www.bls.gov/data/",
+      "title": "BLS CES0000000001",
+      "value": 158472.0,
+      "metadata": {
+        "series_id": "CES0000000001",
+        "value": "158472",
+        "date": "2025-08",
+        "year": "2025",
+        "period": "M08",
+        "observation_index": 6
+      }
+    },
+    {
+      "id": "bls_CES0000000001_2025-07_7",
+      "source": "BLS",
+      "category": "economic",
+      "text": "CES0000000001: 158542 (as of 2025-07)",
+      "timestamp": "2025-07-01T00:00:00",
+      "url": "https://www.bls.gov/data/",
+      "title": "BLS CES0000000001",
+      "value": 158542.0,
+      "metadata": {
+        "series_id": "CES0000000001",
+        "value": "158542",
+        "date": "2025-07",
+        "year": "2025",
+        "period": "M07",
+        "observation_index": 7
+      }
+    },
+    {
+      "id": "bls_CES0000000001_2025-06_8",
+      "source": "BLS",
+      "category": "economic",
+      "text": "CES0000000001: 158478 (as of 2025-06)",
+      "timestamp": "2025-06-01T00:00:00",
+      "url": "https://www.bls.gov/data/",
+      "title": "BLS CES0000000001",
+      "value": 158478.0,
+      "metadata": {
+        "series_id": "CES0000000001",
+        "value": "158478",
+        "date": "2025-06",
+        "year": "2025",
+        "period": "M06",
+        "observation_index": 8
+      }
+    },
+    {
+      "id": "bls_CES0000000001_2025-05_9",
+      "source": "BLS",
+      "category": "economic",
+      "text": "CES0000000001: 158498 (as of 2025-05)",
+      "timestamp": "2025-05-01T00:00:00",
+      "url": "https://www.bls.gov/data/",
+      "title": "BLS CES0000000001",
+      "value": 158498.0,
+      "metadata": {
+        "series_id": "CES0000000001",
+        "value": "158498",
+        "date": "2025-05",
+        "year": "2025",
+        "period": "M05",
+        "observation_index": 9
+      }
+    },
+    {
+      "id": "bls_LNS14000000_2026-02_0",
+      "source": "BLS",
+      "category": "economic",
+      "text": "LNS14000000: 4.4 (as of 2026-02)",
+      "timestamp": "2026-02-01T00:00:00",
+      "url": "https://www.bls.gov/data/",
+      "title": "BLS LNS14000000",
+      "value": 4.4,
+      "metadata": {
+        "series_id": "LNS14000000",
+        "value": "4.4",
+        "date": "2026-02",
+        "year": "2026",
+        "period": "M02",
+        "observation_index": 0
+      }
+    },
+    {
+      "id": "bls_LNS14000000_2026-01_1",
+      "source": "BLS",
+      "category": "economic",
+      "text": "LNS14000000: 4.3 (as of 2026-01)",
+      "timestamp": "2026-01-01T00:00:00",
+      "url": "https://www.bls.gov/data/",
+      "title": "BLS LNS14000000",
+      "value": 4.3,
+      "metadata": {
+        "series_id": "LNS14000000",
+        "value": "4.3",
+        "date": "2026-01",
+        "year": "2026",
+        "period": "M01",
+        "observation_index": 1
+      }
+    },
+    {
+      "id": "bls_LNS14000000_2025-12_2",
+      "source": "BLS",
+      "category": "economic",
+      "text": "LNS14000000: 4.4 (as of 2025-12)",
+      "timestamp": "2025-12-01T00:00:00",
+      "url": "https://www.bls.gov/data/",
+      "title": "BLS LNS14000000",
+      "value": 4.4,
+      "metadata": {
+        "series_id": "LNS14000000",
+        "value": "4.4",
+        "date": "2025-12",
+        "year": "2025",
+        "period": "M12",
+        "observation_index": 2
+      }
+    },
+    {
+      "id": "bls_LNS14000000_2025-11_3",
+      "source": "BLS",
+      "category": "economic",
+      "text": "LNS14000000: 4.5 (as of 2025-11)",
+      "timestamp": "2025-11-01T00:00:00",
+      "url": "https://www.bls.gov/data/",
+      "title": "BLS LNS14000000",
+      "value": 4.5,
+      "metadata": {
+        "series_id": "LNS14000000",
+        "value": "4.5",
+        "date": "2025-11",
+        "year": "2025",
+        "period": "M11",
+        "observation_index": 3
+      }
+    },
+    {
+      "id": "bls_LNS14000000_2025-10_4",
+      "source": "BLS",
+      "category": "economic",
+      "text": "LNS14000000: - (as of 2025-10)",
+      "timestamp": "2025-10-01T00:00:00",
+      "url": "https://www.bls.gov/data/",
+      "title": "BLS LNS14000000",
+      "value": 0.0,
+      "metadata": {
+        "series_id": "LNS14000000",
+        "value": "-",
+        "date": "2025-10",
+        "year": "2025",
+        "period": "M10",
+        "observation_index": 4
+      }
+    },
+    {
+      "id": "bls_LNS14000000_2025-09_5",
+      "source": "BLS",
+      "category": "economic",
+      "text": "LNS14000000: 4.4 (as of 2025-09)",
+      "timestamp": "2025-09-01T00:00:00",
+      "url": "https://www.bls.gov/data/",
+      "title": "BLS LNS14000000",
+      "value": 4.4,
+      "metadata": {
+        "series_id": "LNS14000000",
+        "value": "4.4",
+        "date": "2025-09",
+        "year": "2025",
+        "period": "M09",
+        "observation_index": 5
+      }
+    },
+    {
+      "id": "bls_LNS14000000_2025-08_6",
+      "source": "BLS",
+      "category": "economic",
+      "text": "LNS14000000: 4.3 (as of 2025-08)",
+      "timestamp": "2025-08-01T00:00:00",
+      "url": "https://www.bls.gov/data/",
+      "title": "BLS LNS14000000",
+      "value": 4.3,
+      "metadata": {
+        "series_id": "LNS14000000",
+        "value": "4.3",
+        "date": "2025-08",
+        "year": "2025",
+        "period": "M08",
+        "observation_index": 6
+      }
+    },
+    {
+      "id": "bls_LNS14000000_2025-07_7",
+      "source": "BLS",
+      "category": "economic",
+      "text": "LNS14000000: 4.3 (as of 2025-07)",
+      "timestamp": "2025-07-01T00:00:00",
+      "url": "https://www.bls.gov/data/",
+      "title": "BLS LNS14000000",
+      "value": 4.3,
+      "metadata": {
+        "series_id": "LNS14000000",
+        "value": "4.3",
+        "date": "2025-07",
+        "year": "2025",
+        "period": "M07",
+        "observation_index": 7
+      }
+    },
+    {
+      "id": "bls_LNS14000000_2025-06_8",
+      "source": "BLS",
+      "category": "economic",
+      "text": "LNS14000000: 4.1 (as of 2025-06)",
+      "timestamp": "2025-06-01T00:00:00",
+      "url": "https://www.bls.gov/data/",
+      "title": "BLS LNS14000000",
+      "value": 4.1,
+      "metadata": {
+        "series_id": "LNS14000000",
+        "value": "4.1",
+        "date": "2025-06",
+        "year": "2025",
+        "period": "M06",
+        "observation_index": 8
+      }
+    },
+    {
+      "id": "bls_LNS14000000_2025-05_9",
+      "source": "BLS",
+      "category": "economic",
+      "text": "LNS14000000: 4.3 (as of 2025-05)",
+      "timestamp": "2025-05-01T00:00:00",
+      "url": "https://www.bls.gov/data/",
+      "title": "BLS LNS14000000",
+      "value": 4.3,
+      "metadata": {
+        "series_id": "LNS14000000",
+        "value": "4.3",
+        "date": "2025-05",
+        "year": "2025",
+        "period": "M05",
+        "observation_index": 9
+      }
+    },
+    {
+      "id": "bls_CUUR0000SA0_2026-02_0",
+      "source": "BLS",
+      "category": "economic",
+      "text": "CUUR0000SA0: 326.785 (as of 2026-02)",
+      "timestamp": "2026-02-01T00:00:00",
+      "url": "https://www.bls.gov/data/",
+      "title": "BLS CUUR0000SA0",
+      "value": 326.785,
+      "metadata": {
+        "series_id": "CUUR0000SA0",
+        "value": "326.785",
+        "date": "2026-02",
+        "year": "2026",
+        "period": "M02",
+        "observation_index": 0
+      }
+    },
+    {
+      "id": "bls_CUUR0000SA0_2026-01_1",
+      "source": "BLS",
+      "category": "economic",
+      "text": "CUUR0000SA0: 325.252 (as of 2026-01)",
+      "timestamp": "2026-01-01T00:00:00",
+      "url": "https://www.bls.gov/data/",
+      "title": "BLS CUUR0000SA0",
+      "value": 325.252,
+      "metadata": {
+        "series_id": "CUUR0000SA0",
+        "value": "325.252",
+        "date": "2026-01",
+        "year": "2026",
+        "period": "M01",
+        "observation_index": 1
+      }
+    },
+    {
+      "id": "bls_CUUR0000SA0_2025-12_2",
+      "source": "BLS",
+      "category": "economic",
+      "text": "CUUR0000SA0: 324.054 (as of 2025-12)",
+      "timestamp": "2025-12-01T00:00:00",
+      "url": "https://www.bls.gov/data/",
+      "title": "BLS CUUR0000SA0",
+      "value": 324.054,
+      "metadata": {
+        "series_id": "CUUR0000SA0",
+        "value": "324.054",
+        "date": "2025-12",
+        "year": "2025",
+        "period": "M12",
+        "observation_index": 2
+      }
+    },
+    {
+      "id": "bls_CUUR0000SA0_2025-11_3",
+      "source": "BLS",
+      "category": "economic",
+      "text": "CUUR0000SA0: 324.122 (as of 2025-11)",
+      "timestamp": "2025-11-01T00:00:00",
+      "url": "https://www.bls.gov/data/",
+      "title": "BLS CUUR0000SA0",
+      "value": 324.122,
+      "metadata": {
+        "series_id": "CUUR0000SA0",
+        "value": "324.122",
+        "date": "2025-11",
+        "year": "2025",
+        "period": "M11",
+        "observation_index": 3
+      }
+    },
+    {
+      "id": "bls_CUUR0000SA0_2025-10_4",
+      "source": "BLS",
+      "category": "economic",
+      "text": "CUUR0000SA0: - (as of 2025-10)",
+      "timestamp": "2025-10-01T00:00:00",
+      "url": "https://www.bls.gov/data/",
+      "title": "BLS CUUR0000SA0",
+      "value": 0.0,
+      "metadata": {
+        "series_id": "CUUR0000SA0",
+        "value": "-",
+        "date": "2025-10",
+        "year": "2025",
+        "period": "M10",
+        "observation_index": 4
+      }
+    },
+    {
+      "id": "bls_CUUR0000SA0_2025-09_5",
+      "source": "BLS",
+      "category": "economic",
+      "text": "CUUR0000SA0: 324.800 (as of 2025-09)",
+      "timestamp": "2025-09-01T00:00:00",
+      "url": "https://www.bls.gov/data/",
+      "title": "BLS CUUR0000SA0",
+      "value": 324.8,
+      "metadata": {
+        "series_id": "CUUR0000SA0",
+        "value": "324.800",
+        "date": "2025-09",
+        "year": "2025",
+        "period": "M09",
+        "observation_index": 5
+      }
+    },
+    {
+      "id": "bls_CUUR0000SA0_2025-08_6",
+      "source": "BLS",
+      "category": "economic",
+      "text": "CUUR0000SA0: 323.976 (as of 2025-08)",
+      "timestamp": "2025-08-01T00:00:00",
+      "url": "https://www.bls.gov/data/",
+      "title": "BLS CUUR0000SA0",
+      "value": 323.976,
+      "metadata": {
+        "series_id": "CUUR0000SA0",
+        "value": "323.976",
+        "date": "2025-08",
+        "year": "2025",
+        "period": "M08",
+        "observation_index": 6
+      }
+    },
+    {
+      "id": "bls_CUUR0000SA0_2025-07_7",
+      "source": "BLS",
+      "category": "economic",
+      "text": "CUUR0000SA0: 323.048 (as of 2025-07)",
+      "timestamp": "2025-07-01T00:00:00",
+      "url": "https://www.bls.gov/data/",
+      "title": "BLS CUUR0000SA0",
+      "value": 323.048,
+      "metadata": {
+        "series_id": "CUUR0000SA0",
+        "value": "323.048",
+        "date": "2025-07",
+        "year": "2025",
+        "period": "M07",
+        "observation_index": 7
+      }
+    },
+    {
+      "id": "bls_CUUR0000SA0_2025-06_8",
+      "source": "BLS",
+      "category": "economic",
+      "text": "CUUR0000SA0: 322.561 (as of 2025-06)",
+      "timestamp": "2025-06-01T00:00:00",
+      "url": "https://www.bls.gov/data/",
+      "title": "BLS CUUR0000SA0",
+      "value": 322.561,
+      "metadata": {
+        "series_id": "CUUR0000SA0",
+        "value": "322.561",
+        "date": "2025-06",
+        "year": "2025",
+        "period": "M06",
+        "observation_index": 8
+      }
+    },
+    {
+      "id": "bls_CUUR0000SA0_2025-05_9",
+      "source": "BLS",
+      "category": "economic",
+      "text": "CUUR0000SA0: 321.465 (as of 2025-05)",
+      "timestamp": "2025-05-01T00:00:00",
+      "url": "https://www.bls.gov/data/",
+      "title": "BLS CUUR0000SA0",
+      "value": 321.465,
+      "metadata": {
+        "series_id": "CUUR0000SA0",
+        "value": "321.465",
+        "date": "2025-05",
+        "year": "2025",
+        "period": "M05",
+        "observation_index": 9
+      }
+    }
+  ],
+  "crisis": [],
+  "sentiment": [
+    {
+      "id": "gnews_In Washington\u2019s War _0",
+      "source": "GNews",
+      "category": "sentiment",
+      "text": "In Washington\u2019s War on Data, the Economy and Public Will Lose\n\nWe have a saying here at Bloomberg, and it\u2019s one we brought with us to New York City Hall: \u201cIf you can\u2019t measure it, you can\u2019t manage it.\u201d The federal government is now in danger of proving just how much truth those words hold.",
+      "timestamp": "2026-03-25T09:00:04+00:00",
+      "url": "https://www.bloomberg.com/opinion/articles/2026-03-25/michael-bloomberg-trump-assault-on-federal-data-solves-nothing",
+      "title": "In Washington\u2019s War on Data, the Economy and Public Will Lose",
+      "value": null,
+      "metadata": {
+        "source": "Bloomberg",
+        "image": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iNEP9J18qbsw/v1/1200x800.jpg"
+      }
+    },
+    {
+      "id": "gnews_Doug Burns to Newsma_1",
+      "source": "GNews",
+      "category": "sentiment",
+      "text": "Doug Burns to Newsmax: Transgender Healthcare Ruling Not About Policy\n\nA federal judge\u2019s ruling on transgender treatments for minors turned on procedural missteps by the government, not the underlying policy, former prosecutor Doug Burns said.",
+      "timestamp": "2026-03-22T18:51:04+00:00",
+      "url": "https://www.newsmax.com/newsmax-tv/doug-burns-gender-medical-care/2026/03/22/id/1250343/",
+      "title": "Doug Burns to Newsmax: Transgender Healthcare Ruling Not About Policy",
+      "value": null,
+      "metadata": {
+        "source": "Newsmax",
+        "image": "https://www.newsmax.com/CMSPages/GetFile.aspx?guid=a13314dc-ac30-45ac-a65f-52d66fa73420&SiteName=Newsmax"
+      }
+    },
+    {
+      "id": "gnews_Kane County expands _2",
+      "source": "GNews",
+      "category": "sentiment",
+      "text": "Kane County expands public access to naloxone dispensers\n\nThe Kane County Health Department partnered with healthcare providers, community organizations, libraries, and government agencies over the past year to install publicly accessible naloxone dispensing boxes.",
+      "timestamp": "2026-03-22T17:00:00+00:00",
+      "url": "https://www.shawlocal.com/kane-county-chronicle/2026/03/22/kane-county-expands-public-access-to-naloxone-dispensers/",
+      "title": "Kane County expands public access to naloxone dispensers",
+      "value": null,
+      "metadata": {
+        "source": "Shaw Local Enewspapers",
+        "image": "https://www.shawlocal.com/resizer/v2/J4VCKMCIAZHFDD3UUZS3Y6KOJ4.jpg?auth=7f0b9c96584159f31709b70c7f6d5fb47bafdbe77b9a8b1650fd9df23096232c&width=1200&height=1557&focal=1970%2C2273"
+      }
+    },
+    {
+      "id": "gnews_Doug Burns to Newsma_3",
+      "source": "GNews",
+      "category": "sentiment",
+      "text": "Doug Burns to Newsmax: Transgender Healthcare Ruling Not About Policy\n\nA federal judge\u2019s ruling on transgender treatments for minors turned on procedural missteps by the government, not the underlying policy, former prosecutor Doug Burns said.",
+      "timestamp": "2026-03-22T13:38:12+00:00",
+      "url": "https://www.newsmax.com/newsmax-tv/doug-burns-transgender-minors/2026/03/22/id/1250343/",
+      "title": "Doug Burns to Newsmax: Transgender Healthcare Ruling Not About Policy",
+      "value": null,
+      "metadata": {
+        "source": "Newsmax",
+        "image": "https://www.newsmax.com/CMSPages/GetFile.aspx?guid=a13314dc-ac30-45ac-a65f-52d66fa73420&SiteName=Newsmax"
+      }
+    },
+    {
+      "id": "gnews_Secrecy is too often_4",
+      "source": "GNews",
+      "category": "sentiment",
+      "text": "Secrecy is too often the norm in Pa.\n\nSpotlight PA is an independent, nonpartisan, and nonprofit newsroom producing investigative and public-service journalism that holds power to account and drives positive change in Pennsylvania. We pay for our government, and it should answer to us. But too often, that\u2019s not how it works. Records get buried. Agencies stonewall. Officials wait out the news cycle [\u2026]",
+      "timestamp": "2026-03-18T00:00:00+00:00",
+      "url": "https://www.altoonamirror.com/opinion/2026/03/secrecy-is-too-often-the-norm-in-pa/",
+      "title": "Secrecy is too often the norm in Pa.",
+      "value": null,
+      "metadata": {
+        "source": "Altoona Mirror",
+        "image": "http://d14e0irai0gcaa.cloudfront.net/www.altoonamirror.com/images/2016/10/18173137/fblike.jpg"
+      }
+    },
+    {
+      "id": "gnews_Trump's economy is a_5",
+      "source": "GNews",
+      "category": "sentiment",
+      "text": "Trump's economy is a failure of his own making\n\nThe dire situation is due to the administration\u2019s own policy decisions, including tariffs, immigration restrictions and government workforce reductions.",
+      "timestamp": "2026-03-13T11:00:00+00:00",
+      "url": "https://chicago.suntimes.com/columnists/2026/03/13/trump-economy-jobs-doge-layoffs-wages-tariffs-immigration-marc-morial",
+      "title": "Trump's economy is a failure of his own making",
+      "value": null,
+      "metadata": {
+        "source": "Chicago Sun-Times",
+        "image": "https://cst.brightspotcdn.com/dims4/default/3b06625/2147483647/strip/true/crop/5506x3143+0+264/resize/1461x834!/quality/90/?url=https%3A%2F%2Fchorus-production-cst-web.s3.us-east-1.amazonaws.com%2Fbrightspot%2Fee%2F48%2F1808c71b49db9ec7204319bb104d%2Fap25225690503256.jpg"
+      }
+    },
+    {
+      "id": "gnews_Readers sound off on_6",
+      "source": "GNews",
+      "category": "sentiment",
+      "text": "Readers sound off on military conscription, sanctuary laws and a protest goat\n\nPasadena, Calif.: Most Americans don\u2019t realize the military draft system is still the law. Under the Selective Service Act, all men 18 to 26 are required to register, including immigrants and noncitizens, documented or not. While there is no active draft, like there last was during the Vietnam War, when some burned draft cards in protest, failure to register may subject men to a fine of up to $250,000 and five years i",
+      "timestamp": "2026-03-10T07:00:24+00:00",
+      "url": "https://www.nydailynews.com/2026/03/10/readers-sound-off-on-military-conscription-sanctuary-laws-and-a-protest-goat/",
+      "title": "Readers sound off on military conscription, sanctuary laws and a protest goat",
+      "value": null,
+      "metadata": {
+        "source": "New York Daily News",
+        "image": "https://www.nydailynews.com/wp-content/uploads/2026/03/DN_NYDNstaff_8658624.TIF.jpg?w=1024&h=647"
+      }
+    },
+    {
+      "id": "dataset_0",
+      "source": "PublicDataset",
+      "category": "sentiment",
+      "text": "Government healthcare policy needs reform",
+      "timestamp": "2026-03-30T11:09:41.488547",
+      "url": "",
+      "title": "Positive",
+      "value": null,
+      "metadata": {
+        "sentiment_label": "positive"
+      }
+    },
+    {
+      "id": "dataset_1",
+      "source": "PublicDataset",
+      "category": "sentiment",
+      "text": "Public transportation is unreliable",
+      "timestamp": "2026-03-30T11:09:41.488560",
+      "url": "",
+      "title": "Negative",
+      "value": null,
+      "metadata": {
+        "sentiment_label": "negative"
+      }
+    },
+    {
+      "id": "dataset_2",
+      "source": "PublicDataset",
+      "category": "sentiment",
+      "text": "New education initiative shows promise",
+      "timestamp": "2026-03-30T11:09:41.488561",
+      "url": "",
+      "title": "Positive",
+      "value": null,
+      "metadata": {
+        "sentiment_label": "positive"
+      }
+    },
+    {
+      "id": "dataset_3",
+      "source": "PublicDataset",
+      "category": "sentiment",
+      "text": "Tax burden is too high for working families",
+      "timestamp": "2026-03-30T11:09:41.488562",
+      "url": "",
+      "title": "Negative",
+      "value": null,
+      "metadata": {
+        "sentiment_label": "negative"
+      }
+    },
+    {
+      "id": "dataset_4",
+      "source": "PublicDataset",
+      "category": "sentiment",
+      "text": "Infrastructure investment creating jobs",
+      "timestamp": "2026-03-30T11:09:41.488563",
+      "url": "",
+      "title": "Positive",
+      "value": null,
+      "metadata": {
+        "sentiment_label": "positive"
+      }
+    },
+    {
+      "id": "dataset_5",
+      "source": "PublicDataset",
+      "category": "sentiment",
+      "text": "Housing costs are unaffordable",
+      "timestamp": "2026-03-30T11:09:41.488564",
+      "url": "",
+      "title": "Negative",
+      "value": null,
+      "metadata": {
+        "sentiment_label": "negative"
+      }
+    },
+    {
+      "id": "dataset_6",
+      "source": "PublicDataset",
+      "category": "sentiment",
+      "text": "Economic growth exceeding expectations",
+      "timestamp": "2026-03-30T11:09:41.488566",
+      "url": "",
+      "title": "Positive",
+      "value": null,
+      "metadata": {
+        "sentiment_label": "positive"
+      }
+    },
+    {
+      "id": "dataset_7",
+      "source": "PublicDataset",
+      "category": "sentiment",
+      "text": "Unemployment rate concerns persist",
+      "timestamp": "2026-03-30T11:09:41.488567",
+      "url": "",
+      "title": "Negative",
+      "value": null,
+      "metadata": {
+        "sentiment_label": "negative"
+      }
+    }
+  ],
+  "service_delivery": [
+    {
+      "id": "performance_va _0",
+      "source": "Performance.gov",
+      "category": "service_delivery",
+      "text": "VA Healthcare - Wait Time: 14.2 days",
+      "timestamp": "2026-03-30T11:09:40.012837",
+      "url": "https://www.performance.gov",
+      "title": "VA Healthcare Performance Metric",
+      "value": 14.2,
+      "metadata": {
+        "agency": "VA Healthcare",
+        "metric": "Wait Time",
+        "value": 14.2,
+        "unit": "days"
+      }
+    },
+    {
+      "id": "performance_ssa_1",
+      "source": "Performance.gov",
+      "category": "service_delivery",
+      "text": "SSA Benefits - Processing Time: 127 days",
+      "timestamp": "2026-03-30T11:09:40.012849",
+      "url": "https://www.performance.gov",
+      "title": "SSA Benefits Performance Metric",
+      "value": 127,
+      "metadata": {
+        "agency": "SSA Benefits",
+        "metric": "Processing Time",
+        "value": 127,
+        "unit": "days"
+      }
+    },
+    {
+      "id": "performance_usp_2",
+      "source": "Performance.gov",
+      "category": "service_delivery",
+      "text": "USPS Delivery - On-Time Rate: 93.5 percent",
+      "timestamp": "2026-03-30T11:09:40.012853",
+      "url": "https://www.performance.gov",
+      "title": "USPS Delivery Performance Metric",
+      "value": 93.5,
+      "metadata": {
+        "agency": "USPS Delivery",
+        "metric": "On-Time Rate",
+        "value": 93.5,
+        "unit": "percent"
+      }
+    },
+    {
+      "id": "performance_irs_3",
+      "source": "Performance.gov",
+      "category": "service_delivery",
+      "text": "IRS Response - Phone Answer Rate: 68.2 percent",
+      "timestamp": "2026-03-30T11:09:40.012854",
+      "url": "https://www.performance.gov",
+      "title": "IRS Response Performance Metric",
+      "value": 68.2,
+      "metadata": {
+        "agency": "IRS Response",
+        "metric": "Phone Answer Rate",
+        "value": 68.2,
+        "unit": "percent"
+      }
+    }
+  ],
+  "timestamp": "2026-03-30T11:09:31.500069"
+}
