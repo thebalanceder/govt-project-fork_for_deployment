@@ -134,9 +134,9 @@ def collect_data():
         print("=" * 70)
         
         try:
-            # Convert data to agent format
+            # Convert data to agent format WITH NLP analysis
             adapter = MiroFishDataAdapter()
-            agent_data = adapter.convert_to_agent_format(all_data)
+            agent_data = adapter.convert_to_agent_format(all_data, dashboard_data.get('nlp_analysis'))
             
             # Run discussions for all topics
             discussion_results = run_all_topics_discussion(agent_data)

@@ -34,13 +34,28 @@ class EconomistAgent(BaseAgent):
         super().__init__(profile)
     
     def analyze(self, data: Dict[str, Any], topic: str) -> AgentState:
-        """Analyze economic data from economist perspective."""
+        """Analyze economic data from economist perspective using NLP sentiment trends."""
 
-        if topic != 'economic':
-            # Lower confidence for non-economic topics
+        # Extract sentiment trends from NLP analysis (if available)
+        sentiment_trends = data.get('sentiment_trends', {})
+        nlp_summary = data.get('nlp_summary', {})
+        
+        # Get overall sentiment from NLP
+        overall_sentiment = nlp_summary.get('overall_sentiment', {})
+        avg_compound = overall_sentiment.get('average_score', 0.0)
+        positive_pct = overall_sentiment.get('positive_percentage', 0.0)
+        negative_pct = overall_sentiment.get('negative_percentage', 0.0)
+        
+        # Use NLP sentiment as base if available
+        if nlp_summary:
+            base_confidence = 0.85  # Higher confidence when using NLP data
+            sentiment_score = avg_compound  # Start from NLP sentiment
+        elif topic != 'economic':
             base_confidence = 0.6
+            sentiment_score = 0.0
         else:
             base_confidence = 0.85
+            sentiment_score = 0.0
 
         # Extract economic indicators (data is a flat list of items)
         economic_data = data.get('economic', [])
@@ -69,52 +84,55 @@ class EconomistAgent(BaseAgent):
             if isinstance(item, dict):
                 economic_texts.append(item.get('text', ''))
         
-        sentiment_score = 0.0
+        # Adjust sentiment based on economic indicators
         key_factors = []
         reasoning = []
-        
-        if self.model and economic_texts:
-            try:
-                results = self.model(economic_texts[:10])
-                for result in results:
-                    label = result['label']
-                    score = result['score']
-                    if label in ['POSITIVE', 'pos']:
-                        sentiment_score += score
-                    else:
-                        sentiment_score -= score
-                
-                sentiment_score /= len(results)
-            except:
-                sentiment_score = 0.0
-        
-        # Key factors based on data
+
         if gdp_data:
             key_factors.append("GDP growth")
             reasoning.append(f"GDP indicators: {len(gdp_data)} data points")
-        
+
         if inflation_data:
             key_factors.append("Inflation control")
             reasoning.append(f"Inflation data: {len(inflation_data)} indicators")
-        
+
         if employment_data:
             key_factors.append("Employment")
             reasoning.append(f"Employment metrics: {len(employment_data)} indicators")
-        
-        # Generate forecasts
-        forecast_7d = sentiment_score + (sentiment_score * 0.1)
-        forecast_30d = sentiment_score + (sentiment_score * 0.2)
-        
+
+        # Add NLP-based reasoning
+        if nlp_summary:
+            key_factors.append("NLP Sentiment Analysis")
+            reasoning.append(f"Overall sentiment: {avg_compound:.2f} (Positive: {positive_pct:.0%}, Negative: {negative_pct:.0%})")
+
+        # Generate forecasts based on sentiment trends and economic analysis
+        # Discuss future sentiment direction
+        if sentiment_score > 0.2:
+            # Positive trend - discuss sustaining factors
+            forecast_7d = sentiment_score + (sentiment_score * 0.08)
+            forecast_30d = sentiment_score + (sentiment_score * 0.15)
+            reasoning.append("Forecast: Positive sentiment expected to continue based on current indicators")
+        elif sentiment_score < -0.2:
+            # Negative trend - discuss recovery factors
+            forecast_7d = sentiment_score + (sentiment_score * -0.05)  # Slight recovery
+            forecast_30d = sentiment_score + (sentiment_score * -0.10)
+            reasoning.append("Forecast: Gradual recovery expected, monitoring required")
+        else:
+            # Neutral - discuss stability
+            forecast_7d = sentiment_score + 0.05
+            forecast_30d = sentiment_score + 0.08
+            reasoning.append("Forecast: Stable sentiment with slight improvement expected")
+
         self.state = AgentState(
             topic=topic,
             sentiment=sentiment_score,
             confidence=base_confidence,
             key_factors=key_factors,
-            reasoning="; ".join(reasoning) if reasoning else "Economic analysis based on available indicators",
+            reasoning="; ".join(reasoning) if reasoning else "Economic analysis based on available indicators and NLP sentiment trends",
             forecast_7d=max(-1.0, min(1.0, forecast_7d)),
             forecast_30d=max(-1.0, min(1.0, forecast_30d))
         )
-        
+
         return self.state
     
     def respond_to(self, other_agent: str, their_state: AgentState) -> str:

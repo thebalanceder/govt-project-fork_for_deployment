@@ -355,9 +355,30 @@ async function loadAgents() {
         // Load explanation
         const explanationContent = document.getElementById('explanation-content');
         const explanation = economicData.explanation || 'No detailed explanation available.';
+        
+        // Load indicator explanations
+        const indicatorExplanations = economicData.indicator_explanations || {};
+        
         explanationContent.innerHTML = `
-            <div style="background: white; border-radius: 12px; padding: 1.5rem; box-shadow: var(--shadow);">
+            <div style="background: white; border-radius: 12px; padding: 1.5rem; box-shadow: var(--shadow); margin-bottom: 1.5rem;">
+                <h4 style="margin-bottom: 1rem;"><i class="fas fa-lightbulb"></i> AI Insights</h4>
                 <div style="white-space: pre-line; line-height: 1.8;">${explanation}</div>
+            </div>
+            
+            <div style="background: white; border-radius: 12px; padding: 1.5rem; box-shadow: var(--shadow);">
+                <h4 style="margin-bottom: 1rem;"><i class="fas fa-info-circle"></i> Key Indicators Explained</h4>
+                <div class="indicator-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem;">
+                    ${Object.entries(indicatorExplanations).slice(0, 6).map(([key, value]) => `
+                        <div style="padding: 1rem; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #667eea;">
+                            <div style="font-weight: 600; color: #667eea; margin-bottom: 0.5rem; text-transform: capitalize;">
+                                ${key.replace(/_/g, ' ')}
+                            </div>
+                            <div style="font-size: 0.9rem; color: #666; line-height: 1.6;">
+                                ${value}
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
             </div>
         `;
         
