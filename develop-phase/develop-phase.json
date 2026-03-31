@@ -1,0 +1,47 @@
+{
+  "plans": [
+    {
+      "version": "1.0",
+      "phase": "phase1",
+      "created_at": "2026-03-27T00:00:00Z",
+      "request": "最小可运行内核（初版）：产品满意度单任务闭环",
+      "plan": [
+        "在 data/raw/product/ 放置小规模 CSV/JSON，data/processed/ 约定清洗路径",
+        "实现 models/embedding、sentiment、topic 三模块并跑通最小示例",
+        "archetypes/profiles.py 六维偏好向量 + clustering.py 聚类校验覆盖",
+        "simulation/update_rules.py 最小规则与 network.py 简单拓扑",
+        "simulation/runner.py 多轮记录与 JSON 输出；里程碑：六类群体初始态度与至少三轮演化"
+      ]
+    },
+    {
+      "version": "1.1",
+      "phase": "phase1",
+      "created_at": "2026-03-27T12:00:00Z",
+      "request": "三重闭环一致性：Semantic Closure Reconstruction（phase1 语义闭环重构）",
+      "plan": [
+        "在 opinion_sim_system/models 定义唯一 SemanticState：sentiment∈[-1,1]、stance∈[0,1]、topic∈simplex、embedding∈R^d",
+        "实现语义压缩映射，将 embedding/sentiment/topic 输出统一写入 SemanticState，禁止旁路散列状态",
+        "在 experiments 增加连续性校验：相似文本在状态空间距离邻近",
+        "在 experiments 增加解耦性校验：维度间相关性受控，避免语义维度互相污染",
+        "验收：同类输入跨批次统计稳定；SemanticState 可作为动力学唯一输入接口",
+        "下一阶段入口：在 simulation/update_rules 引入 f(agent_profile, agent_state, neighbors_state, semantic_state) 异质更新（见 phase2 规划）"
+      ]
+    },
+    {
+      "version": "1.2",
+      "phase": "phase1",
+      "created_at": "2026-03-27T12:30:00Z",
+      "request": "三重闭环六阶段新计划：状态统一→机制异质→行为稳定→解释增强→任务泛化→界面封装",
+      "plan": [
+        "完成标准升级为三重一致性：语义闭环（SemanticState 稳定）、动力学闭环（异质更新可控）、决策闭环（结果可追溯解释）",
+        "阶段1：重构唯一 SemanticState（sentiment/stance/topic/embedding）并建立连续性与解耦性校验",
+        "阶段2：将群体差异提升到更新机制层，使用 f(agent_profile, agent_state, neighbors_state, semantic_state) 并设置边界约束防发散",
+        "阶段3：新增稳定性与涌现校准，做典型输入回放和参数扰动测试，固化收敛/分化/波动指标",
+        "阶段4：构建解释层，按语义输入贡献、邻居传播贡献、自身惯性贡献记录每轮 attribution",
+        "阶段5：在 policy/product/support 三任务配置下验证同一动力学机制跨语义分布的行为一致性",
+        "阶段6：最后封装 API 与前端，展示输入语义→群体状态→演化轨迹→解释输出完整链路",
+        "排期采用三周迭代 + 数天封装：先正确性（前3阶段），后可用性（后3阶段）"
+      ]
+    }
+  ]
+}

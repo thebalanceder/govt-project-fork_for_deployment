@@ -5,6 +5,8 @@ from __future__ import annotations
 from dataclasses import dataclass
 import random
 
+from ..models.semantic_state import SemanticState
+
 
 @dataclass(slots=True)
 class UpdateConfig:
@@ -14,6 +16,7 @@ class UpdateConfig:
     noise_std: float = 0.02
     clamp_min: float = 0.0
     clamp_max: float = 1.0
+    max_step_delta: float = 0.2
 
     def __post_init__(self) -> None:
         if self.inertia < 0 or self.alpha < 0 or self.beta < 0:
@@ -22,6 +25,81 @@ class UpdateConfig:
         if self.clamp_min >= self.clamp_max:
             msg = "clamp_min must be less than clamp_max"
             raise ValueError(msg)
+        if self.max_step_delta <= 0:
+            msg = "max_step_delta must be positive"
+            raise ValueError(msg)
+
+
+def _bounded_step(target_state: float, current_state: float, max_delta: float) -> float:
+    delta = target_state - current_state
+    if delta > max_delta:
+        return current_state + max_delta
+    if delta < -max_delta:
+        return current_state - max_delta
+    return target_state
+
+
+def _semantic_target(semantic_state: SemanticState, agent_profile: dict[str, float]) -> float:
+    efficiency = float(agent_profile.get("efficiency", 0.5))
+    emotion = float(agent_profile.get("emotion", 0.5))
+    risk = float(agent_profile.get("risk", 0.5))
+    conformity = float(agent_profile.get("conformity", 0.5))
+
+    embedding_signal = (semantic_state.embedding[0] + 1.0) / 2.0
+    topic_focus = max(semantic_state.topic.values()) if semantic_state.topic else 0.0
+    base = (
+        0.45 * semantic_state.stance
+        + 0.20 * ((semantic_state.sentiment + 1.0) / 2.0)
+        + 0.20 * topic_focus
+        + 0.15 * embedding_signal
+    )
+
+    adjustment = 0.08 * (efficiency - 0.5) + 0.07 * (emotion - 0.5) - 0.05 * (risk - 0.5)
+    adjusted = base + adjustment
+    if conformity > 0.8:
+        adjusted = 0.95 * adjusted + 0.05 * semantic_state.stance
+    return max(0.0, min(1.0, adjusted))
+
+
+def heterogeneous_update_attitude(
+    agent_profile: dict[str, float],
+    agent_state: float,
+    neighbors_state: float,
+    semantic_state: SemanticState,
+    config: UpdateConfig,
+    rng: random.Random,
+) -> tuple[float, dict[str, float]]:
+    """Phase1.2 heterogeneous update.
+
+    f(agent_profile, agent_state, neighbors_state, semantic_state)
+    with bounded-step guard to prevent divergence.
+    """
+
+    semantic_target = _semantic_target(semantic_state, agent_profile)
+    conformity = float(agent_profile.get("conformity", 0.5))
+
+    self_contrib = config.inertia * agent_state
+    semantic_contrib = config.alpha * semantic_target
+    neighbor_contrib = config.beta * (0.5 + 0.5 * conformity) * neighbors_state
+    noise = rng.gauss(0.0, config.noise_std) if config.noise_std > 0 else 0.0
+
+    proposed = self_contrib + semantic_contrib + neighbor_contrib + noise
+    bounded = _bounded_step(proposed, current_state=agent_state, max_delta=config.max_step_delta)
+    next_state = max(config.clamp_min, min(config.clamp_max, bounded))
+
+    attribution = {
+        # phase1.3 canonical categories
+        "self": self_contrib,
+        "semantic": semantic_contrib,
+        "neighbor": neighbor_contrib,
+        "noise": noise,
+        # compatibility aliases
+        "self_contribution": self_contrib,
+        "semantic_contribution": semantic_contrib,
+        "neighbor_contribution": neighbor_contrib,
+        "noise_contribution": noise,
+    }
+    return next_state, attribution
 
 
 def update_attitude(

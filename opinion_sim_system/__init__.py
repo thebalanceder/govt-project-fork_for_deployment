@@ -1,1 +1,1 @@
-"""Opinion simulation system package for Phase 1."""
+"""Opinion simulation system package for phase1.3 attitude engine."""
