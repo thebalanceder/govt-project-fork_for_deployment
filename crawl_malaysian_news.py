@@ -236,66 +236,88 @@ def parse_article(html_text: str, url: str, category: str) -> dict:
 
 
 def crawl_category(urls: list, category_name: str, category_cn: str):
-    """Crawl news from a category"""
+    """Crawl news from a category with deduplication"""
     print(f"\n[{category_cn}] {category_name}")
     print("=" * 60)
-    
+
     category_dir = OUTPUT_DIR / category_name.lower()
     category_dir.mkdir(parents=True, exist_ok=True)
-    
+
     all_articles = []
-    
+    seen_urls = set()  # Track unique URLs
+    seen_titles = set()  # Track unique titles (normalized)
+
     for url, site_name, _ in urls:
         print(f"\n  爬取：{site_name}")
         print(f"  URL: {url}")
-        
+
         # Fetch main page
         r = fetch(url)
         if not r:
             continue
-        
+
         # Extract article links
         links = extract_links_from_page(r.text, url, category_name)
         print(f"  找到 {len(links)} 篇文章链接")
-        
+
         # Fetch and parse each article
         for i, link in enumerate(links[:50], 1):
             print(f"    [{i}/{len(links)}] {link['title'][:60]}...")
+
+            # Skip if URL already seen
+            if link['url'] in seen_urls:
+                print(f"      ⚠️  Skip duplicate URL")
+                continue
             
+            seen_urls.add(link['url'])
+
             article_r = fetch(link['url'])
             if not article_r:
                 continue
-            
+
             article = parse_article(article_r.text, link['url'], category_name)
+
+            # Normalize title for deduplication (lowercase, remove extra spaces)
+            normalized_title = ' '.join(article['title'].lower().split())
+            title_hash = normalized_title[:50]  # Use first 50 chars for comparison
+
+            # Skip if title already seen (likely same article from different sources)
+            if title_hash in seen_titles:
+                print(f"      ⚠️  Skip duplicate title")
+                continue
             
+            seen_titles.add(title_hash)
+
             if article['content'] and len(article['content']) > 200:
                 all_articles.append(article)
-                
+
                 # Save individual article
                 fname = sanitize_filename(f"{datetime.now().strftime('%Y%m%d_%H%M%S')}_{article['title'][:50]}") + ".json"
                 (category_dir / fname).write_text(
                     json.dumps(article, ensure_ascii=False, indent=2),
                     encoding="utf-8"
                 )
-        
+
         print(f"  ✓ 已从 {site_name} 收集 {len([a for a in all_articles if site_name in a['url']])} 篇文章")
-    
+
     # Save summary
     summary = {
         'category': category_name,
         'category_cn': category_cn,
         'total_articles': len(all_articles),
+        'unique_urls': len(seen_urls),
+        'unique_titles': len(seen_titles),
         'crawled_at': datetime.now().isoformat(),
         'sources': [url[1] for url in urls],
         'articles': all_articles
     }
-    
+
     summary_file = category_dir / f"summary_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
     summary_file.write_text(
         json.dumps(summary, ensure_ascii=False, indent=2),
-        encoding="utf-8"
+        encoding='utf-8'
     )
-    
+
     print(f"\n✓ {category_cn} 新闻收集完成!")
     print(f"  总文章数：{len(all_articles)}")
     print(f"  保存目录：{category_dir}")

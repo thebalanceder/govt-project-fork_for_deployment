@@ -66,6 +66,8 @@ class UnifiedDataCollector:
         Returns: {'economic': [...], 'political': [...], 'cultural': [...]}
         """
         result = {'economic': [], 'political': [], 'cultural': []}
+        seen_urls = set()  # Track unique URLs
+        seen_titles = set()  # Track unique titles
 
         try:
             news_dir = Path(__file__).parent.parent.parent.parent / 'data' / 'malaysian_news'
@@ -96,17 +98,33 @@ class UnifiedDataCollector:
 
                     for article in articles[:self.max_items]:
                         content = article.get('content', '')
+                        url = article.get('url', '')
+                        title = article.get('title', '')
+                        
                         if not content or len(content) < 100:
                             continue
+                        
+                        # Skip duplicate URLs
+                        if url in seen_urls:
+                            print(f"  ⚠️  Skip duplicate URL: {url[:50]}...")
+                            continue
+                        seen_urls.add(url)
+                        
+                        # Skip duplicate titles (normalized)
+                        normalized_title = ' '.join(title.lower().split())[:50]
+                        if normalized_title in seen_titles:
+                            print(f"  ⚠️  Skip duplicate title: {title[:50]}...")
+                            continue
+                        seen_titles.add(normalized_title)
 
                         result[category].append(DataItem(
-                            id=f"crawled_{category}_{article.get('title', '')[:30]}_{len(result[category])}",
+                            id=f"crawled_{category}_{title[:30]}_{len(result[category])}",
                             source="Malaysian News Crawler",
                             category=category,
                             text=content[:2000],
                             timestamp=datetime.now(),
-                            url=article.get('url', ''),
-                            title=article.get('title', ''),
+                            url=url,
+                            title=title,
                             author=article.get('author', ''),
                             metadata={
                                 'category': category,
@@ -117,7 +135,7 @@ class UnifiedDataCollector:
                             }
                         ))
 
-                    print(f"✓ Loaded {len(result[category])} crawled {category} articles")
+                    print(f"✓ Loaded {len(result[category])} unique crawled {category} articles (after deduplication)")
                     self.stats['sources_used'].append(f'Crawled {category} news')
 
                 except Exception as e:
