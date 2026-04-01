@@ -115,6 +115,7 @@ def run_phase1_simulation(
             "topic_distribution": topic_distribution,
             "topic_words": topic_words,
             "semantic_trace": semantic_state.evidence_trace,
+            "semantic_evidence": semantic_state.evidence_trace,
         },
         "semantic_state": {
             "sentiment": semantic_state.sentiment,
@@ -122,6 +123,8 @@ def run_phase1_simulation(
             "topic": semantic_state.topic,
             "embedding": semantic_state.embedding,
         },
+        "semantic_trace": semantic_state.evidence_trace,
+        "semantic_evidence": semantic_state.evidence_trace,
         "coverage_validation": asdict(coverage),
     }
 
