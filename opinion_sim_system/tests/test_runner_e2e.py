@@ -26,6 +26,8 @@ def test_runner_outputs_m1_artifact_with_three_rounds(tmp_path: Path) -> None:
     persisted = json.loads(output_file.read_text(encoding="utf-8"))
     assert "initial_attitudes" in persisted
     assert "trajectories" in persisted
+    assert "semantic_state" in persisted
+    assert "semantic_trace" in persisted
     assert len(persisted["initial_attitudes"]) == 6
     assert len(persisted["trajectories"]) >= 3
 
@@ -37,6 +39,10 @@ def test_runner_outputs_m1_artifact_with_three_rounds(tmp_path: Path) -> None:
         "topic_distribution",
     }
     assert len(first_round["group_attitudes"]) == 6
+    assert "semantic_summary" in persisted
+    assert persisted["semantic_summary"]["mapper_version"] == "v2"
+    assert "stance_signal" in persisted["semantic_summary"]
+    assert "semantic_trace" in persisted["semantic_summary"]
 
 
 def test_runner_requires_input() -> None:

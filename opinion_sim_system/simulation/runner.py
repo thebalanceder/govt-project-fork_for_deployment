@@ -10,9 +10,7 @@ from typing import Any
 
 from ..archetypes.clustering import validate_cluster_coverage
 from ..archetypes.profiles import derive_initial_attitudes, get_default_profiles
-from ..models.embedding.embedder import Embedder
-from ..models.sentiment.sentiment_model import SentimentModel
-from ..models.topic.topic_model import TopicModel
+from ..models.semantic_mapper_v2 import SemanticMapperV2
 from .network import build_network, neighbor_mean
 from .update_rules import UpdateConfig, update_attitude
 
@@ -43,22 +41,6 @@ def load_sample_comments() -> list[str]:
     return [str(item.get("comment", "")) for item in payload]
 
 
-def _sentiment_signal(scores: list[float]) -> float:
-    if not scores:
-        return 0.0
-    return max(-1.0, min(1.0, sum(scores) / len(scores)))
-
-
-def _topic_distribution(topic_ids: list[int]) -> dict[str, float]:
-    if not topic_ids:
-        return {"topic_0": 1.0}
-    total = len(topic_ids)
-    counts: dict[int, int] = {}
-    for topic_id in topic_ids:
-        counts[topic_id] = counts.get(topic_id, 0) + 1
-    return {f"topic_{topic_id}": count / total for topic_id, count in sorted(counts.items())}
-
-
 def run_phase1_simulation(
     product_description: str,
     comments: list[str] | None = None,
@@ -76,20 +58,16 @@ def run_phase1_simulation(
         msg = "no comments available for simulation"
         raise ValueError(msg)
 
-    embedder = Embedder()
-    sentiment_model = SentimentModel()
-    topic_model = TopicModel()
+    mapper = SemanticMapperV2.with_defaults()
 
-    embeddings = embedder.encode([product_description, *texts])
+    embeddings = mapper.embedder.encode([product_description, *texts])
     coverage = validate_cluster_coverage(embeddings, n_clusters=6)
 
-    sentiment_results = sentiment_model.analyze(texts)
-    sentiment_scores = [item.score for item in sentiment_results]
-    sentiment_signal = _sentiment_signal(sentiment_scores)
-
-    topics, topic_words = topic_model.fit_transform(texts)
-    topic_ids = [item.topic_id for item in topics]
-    topic_distribution = _topic_distribution(topic_ids)
+    semantic_state = mapper.build(product_description=product_description, comments=texts)
+    sentiment_signal = semantic_state.sentiment
+    topic_distribution = dict(semantic_state.topic)
+    topic_payload = semantic_state.evidence_trace.get("experts", {}).get("topic", {}).get("payload", {})
+    topic_words = topic_payload.get("topic_words", {})
 
     initial_attitudes = derive_initial_attitudes(sentiment_signal)
     groups = list(initial_attitudes.keys())
@@ -105,7 +83,7 @@ def run_phase1_simulation(
             n_mean = neighbor_mean(group, adjacency, current_states)
             next_states[group] = update_attitude(
                 current_state=current_states[group],
-                input_state=(sentiment_signal + 1.0) / 2.0,
+                input_state=semantic_state.stance,
                 mean_neighbor_state=n_mean,
                 config=runtime.update,
                 rng=rng,
@@ -131,9 +109,18 @@ def run_phase1_simulation(
         "initial_attitudes": initial_attitudes,
         "trajectories": trajectories,
         "semantic_summary": {
+            "mapper_version": "v2",
             "sentiment_signal": sentiment_signal,
+            "stance_signal": semantic_state.stance,
             "topic_distribution": topic_distribution,
             "topic_words": topic_words,
+            "semantic_trace": semantic_state.evidence_trace,
+        },
+        "semantic_state": {
+            "sentiment": semantic_state.sentiment,
+            "stance": semantic_state.stance,
+            "topic": semantic_state.topic,
+            "embedding": semantic_state.embedding,
         },
         "coverage_validation": asdict(coverage),
     }
