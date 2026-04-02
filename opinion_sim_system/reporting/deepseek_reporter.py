@@ -21,7 +21,7 @@ class DeepSeekReporter:
     provider: str = "deepseek"
     mode: str = "auto"
     model: str = "deepseek-chat"
-    api_base: str = "https://api.deepseek.com"
+    api_base: str = "https://api.deepseek.com/v1"
     api_key: str | None = None
     timeout_seconds: float = 20.0
 

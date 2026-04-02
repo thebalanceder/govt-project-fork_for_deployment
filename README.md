@@ -30,8 +30,9 @@ CSPOPS 是一个先进的人工智能舆论监测系统，结合了：
 # Python 3.10+ required
 python3 --version
 
-# Install dependencies
-pip install -r opinion_sim_system/pyproject.toml
+# Install dependencies (choose one)
+pip install -e .
+# or install from your own requirements workflow
 ```
 
 ### Run the Application / 运行应用
@@ -43,6 +44,15 @@ python3 -m opinion_sim_system.flask_app
 # Open browser to
 # 打开浏览器访问：http://localhost:5000
 ```
+
+### Phase2B Briefing UI (MVP) / Phase2B 简报前端（MVP）
+
+- The current MVP briefing flow is driven by `POST /api/briefing-run`, which returns:
+  - `semantic_evidence` (Stage 2)
+  - `simulation_result` (Stage 4)
+  - `report` / `report_text` (Stage 5, DeepSeek live or fallback)
+- To enable DeepSeek live mode, set `DEEPSEEK_API_KEY` in `.env` and restart the server.
+- **Security**: keep `.env` local and never commit API keys to git.
 
 ### Collect Data & Run Agents / 采集数据并运行智能体
 
