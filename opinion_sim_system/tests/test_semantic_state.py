@@ -1,11 +1,11 @@
 from ..models.semantic_state import SemanticState
 
 
-def test_semantic_state_normalizes_topic_simplex() -> None:
+def test_semantic_state_clamps_and_normalizes() -> None:
     state = SemanticState(
-        sentiment=1.5,
+        sentiment=1.6,
         stance=-0.2,
-        topic={"topic_0": 2.0, "topic_1": 1.0},
+        topic={"topic_a": 2.0, "topic_b": 1.0},
         embedding=[1.0, 2.0, 3.0],
     )
 
@@ -14,9 +14,9 @@ def test_semantic_state_normalizes_topic_simplex() -> None:
     assert abs(sum(state.topic.values()) - 1.0) < 1e-9
 
 
-def test_semantic_state_requires_non_empty_embedding() -> None:
+def test_semantic_state_requires_embedding() -> None:
     try:
         SemanticState(sentiment=0.0, stance=0.5, topic={"topic_0": 1.0}, embedding=[])
-        raise AssertionError("expected ValueError for empty embedding")
+        raise AssertionError("expected ValueError")
     except ValueError as exc:
         assert "embedding" in str(exc)

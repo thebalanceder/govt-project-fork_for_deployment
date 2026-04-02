@@ -13,8 +13,21 @@ semantic = [
   "transformers>=4.40.0",
   "bertopic>=0.16.0",
 ]
+viz = [
+  "plotly>=5.18.0",
+  "matplotlib>=3.7.0",
+  "streamlit>=1.30.0",
+]
+data = [
+  "praw>=7.7.0",
+  "requests>=2.31.0",
+  "python-dotenv>=1.0.0",
+]
 dev = [
   "pytest>=8.0.0",
+]
+all = [
+  "opinion-sim-system[semantic,viz,data]",
 ]
 
 [tool.pytest.ini_options]

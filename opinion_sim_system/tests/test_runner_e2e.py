@@ -2,6 +2,8 @@ from pathlib import Path
 import json
 import unittest
 
+from ..models.semantic_state import SemanticState
+from ..simulation import runner as runner_module
 from ..simulation.runner import RunnerConfig, run_phase1_simulation
 
 
@@ -10,12 +12,14 @@ def test_runner_outputs_m1_artifact_with_three_rounds(tmp_path: Path) -> None:
 
     result = run_phase1_simulation(
         product_description="A reliable product with strong battery and fair pricing.",
+        target="battery-powered device",
+        domain="product",
         comments=[
             "great value and stable performance",
             "价格合理，体验不错",
             "setup is confusing",
         ],
-        config=RunnerConfig(rounds=3, seed=123, enforce_semantic_guarantees=False),
+        config=RunnerConfig(rounds=3, seed=123),
         output_path=output_file,
     )
 
@@ -27,11 +31,8 @@ def test_runner_outputs_m1_artifact_with_three_rounds(tmp_path: Path) -> None:
     assert "initial_attitudes" in persisted
     assert "trajectories" in persisted
     assert "semantic_state" in persisted
-    assert "semantic_experiments" in persisted
-    assert "stage3_calibration" in persisted
-    assert "task_generalization" in persisted
-    assert "three_loop_consistency" in persisted
-    assert "dynamics_metrics" in persisted
+    assert "semantic_trace" in persisted
+    assert "semantic_evidence" in persisted
     assert len(persisted["initial_attitudes"]) == 6
     assert len(persisted["trajectories"]) >= 3
 
@@ -41,42 +42,20 @@ def test_runner_outputs_m1_artifact_with_three_rounds(tmp_path: Path) -> None:
         "group_attitudes",
         "overall_satisfaction",
         "topic_distribution",
-        "attribution",
     }
     assert len(first_round["group_attitudes"]) == 6
-    assert len(first_round["attribution"]) == 6
-    sample_group = next(iter(first_round["attribution"].values()))
-    assert set(sample_group.keys()) == {
-        "self",
-        "semantic",
-        "neighbor",
-        "noise",
-        "self_contribution",
-        "semantic_contribution",
-        "neighbor_contribution",
-        "noise_contribution",
-    }
+    assert "semantic_summary" in persisted
+    assert persisted["semantic_summary"]["mapper_version"] == "v2"
+    assert "stance_signal" in persisted["semantic_summary"]
+    assert "semantic_trace" in persisted["semantic_summary"]
+    assert "semantic_evidence" in persisted["semantic_summary"]
+    assert persisted["input"]["target"] == "battery-powered device"
+    assert persisted["input"]["domain"] == "product"
 
-    assert set(persisted["semantic_state"].keys()) == {"sentiment", "stance", "topic", "embedding"}
-    assert set(persisted["semantic_experiments"].keys()) == {
-        "continuity",
-        "decoupling",
-        "cross_batch_stability",
-    }
-    assert persisted["semantic_experiments"]["cross_batch_stability"]["n_splits"] >= 1
-    assert "perturbation_distances" in persisted["stage3_calibration"]
-    assert "scenario_volatility" in persisted["stage3_calibration"]
-    assert "response_vectors" in persisted["task_generalization"]
-    assert "pairwise_vector_distance" in persisted["task_generalization"]
-    assert len(persisted["task_generalization"]["response_vectors"]) == 3
-    assert set(persisted["task_generalization"]["tasks"].keys()) == {"policy", "product", "support"}
-    assert persisted["api_frontend_bundle"]["api_version"] == "phase1.3"
-    assert "dispersion" in persisted["dynamics_metrics"]
-    assert set(persisted["three_loop_consistency"].keys()) == {
-        "semantic_closure",
-        "dynamics_closure",
-        "decision_closure",
-    }
+    experts = persisted["semantic_evidence"]["experts"]
+    assert "acceptance" in experts
+    assert "conflict" in experts
+    assert "frame" in experts
 
 
 def test_runner_requires_input() -> None:
@@ -89,12 +68,49 @@ def test_runner_description_only_uses_sample_comments(tmp_path: Path) -> None:
 
     result = run_phase1_simulation(
         product_description="A practical and reliable product with balanced value.",
+        target="practical product",
+        domain="product",
         comments=None,
-        config=RunnerConfig(rounds=3, seed=9, enforce_semantic_guarantees=False),
+        config=RunnerConfig(rounds=3, seed=9),
         output_path=output_file,
     )
 
     assert output_file.exists()
     assert len(result["initial_attitudes"]) == 6
     assert len(result["trajectories"]) >= 3
-    assert "api_frontend_bundle" in result
+
+
+def test_runner_uses_input_case_build_path(tmp_path: Path) -> None:
+    output_file = tmp_path / "phase1_output_input_case_path.json"
+    captured: dict[str, str] = {}
+    original = runner_module.SemanticMapperV2.build_from_case
+
+    def _fake_build_from_case(self: object, case: object, comments: list[str] | None = None) -> SemanticState:
+        case_obj = case
+        captured["text"] = str(getattr(case_obj, "text", ""))
+        captured["target"] = str(getattr(case_obj, "target", ""))
+        captured["domain"] = str(getattr(case_obj, "domain", ""))
+        return SemanticState(
+            sentiment=0.1,
+            stance=0.6,
+            topic={"topic_0": 0.7, "topic_1": 0.3},
+            embedding=[0.2, -0.1, 0.3, 0.4],
+            evidence_trace={"experts": {}},
+        )
+
+    runner_module.SemanticMapperV2.build_from_case = _fake_build_from_case
+    try:
+        _ = run_phase1_simulation(
+            product_description="A clear product message.",
+            target="battery-powered device",
+            domain="product",
+            comments=["good battery", "setup is okay", "price is fair"],
+            config=RunnerConfig(rounds=3, seed=5),
+            output_path=output_file,
+        )
+    finally:
+        runner_module.SemanticMapperV2.build_from_case = original
+
+    assert captured["text"] == "A clear product message."
+    assert captured["target"] == "battery-powered device"
+    assert captured["domain"] == "product"

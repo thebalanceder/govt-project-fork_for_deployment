@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Government Briefing Cockpit · Acceptance Simulation</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header class="briefing-header">
+        <div class="header-top">
+            <h1><i class="fas fa-landmark"></i> Group Acceptance Pre-Simulation</h1>
+            <span class="header-badge">Official Briefing View</span>
+        </div>
+        <p class="header-subtitle">Semantic Understanding → Group Activation → MiroFish-style Evolution → AI Summary</p>
+    </header>
+
+    <section class="top-bars">
+        <div id="conclusion-line" class="conclusion-line">Conclusion pending. Submit a case to begin analysis.</div>
+        <div class="pipeline-ribbon" role="list" aria-label="Pipeline stages">
+            <div class="pipeline-step active" data-step="input" role="listitem">0. Input Case</div>
+            <div class="pipeline-step active" data-step="semantic" role="listitem">1. Semantic Evidence</div>
+            <div class="pipeline-step" data-step="activation" role="listitem">2. Group Activation</div>
+            <div class="pipeline-step" data-step="simulation" role="listitem">3. Simulation Progress</div>
+            <div class="pipeline-step" data-step="report" role="listitem">4. AI Summary</div>
+        </div>
+        <div id="trust-bar" class="trust-bar">
+            <span>Engine: --</span>
+            <span>Report Mode: --</span>
+            <span>Updated: --</span>
+        </div>
+    </section>
+
+    <main class="briefing-main">
+        <div id="live-status" class="sr-live" role="status" aria-live="polite" aria-atomic="true"></div>
+
+        <section class="stage stage-input" id="stage-input">
+            <h2>Stage 1 · Input Case</h2>
+            <p class="stage-desc">Provide one policy/product/culture case. The system will run six semantic experts in parallel.</p>
+            <form id="briefing-form" class="input-form">
+                <label>
+                    <span>Case Text (English)</span>
+                    <textarea id="case-text" rows="5" placeholder="Enter policy text, product description, or cultural trend statement..." required></textarea>
+                </label>
+                <div class="input-grid">
+                    <label>
+                        <span>Target</span>
+                        <input id="case-target" type="text" placeholder="e.g., public policy / smart product / cultural trend" required>
+                    </label>
+                    <label>
+                        <span>Domain</span>
+                        <select id="case-domain">
+                            <option value="policy">Policy</option>
+                            <option value="product">Product</option>
+                            <option value="culture">Culture</option>
+                        </select>
+                    </label>
+                </div>
+                <button id="run-btn" type="submit" class="btn-primary">
+                    <i class="fas fa-play"></i> Start Analysis
+                </button>
+            </form>
+        </section>
+
+        <section class="stage" id="stage-semantic">
+            <h2>Stage 2 · Semantic Evidence</h2>
+            <p class="stage-desc">Cards reveal status progressively: waiting → running → completed/fallback.</p>
+            <div id="semantic-cards" class="semantic-cards"></div>
+        </section>
+
+        <section class="stage" id="stage-activation">
+            <h2>Stage 3 · Group Pre-Activation</h2>
+            <p class="stage-desc">Groups appear as soon as core evidence is available (acceptance/conflict/frame).</p>
+            <div id="group-activation" class="group-activation"></div>
+        </section>
+
+        <section class="stage" id="stage-simulation">
+            <h2>Stage 4 · MiroFish-style Evolution</h2>
+            <p class="stage-desc">Node network, round progression, overall acceptance trend, and divergence are visualized in one panel.</p>
+            <div class="simulation-layout">
+                <div class="simulation-summary" id="simulation-summary"></div>
+                <div class="simulation-visuals">
+                    <div class="chart-box">
+                        <h3>Overall Acceptance by Round</h3>
+                        <svg id="trend-chart"></svg>
+                    </div>
+                    <div class="chart-box">
+                        <h3>Group Interaction Network</h3>
+                        <svg id="simulation-network"></svg>
+                    </div>
+                </div>
+                <div id="round-timeline" class="round-timeline"></div>
+            </div>
+        </section>
+
+        <section class="stage" id="stage-report">
+            <h2>Stage 5 · AI Summary</h2>
+            <p class="stage-desc">Auto-generated briefing report; placeholder and live DeepSeek responses share same envelope.</p>
+            <div id="report-panel" class="report-panel">
+                <div class="report-meta" id="report-meta"></div>
+                <div id="report-convergence" class="report-convergence"></div>
+                <pre id="report-text" class="report-text">Report pending.</pre>
+            </div>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

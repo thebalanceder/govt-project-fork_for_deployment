@@ -1,7 +1,4 @@
-"""Phase1.3 attitude engine facade.
-
-Provides a stable integration interface for downstream API/frontend packaging.
-"""
+"""Phase2A engine facade over phase1 simulation runner."""
 
 from __future__ import annotations
 
@@ -14,7 +11,7 @@ from .runner import RunnerConfig, run_phase1_simulation
 
 @dataclass(slots=True)
 class AttitudeEngine:
-    """Thin facade over runner, exposing a phase1.3 engine contract."""
+    """Thin facade providing a stable engine entrypoint."""
 
     config: RunnerConfig
 
@@ -22,17 +19,21 @@ class AttitudeEngine:
         self,
         product_description: str,
         comments: list[str] | None = None,
+        target: str | None = None,
+        domain: str = "product",
         output_path: str | Path | None = None,
     ) -> dict[str, Any]:
         result = run_phase1_simulation(
             product_description=product_description,
             comments=comments,
+            target=target,
+            domain=domain,
             config=self.config,
             output_path=output_path,
         )
         result["engine"] = {
             "name": "semantic_to_group_attitude_engine",
-            "version": "phase1.3",
+            "version": "phase2a",
         }
         return result
 
@@ -40,15 +41,18 @@ class AttitudeEngine:
 def run_attitude_engine(
     product_description: str,
     comments: list[str] | None = None,
+    target: str | None = None,
+    domain: str = "product",
     config: RunnerConfig | None = None,
     output_path: str | Path | None = None,
 ) -> dict[str, Any]:
-    """Public function entrypoint for phase1.3 engine execution."""
-
+    """Public entrypoint for semantic-to-attitude engine execution."""
     runtime = config or RunnerConfig()
     engine = AttitudeEngine(config=runtime)
     return engine.run(
         product_description=product_description,
         comments=comments,
+        target=target,
+        domain=domain,
         output_path=output_path,
     )

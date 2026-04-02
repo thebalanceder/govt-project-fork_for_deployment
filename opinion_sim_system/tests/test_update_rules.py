@@ -10,7 +10,8 @@ def test_update_rule_without_noise_is_deterministic() -> None:
     rng = random.Random(7)
 
     state = update_attitude(0.8, 0.7, 0.6, cfg, rng)
-    assert abs(state - 0.735) < 1e-9
+    # Expected: 0.6*0.8 + 0.25*0.7 + 0.15*0.6 = 0.48 + 0.175 + 0.09 = 0.745
+    assert abs(state - 0.745) < 1e-9
 
 
 def test_invalid_update_config_raises() -> None:

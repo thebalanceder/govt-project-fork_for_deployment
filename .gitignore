@@ -1,5 +1,8 @@
-﻿.cursor/
+.cursor/
 __pycache__/
 *.pyc
 .venv/
 venv/
+.env
+opinion_sim_system/.env
+opinion_sim_system/artifacts/
