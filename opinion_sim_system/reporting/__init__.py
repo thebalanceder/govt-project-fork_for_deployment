@@ -1,4 +1,4 @@
-"""Reporting layer for Phase2A demos."""
+"""Reporting layer for Phase2B demos."""
 
 from .deepseek_reporter import DeepSeekReporter
 
