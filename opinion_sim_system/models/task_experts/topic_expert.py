@@ -19,8 +19,10 @@ class TopicExpert:
 
     def analyze(self, data: TaskExpertInput) -> TaskExpertOutput:
         docs = [*data.comments]
-        if not docs and data.product_description:
-            docs = [data.product_description]
+        if not docs and data.text:
+            docs = [data.text]
+        if not docs and data.target:
+            docs = [data.target]
 
         topics, topic_words = self._model.fit_transform(docs)
         if not topics:
@@ -29,7 +31,13 @@ class TopicExpert:
                 label="topic_0",
                 score=1.0,
                 confidence=0.0,
-                payload={"distribution": {"topic_0": 1.0}, "topic_words": topic_words},
+                payload={
+                    "distribution": {"topic_0": 1.0},
+                    "topic_words": topic_words,
+                    "backend": self._model.backend,
+                    "target": data.target,
+                    "domain": data.domain,
+                },
             )
 
         counts: dict[str, int] = {}
@@ -48,5 +56,11 @@ class TopicExpert:
             label=dominant,
             score=float(distribution[dominant]),
             confidence=float(confidence_sum / max(len(topics), 1)),
-            payload={"distribution": distribution, "topic_words": topic_words, "backend": self._model.backend},
+            payload={
+                "distribution": distribution,
+                "topic_words": topic_words,
+                "backend": self._model.backend,
+                "target": data.target,
+                "domain": data.domain,
+            },
         )

@@ -39,18 +39,18 @@ def fuse_semantic_state(
     embedding: list[float],
 ) -> SemanticState:
     sentiment_out = expert_outputs["sentiment"]
-    stance_out = expert_outputs["stance"]
+    acceptance_out = expert_outputs["acceptance"]
     topic_out = expert_outputs["topic"]
-    risk_out = expert_outputs["risk"]
-    value_out = expert_outputs["value_frame"]
+    conflict_out = expert_outputs["conflict"]
+    frame_out = expert_outputs["frame"]
     emotion_out = expert_outputs["emotion"]
 
     sentiment = float(max(-1.0, min(1.0, sentiment_out.score)))
     sentiment_component = (sentiment + 1.0) / 2.0
-    risk_component = 1.0 - float(max(0.0, min(1.0, risk_out.score)))
-    stance_component = float(max(0.0, min(1.0, stance_out.score)))
+    conflict_component = 1.0 - float(max(0.0, min(1.0, conflict_out.score)))
+    acceptance_component = float(max(0.0, min(1.0, acceptance_out.score)))
 
-    stance = 0.5 * stance_component + 0.3 * sentiment_component + 0.2 * risk_component
+    stance = 0.5 * acceptance_component + 0.3 * sentiment_component + 0.2 * conflict_component
     stance = float(max(0.0, min(1.0, stance)))
 
     topic = _normalized_topic(topic_out.payload)
@@ -58,25 +58,31 @@ def fuse_semantic_state(
     evidence_trace: dict[str, Any] = {
         "experts": {
             "sentiment": _expert_dict(sentiment_out),
-            "stance": _expert_dict(stance_out),
+            "acceptance": _expert_dict(acceptance_out),
             "emotion": _expert_dict(emotion_out),
             "topic": _expert_dict(topic_out),
-            "risk": _expert_dict(risk_out),
-            "value_frame": _expert_dict(value_out),
+            "conflict": _expert_dict(conflict_out),
+            "frame": _expert_dict(frame_out),
         },
         "fusion": {
             "stance_components": {
-                "stance_expert": stance_component,
+                "acceptance_expert": acceptance_component,
                 "sentiment_component": sentiment_component,
-                "risk_component": risk_component,
+                "conflict_component": conflict_component,
             },
             "weights": {
-                "stance_expert": 0.5,
+                "acceptance_expert": 0.5,
                 "sentiment_component": 0.3,
-                "risk_component": 0.2,
+                "conflict_component": 0.2,
             },
         },
     }
+
+    # Compatibility aliases for downstream consumers migrating from older naming.
+    experts = evidence_trace["experts"]
+    experts["stance"] = experts["acceptance"]
+    experts["risk"] = experts["conflict"]
+    experts["value_frame"] = experts["frame"]
 
     return SemanticState(
         sentiment=sentiment,

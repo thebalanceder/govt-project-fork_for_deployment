@@ -1,4 +1,4 @@
-"""Emotion expert with GoEmotions model + lexical fallback."""
+"""Frame expert using sentence-frame classifier with fallback."""
 
 from __future__ import annotations
 
@@ -20,19 +20,19 @@ def _safe_float(value: object) -> float:
     return 0.0
 
 
-EMOTION_LEXICON: dict[str, set[str]] = {
-    "joy": {"great", "excellent", "happy", "love", "满意", "喜欢", "高兴"},
-    "anger": {"angry", "furious", "annoyed", "糟糕", "愤怒", "不满"},
-    "fear": {"risk", "danger", "worry", "担心", "害怕", "风险"},
-    "sadness": {"sad", "disappointed", "失望", "难过"},
-    "surprise": {"surprising", "unexpected", "惊讶", "意外"},
+FRAME_TOKENS: dict[str, set[str]] = {
+    "economic": {"price", "cost", "value", "budget", "economy"},
+    "health": {"health", "safe", "risk", "harm"},
+    "fairness": {"fair", "equity", "justice", "equal"},
+    "security": {"security", "protect", "threat", "defense"},
+    "morality": {"ethical", "moral", "right", "wrong"},
 }
 
 
 @dataclass(slots=True)
-class EmotionExpert:
-    name: str = "emotion"
-    model_id: str = "SamLowe/roberta-base-go_emotions"
+class FrameExpert:
+    name: str = "frame"
+    model_id: str = "mattdr/sentence-frame-classifier"
     _classifier: Callable[[str], object] | None = field(init=False, default=None, repr=False)
 
     def _normalize_entries(self, raw: object) -> list[dict[str, object]]:
@@ -65,33 +65,25 @@ class EmotionExpert:
         except Exception:
             self._classifier = None
 
-    def _lexical_fallback(self, data: TaskExpertInput) -> TaskExpertOutput:
+    def _fallback(self, data: TaskExpertInput) -> TaskExpertOutput:
         text = data.merged_text().lower()
-        counts: dict[str, int] = {}
-        total = 0
-        for emotion, tokens in EMOTION_LEXICON.items():
-            hits = sum(token in text for token in tokens)
-            counts[emotion] = hits
-            total += hits
+        counts: dict[str, float] = {}
+        for frame, tokens in FRAME_TOKENS.items():
+            counts[frame] = float(sum(token in text for token in tokens))
 
-        if total == 0:
-            distribution = {emotion: 0.0 for emotion in EMOTION_LEXICON}
-            label = "neutral"
-            score = 0.0
-            confidence = 0.1
+        total = float(sum(counts.values()))
+        if total <= 0.0:
+            distribution = {"general": 1.0}
+            dominant = "general"
         else:
-            distribution = {emotion: count / total for emotion, count in counts.items()}
-            label = max(distribution, key=lambda key: distribution[key])
-            confidence = distribution[label]
-            score = distribution.get("joy", 0.0) - (
-                distribution.get("anger", 0.0) + distribution.get("sadness", 0.0)
-            )
+            distribution = {key: value / total for key, value in counts.items()}
+            dominant = max(distribution, key=lambda key: distribution[key])
 
         return TaskExpertOutput(
             name=self.name,
-            label=label,
-            score=float(score),
-            confidence=float(confidence),
+            label=dominant,
+            score=float(distribution[dominant]),
+            confidence=float(distribution[dominant]),
             payload={
                 "backend": "lexical-fallback",
                 "distribution": distribution,
@@ -101,14 +93,14 @@ class EmotionExpert:
         )
 
     def analyze(self, data: TaskExpertInput) -> TaskExpertOutput:
-        text = data.merged_text()
+        text = data.merged_text() or data.text
         if self._classifier is None or not text:
-            return self._lexical_fallback(data)
+            return self._fallback(data)
 
         raw = self._classifier(text)
         entries = self._normalize_entries(raw)
         if not entries:
-            return self._lexical_fallback(data)
+            return self._fallback(data)
 
         distribution: dict[str, float] = {}
         for item in entries:
@@ -116,16 +108,11 @@ class EmotionExpert:
             distribution[label] = _safe_float(item.get("score", 0.0))
 
         dominant = max(distribution, key=lambda key: distribution[key])
-        confidence = distribution[dominant]
-        score = distribution.get("joy", 0.0) - (
-            distribution.get("anger", 0.0) + distribution.get("sadness", 0.0)
-        )
-
         return TaskExpertOutput(
             name=self.name,
             label=dominant,
-            score=float(max(-1.0, min(1.0, score))),
-            confidence=float(confidence),
+            score=float(distribution[dominant]),
+            confidence=float(distribution[dominant]),
             payload={
                 "backend": "hf-text-classification",
                 "model": self.model_id,

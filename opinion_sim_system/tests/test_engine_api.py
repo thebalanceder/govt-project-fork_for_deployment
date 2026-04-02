@@ -13,6 +13,8 @@ def test_run_attitude_engine_returns_engine_contract(tmp_path: Path) -> None:
     result = run_attitude_engine(
         product_description="A reliable product with fair pricing.",
         comments=["great battery", "setup is confusing", "价格合理"],
+        target="consumer electronics product",
+        domain="product",
         config=RunnerConfig(rounds=3, seed=11),
         output_path=output_file,
     )
@@ -29,6 +31,8 @@ def test_attitude_engine_class_facade(tmp_path: Path) -> None:
     result = engine.run(
         product_description="A support workflow with clear communication.",
         comments=["service is good", "response is slow", "沟通清楚"],
+        target="support workflow",
+        domain="support",
         output_path=output_file,
     )
 

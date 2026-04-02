@@ -10,7 +10,16 @@ import numpy as np
 from .embedding.embedder import Embedder
 from .semantic_fusion import fuse_semantic_state
 from .semantic_state import SemanticState
-from .task_experts import EmotionExpert, RiskExpert, SentimentExpert, StanceExpert, TaskExpertInput, TopicExpert, ValueFrameExpert
+from .task_experts import (
+    AcceptanceExpert,
+    ConflictExpert,
+    EmotionExpert,
+    FrameExpert,
+    InputCase,
+    SentimentExpert,
+    TaskExpertInput,
+    TopicExpert,
+)
 from .task_experts.base import TaskExpertOutput
 
 
@@ -29,22 +38,22 @@ def cosine_distance(vec_a: list[float], vec_b: list[float]) -> float:
 class SemanticMapperV2:
     embedder: Embedder
     sentiment_expert: SentimentExpert
-    stance_expert: StanceExpert
+    acceptance_expert: AcceptanceExpert
     emotion_expert: EmotionExpert
     topic_expert: TopicExpert
-    risk_expert: RiskExpert
-    value_frame_expert: ValueFrameExpert
+    conflict_expert: ConflictExpert
+    frame_expert: FrameExpert
 
     @classmethod
     def with_defaults(cls) -> SemanticMapperV2:
         return cls(
             embedder=Embedder(),
             sentiment_expert=SentimentExpert(),
-            stance_expert=StanceExpert(),
+            acceptance_expert=AcceptanceExpert(),
             emotion_expert=EmotionExpert(),
             topic_expert=TopicExpert(),
-            risk_expert=RiskExpert(),
-            value_frame_expert=ValueFrameExpert(),
+            conflict_expert=ConflictExpert(),
+            frame_expert=FrameExpert(),
         )
 
     def _pool_embedding(self, description: str, comments: list[str]) -> list[float]:
@@ -61,21 +70,38 @@ class SemanticMapperV2:
     def _collect_expert_outputs(self, data: TaskExpertInput) -> dict[str, TaskExpertOutput]:
         return {
             "sentiment": self.sentiment_expert.analyze(data),
-            "stance": self.stance_expert.analyze(data),
+            "acceptance": self.acceptance_expert.analyze(data),
             "emotion": self.emotion_expert.analyze(data),
             "topic": self.topic_expert.analyze(data),
-            "risk": self.risk_expert.analyze(data),
-            "value_frame": self.value_frame_expert.analyze(data),
+            "conflict": self.conflict_expert.analyze(data),
+            "frame": self.frame_expert.analyze(data),
         }
 
-    def build(self, product_description: str, comments: list[str]) -> SemanticState:
+    def build(self, product_description: str, comments: list[str], target: str | None = None, domain: str = "product") -> SemanticState:
         description = str(product_description) if product_description is not None else ""
         normalized_comments = [str(item) if item is not None else "" for item in comments]
         if not description.strip() and not normalized_comments:
             msg = "product_description or comments must be provided"
             raise ValueError(msg)
 
-        data = TaskExpertInput(product_description=description, comments=normalized_comments)
+        data = TaskExpertInput.from_legacy(
+            product_description=description,
+            comments=normalized_comments,
+            target=target,
+            domain=domain,
+        )
         expert_outputs = self._collect_expert_outputs(data)
         pooled_embedding = self._pool_embedding(description=description, comments=normalized_comments)
+        return fuse_semantic_state(expert_outputs=expert_outputs, embedding=pooled_embedding)
+
+    def build_from_case(self, case: InputCase, comments: list[str] | None = None) -> SemanticState:
+        normalized_comments = [str(item) if item is not None else "" for item in (comments or [])]
+        data = TaskExpertInput(
+            text=str(case.text),
+            target=str(case.target),
+            domain=str(case.domain),
+            comments=normalized_comments,
+        )
+        expert_outputs = self._collect_expert_outputs(data)
+        pooled_embedding = self._pool_embedding(description=data.text, comments=data.comments)
         return fuse_semantic_state(expert_outputs=expert_outputs, embedding=pooled_embedding)

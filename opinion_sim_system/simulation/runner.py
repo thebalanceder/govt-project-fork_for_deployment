@@ -11,6 +11,7 @@ from typing import Any
 from ..archetypes.clustering import validate_cluster_coverage
 from ..archetypes.profiles import derive_initial_attitudes, get_default_profiles
 from ..models.semantic_mapper_v2 import SemanticMapperV2
+from ..models.task_experts import InputCase
 from .network import build_network, neighbor_mean
 from .update_rules import UpdateConfig, update_attitude
 
@@ -44,6 +45,8 @@ def load_sample_comments() -> list[str]:
 def run_phase1_simulation(
     product_description: str,
     comments: list[str] | None = None,
+    target: str | None = None,
+    domain: str = "product",
     config: RunnerConfig | None = None,
     output_path: str | Path | None = None,
 ) -> dict[str, Any]:
@@ -63,7 +66,12 @@ def run_phase1_simulation(
     embeddings = mapper.embedder.encode([product_description, *texts])
     coverage = validate_cluster_coverage(embeddings, n_clusters=6)
 
-    semantic_state = mapper.build(product_description=product_description, comments=texts)
+    case = InputCase(
+        text=product_description,
+        target=target if target else product_description,
+        domain=domain,
+    )
+    semantic_state = mapper.build_from_case(case=case, comments=texts)
     sentiment_signal = semantic_state.sentiment
     topic_distribution = dict(semantic_state.topic)
     topic_payload = semantic_state.evidence_trace.get("experts", {}).get("topic", {}).get("payload", {})
@@ -104,6 +112,8 @@ def run_phase1_simulation(
         "input": {
             "product_description": product_description,
             "n_comments": len(texts),
+            "target": target if target else product_description,
+            "domain": domain,
         },
         "profiles": get_default_profiles(),
         "initial_attitudes": initial_attitudes,

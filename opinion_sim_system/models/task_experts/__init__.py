@@ -1,15 +1,24 @@
 """Task expert adapters for Semantic Frontend v2."""
 
-from .base import TaskExpert, TaskExpertInput, TaskExpertOutput
+from .acceptance_expert import AcceptanceExpert
+from .base import InputCase, TaskExpert, TaskExpertInput, TaskExpertOutput
+from .conflict_expert import ConflictExpert
 from .emotion_expert import EmotionExpert
-from .risk_expert import RiskExpert
+from .frame_expert import FrameExpert
 from .sentiment_expert import SentimentExpert
-from .stance_expert import StanceExpert
 from .topic_expert import TopicExpert
-from .value_frame_expert import ValueFrameExpert
+
+# Backward-compatible aliases for previous naming.
+StanceExpert = AcceptanceExpert
+RiskExpert = ConflictExpert
+ValueFrameExpert = FrameExpert
 
 __all__ = [
+    "AcceptanceExpert",
+    "ConflictExpert",
     "EmotionExpert",
+    "FrameExpert",
+    "InputCase",
     "RiskExpert",
     "SentimentExpert",
     "StanceExpert",

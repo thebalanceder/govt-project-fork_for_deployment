@@ -1,17 +1,19 @@
 from ..models.task_experts import (
+    AcceptanceExpert,
+    ConflictExpert,
     EmotionExpert,
-    RiskExpert,
+    FrameExpert,
     SentimentExpert,
-    StanceExpert,
     TaskExpertInput,
     TopicExpert,
-    ValueFrameExpert,
 )
 
 
 def test_task_experts_produce_structured_outputs() -> None:
     data = TaskExpertInput(
-        product_description="Reliable product with fair price but confusing setup",
+        text="Reliable product with fair price but confusing setup",
+        target="home device",
+        domain="product",
         comments=[
             "great battery and stable performance",
             "setup process is confusing",
@@ -21,11 +23,11 @@ def test_task_experts_produce_structured_outputs() -> None:
 
     outputs = [
         SentimentExpert(backend="lexicon").analyze(data),
-        StanceExpert().analyze(data),
+        AcceptanceExpert().analyze(data),
         EmotionExpert().analyze(data),
         TopicExpert(backend="keyword").analyze(data),
-        RiskExpert().analyze(data),
-        ValueFrameExpert().analyze(data),
+        ConflictExpert().analyze(data),
+        FrameExpert().analyze(data),
     ]
 
     assert len(outputs) == 6

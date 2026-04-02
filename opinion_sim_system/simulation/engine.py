@@ -19,11 +19,15 @@ class AttitudeEngine:
         self,
         product_description: str,
         comments: list[str] | None = None,
+        target: str | None = None,
+        domain: str = "product",
         output_path: str | Path | None = None,
     ) -> dict[str, Any]:
         result = run_phase1_simulation(
             product_description=product_description,
             comments=comments,
+            target=target,
+            domain=domain,
             config=self.config,
             output_path=output_path,
         )
@@ -37,6 +41,8 @@ class AttitudeEngine:
 def run_attitude_engine(
     product_description: str,
     comments: list[str] | None = None,
+    target: str | None = None,
+    domain: str = "product",
     config: RunnerConfig | None = None,
     output_path: str | Path | None = None,
 ) -> dict[str, Any]:
@@ -46,5 +52,7 @@ def run_attitude_engine(
     return engine.run(
         product_description=product_description,
         comments=comments,
+        target=target,
+        domain=domain,
         output_path=output_path,
     )
