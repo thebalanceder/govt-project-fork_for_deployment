@@ -21,7 +21,7 @@ def test_run_attitude_engine_returns_engine_contract(tmp_path: Path) -> None:
 
     assert output_file.exists()
     assert result["engine"]["name"] == "semantic_to_group_attitude_engine"
-    assert result["engine"]["version"] == "phase2a"
+    assert result["engine"]["version"] == "phase3"
     assert "semantic_evidence" in result
 
 

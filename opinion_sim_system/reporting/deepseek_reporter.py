@@ -14,6 +14,11 @@ from typing import Any
 from urllib import error, request
 
 from ..demo.contracts import PHASE2B_SCHEMA_VERSION
+from .report_builder import (
+    build_decision_trace,
+    build_executive_summary,
+    build_expanded_fallback_text,
+)
 
 
 @dataclass(slots=True)
@@ -31,33 +36,24 @@ class DeepSeekReporter:
         env_key = os.getenv("DEEPSEEK_API_KEY", "").strip()
         return env_key
 
-    def _fallback_text(self, model_evidence: dict[str, Any], simulation_result: dict[str, Any]) -> str:
-        experts = model_evidence.get("experts", {}) if isinstance(model_evidence, dict) else {}
-        acceptance = experts.get("acceptance", {}) if isinstance(experts, dict) else {}
-        conflict = experts.get("conflict", {}) if isinstance(experts, dict) else {}
-        frame = experts.get("frame", {}) if isinstance(experts, dict) else {}
-
-        trajectories = simulation_result.get("trajectories", []) if isinstance(simulation_result, dict) else []
-        final_overall = trajectories[-1].get("overall_satisfaction", 0.0) if trajectories else 0.0
-
-        return (
-            "[DeepSeek fallback] "
-            f"acceptance={acceptance.get('label', 'N/A')}, "
-            f"conflict={conflict.get('label', 'N/A')}, "
-            f"frame={frame.get('label', 'N/A')}, "
-            f"final_overall={float(final_overall):.3f}."
-        )
-
-    def _build_prompt(self, model_evidence: dict[str, Any], simulation_result: dict[str, Any]) -> str:
+    def _build_prompt(
+        self,
+        model_evidence: dict[str, Any],
+        simulation_result: dict[str, Any],
+        executive_summary: dict[str, Any],
+        decision_trace: dict[str, Any],
+    ) -> str:
         reduced = {
             "experts": model_evidence.get("experts", {}),
             "fusion": model_evidence.get("fusion", {}),
             "final_round": (simulation_result.get("trajectories") or [{}])[-1],
             "input": simulation_result.get("input", {}),
+            "executive_summary": executive_summary,
+            "decision_trace": decision_trace,
         }
         return (
-            "You are a concise analyst. Based on the JSON evidence, explain acceptance trend, conflict risk, "
-            "and group divergence in 3-5 sentences.\nJSON:\n"
+            "You are a concise analyst for executive briefings. Expand the deterministic summary and decision trace "
+            "into 4-6 concrete sentences covering acceptance trend, conflict risk, polarization, and action guidance.\nJSON:\n"
             + json.dumps(reduced, ensure_ascii=False)
         )
 
@@ -96,10 +92,27 @@ class DeepSeekReporter:
         """Structured report envelope for Phase2B demo contract."""
         api_key = self._resolve_api_key()
         use_live = self.mode in {"auto", "live"} and bool(api_key)
+        executive_summary = build_executive_summary(
+            model_evidence=model_evidence,
+            simulation_result=simulation_result,
+        )
+        decision_trace = build_decision_trace(
+            model_evidence=model_evidence,
+            simulation_result=simulation_result,
+        )
+        fallback = build_expanded_fallback_text(
+            executive_summary=executive_summary,
+            decision_trace=decision_trace,
+        )
 
         if use_live:
             try:
-                prompt = self._build_prompt(model_evidence=model_evidence, simulation_result=simulation_result)
+                prompt = self._build_prompt(
+                    model_evidence=model_evidence,
+                    simulation_result=simulation_result,
+                    executive_summary=executive_summary,
+                    decision_trace=decision_trace,
+                )
                 text = self._call_deepseek(prompt=prompt, api_key=api_key)
                 return {
                     "schema_version": PHASE2B_SCHEMA_VERSION,
@@ -107,28 +120,35 @@ class DeepSeekReporter:
                     "provider": self.provider,
                     "mode": "live",
                     "text": text,
+                    "executive_summary": executive_summary,
+                    "expanded_analysis": text,
+                    "decision_trace": decision_trace,
                     "meta": {"model": self.model},
                     "errors": [],
                 }
             except (RuntimeError, ValueError, json.JSONDecodeError, error.URLError, TimeoutError) as exc:
-                fallback = self._fallback_text(model_evidence=model_evidence, simulation_result=simulation_result)
                 return {
                     "schema_version": PHASE2B_SCHEMA_VERSION,
                     "status": "partial",
                     "provider": self.provider,
                     "mode": "fallback",
                     "text": fallback,
+                    "executive_summary": executive_summary,
+                    "expanded_analysis": fallback,
+                    "decision_trace": decision_trace,
                     "meta": {"model": self.model},
                     "errors": [str(exc)],
                 }
 
-        fallback = self._fallback_text(model_evidence=model_evidence, simulation_result=simulation_result)
         return {
             "schema_version": PHASE2B_SCHEMA_VERSION,
             "status": "ok",
             "provider": self.provider,
             "mode": "fallback",
             "text": fallback,
+            "executive_summary": executive_summary,
+            "expanded_analysis": fallback,
+            "decision_trace": decision_trace,
             "meta": {"model": self.model},
             "errors": [],
         }

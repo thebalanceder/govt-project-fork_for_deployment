@@ -16,6 +16,7 @@ def _demo_cases() -> list[dict[str, Any]]:
     return [
         {
             "name": "policy_case",
+            "title": "Tax Reduction Policy Acceptance Simulation",
             "text": "The policy is fair but implementation is too slow for citizens.",
             "target": "public policy",
             "domain": "policy",
@@ -27,6 +28,7 @@ def _demo_cases() -> list[dict[str, Any]]:
         },
         {
             "name": "product_case",
+            "title": "Premium Subscription Product Reaction Simulation",
             "text": "The product battery is excellent but setup remains confusing.",
             "target": "smart home product",
             "domain": "product",
@@ -38,6 +40,7 @@ def _demo_cases() -> list[dict[str, Any]]:
         },
         {
             "name": "culture_case",
+            "title": "Cultural Trend Diffusion Risk Simulation",
             "text": "The cultural trend is innovative but may increase social conflict.",
             "target": "cultural trend",
             "domain": "culture",
@@ -71,9 +74,17 @@ def run_demo(output_dir: str | Path | None = None) -> dict[str, Any]:
         report_text = str(report.get("text", ""))
 
         final_round = result["trajectories"][-1]
+        final_groups = final_round["group_attitudes"]
+        values = list(final_groups.values())
+        dispersion = (max(values) - min(values)) if values else 0.0
+        top_groups = [
+            {"group": str(name), "attitude": float(score)}
+            for name, score in sorted(final_groups.items(), key=lambda item: item[1], reverse=True)[:3]
+        ]
         cases_output.append(
             {
                 "case": case["name"],
+                "title": case.get("title", case["name"]),
                 "input": {
                     "text": case["text"],
                     "target": case["target"],
@@ -81,9 +92,14 @@ def run_demo(output_dir: str | Path | None = None) -> dict[str, Any]:
                 },
                 "model_evidence": model_evidence,
                 "simulation_result": {
+                    "initial_attitudes": result.get("initial_attitudes", {}),
+                    "trajectories": result.get("trajectories", []),
                     "overall_final": final_round["overall_satisfaction"],
-                    "final_group_attitudes": final_round["group_attitudes"],
+                    "dispersion": dispersion,
+                    "top_groups": top_groups,
+                    "final_group_attitudes": final_groups,
                     "rounds": len(result["trajectories"]),
+                    "visualization_payload": result.get("visualization_payload", {}),
                 },
                 "report": report,
                 "report_text": report_text,

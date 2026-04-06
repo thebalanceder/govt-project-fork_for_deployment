@@ -60,6 +60,39 @@ def _compute_dispersion(group_attitudes: dict[str, float]) -> float:
     return max(values) - min(values)
 
 
+def _compute_dispersion_trend(trajectories: list[dict[str, Any]]) -> str:
+    if len(trajectories) < 2:
+        return "stable"
+
+    dispersions: list[float] = []
+    for round_item in trajectories:
+        if not isinstance(round_item, dict):
+            continue
+        direct = round_item.get("dispersion")
+        if isinstance(direct, (int, float)):
+            dispersions.append(float(direct))
+            continue
+
+        groups = round_item.get("group_attitudes")
+        if isinstance(groups, dict):
+            numeric_groups = {
+                str(key): _safe_float(value)
+                for key, value in groups.items()
+            }
+            dispersions.append(_compute_dispersion(numeric_groups))
+
+    if len(dispersions) < 2:
+        return "stable"
+
+    first = dispersions[0]
+    final = dispersions[-1]
+    if final > first + 0.05:
+        return "widening"
+    if final < first - 0.05:
+        return "narrowing"
+    return "stable"
+
+
 def _build_conclusion_line(overall_final: float, dispersion: float) -> str:
     if overall_final >= 0.70:
         acceptance = "high"
@@ -88,6 +121,7 @@ def run_briefing_pipeline():
         from .reporting.deepseek_reporter import DeepSeekReporter
         from .simulation.engine import run_attitude_engine
         from .simulation.runner import RunnerConfig
+        from .reporting.report_builder import build_dashboard_view
 
         payload = request.get_json(silent=True) or {}
         text = str(payload.get('text', '')).strip()
@@ -125,6 +159,9 @@ def run_briefing_pipeline():
             simulation_result=result,
         )
         report_text = str(report.get('text', ''))
+        report_status = str(report.get('status', 'ok')).lower()
+        pipeline_report_state = 'completed' if report_status == 'ok' else 'degraded'
+        dashboard_view = build_dashboard_view(result)
 
         top_groups: list[dict[str, float | str]] = []
         if isinstance(final_groups, dict):
@@ -137,7 +174,8 @@ def run_briefing_pipeline():
         convergence = {
             'dispersion': dispersion,
             'alignment': 'high' if dispersion < 0.20 else 'medium' if dispersion < 0.35 else 'low',
-            'trend': 'converging' if dispersion < 0.30 else 'diverging',
+            'trend': _compute_dispersion_trend(trajectories),
+            'state': 'converging' if dispersion < 0.30 else 'diverging',
         }
 
         return jsonify(
@@ -147,11 +185,12 @@ def run_briefing_pipeline():
                 'pipeline': {
                     'semantic': 'completed',
                     'simulation': 'completed',
-                    'report': 'completed',
+                    'report': pipeline_report_state,
+                    'report_status': report_status,
                 },
                 'trust': {
                     'generated_at': datetime.utcnow().isoformat() + 'Z',
-                    'engine_version': result.get('engine', {}).get('version', 'phase2a'),
+                    'engine_version': result.get('engine', {}).get('version', 'phase3'),
                     'report_mode': report.get('mode', 'fallback'),
                     'report_provider': report.get('provider', 'deepseek'),
                 },
@@ -167,11 +206,21 @@ def run_briefing_pipeline():
                     'overall_final': overall_final,
                     'dispersion': dispersion,
                     'top_groups': top_groups,
+                    'final_group_attitudes': final_groups,
+                    'rounds': len(trajectories),
+                    'visualization_payload': result.get('visualization_payload', {}),
                 },
                 'convergence': convergence,
                 'report': report,
                 'report_text': report_text,
-                'conclusion_line': _build_conclusion_line(overall_final=overall_final, dispersion=dispersion),
+                'conclusion_line': dashboard_view.get('executive_overview', {}).get(
+                    'conclusion_line',
+                    _build_conclusion_line(overall_final=overall_final, dispersion=dispersion),
+                ),
+                'executive_overview': dashboard_view.get('executive_overview', {}),
+                'evidence_activation': dashboard_view.get('evidence_activation', []),
+                'evolution_highlights': dashboard_view.get('evolution_highlights', []),
+                'report_recommendation': dashboard_view.get('report_recommendation', {}),
             }
         )
     except Exception as exc:

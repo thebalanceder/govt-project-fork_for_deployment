@@ -22,6 +22,7 @@ from .pm_dashboard import (
     generate_risk_alerts,
     ARCHETYPE_LABELS,
 )
+from ..reporting.report_builder import build_dashboard_view
 
 
 def generate_html_report(
@@ -41,6 +42,11 @@ def generate_html_report(
         HTML string
     """
     # Extract key data
+    dashboard_view = build_dashboard_view(data)
+    executive_overview = dashboard_view.get("executive_overview", {}) if isinstance(dashboard_view, dict) else {}
+    evidence_activation = dashboard_view.get("evidence_activation", []) if isinstance(dashboard_view, dict) else []
+    report_recommendation = dashboard_view.get("report_recommendation", {}) if isinstance(dashboard_view, dict) else {}
+
     trajectories = data.get("trajectories", [])
     latest = trajectories[-1] if trajectories else {}
     initial = data.get("initial_attitudes", {})
@@ -50,6 +56,24 @@ def generate_html_report(
     semantic = data.get("semantic_summary", {})
     topic_dist = semantic.get("topic_distribution", {})
     topic_words = semantic.get("topic_words", {})
+    sentiment_signal = semantic.get("sentiment_signal")
+    sentiment_signal_text = f"{float(sentiment_signal):.3f}" if isinstance(sentiment_signal, (int, float)) else "N/A"
+    visualization_payload = data.get("visualization_payload", {})
+    driver_summary = visualization_payload.get("driver_summary", {}) if isinstance(visualization_payload, dict) else {}
+    divergence_summary = (
+        visualization_payload.get("divergence_summary", {}) if isinstance(visualization_payload, dict) else {}
+    )
+    dominant_driver = driver_summary.get("dominant_driver", "N/A") if isinstance(driver_summary, dict) else "N/A"
+    divergence_trend = divergence_summary.get("trend", "stable") if isinstance(divergence_summary, dict) else "stable"
+    conclusion_line = (
+        str(executive_overview.get("conclusion_line", "")).strip()
+        if isinstance(executive_overview, dict)
+        else ""
+    )
+    if not conclusion_line:
+        conclusion_line = (
+            f"Projected acceptance is {overall:.2f} with {divergence_trend} divergence trend and main driver {dominant_driver}."
+        )
     
     alerts = generate_risk_alerts(data)
     high_alerts = sum(1 for a in alerts if a["severity"] == "HIGH")
@@ -132,6 +156,23 @@ def generate_html_report(
             <td style="padding: 8px; border: 1px solid #ddd;"><small>{', '.join(words[:5]) if words else 'N/A'}</small></td>
         </tr>
         """
+
+    # Evidence to activation rows
+    evidence_rows = ""
+    if isinstance(evidence_activation, list) and evidence_activation:
+        for link in evidence_activation[:8]:
+            if not isinstance(link, dict):
+                continue
+            evidence_rows += f"""
+            <tr>
+                <td style="padding: 8px; border: 1px solid #ddd;">{str(link.get('source', 'N/A'))}</td>
+                <td style="padding: 8px; border: 1px solid #ddd;">{str(link.get('source_label', ''))}</td>
+                <td style="padding: 8px; border: 1px solid #ddd;">{str(link.get('target', 'N/A'))}</td>
+                <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">{float(link.get('weight', 0.0)):.4f}</td>
+            </tr>
+            """
+    if not evidence_rows:
+        evidence_rows = '<tr><td colspan="4" style="padding: 10px; color: #6c757d;">No evidence links available</td></tr>'
     
     # Generate recommendations
     recommendations = []
@@ -161,6 +202,17 @@ def generate_html_report(
             <td style="padding: 10px; border: 1px solid #ddd;"><small>{timeline}</small></td>
         </tr>
         """
+
+    # Report section rows
+    report_summary = report_recommendation.get("executive_summary", {}) if isinstance(report_recommendation, dict) else {}
+    report_four_block = report_summary.get("four_block_summary", {}) if isinstance(report_summary, dict) else {}
+    expanded_analysis = (
+        str(report_recommendation.get("expanded_analysis", "")).strip()
+        if isinstance(report_recommendation, dict)
+        else ""
+    )
+    if not expanded_analysis:
+        expanded_analysis = "N/A"
     
     html = f"""
 <!DOCTYPE html>
@@ -402,7 +454,9 @@ def generate_html_report(
                     Current national sentiment index stands at <strong>{overall:.2f}</strong> 
                     based on analysis of {data.get('input', {}).get('n_comments', 'N/A')} public comments.
                     Simulation ran for {len(trajectories)} rounds tracking {len(initial)} population segments.
+                    Main decision driver: <strong>{dominant_driver}</strong>.
                 </p>
+                <p style="margin-top: 10px;"><strong>{conclusion_line}</strong></p>
             </div>
             
             <!-- Population Segments -->
@@ -432,6 +486,24 @@ def generate_html_report(
                         </tbody>
                     </table>
                 </div>
+            </div>
+
+            <!-- Evidence to Activation -->
+            <div class="section">
+                <h2>🧠 Evidence → Activation</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Evidence Source</th>
+                            <th>Label</th>
+                            <th>Activated Group</th>
+                            <th>Influence Weight</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {evidence_rows}
+                    </tbody>
+                </table>
             </div>
             
             <!-- Key Topics -->
@@ -467,6 +539,33 @@ def generate_html_report(
                     </tbody>
                 </table>
             </div>
+
+            <!-- AI Report Layer -->
+            <div class="section">
+                <h2>🤖 Report & Recommendation Layer</h2>
+                <table>
+                    <tr>
+                        <th style="width: 30%;">Acceptance Outlook</th>
+                        <td>{str(report_four_block.get('acceptance_outlook', 'N/A'))}</td>
+                    </tr>
+                    <tr>
+                        <th>Polarization</th>
+                        <td>{str(report_four_block.get('polarization', 'N/A'))}</td>
+                    </tr>
+                    <tr>
+                        <th>Main Driver</th>
+                        <td>{str(report_four_block.get('main_driver', dominant_driver))}</td>
+                    </tr>
+                    <tr>
+                        <th>Recommended Action</th>
+                        <td>{str(report_four_block.get('recommended_action', 'N/A'))}</td>
+                    </tr>
+                    <tr>
+                        <th>Expanded Analysis</th>
+                        <td>{expanded_analysis}</td>
+                    </tr>
+                </table>
+            </div>
             
             <!-- Technical Details -->
             <div class="section">
@@ -486,7 +585,15 @@ def generate_html_report(
                     </tr>
                     <tr>
                         <th>Sentiment Signal</th>
-                        <td>{semantic.get('sentiment_signal', 'N/A'):.3f}</td>
+                        <td>{sentiment_signal_text}</td>
+                    </tr>
+                    <tr>
+                        <th>Dominant Driver</th>
+                        <td>{dominant_driver}</td>
+                    </tr>
+                    <tr>
+                        <th>Divergence Trend</th>
+                        <td>{divergence_trend}</td>
                     </tr>
                 </table>
             </div>

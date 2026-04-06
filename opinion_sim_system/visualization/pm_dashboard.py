@@ -307,6 +307,19 @@ def generate_risk_alerts(data: dict[str, Any]) -> list[dict[str, str]]:
     latest = trajectories[-1]
     overall = latest.get("overall_satisfaction", 0)
     group_attitudes = latest.get("group_attitudes", {})
+    visualization_payload = data.get("visualization_payload", {})
+
+    dispersion = 0.0
+    if isinstance(visualization_payload, dict):
+        divergence_summary = visualization_payload.get("divergence_summary", {})
+        if isinstance(divergence_summary, dict):
+            final_dispersion = divergence_summary.get("final_dispersion")
+            if isinstance(final_dispersion, (int, float)):
+                dispersion = float(final_dispersion)
+
+    if dispersion == 0.0 and group_attitudes:
+        values = [float(value) for value in group_attitudes.values()]
+        dispersion = max(values) - min(values)
     
     # Check overall sentiment
     if overall < RISK_HIGH:
@@ -333,6 +346,26 @@ def generate_risk_alerts(data: dict[str, Any]) -> list[dict[str, str]]:
                 "message": f"{ARCHETYPE_LABELS.get(group, group)} showing strong negative attitude ({attitude:.2f})",
                 "recommendation": f"Targeted outreach to {group}-focused communities needed."
             })
+
+    # Check group divergence (polarization)
+    if dispersion >= 0.35:
+        alerts.append(
+            {
+                "severity": "HIGH",
+                "category": "Group Divergence",
+                "message": f"Segment divergence is high (dispersion={dispersion:.2f})",
+                "recommendation": "Prioritize segment-specific messaging and conflict mitigation strategy.",
+            }
+        )
+    elif dispersion >= 0.20:
+        alerts.append(
+            {
+                "severity": "MEDIUM",
+                "category": "Group Divergence",
+                "message": f"Segment divergence is rising (dispersion={dispersion:.2f})",
+                "recommendation": "Monitor segment gaps and reinforce shared value framing.",
+            }
+        )
     
     # Check trend direction
     if len(trajectories) >= 2:

@@ -1,0 +1,188 @@
+{
+  "input": {
+    "product_description": "Government policies and public services",
+    "n_comments": 8
+  },
+  "profiles": {
+    "rational_evaluator": {
+      "efficiency": 0.95,
+      "cost": 0.65,
+      "culture": 0.2,
+      "emotion": 0.2,
+      "conformity": 0.35,
+      "risk": 0.55
+    },
+    "budget_guardian": {
+      "efficiency": 0.5,
+      "cost": 0.95,
+      "culture": 0.15,
+      "emotion": 0.25,
+      "conformity": 0.45,
+      "risk": 0.65
+    },
+    "culture_seeker": {
+      "efficiency": 0.35,
+      "cost": 0.4,
+      "culture": 0.95,
+      "emotion": 0.55,
+      "conformity": 0.4,
+      "risk": 0.4
+    },
+    "emotional_resonator": {
+      "efficiency": 0.25,
+      "cost": 0.3,
+      "culture": 0.55,
+      "emotion": 0.95,
+      "conformity": 0.5,
+      "risk": 0.45
+    },
+    "social_follower": {
+      "efficiency": 0.4,
+      "cost": 0.45,
+      "culture": 0.5,
+      "emotion": 0.6,
+      "conformity": 0.95,
+      "risk": 0.5
+    },
+    "risk_averse": {
+      "efficiency": 0.65,
+      "cost": 0.65,
+      "culture": 0.25,
+      "emotion": 0.35,
+      "conformity": 0.4,
+      "risk": 0.95
+    }
+  },
+  "initial_attitudes": {
+    "rational_evaluator": 0.5,
+    "budget_guardian": 0.5,
+    "culture_seeker": 0.5,
+    "emotional_resonator": 0.5,
+    "social_follower": 0.5,
+    "risk_averse": 0.5
+  },
+  "trajectories": [
+    {
+      "round": 1,
+      "group_attitudes": {
+        "rational_evaluator": 0.49711819340844143,
+        "budget_guardian": 0.4965419279933696,
+        "culture_seeker": 0.49777368276864675,
+        "emotional_resonator": 0.5140396745019773,
+        "social_follower": 0.49744823432434226,
+        "risk_averse": 0.47005293171318085
+      },
+      "overall_satisfaction": 0.4954957741183264,
+      "topic_distribution": {
+        "topic_0": 1.0
+      }
+    },
+    {
+      "round": 2,
+      "group_attitudes": {
+        "rational_evaluator": 0.5041929764654647,
+        "budget_guardian": 0.4918713887275761,
+        "culture_seeker": 0.49358106483652353,
+        "emotional_resonator": 0.5095095495414429,
+        "social_follower": 0.5023806876443082,
+        "risk_averse": 0.5053905841497947
+      },
+      "overall_satisfaction": 0.5011543752275184,
+      "topic_distribution": {
+        "topic_0": 1.0
+      }
+    },
+    {
+      "round": 3,
+      "group_attitudes": {
+        "rational_evaluator": 0.5157305142622416,
+        "budget_guardian": 0.4977846226645483,
+        "culture_seeker": 0.4817825624508753,
+        "emotional_resonator": 0.4853349834298214,
+        "social_follower": 0.506491623402433,
+        "risk_averse": 0.5295020370504172
+      },
+      "overall_satisfaction": 0.5027710572100561,
+      "topic_distribution": {
+        "topic_0": 1.0
+      }
+    }
+  ],
+  "semantic_summary": {
+    "sentiment_signal": 0.0,
+    "topic_distribution": {
+      "topic_0": 1.0
+    },
+    "topic_words": {
+      "0": [
+        "government"
+      ],
+      "1": [
+        "healthcare"
+      ],
+      "2": [
+        "policy"
+      ]
+    }
+  },
+  "coverage_validation": {
+    "n_samples": 9,
+    "n_clusters": 6,
+    "non_empty_clusters": 6,
+    "coverage_ratio": 1.0
+  },
+  "artifact_path": "/mnt/c/Users/USER-PC/Downloads/test/created_lib/test/hi/govt-project/opinion_sim_system/artifacts/phase1/milestone_m1_output.json",
+  "data_source": "real_world_data",
+  "collection_info": {
+    "total_items": 8,
+    "sources": [
+      "PublicDataset"
+    ],
+    "date_range": {
+      "from": "2026-03-29T21:54:37.515240",
+      "to": "2026-03-29T21:54:37.515287"
+    }
+  },
+  "sample_data": [
+    {
+      "source": "PublicDataset",
+      "title": "Positive",
+      "timestamp": "2026-03-29T21:54:37.515240"
+    },
+    {
+      "source": "PublicDataset",
+      "title": "Negative",
+      "timestamp": "2026-03-29T21:54:37.515260"
+    },
+    {
+      "source": "PublicDataset",
+      "title": "Positive",
+      "timestamp": "2026-03-29T21:54:37.515264"
+    },
+    {
+      "source": "PublicDataset",
+      "title": "Negative",
+      "timestamp": "2026-03-29T21:54:37.515267"
+    },
+    {
+      "source": "PublicDataset",
+      "title": "Positive",
+      "timestamp": "2026-03-29T21:54:37.515270"
+    },
+    {
+      "source": "PublicDataset",
+      "title": "Negative",
+      "timestamp": "2026-03-29T21:54:37.515273"
+    },
+    {
+      "source": "PublicDataset",
+      "title": "Positive",
+      "timestamp": "2026-03-29T21:54:37.515283"
+    },
+    {
+      "source": "PublicDataset",
+      "title": "Negative",
+      "timestamp": "2026-03-29T21:54:37.515287"
+    }
+  ]
+}

@@ -16,7 +16,7 @@ import streamlit as st
 
 # Handle both module and script execution
 if __name__ == "__main__":
-    # Add parent directory to path for imports
+    # Add package root directory to path for script execution imports
     sys.path.insert(0, str(Path(__file__).parent.parent))
     from visualization.pm_dashboard import (
         _load_simulation_result,
@@ -28,6 +28,7 @@ if __name__ == "__main__":
         create_alerts_panel,
         ARCHETYPE_LABELS,
     )
+    from reporting.report_builder import build_dashboard_view
 else:
     from .pm_dashboard import (
         _load_simulation_result,
@@ -39,6 +40,7 @@ else:
         create_alerts_panel,
         ARCHETYPE_LABELS,
     )
+    from ..reporting.report_builder import build_dashboard_view
 
 
 # Page configuration
@@ -109,6 +111,26 @@ def format_score(value: float) -> str:
         return f"🟡 {value:.2f}"
     else:
         return f"🟢 {value:.2f}"
+
+
+def extract_visual_main_driver(data: dict[str, Any]) -> str:
+    """Resolve the dominant driver from enhanced payload, with legacy fallback."""
+    payload = data.get("visualization_payload", {})
+    if isinstance(payload, dict):
+        driver_summary = payload.get("driver_summary", {})
+        if isinstance(driver_summary, dict):
+            candidate = driver_summary.get("dominant_driver")
+            if isinstance(candidate, str) and candidate.strip():
+                return candidate
+
+    trajectories = data.get("trajectories", [])
+    if trajectories:
+        last_round = trajectories[-1]
+        if isinstance(last_round, dict):
+            candidate = last_round.get("dominant_driver")
+            if isinstance(candidate, str) and candidate.strip():
+                return candidate
+    return "N/A"
 
 
 def get_default_json_path() -> Path:
@@ -226,6 +248,8 @@ def render_key_metrics(data: dict[str, Any]) -> None:
             delta=f"{high_alerts} critical" if high_alerts > 0 else "All clear",
             delta_color="inverse" if high_alerts > 0 else "normal"
         )
+
+    st.caption(f"Main decision driver: **{extract_visual_main_driver(data)}**")
 
 
 def render_alerts_section(data: dict[str, Any]) -> None:
@@ -394,6 +418,18 @@ def render_charts(data: dict[str, Any]) -> None:
     semantic = data.get("semantic_summary", {})
     topic_dist = semantic.get("topic_distribution", {})
     topic_words = semantic.get("topic_words", {})
+
+    payload = data.get("visualization_payload", {})
+    if isinstance(payload, dict):
+        rounds = payload.get("rounds", [])
+        if isinstance(rounds, list) and rounds:
+            drivers = [
+                str(item.get("dominant_driver", ""))
+                for item in rounds
+                if isinstance(item, dict) and str(item.get("dominant_driver", "")).strip()
+            ]
+            if drivers:
+                st.caption("Round drivers: " + " → ".join(drivers))
     
     with tab1:
         if trajectories:
@@ -415,6 +451,127 @@ def render_charts(data: dict[str, Any]) -> None:
             st.plotly_chart(fig, use_container_width=True)
         else:
             st.info("No topic data available")
+
+
+def render_executive_overview(view: dict[str, Any]) -> None:
+    """Stage A: conclusion-focused executive banner and core metrics."""
+    overview = view.get("executive_overview", {}) if isinstance(view, dict) else {}
+    if not isinstance(overview, dict):
+        overview = {}
+
+    st.subheader("① Conclusion Overview")
+    st.markdown(f"**{overview.get('headline', 'Decision outlook unavailable.')}**")
+    st.info(str(overview.get("conclusion_line", "No conclusion line available.")))
+
+    col1, col2, col3, col4 = st.columns(4)
+    with col1:
+        st.metric("Overall Acceptance", f"{float(overview.get('overall_acceptance', 0.0)):.2f}")
+    with col2:
+        st.metric("Polarization", str(overview.get("polarization", "N/A")).title())
+    with col3:
+        st.metric("Main Driver", str(overview.get("main_driver", "N/A")))
+    with col4:
+        st.metric("Risk Level", str(overview.get("risk_level", "N/A")).upper())
+
+
+def render_evidence_activation(view: dict[str, Any]) -> None:
+    """Stage B: semantic evidence to group activation links."""
+    st.subheader("② Semantic Evidence → Group Activation")
+    links = view.get("evidence_activation", []) if isinstance(view, dict) else []
+    if not isinstance(links, list) or not links:
+        st.info("No evidence-to-activation links available")
+        return
+
+    rows: list[dict[str, Any]] = []
+    for item in links:
+        if not isinstance(item, dict):
+            continue
+        rows.append(
+            {
+                "Evidence": str(item.get("source", "N/A")),
+                "Evidence Label": str(item.get("source_label", "")),
+                "Activated Group": str(item.get("target", "N/A")),
+                "Influence Weight": float(item.get("weight", 0.0)),
+                "Delta Magnitude": float(item.get("delta_magnitude", 0.0)),
+            }
+        )
+
+    if rows:
+        st.table(rows)
+
+
+def render_evolution_mechanism(data: dict[str, Any], view: dict[str, Any]) -> None:
+    """Stage C: round evolution and mechanism highlights."""
+    st.subheader("③ Group Evolution Mechanism")
+    highlights = view.get("evolution_highlights", []) if isinstance(view, dict) else []
+    if isinstance(highlights, list) and highlights:
+        for item in highlights:
+            if not isinstance(item, dict):
+                continue
+            st.caption(
+                f"{item.get('label', 'Highlight')}: {item.get('value', 'N/A')} "
+                f"(round {item.get('round', 'N/A')}, driver={item.get('driver', 'N/A')})"
+            )
+
+    render_charts(data)
+
+
+def render_report_recommendation(view: dict[str, Any], data: dict[str, Any]) -> None:
+    """Stage D: deterministic summary + expanded analysis + actions."""
+    st.subheader("④ Report & Recommendation")
+    report_block = view.get("report_recommendation", {}) if isinstance(view, dict) else {}
+    if not isinstance(report_block, dict):
+        report_block = {}
+
+    executive_summary = report_block.get("executive_summary", {})
+    if isinstance(executive_summary, dict):
+        st.markdown("**Deterministic Executive Summary**")
+        st.write(str(executive_summary.get("conclusion_line", "N/A")))
+        four_block = executive_summary.get("four_block_summary", {})
+        if isinstance(four_block, dict):
+            st.table(
+                [
+                    {"Slot": "Acceptance Outlook", "Value": str(four_block.get("acceptance_outlook", "N/A"))},
+                    {"Slot": "Polarization", "Value": str(four_block.get("polarization", "N/A"))},
+                    {"Slot": "Main Driver", "Value": str(four_block.get("main_driver", "N/A"))},
+                    {"Slot": "Recommended Action", "Value": str(four_block.get("recommended_action", "N/A"))},
+                ]
+            )
+
+    st.markdown("**AI Expanded Analysis**")
+    st.write(str(report_block.get("expanded_analysis", "N/A")))
+
+    executive_lines: list[str] = []
+    summary = report_block.get("executive_summary", {}) if isinstance(report_block, dict) else {}
+    if isinstance(summary, dict):
+        executive_lines.append("# Executive Report")
+        executive_lines.append(str(summary.get("headline", "")))
+        executive_lines.append(str(summary.get("conclusion_line", "")))
+        blocks = summary.get("four_block_summary", {})
+        if isinstance(blocks, dict):
+            executive_lines.append("")
+            executive_lines.append("## Four-Block Summary")
+            executive_lines.append(f"- Acceptance Outlook: {blocks.get('acceptance_outlook', 'N/A')}")
+            executive_lines.append(f"- Polarization: {blocks.get('polarization', 'N/A')}")
+            executive_lines.append(f"- Main Driver: {blocks.get('main_driver', 'N/A')}")
+            executive_lines.append(f"- Recommended Action: {blocks.get('recommended_action', 'N/A')}")
+
+    expanded = str(report_block.get("expanded_analysis", "")).strip()
+    if expanded:
+        executive_lines.append("")
+        executive_lines.append("## Expanded Analysis")
+        executive_lines.append(expanded)
+
+    export_text = "\n".join(line for line in executive_lines if line)
+    if export_text:
+        st.download_button(
+            label="📤 Export Executive Report",
+            data=export_text,
+            file_name="executive_report.txt",
+            mime="text/plain",
+        )
+
+    render_policy_recommendations(data)
 
 
 def render_raw_data(data: dict[str, Any]) -> None:
@@ -463,38 +620,38 @@ def main():
     except json.JSONDecodeError:
         st.error(f"❌ Invalid JSON in: {json_path}")
         return
+
+    view = build_dashboard_view(data)
     
     # Key metrics
     render_key_metrics(data)
-    
+
     st.markdown("---")
-    
-    # Main content - two columns
-    left_col, right_col = st.columns([2, 1])
-    
-    with left_col:
-        # Alerts section
-        render_alerts_section(data)
-        
-        st.markdown("---")
-        
-        # Charts
-        render_charts(data)
-    
-    with right_col:
-        # Archetype analysis
+
+    render_executive_overview(view)
+
+    st.markdown("---")
+
+    render_evidence_activation(view)
+    render_alerts_section(data)
+
+    st.markdown("---")
+
+    render_evolution_mechanism(data, view)
+
+    st.markdown("---")
+
+    render_report_recommendation(view, data)
+
+    st.markdown("---")
+
+    # Supporting panels
+    col_left, col_right = st.columns(2)
+    with col_left:
         render_archetype_analysis(data)
-        
-        st.markdown("---")
-        
-        # Topic analysis
+    with col_right:
         render_topic_analysis(data)
-    
-    st.markdown("---")
-    
-    # Policy recommendations
-    render_policy_recommendations(data)
-    
+
     # Raw data
     render_raw_data(data)
     

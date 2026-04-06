@@ -37,13 +37,28 @@ def test_runner_outputs_m1_artifact_with_three_rounds(tmp_path: Path) -> None:
     assert len(persisted["trajectories"]) >= 3
 
     first_round = persisted["trajectories"][0]
-    assert set(first_round.keys()) == {
+    assert {
         "round",
         "group_attitudes",
         "overall_satisfaction",
         "topic_distribution",
-    }
+    }.issubset(first_round.keys())
+    assert {
+        "delta_by_group",
+        "overall_delta",
+        "dominant_driver",
+        "dispersion",
+        "activation_reasons",
+    }.issubset(first_round.keys())
     assert len(first_round["group_attitudes"]) == 6
+
+    assert "visualization_payload" in persisted
+    payload = persisted["visualization_payload"]
+    assert payload["schema_version"] == "phase3.v1"
+    assert payload["round_count"] == len(persisted["trajectories"])
+    assert len(payload["rounds"]) == len(persisted["trajectories"])
+    assert "divergence_summary" in payload
+    assert "driver_summary" in payload
     assert "semantic_summary" in persisted
     assert persisted["semantic_summary"]["mapper_version"] == "v2"
     assert "stance_signal" in persisted["semantic_summary"]

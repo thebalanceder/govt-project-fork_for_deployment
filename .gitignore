@@ -4,5 +4,5 @@ __pycache__/
 .venv/
 venv/
 .env
-opinion_sim_system/.env
-opinion_sim_system/artifacts/
+.hive/
+.sisyphus/

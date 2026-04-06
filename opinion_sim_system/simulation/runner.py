@@ -16,6 +16,91 @@ from .network import build_network, neighbor_mean
 from .update_rules import UpdateConfig, update_attitude
 
 
+def _compute_dispersion(group_attitudes: dict[str, float]) -> float:
+    if not group_attitudes:
+        return 0.0
+    values = list(group_attitudes.values())
+    return float(max(values) - min(values))
+
+
+def _safe_component(components: dict[str, Any], key: str) -> float:
+    value = components.get(key, 0.0)
+    if isinstance(value, (int, float)):
+        return float(value)
+    return 0.0
+
+
+def _build_driver_summary(semantic_evidence: dict[str, Any]) -> dict[str, Any]:
+    fusion = semantic_evidence.get("fusion", {}) if isinstance(semantic_evidence, dict) else {}
+    stance_components = fusion.get("stance_components", {}) if isinstance(fusion, dict) else {}
+    experts = semantic_evidence.get("experts", {}) if isinstance(semantic_evidence, dict) else {}
+    frame_score = 0.0
+    if isinstance(experts, dict):
+        frame = experts.get("frame", {})
+        if isinstance(frame, dict):
+            raw = frame.get("score", 0.0)
+            if isinstance(raw, (int, float)):
+                frame_score = abs(float(raw))
+
+    scored = {
+        "acceptance": _safe_component(stance_components, "acceptance_expert"),
+        "sentiment": _safe_component(stance_components, "sentiment_component"),
+        "conflict": _safe_component(stance_components, "conflict_component"),
+        "frame": frame_score,
+    }
+    dominant_driver = max(scored.items(), key=lambda item: item[1])[0] if scored else "acceptance"
+    return {
+        "dominant_driver": dominant_driver,
+        "scores": scored,
+    }
+
+
+def _build_activation_reasons(semantic_evidence: dict[str, Any]) -> list[dict[str, Any]]:
+    experts = semantic_evidence.get("experts", {}) if isinstance(semantic_evidence, dict) else {}
+    if not isinstance(experts, dict):
+        return []
+
+    reasons: list[dict[str, Any]] = []
+    for expert_name in ("acceptance", "conflict", "frame", "sentiment"):
+        expert = experts.get(expert_name, {})
+        if not isinstance(expert, dict):
+            continue
+        score = expert.get("score", 0.0)
+        confidence = expert.get("confidence", 0.0)
+        reasons.append(
+            {
+                "expert": expert_name,
+                "label": str(expert.get("label", "")),
+                "score": float(score) if isinstance(score, (int, float)) else 0.0,
+                "confidence": float(confidence) if isinstance(confidence, (int, float)) else 0.0,
+                "weight": (float(score) if isinstance(score, (int, float)) else 0.0)
+                * (float(confidence) if isinstance(confidence, (int, float)) else 0.0),
+            }
+        )
+    return sorted(reasons, key=lambda item: item["weight"], reverse=True)
+
+
+def _build_divergence_summary(trajectories: list[dict[str, Any]]) -> dict[str, Any]:
+    if not trajectories:
+        return {"final_dispersion": 0.0, "max_dispersion": 0.0, "trend": "stable"}
+
+    dispersions = [float(round_item.get("dispersion", 0.0)) for round_item in trajectories]
+    final_dispersion = dispersions[-1]
+    max_dispersion = max(dispersions)
+    start_dispersion = dispersions[0]
+    if final_dispersion > start_dispersion + 0.05:
+        trend = "widening"
+    elif final_dispersion < start_dispersion - 0.05:
+        trend = "narrowing"
+    else:
+        trend = "stable"
+    return {
+        "final_dispersion": float(final_dispersion),
+        "max_dispersion": float(max_dispersion),
+        "trend": trend,
+    }
+
+
 @dataclass(slots=True)
 class RunnerConfig:
     rounds: int = 3
@@ -76,6 +161,10 @@ def run_phase1_simulation(
     topic_distribution = dict(semantic_state.topic)
     topic_payload = semantic_state.evidence_trace.get("experts", {}).get("topic", {}).get("payload", {})
     topic_words = topic_payload.get("topic_words", {})
+    semantic_evidence = semantic_state.evidence_trace
+
+    driver_summary = _build_driver_summary(semantic_evidence=semantic_evidence)
+    activation_reasons = _build_activation_reasons(semantic_evidence=semantic_evidence)
 
     initial_attitudes = derive_initial_attitudes(sentiment_signal)
     groups = list(initial_attitudes.keys())
@@ -83,6 +172,8 @@ def run_phase1_simulation(
 
     rng = random.Random(runtime.seed)
     current_states = dict(initial_attitudes)
+    previous_states = dict(initial_attitudes)
+    previous_overall = sum(current_states.values()) / len(current_states)
     trajectories: list[dict[str, Any]] = []
 
     for round_index in range(1, runtime.rounds + 1):
@@ -99,14 +190,51 @@ def run_phase1_simulation(
 
         current_states = next_states
         overall = sum(current_states.values()) / len(current_states)
+        delta_by_group = {
+            group: float(current_states[group] - previous_states.get(group, 0.0))
+            for group in groups
+        }
+        overall_delta = float(overall - previous_overall)
+        dispersion = _compute_dispersion(current_states)
         trajectories.append(
             {
                 "round": round_index,
                 "group_attitudes": dict(current_states),
                 "overall_satisfaction": overall,
                 "topic_distribution": topic_distribution,
+                "delta_by_group": delta_by_group,
+                "overall_delta": overall_delta,
+                "dominant_driver": driver_summary["dominant_driver"],
+                "dispersion": dispersion,
+                "activation_reasons": activation_reasons,
             }
         )
+        previous_states = dict(current_states)
+        previous_overall = overall
+
+    visualization_payload: dict[str, Any] = {
+        "schema_version": "phase3.v1",
+        "round_count": len(trajectories),
+        "rounds": [
+            {
+                "round": int(item.get("round", 0)),
+                "overall_satisfaction": float(item.get("overall_satisfaction", 0.0)),
+                "overall_delta": float(item.get("overall_delta", 0.0)),
+                "dispersion": float(item.get("dispersion", 0.0)),
+                "dominant_driver": str(item.get("dominant_driver", "acceptance")),
+                "delta_by_group": dict(item.get("delta_by_group", {})),
+                "activation_reasons": list(item.get("activation_reasons", [])),
+            }
+            for item in trajectories
+        ],
+        "divergence_summary": _build_divergence_summary(trajectories),
+        "driver_summary": driver_summary,
+        "provenance_links": {
+            "semantic_evidence": "semantic_evidence",
+            "stance_components": "semantic_evidence.fusion.stance_components",
+            "trajectory_rounds": "trajectories",
+        },
+    }
 
     output: dict[str, Any] = {
         "input": {
@@ -135,6 +263,7 @@ def run_phase1_simulation(
         },
         "semantic_trace": semantic_state.evidence_trace,
         "semantic_evidence": semantic_state.evidence_trace,
+        "visualization_payload": visualization_payload,
         "coverage_validation": asdict(coverage),
     }
 

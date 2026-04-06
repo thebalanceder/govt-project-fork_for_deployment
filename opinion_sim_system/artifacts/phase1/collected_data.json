@@ -1,0 +1,106 @@
+[
+  {
+    "id": "dataset_0",
+    "source": "PublicDataset",
+    "text": "Government healthcare policy needs reform",
+    "timestamp": "2026-03-29T21:54:37.515240",
+    "url": "",
+    "author": "Public Dataset",
+    "title": "Positive",
+    "score": 0.0,
+    "metadata": {
+      "sentiment_label": "positive"
+    }
+  },
+  {
+    "id": "dataset_1",
+    "source": "PublicDataset",
+    "text": "Public transportation is unreliable",
+    "timestamp": "2026-03-29T21:54:37.515260",
+    "url": "",
+    "author": "Public Dataset",
+    "title": "Negative",
+    "score": 0.0,
+    "metadata": {
+      "sentiment_label": "negative"
+    }
+  },
+  {
+    "id": "dataset_2",
+    "source": "PublicDataset",
+    "text": "New education initiative shows promise",
+    "timestamp": "2026-03-29T21:54:37.515264",
+    "url": "",
+    "author": "Public Dataset",
+    "title": "Positive",
+    "score": 0.0,
+    "metadata": {
+      "sentiment_label": "positive"
+    }
+  },
+  {
+    "id": "dataset_3",
+    "source": "PublicDataset",
+    "text": "Tax burden is too high for working families",
+    "timestamp": "2026-03-29T21:54:37.515267",
+    "url": "",
+    "author": "Public Dataset",
+    "title": "Negative",
+    "score": 0.0,
+    "metadata": {
+      "sentiment_label": "negative"
+    }
+  },
+  {
+    "id": "dataset_4",
+    "source": "PublicDataset",
+    "text": "Infrastructure investment creating jobs",
+    "timestamp": "2026-03-29T21:54:37.515270",
+    "url": "",
+    "author": "Public Dataset",
+    "title": "Positive",
+    "score": 0.0,
+    "metadata": {
+      "sentiment_label": "positive"
+    }
+  },
+  {
+    "id": "dataset_5",
+    "source": "PublicDataset",
+    "text": "Housing costs are unaffordable",
+    "timestamp": "2026-03-29T21:54:37.515273",
+    "url": "",
+    "author": "Public Dataset",
+    "title": "Negative",
+    "score": 0.0,
+    "metadata": {
+      "sentiment_label": "negative"
+    }
+  },
+  {
+    "id": "dataset_6",
+    "source": "PublicDataset",
+    "text": "Economic growth exceeding expectations",
+    "timestamp": "2026-03-29T21:54:37.515283",
+    "url": "",
+    "author": "Public Dataset",
+    "title": "Positive",
+    "score": 0.0,
+    "metadata": {
+      "sentiment_label": "positive"
+    }
+  },
+  {
+    "id": "dataset_7",
+    "source": "PublicDataset",
+    "text": "Unemployment rate concerns persist",
+    "timestamp": "2026-03-29T21:54:37.515287",
+    "url": "",
+    "author": "Public Dataset",
+    "title": "Negative",
+    "score": 0.0,
+    "metadata": {
+      "sentiment_label": "negative"
+    }
+  }
+]

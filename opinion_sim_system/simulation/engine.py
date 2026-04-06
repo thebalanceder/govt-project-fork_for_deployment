@@ -33,7 +33,7 @@ class AttitudeEngine:
         )
         result["engine"] = {
             "name": "semantic_to_group_attitude_engine",
-            "version": "phase2a",
+            "version": "phase3",
         }
         return result
 
