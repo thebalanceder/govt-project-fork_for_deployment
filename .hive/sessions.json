@@ -1,0 +1,62 @@
+{
+  "sessions": [
+    {
+      "sessionId": "ses_2d302c9a9ffeZrPrjpG3bwnv3s",
+      "startedAt": "2026-04-05T02:07:11.798Z",
+      "lastActiveAt": "2026-04-05T02:07:11.798Z",
+      "agent": "Prometheus (Plan Builder)",
+      "sessionKind": "unknown"
+    },
+    {
+      "sessionId": "ses_2a49a75eaffe84ahBxH2om6zec",
+      "startedAt": "2026-04-05T02:07:54.534Z",
+      "lastActiveAt": "2026-04-05T03:30:55.761Z",
+      "agent": "Hephaestus (Deep Agent)",
+      "sessionKind": "unknown"
+    },
+    {
+      "sessionId": "ses_2a49a3416ffeVLVB0SHH8GAMVP",
+      "startedAt": "2026-04-05T02:08:11.246Z",
+      "lastActiveAt": "2026-04-05T02:08:11.246Z",
+      "agent": "Sisyphus-Junior",
+      "sessionKind": "unknown"
+    },
+    {
+      "sessionId": "ses_2a49a3405ffey8eR96vKNPmZ9R",
+      "startedAt": "2026-04-05T02:08:11.265Z",
+      "lastActiveAt": "2026-04-05T02:08:11.265Z",
+      "agent": "Sisyphus-Junior",
+      "sessionKind": "unknown"
+    },
+    {
+      "sessionId": "ses_2a49a33f3ffexrYmuug6bpS4WS",
+      "startedAt": "2026-04-05T02:08:11.279Z",
+      "lastActiveAt": "2026-04-05T02:08:11.279Z",
+      "agent": "Sisyphus-Junior",
+      "sessionKind": "unknown"
+    },
+    {
+      "sessionId": "ses_2a496e992ffeLl50wErUdch8PF",
+      "startedAt": "2026-04-05T02:11:47.139Z",
+      "lastActiveAt": "2026-04-05T02:25:27.172Z",
+      "agent": "hive-master",
+      "sessionKind": "primary",
+      "baseAgent": "hive-master",
+      "directivePrompt": "---\n\n[SYSTEM DIRECTIVE: OH-MY-OPENCODE - PROMETHEUS READ-ONLY]\n\nYou are being invoked by Prometheus (Plan Builder), a planning agent restricted to .sisyphus/*.md plan files only.\n\n**CRITICAL CONSTRAINTS:**\n- DO NOT modify any files (no Write, Edit, or any file mutations)\n- DO NOT execute commands that change system state\n- DO NOT create, delete, or rename files\n- ONLY provide analysis, recommendations, and information\n\n**YOUR ROLE**: Provide consultation, research, and analysis to assist with planning.\nReturn your findings and recommendations. The actual implementation will be handled separately after planning is complete.\n\n---\n\nReview this planning session for the repository opinion_sim_system.\n\nGoal: turn the current semantic evidence -> group evolution -> reporting chain into a stronger evidence-to-decision dashboard.\n\nUser-confirmed scope:\n- opinion_sim_system only\n- keep the 3 existing demo cases\n- produce a formal .sisyphus plan artifact\n\nResearch findings:\n- `simulation/runner.py` currently outputs `input`, `profiles`, `initial_attitudes`, `trajectories`, `semantic_summary`, `semantic_state`, `semantic_trace`, `semantic_evidence`, `coverage_validation`.\n- Each trajectory currently only has `round`, `group_attitudes`, `overall_satisfaction`, `topic_distribution`.\n- `models/semantic_fusion.py` already has `evidence_trace.experts`, `fusion.stance_components`, and aliases (`stance`, `risk`, `value_frame`).\n- `reporting/deepseek_reporter.py` is a deterministic placeholder with fallback text and optional live DeepSeek mode.\n- `demo/run_demo.py` already implements a Phase2B contract with 3 cases and report envelopes.\n- `flask_app.py` exposes `/api/briefing-run` and returns a rich JSON envelope.\n- `visualization/pm_dashboard.py`, `visualization/streamlit_app.py`, and `visualization/briefing_report.py` already consume the Phase 1 trajectory/semantic_summary shape.\n\nNeed you to identify:\n- missed questions or scope creep risks\n- missing acceptance criteria\n- any guardrails or sequencing risks\n- any places where the plan should be more specific to avoid implementation ambiguity\n<!-- OMO_INTERNAL_INITIATOR -->"
+    },
+    {
+      "sessionId": "ses_2a47a3293ffenJoq3MEn7lKT43",
+      "startedAt": "2026-04-05T02:43:09.047Z",
+      "lastActiveAt": "2026-04-05T02:43:09.047Z",
+      "agent": "Sisyphus-Junior",
+      "sessionKind": "unknown"
+    },
+    {
+      "sessionId": "ses_2a478ab34ffer6Owr11NlfDKbw",
+      "startedAt": "2026-04-05T02:44:49.236Z",
+      "lastActiveAt": "2026-04-05T02:44:49.236Z",
+      "agent": "oracle",
+      "sessionKind": "unknown"
+    }
+  ]
+}
