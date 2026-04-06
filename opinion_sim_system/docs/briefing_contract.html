@@ -1,0 +1,128 @@
+<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content=width=device-width,initial-scale=1><title>Briefing Contract</title><style>body{font-family:system-ui,Segoe UI,sans-serif;max-width:880px;margin:2rem auto;padding:0 1rem;line-height:1.6;color:#1a1a1a} code{background:#f4f4f4;padding:.15em .35em;border-radius:4px} pre{background:#f8f8f8;padding:1rem;overflow:auto;border-radius:8px} h1{border-bottom:1px solid #ddd;padding-bottom:.3em} h2{margin-top:1.5em} hr{border:none;border-top:1px solid #e0e0e0}</style></head><body><h1 id="briefing-contract-specification">Briefing Contract Specification</h1>
+<h2 id="purpose">Purpose</h2>
+<p>Define a stable output contract for the case-based briefing pipeline so API, demo, dashboard, and report layers can evolve without contract drift.</p>
+<p>This spec distinguishes <strong>three emitted surfaces</strong>:
+1. Runner artifact (raw simulation output)
+2. Briefing API envelope (<code>/api/briefing-run</code>)
+3. Demo package envelope (<code>demo/run_demo.py</code>)</p>
+<p>They follow one storyline but are not strictly identical at every top-level key.</p>
+<hr />
+<h2 id="canonical-flow">Canonical Flow</h2>
+<p><code>InputCase -&gt; Semantic Evidence -&gt; Group Evolution -&gt; Report</code></p>
+<hr />
+<h2 id="five-layer-output-model">Five-Layer Output Model</h2>
+<p>The five-layer model is a <strong>logical model</strong> shared across surfaces; each surface may project fields differently.</p>
+<h2 id="1-input-layer">1) Input Layer</h2>
+<p>Required fields:
+- <code>text: str</code>
+- <code>target: str</code>
+- <code>domain: "policy" | "product" | "culture"</code></p>
+<p>Used by:
+- <code>simulation/runner.py</code> (raw input uses <code>product_description</code>, <code>n_comments</code>, <code>target</code>, <code>domain</code>)
+- <code>flask_app.py:/api/briefing-run</code>
+- <code>demo/run_demo.py</code></p>
+<h2 id="2-semantic-evidence-layer">2) Semantic Evidence Layer</h2>
+<p>Core object:
+- <code>semantic_evidence</code></p>
+<p>Surface note:
+- Demo envelope currently emits <code>model_evidence</code> naming at case level.</p>
+<p>Expected expert keys:
+- <code>acceptance</code>
+- <code>sentiment</code>
+- <code>emotion</code>
+- <code>topic</code>
+- <code>conflict</code>
+- <code>frame</code></p>
+<p>Plus fusion trace payloads where available.</p>
+<h2 id="3-group-activation-evolution-layer">3) Group Activation &amp; Evolution Layer</h2>
+<p>Core object:
+- <code>simulation_result</code></p>
+<p>Surface note:
+- Runner artifact exposes evolution fields mainly at top-level (<code>initial_attitudes</code>, <code>trajectories</code>, <code>visualization_payload</code>, etc.).
+- API/demo expose normalized <code>simulation_result</code> objects.</p>
+<p>Core fields (API/demo stable subset):
+- <code>initial_attitudes</code>
+- <code>trajectories</code>
+- <code>overall_final</code>
+- <code>dispersion</code>
+- <code>top_groups</code>
+- <code>final_group_attitudes</code>
+- <code>rounds</code>
+- <code>visualization_payload</code></p>
+<p><code>visualization_payload</code> (phase3):
+- <code>schema_version: "phase3.v1"</code>
+- <code>round_count</code>
+- <code>rounds[]</code> with per-round deltas/drivers/reasons
+- <code>divergence_summary</code>
+- <code>driver_summary</code>
+- <code>provenance_links</code></p>
+<p>Clarification:
+- <code>simulation_result.rounds</code> is a count.
+- Detailed per-round entries are under <code>visualization_payload.rounds[]</code>.</p>
+<h2 id="4-executive-view-layer">4) Executive View Layer</h2>
+<p>Top-level view fields (briefing API/dashboard consumers):
+- <code>executive_overview</code>
+- <code>evidence_activation</code>
+- <code>evolution_highlights</code>
+- <code>report_recommendation</code></p>
+<p>These are generated from deterministic report/view builders and should remain additive.</p>
+<p>Surface note:
+- Briefing API emits these fields directly.
+- Dashboard/HTML report commonly derive them from deterministic builders.</p>
+<h2 id="5-reporting-layer">5) Reporting Layer</h2>
+<p>Core objects:
+- <code>report</code>
+- <code>report_text</code></p>
+<p><code>report</code> stable keys:
+- <code>schema_version</code> (<code>phase2b.v1</code> at current report envelope level)
+- <code>status</code>
+- <code>provider</code>
+- <code>mode</code>
+- <code>text</code>
+- <code>executive_summary</code>
+- <code>expanded_analysis</code>
+- <code>decision_trace</code>
+- <code>meta</code>
+- <code>errors</code></p>
+<p><code>report_text</code> should mirror <code>report.text</code>.</p>
+<p>Surface note:
+- API/demo use <code>DeepSeekReporter</code> envelope directly.
+- Deterministic view-model rendering may use fallback expansion text in dashboard/report views.</p>
+<hr />
+<h2 id="versioning-notes">Versioning Notes</h2>
+<ul>
+<li>Report envelope currently uses <code>phase2b.v1</code>.</li>
+<li>Visualization payload uses <code>phase3.v1</code>.</li>
+<li>Keep changes additive unless explicitly version-bumped.</li>
+</ul>
+<hr />
+<h2 id="contract-emitters-key-files">Contract Emitters (Key Files)</h2>
+<ul>
+<li><code>simulation/runner.py</code></li>
+<li><code>simulation/engine.py</code></li>
+<li><code>reporting/deepseek_reporter.py</code></li>
+<li><code>reporting/report_builder.py</code></li>
+<li><code>demo/run_demo.py</code></li>
+<li><code>flask_app.py</code> (<code>/api/briefing-run</code>)</li>
+</ul>
+<h2 id="contract-consumers-key-files">Contract Consumers (Key Files)</h2>
+<ul>
+<li><code>visualization/streamlit_app.py</code></li>
+<li><code>visualization/briefing_report.py</code></li>
+<li><code>visualization/pm_dashboard.py</code></li>
+<li><code>tests/test_runner_e2e.py</code></li>
+<li><code>tests/test_demo_contract.py</code></li>
+<li><code>tests/test_deepseek_reporter.py</code></li>
+<li><code>tests/test_engine_api.py</code></li>
+<li><code>tests/test_flask_briefing_api.py</code></li>
+<li><code>tests/test_view_model.py</code></li>
+<li><code>tests/test_briefing_report.py</code></li>
+</ul>
+<hr />
+<h2 id="backward-compatibility-rules">Backward-Compatibility Rules</h2>
+<ol>
+<li>Do not remove legacy keys used by existing tests and visualization consumers.</li>
+<li>New fields should be additive and documented in this file.</li>
+<li>Keep deterministic summary fields stable (<code>conclusion_line</code>, four-block summary slots).</li>
+<li>Degraded AI mode must preserve envelope shape.</li>
+</ol></body></html>

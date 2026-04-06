@@ -1,7 +1,9 @@
 {
   "input": {
-    "product_description": "A smart home product emphasizing battery life, simple setup, and reliable daily use.",
-    "n_comments": 5
+    "product_description": "The government proposes a new tax reduction policy for small and medium-sized businesses over the next two fiscal years. Under the proposal, eligible businesses with annual revenue below a defined threshold will receive a 15% reduction in corporate tax obligations, along with simplified filing procedures and temporary deductions for equipment upgrades and employee training expenses. The policy is designed to stimulate business activity, improve cash flow, encourage hiring, and support economic recovery in sectors that have faced rising operating costs.\n\nSupporters argue that the tax reduction will help smaller businesses remain competitive, expand investment, and create new jobs, especially in communities where local enterprises are major sources of employment. They also claim that lowering the administrative burden will allow business owners to focus more on innovation and service quality rather than paperwork and compliance.\n\nHowever, critics raise concerns about whether the policy will mainly benefit firms that are already relatively stable, while offering less meaningful relief to the most vulnerable businesses with low profitability. Others argue that reduced tax revenue may place pressure on public services if compensatory measures are not introduced. There are also questions about fairness, as larger firms outside the eligibility threshold may view the measure as uneven treatment, and some citizens worry that the long-term fiscal impact has not been fully explained.\n\nOverall, the proposal presents a trade-off between short-term economic stimulus and longer-term concerns about fiscal sustainability, policy fairness, and implementation efficiency",
+    "n_comments": 5,
+    "target": "public policy",
+    "domain": "policy"
   },
   "profiles": {
     "rational_evaluator": {
@@ -54,65 +56,304 @@
     }
   },
   "initial_attitudes": {
-    "rational_evaluator": 0.7116,
-    "budget_guardian": 0.6963999999999999,
-    "culture_seeker": 0.6936,
-    "emotional_resonator": 0.7,
-    "social_follower": 0.6983999999999999,
-    "risk_averse": 0.7096
+    "rational_evaluator": 1.0,
+    "budget_guardian": 0.9707402844429016,
+    "culture_seeker": 0.9640291194915772,
+    "emotional_resonator": 0.9793689250946045,
+    "social_follower": 0.9755339736938476,
+    "risk_averse": 1.0
   },
   "trajectories": [
     {
       "round": 1,
       "group_attitudes": {
-        "rational_evaluator": 0.7040181934084415,
-        "budget_guardian": 0.6947779279933695,
-        "culture_seeker": 0.6944136827686467,
-        "emotional_resonator": 0.7143276745019773,
-        "social_follower": 0.6968242343243422,
-        "risk_averse": 0.6758129317131808
+        "rational_evaluator": 0.8842812931599138,
+        "budget_guardian": 0.867026989877296,
+        "culture_seeker": 0.8644333806303182,
+        "emotional_resonator": 0.8894430615573743,
+        "social_follower": 0.8706656990813079,
+        "risk_averse": 0.8572160314646532
       },
-      "overall_satisfaction": 0.6966957741183263,
+      "overall_satisfaction": 0.8721777426284772,
       "topic_distribution": {
         "topic_0": 0.8,
         "topic_1": 0.2
-      }
+      },
+      "delta_by_group": {
+        "rational_evaluator": -0.11571870684008623,
+        "budget_guardian": -0.10371329456560563,
+        "culture_seeker": -0.09959573886125905,
+        "emotional_resonator": -0.0899258635372302,
+        "social_follower": -0.10486827461253978,
+        "risk_averse": -0.1427839685353468
+      },
+      "overall_delta": -0.10943430782534458,
+      "dominant_driver": "sentiment",
+      "dispersion": 0.0322270300927211,
+      "activation_reasons": [
+        {
+          "expert": "sentiment",
+          "label": "POSITIVE",
+          "score": 0.958737850189209,
+          "confidence": 0.958737850189209,
+          "weight": 0.9191782653854261
+        },
+        {
+          "expert": "conflict",
+          "label": "HIGH_CONFLICT",
+          "score": 0.9095947742462158,
+          "confidence": 0.9095947742462158,
+          "weight": 0.8273626533360243
+        },
+        {
+          "expert": "frame",
+          "label": "economic",
+          "score": 0.8586759567260742,
+          "confidence": 0.8586759567260742,
+          "weight": 0.7373243986594389
+        },
+        {
+          "expert": "acceptance",
+          "label": "IS CAUTIOUS ABOUT THIS TARGET",
+          "score": 0.5,
+          "confidence": 0.4924966096878052,
+          "weight": 0.2462483048439026
+        }
+      ]
     },
     {
       "round": 2,
       "group_attitudes": {
-        "rational_evaluator": 0.7083419764654647,
-        "budget_guardian": 0.6910819087275759,
-        "culture_seeker": 0.6918818648365234,
-        "emotional_resonator": 0.7098897095414428,
-        "social_follower": 0.7022410076443083,
-        "risk_averse": 0.7088897841497946
+        "rational_evaluator": 0.8081516283254155,
+        "budget_guardian": 0.7863235590030256,
+        "culture_seeker": 0.7858527776192878,
+        "emotional_resonator": 0.8067651651646308,
+        "social_follower": 0.7983903275573903,
+        "risk_averse": 0.8093492360097456
       },
-      "overall_satisfaction": 0.7020543752275183,
+      "overall_satisfaction": 0.799138782279916,
       "topic_distribution": {
         "topic_0": 0.8,
         "topic_1": 0.2
-      }
+      },
+      "delta_by_group": {
+        "rational_evaluator": -0.07612966483449823,
+        "budget_guardian": -0.08070343087427034,
+        "culture_seeker": -0.07858060301103031,
+        "emotional_resonator": -0.08267789639274348,
+        "social_follower": -0.07227537152391761,
+        "risk_averse": -0.047866795454907574
+      },
+      "overall_delta": -0.07303896034856128,
+      "dominant_driver": "sentiment",
+      "dispersion": 0.023496458390457775,
+      "activation_reasons": [
+        {
+          "expert": "sentiment",
+          "label": "POSITIVE",
+          "score": 0.958737850189209,
+          "confidence": 0.958737850189209,
+          "weight": 0.9191782653854261
+        },
+        {
+          "expert": "conflict",
+          "label": "HIGH_CONFLICT",
+          "score": 0.9095947742462158,
+          "confidence": 0.9095947742462158,
+          "weight": 0.8273626533360243
+        },
+        {
+          "expert": "frame",
+          "label": "economic",
+          "score": 0.8586759567260742,
+          "confidence": 0.8586759567260742,
+          "weight": 0.7373243986594389
+        },
+        {
+          "expert": "acceptance",
+          "label": "IS CAUTIOUS ABOUT THIS TARGET",
+          "score": 0.5,
+          "confidence": 0.4924966096878052,
+          "weight": 0.2462483048439026
+        }
+      ]
     },
     {
       "round": 3,
       "group_attitudes": {
-        "rational_evaluator": 0.7182574442622415,
-        "budget_guardian": 0.6974966190645482,
-        "culture_seeker": 0.6809760184508752,
-        "emotional_resonator": 0.6857136746298214,
-        "social_follower": 0.7065740058024331,
-        "risk_averse": 0.7316585810504171
+        "rational_evaluator": 0.7580970697616296,
+        "budget_guardian": 0.7347324836607706,
+        "culture_seeker": 0.717487562676267,
+        "emotional_resonator": 0.7238808082742546,
+        "social_follower": 0.7443272420921059,
+        "risk_averse": 0.7718685925498053
       },
-      "overall_satisfaction": 0.7034460572100562,
+      "overall_satisfaction": 0.7417322931691389,
       "topic_distribution": {
         "topic_0": 0.8,
         "topic_1": 0.2
-      }
+      },
+      "delta_by_group": {
+        "rational_evaluator": -0.050054558563785934,
+        "budget_guardian": -0.051591075342255044,
+        "culture_seeker": -0.06836521494302084,
+        "emotional_resonator": -0.08288435689037621,
+        "social_follower": -0.05406308546528438,
+        "risk_averse": -0.03748064345994029
+      },
+      "overall_delta": -0.05740648911077706,
+      "dominant_driver": "sentiment",
+      "dispersion": 0.05438102987353832,
+      "activation_reasons": [
+        {
+          "expert": "sentiment",
+          "label": "POSITIVE",
+          "score": 0.958737850189209,
+          "confidence": 0.958737850189209,
+          "weight": 0.9191782653854261
+        },
+        {
+          "expert": "conflict",
+          "label": "HIGH_CONFLICT",
+          "score": 0.9095947742462158,
+          "confidence": 0.9095947742462158,
+          "weight": 0.8273626533360243
+        },
+        {
+          "expert": "frame",
+          "label": "economic",
+          "score": 0.8586759567260742,
+          "confidence": 0.8586759567260742,
+          "weight": 0.7373243986594389
+        },
+        {
+          "expert": "acceptance",
+          "label": "IS CAUTIOUS ABOUT THIS TARGET",
+          "score": 0.5,
+          "confidence": 0.4924966096878052,
+          "weight": 0.2462483048439026
+        }
+      ]
+    },
+    {
+      "round": 4,
+      "group_attitudes": {
+        "rational_evaluator": 0.7069332104824261,
+        "budget_guardian": 0.6906557932514531,
+        "culture_seeker": 0.6935881785737191,
+        "emotional_resonator": 0.6575258981963811,
+        "social_follower": 0.6920057250898387,
+        "risk_averse": 0.723757091845489
+      },
+      "overall_satisfaction": 0.6940776495732178,
+      "topic_distribution": {
+        "topic_0": 0.8,
+        "topic_1": 0.2
+      },
+      "delta_by_group": {
+        "rational_evaluator": -0.05116385927920353,
+        "budget_guardian": -0.0440766904093175,
+        "culture_seeker": -0.023899384102547883,
+        "emotional_resonator": -0.06635491007787353,
+        "social_follower": -0.05232151700226717,
+        "risk_averse": -0.04811150070431636
+      },
+      "overall_delta": -0.04765464359592109,
+      "dominant_driver": "sentiment",
+      "dispersion": 0.0662311936491079,
+      "activation_reasons": [
+        {
+          "expert": "sentiment",
+          "label": "POSITIVE",
+          "score": 0.958737850189209,
+          "confidence": 0.958737850189209,
+          "weight": 0.9191782653854261
+        },
+        {
+          "expert": "conflict",
+          "label": "HIGH_CONFLICT",
+          "score": 0.9095947742462158,
+          "confidence": 0.9095947742462158,
+          "weight": 0.8273626533360243
+        },
+        {
+          "expert": "frame",
+          "label": "economic",
+          "score": 0.8586759567260742,
+          "confidence": 0.8586759567260742,
+          "weight": 0.7373243986594389
+        },
+        {
+          "expert": "acceptance",
+          "label": "IS CAUTIOUS ABOUT THIS TARGET",
+          "score": 0.5,
+          "confidence": 0.4924966096878052,
+          "weight": 0.2462483048439026
+        }
+      ]
+    },
+    {
+      "round": 5,
+      "group_attitudes": {
+        "rational_evaluator": 0.6858269252755355,
+        "budget_guardian": 0.6542681162931893,
+        "culture_seeker": 0.6682841665537418,
+        "emotional_resonator": 0.6451609385514693,
+        "social_follower": 0.6754967070682446,
+        "risk_averse": 0.655684005659929
+      },
+      "overall_satisfaction": 0.6641201432336848,
+      "topic_distribution": {
+        "topic_0": 0.8,
+        "topic_1": 0.2
+      },
+      "delta_by_group": {
+        "rational_evaluator": -0.021106285206890618,
+        "budget_guardian": -0.03638767695826384,
+        "culture_seeker": -0.02530401201997734,
+        "emotional_resonator": -0.0123649596449118,
+        "social_follower": -0.016509018021594102,
+        "risk_averse": -0.06807308618555996
+      },
+      "overall_delta": -0.02995750633953298,
+      "dominant_driver": "sentiment",
+      "dispersion": 0.04066598672406618,
+      "activation_reasons": [
+        {
+          "expert": "sentiment",
+          "label": "POSITIVE",
+          "score": 0.958737850189209,
+          "confidence": 0.958737850189209,
+          "weight": 0.9191782653854261
+        },
+        {
+          "expert": "conflict",
+          "label": "HIGH_CONFLICT",
+          "score": 0.9095947742462158,
+          "confidence": 0.9095947742462158,
+          "weight": 0.8273626533360243
+        },
+        {
+          "expert": "frame",
+          "label": "economic",
+          "score": 0.8586759567260742,
+          "confidence": 0.8586759567260742,
+          "weight": 0.7373243986594389
+        },
+        {
+          "expert": "acceptance",
+          "label": "IS CAUTIOUS ABOUT THIS TARGET",
+          "score": 0.5,
+          "confidence": 0.4924966096878052,
+          "weight": 0.2462483048439026
+        }
+      ]
     }
   ],
   "semantic_summary": {
-    "sentiment_signal": 0.4,
+    "mapper_version": "v2",
+    "sentiment_signal": 0.958737850189209,
+    "stance_signal": 0.5618917226791381,
     "topic_distribution": {
       "topic_0": 0.8,
       "topic_1": 0.2
@@ -127,6 +368,1302 @@
       "2": [
         "life"
       ]
+    },
+    "semantic_trace": {
+      "experts": {
+        "sentiment": {
+          "label": "POSITIVE",
+          "score": 0.958737850189209,
+          "confidence": 0.958737850189209,
+          "payload": {
+            "n_samples": 5,
+            "backend": "hf-text-classification",
+            "model": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+            "target": "public policy",
+            "domain": "policy"
+          }
+        },
+        "acceptance": {
+          "label": "IS CAUTIOUS ABOUT THIS TARGET",
+          "score": 0.5,
+          "confidence": 0.4924966096878052,
+          "payload": {
+            "backend": "hf-zero-shot",
+            "model": "facebook/bart-large-mnli",
+            "labels": [
+              "IS CAUTIOUS ABOUT THIS TARGET",
+              "ACCEPTS THIS TARGET",
+              "REJECTS THIS TARGET"
+            ],
+            "scores": [
+              0.4924966096878052,
+              0.3363679051399231,
+              0.1711355298757553
+            ],
+            "target": "public policy",
+            "domain": "policy",
+            "hypothesis_template": "In the policy domain and target 'public policy', this text is {}."
+          }
+        },
+        "emotion": {
+          "label": "confusion",
+          "score": 0.0,
+          "confidence": 0.3957381546497345,
+          "payload": {
+            "backend": "hf-text-classification",
+            "model": "SamLowe/roberta-base-go_emotions",
+            "distribution": {
+              "confusion": 0.3957381546497345
+            },
+            "target": "public policy",
+            "domain": "policy"
+          }
+        },
+        "topic": {
+          "label": "topic_0",
+          "score": 0.8,
+          "confidence": 0.6971428571428572,
+          "payload": {
+            "distribution": {
+              "topic_0": 0.8,
+              "topic_1": 0.2
+            },
+            "topic_words": {
+              "0": [
+                "was"
+              ],
+              "1": [
+                "battery"
+              ],
+              "2": [
+                "life"
+              ]
+            },
+            "backend": "keyword",
+            "target": "public policy",
+            "domain": "policy"
+          }
+        },
+        "conflict": {
+          "label": "HIGH_CONFLICT",
+          "score": 0.9095947742462158,
+          "confidence": 0.9095947742462158,
+          "payload": {
+            "backend": "hf-text-classification",
+            "model": "cardiffnlp/twitter-roberta-base-offensive",
+            "raw_top_label": "NON-OFFENSIVE",
+            "target": "public policy",
+            "domain": "policy"
+          }
+        },
+        "frame": {
+          "label": "economic",
+          "score": 0.8586759567260742,
+          "confidence": 0.8586759567260742,
+          "payload": {
+            "backend": "hf-text-classification",
+            "model": "mattdr/sentence-frame-classifier",
+            "distribution": {
+              "economic": 0.8586759567260742
+            },
+            "target": "public policy",
+            "domain": "policy"
+          }
+        },
+        "stance": {
+          "label": "IS CAUTIOUS ABOUT THIS TARGET",
+          "score": 0.5,
+          "confidence": 0.4924966096878052,
+          "payload": {
+            "backend": "hf-zero-shot",
+            "model": "facebook/bart-large-mnli",
+            "labels": [
+              "IS CAUTIOUS ABOUT THIS TARGET",
+              "ACCEPTS THIS TARGET",
+              "REJECTS THIS TARGET"
+            ],
+            "scores": [
+              0.4924966096878052,
+              0.3363679051399231,
+              0.1711355298757553
+            ],
+            "target": "public policy",
+            "domain": "policy",
+            "hypothesis_template": "In the policy domain and target 'public policy', this text is {}."
+          }
+        },
+        "risk": {
+          "label": "HIGH_CONFLICT",
+          "score": 0.9095947742462158,
+          "confidence": 0.9095947742462158,
+          "payload": {
+            "backend": "hf-text-classification",
+            "model": "cardiffnlp/twitter-roberta-base-offensive",
+            "raw_top_label": "NON-OFFENSIVE",
+            "target": "public policy",
+            "domain": "policy"
+          }
+        },
+        "value_frame": {
+          "label": "economic",
+          "score": 0.8586759567260742,
+          "confidence": 0.8586759567260742,
+          "payload": {
+            "backend": "hf-text-classification",
+            "model": "mattdr/sentence-frame-classifier",
+            "distribution": {
+              "economic": 0.8586759567260742
+            },
+            "target": "public policy",
+            "domain": "policy"
+          }
+        }
+      },
+      "fusion": {
+        "stance_components": {
+          "acceptance_expert": 0.5,
+          "sentiment_component": 0.9793689250946045,
+          "conflict_component": 0.09040522575378418
+        },
+        "weights": {
+          "acceptance_expert": 0.5,
+          "sentiment_component": 0.3,
+          "conflict_component": 0.2
+        }
+      }
+    },
+    "semantic_evidence": {
+      "experts": {
+        "sentiment": {
+          "label": "POSITIVE",
+          "score": 0.958737850189209,
+          "confidence": 0.958737850189209,
+          "payload": {
+            "n_samples": 5,
+            "backend": "hf-text-classification",
+            "model": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+            "target": "public policy",
+            "domain": "policy"
+          }
+        },
+        "acceptance": {
+          "label": "IS CAUTIOUS ABOUT THIS TARGET",
+          "score": 0.5,
+          "confidence": 0.4924966096878052,
+          "payload": {
+            "backend": "hf-zero-shot",
+            "model": "facebook/bart-large-mnli",
+            "labels": [
+              "IS CAUTIOUS ABOUT THIS TARGET",
+              "ACCEPTS THIS TARGET",
+              "REJECTS THIS TARGET"
+            ],
+            "scores": [
+              0.4924966096878052,
+              0.3363679051399231,
+              0.1711355298757553
+            ],
+            "target": "public policy",
+            "domain": "policy",
+            "hypothesis_template": "In the policy domain and target 'public policy', this text is {}."
+          }
+        },
+        "emotion": {
+          "label": "confusion",
+          "score": 0.0,
+          "confidence": 0.3957381546497345,
+          "payload": {
+            "backend": "hf-text-classification",
+            "model": "SamLowe/roberta-base-go_emotions",
+            "distribution": {
+              "confusion": 0.3957381546497345
+            },
+            "target": "public policy",
+            "domain": "policy"
+          }
+        },
+        "topic": {
+          "label": "topic_0",
+          "score": 0.8,
+          "confidence": 0.6971428571428572,
+          "payload": {
+            "distribution": {
+              "topic_0": 0.8,
+              "topic_1": 0.2
+            },
+            "topic_words": {
+              "0": [
+                "was"
+              ],
+              "1": [
+                "battery"
+              ],
+              "2": [
+                "life"
+              ]
+            },
+            "backend": "keyword",
+            "target": "public policy",
+            "domain": "policy"
+          }
+        },
+        "conflict": {
+          "label": "HIGH_CONFLICT",
+          "score": 0.9095947742462158,
+          "confidence": 0.9095947742462158,
+          "payload": {
+            "backend": "hf-text-classification",
+            "model": "cardiffnlp/twitter-roberta-base-offensive",
+            "raw_top_label": "NON-OFFENSIVE",
+            "target": "public policy",
+            "domain": "policy"
+          }
+        },
+        "frame": {
+          "label": "economic",
+          "score": 0.8586759567260742,
+          "confidence": 0.8586759567260742,
+          "payload": {
+            "backend": "hf-text-classification",
+            "model": "mattdr/sentence-frame-classifier",
+            "distribution": {
+              "economic": 0.8586759567260742
+            },
+            "target": "public policy",
+            "domain": "policy"
+          }
+        },
+        "stance": {
+          "label": "IS CAUTIOUS ABOUT THIS TARGET",
+          "score": 0.5,
+          "confidence": 0.4924966096878052,
+          "payload": {
+            "backend": "hf-zero-shot",
+            "model": "facebook/bart-large-mnli",
+            "labels": [
+              "IS CAUTIOUS ABOUT THIS TARGET",
+              "ACCEPTS THIS TARGET",
+              "REJECTS THIS TARGET"
+            ],
+            "scores": [
+              0.4924966096878052,
+              0.3363679051399231,
+              0.1711355298757553
+            ],
+            "target": "public policy",
+            "domain": "policy",
+            "hypothesis_template": "In the policy domain and target 'public policy', this text is {}."
+          }
+        },
+        "risk": {
+          "label": "HIGH_CONFLICT",
+          "score": 0.9095947742462158,
+          "confidence": 0.9095947742462158,
+          "payload": {
+            "backend": "hf-text-classification",
+            "model": "cardiffnlp/twitter-roberta-base-offensive",
+            "raw_top_label": "NON-OFFENSIVE",
+            "target": "public policy",
+            "domain": "policy"
+          }
+        },
+        "value_frame": {
+          "label": "economic",
+          "score": 0.8586759567260742,
+          "confidence": 0.8586759567260742,
+          "payload": {
+            "backend": "hf-text-classification",
+            "model": "mattdr/sentence-frame-classifier",
+            "distribution": {
+              "economic": 0.8586759567260742
+            },
+            "target": "public policy",
+            "domain": "policy"
+          }
+        }
+      },
+      "fusion": {
+        "stance_components": {
+          "acceptance_expert": 0.5,
+          "sentiment_component": 0.9793689250946045,
+          "conflict_component": 0.09040522575378418
+        },
+        "weights": {
+          "acceptance_expert": 0.5,
+          "sentiment_component": 0.3,
+          "conflict_component": 0.2
+        }
+      }
+    }
+  },
+  "semantic_state": {
+    "sentiment": 0.958737850189209,
+    "stance": 0.5618917226791381,
+    "topic": {
+      "topic_0": 0.8,
+      "topic_1": 0.2
+    },
+    "embedding": [
+      -0.02563975772773682,
+      0.11495469687568574,
+      0.054846119252885184,
+      -0.007237365915638633,
+      -0.02502979261337237,
+      0.014353904017557616,
+      0.10350172452976546,
+      0.03671809974464848,
+      -0.06117507353456637,
+      -0.02439484091409761,
+      0.11279031654839576,
+      0.02637421145654588,
+      0.004937649201623517,
+      -0.02512648109830413,
+      0.060866377645835926,
+      -0.030154291830069714,
+      0.07110761378506585,
+      -0.10026792311810771,
+      -0.07664974492114002,
+      -0.048551266754894816,
+      -0.1072611598179155,
+      -0.07346219296741231,
+      0.037898393265339086,
+      0.04188229126712672,
+      0.025461571917025274,
+      -0.012462968280523835,
+      -0.0761192136463244,
+      0.007909343352302322,
+      0.042824599712333634,
+      -0.021446197099930543,
+      -0.05768436093101157,
+      0.1595876495752399,
+      -0.004601339636347227,
+      0.03080063949379403,
+      0.005903985151021505,
+      0.01740667495253406,
+      0.042675540984894865,
+      -0.04039501374916,
+      0.008599285780047258,
+      -0.0031801437707861587,
+      -0.06937305103400813,
+      -0.024330917350588135,
+      0.006117784107537907,
+      -0.03238322145104981,
+      0.006859677317593364,
+      0.00312638783121835,
+      0.041968063092051665,
+      0.031662559265236555,
+      0.062345625654462083,
+      0.008846834178407757,
+      -0.009580157590168779,
+      -0.03726648866836907,
+      -0.04113106416335141,
+      -0.08250540643310236,
+      -0.01830166049838851,
+      0.0653947341962747,
+      -0.0827847758888041,
+      -0.025323566366822623,
+      0.026040190284917466,
+      -0.04536543620793524,
+      -0.010055235464210867,
+      -0.07163113298136621,
+      0.03348126428475284,
+      0.049479690234025056,
+      0.04411393220206529,
+      0.011159564735453696,
+      0.04663714503897839,
+      -0.06194230720483849,
+      -0.04603536887443975,
+      -0.028185595661001834,
+      -0.02231026359693996,
+      0.03500216481278059,
+      -0.0027891378226556347,
+      -0.056332681510218766,
+      -0.11195975201643284,
+      -0.02712500746155907,
+      0.03142257518746665,
+      0.011406010576317974,
+      0.030973388678854297,
+      -0.04495137536223348,
+      0.04104016012417761,
+      0.0006790219783233741,
+      -0.017108527595193122,
+      0.006329085018947143,
+      -0.03520691582648443,
+      -0.04631684711241165,
+      -0.013451796908100066,
+      -0.08723486308536886,
+      -0.00042777074180048785,
+      -0.019900088048196186,
+      0.035052491405733556,
+      0.11431931738048508,
+      -0.014800616072749894,
+      0.007328121425482444,
+      -0.08244666340748079,
+      0.03836024630802879,
+      0.021620408733673612,
+      -0.036122392187738835,
+      -0.0785765777594224,
+      0.05908517051200623,
+      0.07365961064280194,
+      0.07646898808836922,
+      0.04509793761734422,
+      -0.008330992857351867,
+      -0.06972624697843186,
+      -0.08254167188905528,
+      0.03894328764541691,
+      0.03913018712439467,
+      0.003981658364293079,
+      0.06113213957370118,
+      -0.025271143121658617,
+      -0.01848873376946118,
+      -0.01467790485601077,
+      -0.07858598419758005,
+      -0.02852392365238672,
+      0.13126345652724528,
+      -0.014398364596494491,
+      0.03904340447431682,
+      0.026043867442545467,
+      0.06577760887625435,
+      0.054123054371700084,
+      0.05952586778793557,
+      -0.06493165643046911,
+      -0.08990188758327523,
+      -0.06704990022537126,
+      -0.0502731000607096,
+      0.11719732422338598,
+      -1.521695324187001e-33,
+      -0.023743965455147727,
+      0.08503794801288363,
+      -0.025444648341651204,
+      -0.08477863282807196,
+      -0.027716054402044825,
+      -0.020209809398755402,
+      -0.016532001416751162,
+      0.011602632032268245,
+      -0.10467787078914328,
+      0.017812282247979535,
+      -0.040297279680656335,
+      0.003174309153373638,
+      -0.01786936516589995,
+      0.0047606856762201786,
+      0.06535578636549946,
+      -0.0007984930488631937,
+      -0.03724798869646354,
+      0.04000514539218102,
+      0.09176052986892337,
+      0.017012498261998694,
+      0.05190110387951227,
+      -0.10436647435999148,
+      -0.049464769278329226,
+      0.01982100918489911,
+      0.016526666313993327,
+      -0.00857110401567624,
+      0.07621038938309453,
+      0.04969122383810797,
+      0.08511045383896222,
+      0.0398315421094091,
+      0.004686369738630012,
+      0.046915655403394686,
+      -0.027752262294281255,
+      -0.016797126762259727,
+      0.010803900864643341,
+      0.029554764228547248,
+      -0.028208869646707203,
+      -0.0005816846581024393,
+      0.010404285838059375,
+      0.018779508233092535,
+      -0.06568219917872137,
+      0.022030228187231108,
+      -0.0813378717686246,
+      -0.10387355436823842,
+      0.021939555582507684,
+      0.0036508098027447375,
+      0.025860512614553206,
+      0.00276595545133514,
+      -0.057706771460969385,
+      0.026629993943493503,
+      -0.08139562170217805,
+      -0.000771238044600088,
+      -0.034566869895577036,
+      0.07521194923679073,
+      0.057361061709332514,
+      -0.014327762226369403,
+      0.03988106334114397,
+      0.004599940177468957,
+      -0.03867662138920622,
+      0.015441521999290723,
+      0.001608496796414174,
+      -0.12461782831669041,
+      -0.0650396541410809,
+      0.0048679582570097316,
+      -0.13806816065285585,
+      0.05437312452481328,
+      0.0011330892285449823,
+      -0.034178417236420955,
+      0.05213238356841289,
+      -0.026112781591542285,
+      -0.022546894942098855,
+      -0.010194374555658787,
+      0.06646908075307342,
+      0.03010895702184818,
+      -0.06484282963934374,
+      0.030822959746229246,
+      -0.07793121862670668,
+      0.031398694738125114,
+      -0.01761726502675149,
+      0.02862513419190019,
+      -0.030678437385662345,
+      -0.020758325629117464,
+      0.01576471588408691,
+      0.006731506669905432,
+      0.057416697513166734,
+      0.007891832501197588,
+      0.06211891142884742,
+      -0.038559889701817576,
+      -0.03147570649779923,
+      0.045294129861867344,
+      -0.12514876395302277,
+      0.04769895021559978,
+      0.08293417134825662,
+      0.055987753901647945,
+      0.05314958728440598,
+      -1.45282285393561e-33,
+      0.0038329569722747843,
+      0.04210782094430264,
+      -0.055995723645381204,
+      0.03933861344771102,
+      -0.001890249641623811,
+      -0.0025249218580454882,
+      0.0007103818722462541,
+      0.11111345182917988,
+      -0.028003880533901394,
+      0.09684897115787523,
+      -0.10113211130890302,
+      -0.0016203901522665854,
+      -0.035705494048469524,
+      -0.0040922467567033475,
+      0.013992674395928627,
+      0.0484377992329919,
+      0.049403269839307366,
+      -0.07368681146482368,
+      0.10293278300008447,
+      -0.006804813276482866,
+      -0.01831136800579293,
+      0.06532728399010088,
+      -0.07494497532532061,
+      0.042634326936657606,
+      -0.020758827267023983,
+      0.04587672091258784,
+      -0.08631168828478275,
+      -0.07384829872553655,
+      -0.004765045862338827,
+      0.01811584576518321,
+      0.008459136610516515,
+      -0.03740226295612608,
+      -0.09749190832867465,
+      0.058692158562722314,
+      0.0037960947252773936,
+      -0.015015363651004246,
+      0.0076131783651082075,
+      -0.03446665649803797,
+      0.015389981083223937,
+      0.007866804080362182,
+      0.05855514515109043,
+      0.036816551472273466,
+      0.007359214148463948,
+      -0.0032579314610487148,
+      0.013392396028283952,
+      0.030400170605415267,
+      0.054188505732865606,
+      -0.12872165324430665,
+      -0.07217848937558176,
+      0.07091058324926142,
+      0.04691238543828589,
+      -0.025610772745059292,
+      0.06212110577030276,
+      -0.032829892299428634,
+      -0.039785956914748566,
+      -0.005126101800001475,
+      0.043235172337873926,
+      -0.05132640818007174,
+      0.01004263644167807,
+      -0.05019705493109458,
+      0.013316851828824845,
+      0.010170347051467717,
+      -0.009944856526662493,
+      0.07322705415033727,
+      0.06535661301821515,
+      -0.02440638920220683,
+      0.06388631632478317,
+      -0.012797776834538796,
+      0.08411356146460953,
+      -0.028489582609669325,
+      -0.005791062439812487,
+      -0.05141926034212659,
+      0.016729540982524077,
+      0.07546519026992694,
+      -0.0931846258605786,
+      0.04415616564710177,
+      0.02761476742546518,
+      0.008171155402636798,
+      -0.010583319534004995,
+      0.059199204863511004,
+      -0.0062289217930626235,
+      -0.0012541073485405035,
+      0.02387840677326459,
+      -0.055091035448077925,
+      -0.05620408825677607,
+      -0.07254171469666076,
+      -0.01091719805456546,
+      0.022458003352472927,
+      -0.02387808942575373,
+      0.09725677344354745,
+      -0.04122177860399994,
+      0.028220631518223557,
+      -0.03206339822854683,
+      0.0485270289701328,
+      0.004484127877786011,
+      -5.60228322429902e-08,
+      0.0044683440168153355,
+      -0.05721382441741513,
+      -0.030898625206960004,
+      0.009564318131455524,
+      -0.018426855762500454,
+      -0.0779170730511266,
+      -0.004152514866936946,
+      0.07546241808941577,
+      0.060269839661540654,
+      0.03501273359370151,
+      0.08613933119356194,
+      -0.037652043285363354,
+      -0.1483701106279275,
+      0.09328438000660895,
+      -0.0055046106023679585,
+      0.04110146927658335,
+      -0.014084329673058369,
+      0.08413194410719126,
+      -0.03383895452420644,
+      0.023386421169598264,
+      0.08296237002000338,
+      0.015289840033525282,
+      -0.006860092374008262,
+      -0.04116011229311138,
+      -0.015749168883654633,
+      0.03707254015056627,
+      -0.024841704899754756,
+      0.04959065672254045,
+      0.012607706043023751,
+      -0.07459451074778942,
+      -0.04795890151093438,
+      0.0455310080153927,
+      0.0013957892699815837,
+      -0.0216080963108195,
+      -0.07806572993349525,
+      -0.05166996636984586,
+      0.0033856927143266517,
+      -0.012626492929163787,
+      0.07095040727529522,
+      0.03140685498473164,
+      0.04554964607730666,
+      -0.007470763508928411,
+      -0.0435984352016825,
+      -0.033145709378227126,
+      0.046807290291575925,
+      -0.10751448554520836,
+      -0.003161943963779396,
+      -0.06485843381029772,
+      -0.04122165887618795,
+      -0.008696180692241075,
+      -0.008824416452985376,
+      0.05206418817948279,
+      0.023429302678279144,
+      -0.032080015741100365,
+      0.008764187190396523,
+      0.020908898942867512,
+      0.028119108152939252,
+      0.016860787514375003,
+      -0.003186472712682204,
+      0.012115552535354422,
+      0.015318578797628532,
+      -0.007870392847802546,
+      -0.1051652259737452,
+      0.01570380273780875
+    ]
+  },
+  "semantic_trace": {
+    "experts": {
+      "sentiment": {
+        "label": "POSITIVE",
+        "score": 0.958737850189209,
+        "confidence": 0.958737850189209,
+        "payload": {
+          "n_samples": 5,
+          "backend": "hf-text-classification",
+          "model": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+          "target": "public policy",
+          "domain": "policy"
+        }
+      },
+      "acceptance": {
+        "label": "IS CAUTIOUS ABOUT THIS TARGET",
+        "score": 0.5,
+        "confidence": 0.4924966096878052,
+        "payload": {
+          "backend": "hf-zero-shot",
+          "model": "facebook/bart-large-mnli",
+          "labels": [
+            "IS CAUTIOUS ABOUT THIS TARGET",
+            "ACCEPTS THIS TARGET",
+            "REJECTS THIS TARGET"
+          ],
+          "scores": [
+            0.4924966096878052,
+            0.3363679051399231,
+            0.1711355298757553
+          ],
+          "target": "public policy",
+          "domain": "policy",
+          "hypothesis_template": "In the policy domain and target 'public policy', this text is {}."
+        }
+      },
+      "emotion": {
+        "label": "confusion",
+        "score": 0.0,
+        "confidence": 0.3957381546497345,
+        "payload": {
+          "backend": "hf-text-classification",
+          "model": "SamLowe/roberta-base-go_emotions",
+          "distribution": {
+            "confusion": 0.3957381546497345
+          },
+          "target": "public policy",
+          "domain": "policy"
+        }
+      },
+      "topic": {
+        "label": "topic_0",
+        "score": 0.8,
+        "confidence": 0.6971428571428572,
+        "payload": {
+          "distribution": {
+            "topic_0": 0.8,
+            "topic_1": 0.2
+          },
+          "topic_words": {
+            "0": [
+              "was"
+            ],
+            "1": [
+              "battery"
+            ],
+            "2": [
+              "life"
+            ]
+          },
+          "backend": "keyword",
+          "target": "public policy",
+          "domain": "policy"
+        }
+      },
+      "conflict": {
+        "label": "HIGH_CONFLICT",
+        "score": 0.9095947742462158,
+        "confidence": 0.9095947742462158,
+        "payload": {
+          "backend": "hf-text-classification",
+          "model": "cardiffnlp/twitter-roberta-base-offensive",
+          "raw_top_label": "NON-OFFENSIVE",
+          "target": "public policy",
+          "domain": "policy"
+        }
+      },
+      "frame": {
+        "label": "economic",
+        "score": 0.8586759567260742,
+        "confidence": 0.8586759567260742,
+        "payload": {
+          "backend": "hf-text-classification",
+          "model": "mattdr/sentence-frame-classifier",
+          "distribution": {
+            "economic": 0.8586759567260742
+          },
+          "target": "public policy",
+          "domain": "policy"
+        }
+      },
+      "stance": {
+        "label": "IS CAUTIOUS ABOUT THIS TARGET",
+        "score": 0.5,
+        "confidence": 0.4924966096878052,
+        "payload": {
+          "backend": "hf-zero-shot",
+          "model": "facebook/bart-large-mnli",
+          "labels": [
+            "IS CAUTIOUS ABOUT THIS TARGET",
+            "ACCEPTS THIS TARGET",
+            "REJECTS THIS TARGET"
+          ],
+          "scores": [
+            0.4924966096878052,
+            0.3363679051399231,
+            0.1711355298757553
+          ],
+          "target": "public policy",
+          "domain": "policy",
+          "hypothesis_template": "In the policy domain and target 'public policy', this text is {}."
+        }
+      },
+      "risk": {
+        "label": "HIGH_CONFLICT",
+        "score": 0.9095947742462158,
+        "confidence": 0.9095947742462158,
+        "payload": {
+          "backend": "hf-text-classification",
+          "model": "cardiffnlp/twitter-roberta-base-offensive",
+          "raw_top_label": "NON-OFFENSIVE",
+          "target": "public policy",
+          "domain": "policy"
+        }
+      },
+      "value_frame": {
+        "label": "economic",
+        "score": 0.8586759567260742,
+        "confidence": 0.8586759567260742,
+        "payload": {
+          "backend": "hf-text-classification",
+          "model": "mattdr/sentence-frame-classifier",
+          "distribution": {
+            "economic": 0.8586759567260742
+          },
+          "target": "public policy",
+          "domain": "policy"
+        }
+      }
+    },
+    "fusion": {
+      "stance_components": {
+        "acceptance_expert": 0.5,
+        "sentiment_component": 0.9793689250946045,
+        "conflict_component": 0.09040522575378418
+      },
+      "weights": {
+        "acceptance_expert": 0.5,
+        "sentiment_component": 0.3,
+        "conflict_component": 0.2
+      }
+    }
+  },
+  "semantic_evidence": {
+    "experts": {
+      "sentiment": {
+        "label": "POSITIVE",
+        "score": 0.958737850189209,
+        "confidence": 0.958737850189209,
+        "payload": {
+          "n_samples": 5,
+          "backend": "hf-text-classification",
+          "model": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+          "target": "public policy",
+          "domain": "policy"
+        }
+      },
+      "acceptance": {
+        "label": "IS CAUTIOUS ABOUT THIS TARGET",
+        "score": 0.5,
+        "confidence": 0.4924966096878052,
+        "payload": {
+          "backend": "hf-zero-shot",
+          "model": "facebook/bart-large-mnli",
+          "labels": [
+            "IS CAUTIOUS ABOUT THIS TARGET",
+            "ACCEPTS THIS TARGET",
+            "REJECTS THIS TARGET"
+          ],
+          "scores": [
+            0.4924966096878052,
+            0.3363679051399231,
+            0.1711355298757553
+          ],
+          "target": "public policy",
+          "domain": "policy",
+          "hypothesis_template": "In the policy domain and target 'public policy', this text is {}."
+        }
+      },
+      "emotion": {
+        "label": "confusion",
+        "score": 0.0,
+        "confidence": 0.3957381546497345,
+        "payload": {
+          "backend": "hf-text-classification",
+          "model": "SamLowe/roberta-base-go_emotions",
+          "distribution": {
+            "confusion": 0.3957381546497345
+          },
+          "target": "public policy",
+          "domain": "policy"
+        }
+      },
+      "topic": {
+        "label": "topic_0",
+        "score": 0.8,
+        "confidence": 0.6971428571428572,
+        "payload": {
+          "distribution": {
+            "topic_0": 0.8,
+            "topic_1": 0.2
+          },
+          "topic_words": {
+            "0": [
+              "was"
+            ],
+            "1": [
+              "battery"
+            ],
+            "2": [
+              "life"
+            ]
+          },
+          "backend": "keyword",
+          "target": "public policy",
+          "domain": "policy"
+        }
+      },
+      "conflict": {
+        "label": "HIGH_CONFLICT",
+        "score": 0.9095947742462158,
+        "confidence": 0.9095947742462158,
+        "payload": {
+          "backend": "hf-text-classification",
+          "model": "cardiffnlp/twitter-roberta-base-offensive",
+          "raw_top_label": "NON-OFFENSIVE",
+          "target": "public policy",
+          "domain": "policy"
+        }
+      },
+      "frame": {
+        "label": "economic",
+        "score": 0.8586759567260742,
+        "confidence": 0.8586759567260742,
+        "payload": {
+          "backend": "hf-text-classification",
+          "model": "mattdr/sentence-frame-classifier",
+          "distribution": {
+            "economic": 0.8586759567260742
+          },
+          "target": "public policy",
+          "domain": "policy"
+        }
+      },
+      "stance": {
+        "label": "IS CAUTIOUS ABOUT THIS TARGET",
+        "score": 0.5,
+        "confidence": 0.4924966096878052,
+        "payload": {
+          "backend": "hf-zero-shot",
+          "model": "facebook/bart-large-mnli",
+          "labels": [
+            "IS CAUTIOUS ABOUT THIS TARGET",
+            "ACCEPTS THIS TARGET",
+            "REJECTS THIS TARGET"
+          ],
+          "scores": [
+            0.4924966096878052,
+            0.3363679051399231,
+            0.1711355298757553
+          ],
+          "target": "public policy",
+          "domain": "policy",
+          "hypothesis_template": "In the policy domain and target 'public policy', this text is {}."
+        }
+      },
+      "risk": {
+        "label": "HIGH_CONFLICT",
+        "score": 0.9095947742462158,
+        "confidence": 0.9095947742462158,
+        "payload": {
+          "backend": "hf-text-classification",
+          "model": "cardiffnlp/twitter-roberta-base-offensive",
+          "raw_top_label": "NON-OFFENSIVE",
+          "target": "public policy",
+          "domain": "policy"
+        }
+      },
+      "value_frame": {
+        "label": "economic",
+        "score": 0.8586759567260742,
+        "confidence": 0.8586759567260742,
+        "payload": {
+          "backend": "hf-text-classification",
+          "model": "mattdr/sentence-frame-classifier",
+          "distribution": {
+            "economic": 0.8586759567260742
+          },
+          "target": "public policy",
+          "domain": "policy"
+        }
+      }
+    },
+    "fusion": {
+      "stance_components": {
+        "acceptance_expert": 0.5,
+        "sentiment_component": 0.9793689250946045,
+        "conflict_component": 0.09040522575378418
+      },
+      "weights": {
+        "acceptance_expert": 0.5,
+        "sentiment_component": 0.3,
+        "conflict_component": 0.2
+      }
+    }
+  },
+  "visualization_payload": {
+    "schema_version": "phase3.v1",
+    "round_count": 5,
+    "rounds": [
+      {
+        "round": 1,
+        "overall_satisfaction": 0.8721777426284772,
+        "overall_delta": -0.10943430782534458,
+        "dispersion": 0.0322270300927211,
+        "dominant_driver": "sentiment",
+        "delta_by_group": {
+          "rational_evaluator": -0.11571870684008623,
+          "budget_guardian": -0.10371329456560563,
+          "culture_seeker": -0.09959573886125905,
+          "emotional_resonator": -0.0899258635372302,
+          "social_follower": -0.10486827461253978,
+          "risk_averse": -0.1427839685353468
+        },
+        "activation_reasons": [
+          {
+            "expert": "sentiment",
+            "label": "POSITIVE",
+            "score": 0.958737850189209,
+            "confidence": 0.958737850189209,
+            "weight": 0.9191782653854261
+          },
+          {
+            "expert": "conflict",
+            "label": "HIGH_CONFLICT",
+            "score": 0.9095947742462158,
+            "confidence": 0.9095947742462158,
+            "weight": 0.8273626533360243
+          },
+          {
+            "expert": "frame",
+            "label": "economic",
+            "score": 0.8586759567260742,
+            "confidence": 0.8586759567260742,
+            "weight": 0.7373243986594389
+          },
+          {
+            "expert": "acceptance",
+            "label": "IS CAUTIOUS ABOUT THIS TARGET",
+            "score": 0.5,
+            "confidence": 0.4924966096878052,
+            "weight": 0.2462483048439026
+          }
+        ]
+      },
+      {
+        "round": 2,
+        "overall_satisfaction": 0.799138782279916,
+        "overall_delta": -0.07303896034856128,
+        "dispersion": 0.023496458390457775,
+        "dominant_driver": "sentiment",
+        "delta_by_group": {
+          "rational_evaluator": -0.07612966483449823,
+          "budget_guardian": -0.08070343087427034,
+          "culture_seeker": -0.07858060301103031,
+          "emotional_resonator": -0.08267789639274348,
+          "social_follower": -0.07227537152391761,
+          "risk_averse": -0.047866795454907574
+        },
+        "activation_reasons": [
+          {
+            "expert": "sentiment",
+            "label": "POSITIVE",
+            "score": 0.958737850189209,
+            "confidence": 0.958737850189209,
+            "weight": 0.9191782653854261
+          },
+          {
+            "expert": "conflict",
+            "label": "HIGH_CONFLICT",
+            "score": 0.9095947742462158,
+            "confidence": 0.9095947742462158,
+            "weight": 0.8273626533360243
+          },
+          {
+            "expert": "frame",
+            "label": "economic",
+            "score": 0.8586759567260742,
+            "confidence": 0.8586759567260742,
+            "weight": 0.7373243986594389
+          },
+          {
+            "expert": "acceptance",
+            "label": "IS CAUTIOUS ABOUT THIS TARGET",
+            "score": 0.5,
+            "confidence": 0.4924966096878052,
+            "weight": 0.2462483048439026
+          }
+        ]
+      },
+      {
+        "round": 3,
+        "overall_satisfaction": 0.7417322931691389,
+        "overall_delta": -0.05740648911077706,
+        "dispersion": 0.05438102987353832,
+        "dominant_driver": "sentiment",
+        "delta_by_group": {
+          "rational_evaluator": -0.050054558563785934,
+          "budget_guardian": -0.051591075342255044,
+          "culture_seeker": -0.06836521494302084,
+          "emotional_resonator": -0.08288435689037621,
+          "social_follower": -0.05406308546528438,
+          "risk_averse": -0.03748064345994029
+        },
+        "activation_reasons": [
+          {
+            "expert": "sentiment",
+            "label": "POSITIVE",
+            "score": 0.958737850189209,
+            "confidence": 0.958737850189209,
+            "weight": 0.9191782653854261
+          },
+          {
+            "expert": "conflict",
+            "label": "HIGH_CONFLICT",
+            "score": 0.9095947742462158,
+            "confidence": 0.9095947742462158,
+            "weight": 0.8273626533360243
+          },
+          {
+            "expert": "frame",
+            "label": "economic",
+            "score": 0.8586759567260742,
+            "confidence": 0.8586759567260742,
+            "weight": 0.7373243986594389
+          },
+          {
+            "expert": "acceptance",
+            "label": "IS CAUTIOUS ABOUT THIS TARGET",
+            "score": 0.5,
+            "confidence": 0.4924966096878052,
+            "weight": 0.2462483048439026
+          }
+        ]
+      },
+      {
+        "round": 4,
+        "overall_satisfaction": 0.6940776495732178,
+        "overall_delta": -0.04765464359592109,
+        "dispersion": 0.0662311936491079,
+        "dominant_driver": "sentiment",
+        "delta_by_group": {
+          "rational_evaluator": -0.05116385927920353,
+          "budget_guardian": -0.0440766904093175,
+          "culture_seeker": -0.023899384102547883,
+          "emotional_resonator": -0.06635491007787353,
+          "social_follower": -0.05232151700226717,
+          "risk_averse": -0.04811150070431636
+        },
+        "activation_reasons": [
+          {
+            "expert": "sentiment",
+            "label": "POSITIVE",
+            "score": 0.958737850189209,
+            "confidence": 0.958737850189209,
+            "weight": 0.9191782653854261
+          },
+          {
+            "expert": "conflict",
+            "label": "HIGH_CONFLICT",
+            "score": 0.9095947742462158,
+            "confidence": 0.9095947742462158,
+            "weight": 0.8273626533360243
+          },
+          {
+            "expert": "frame",
+            "label": "economic",
+            "score": 0.8586759567260742,
+            "confidence": 0.8586759567260742,
+            "weight": 0.7373243986594389
+          },
+          {
+            "expert": "acceptance",
+            "label": "IS CAUTIOUS ABOUT THIS TARGET",
+            "score": 0.5,
+            "confidence": 0.4924966096878052,
+            "weight": 0.2462483048439026
+          }
+        ]
+      },
+      {
+        "round": 5,
+        "overall_satisfaction": 0.6641201432336848,
+        "overall_delta": -0.02995750633953298,
+        "dispersion": 0.04066598672406618,
+        "dominant_driver": "sentiment",
+        "delta_by_group": {
+          "rational_evaluator": -0.021106285206890618,
+          "budget_guardian": -0.03638767695826384,
+          "culture_seeker": -0.02530401201997734,
+          "emotional_resonator": -0.0123649596449118,
+          "social_follower": -0.016509018021594102,
+          "risk_averse": -0.06807308618555996
+        },
+        "activation_reasons": [
+          {
+            "expert": "sentiment",
+            "label": "POSITIVE",
+            "score": 0.958737850189209,
+            "confidence": 0.958737850189209,
+            "weight": 0.9191782653854261
+          },
+          {
+            "expert": "conflict",
+            "label": "HIGH_CONFLICT",
+            "score": 0.9095947742462158,
+            "confidence": 0.9095947742462158,
+            "weight": 0.8273626533360243
+          },
+          {
+            "expert": "frame",
+            "label": "economic",
+            "score": 0.8586759567260742,
+            "confidence": 0.8586759567260742,
+            "weight": 0.7373243986594389
+          },
+          {
+            "expert": "acceptance",
+            "label": "IS CAUTIOUS ABOUT THIS TARGET",
+            "score": 0.5,
+            "confidence": 0.4924966096878052,
+            "weight": 0.2462483048439026
+          }
+        ]
+      }
+    ],
+    "divergence_summary": {
+      "final_dispersion": 0.04066598672406618,
+      "max_dispersion": 0.0662311936491079,
+      "trend": "stable"
+    },
+    "driver_summary": {
+      "dominant_driver": "sentiment",
+      "scores": {
+        "acceptance": 0.5,
+        "sentiment": 0.9793689250946045,
+        "conflict": 0.09040522575378418,
+        "frame": 0.8586759567260742
+      }
+    },
+    "provenance_links": {
+      "semantic_evidence": "semantic_evidence",
+      "stance_components": "semantic_evidence.fusion.stance_components",
+      "trajectory_rounds": "trajectories"
     }
   },
   "coverage_validation": {

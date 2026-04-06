@@ -74,12 +74,18 @@
             <h2>Stage 3 · Group Pre-Activation</h2>
             <p class="stage-desc">Groups appear as soon as core evidence is available (acceptance/conflict/frame).</p>
             <div id="group-activation" class="group-activation"></div>
+            <div class="evidence-links-panel">
+                <h3>Evidence → Activation Links</h3>
+                <p>Structured links that explain which semantic signals drove which groups.</p>
+                <div id="evidence-links" class="evidence-links"></div>
+            </div>
         </section>
 
         <section class="stage" id="stage-simulation">
             <h2>Stage 4 · MiroFish-style Evolution</h2>
             <p class="stage-desc">Node network, round progression, overall acceptance trend, and divergence are visualized in one panel.</p>
             <div class="simulation-layout">
+                <div id="executive-overview-cards" class="executive-overview-cards"></div>
                 <div class="simulation-summary" id="simulation-summary"></div>
                 <div class="simulation-visuals">
                     <div class="chart-box">
@@ -91,6 +97,7 @@
                         <svg id="simulation-network"></svg>
                     </div>
                 </div>
+                <div id="evolution-highlights" class="evolution-highlights"></div>
                 <div id="round-timeline" class="round-timeline"></div>
             </div>
         </section>
@@ -101,7 +108,11 @@
             <div id="report-panel" class="report-panel">
                 <div class="report-meta" id="report-meta"></div>
                 <div id="report-convergence" class="report-convergence"></div>
+                <div id="report-structured" class="report-structured"></div>
                 <pre id="report-text" class="report-text">Report pending.</pre>
+                <button id="export-report-btn" type="button" class="btn-secondary" disabled>
+                    <i class="fas fa-download"></i> Export Executive Report
+                </button>
             </div>
         </section>
     </main>

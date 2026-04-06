@@ -182,6 +182,190 @@ function renderActivation(groups) {
   });
 }
 
+function renderEvidenceLinks(links) {
+  const container = document.getElementById("evidence-links");
+  if (!container) return;
+
+  const data = Array.isArray(links) ? links : [];
+  if (!data.length) {
+    container.innerHTML = '<div class="empty-hint">No evidence links available.</div>';
+    return;
+  }
+
+  const rows = data.slice(0, 12).map((item) => {
+    const source = String(item?.source ?? "N/A");
+    const label = String(item?.source_label ?? "");
+    const target = String(item?.target ?? "N/A");
+    const weight = safeNumber(item?.weight, 0);
+    const delta = safeNumber(item?.delta_magnitude, 0);
+    return `
+      <tr>
+        <td>${source}</td>
+        <td>${label}</td>
+        <td>${target}</td>
+        <td>${weight.toFixed(4)}</td>
+        <td>${delta.toFixed(3)}</td>
+      </tr>
+    `;
+  }).join("");
+
+  container.innerHTML = `
+    <table class="links-table">
+      <thead>
+        <tr>
+          <th>Signal</th>
+          <th>Label</th>
+          <th>Group</th>
+          <th>Weight</th>
+          <th>Δ Magnitude</th>
+        </tr>
+      </thead>
+      <tbody>${rows}</tbody>
+    </table>
+  `;
+}
+
+function renderExecutiveOverview(overview, simulationResult) {
+  const container = document.getElementById("executive-overview-cards");
+  if (!container) return;
+
+  const data = overview ?? {};
+  const overall = safeNumber(data?.overall_acceptance, safeNumber(simulationResult?.overall_final, 0));
+  const polarization = String(data?.polarization ?? "unknown");
+  const mainDriver = String(data?.main_driver ?? "N/A");
+  const riskLevel = String(data?.risk_level ?? "unknown").toUpperCase();
+
+  container.innerHTML = `
+    <article class="overview-card">
+      <span class="overview-label">Overall Acceptance</span>
+      <strong>${overall.toFixed(2)}</strong>
+    </article>
+    <article class="overview-card">
+      <span class="overview-label">Polarization</span>
+      <strong>${polarization}</strong>
+    </article>
+    <article class="overview-card">
+      <span class="overview-label">Main Driver</span>
+      <strong>${mainDriver}</strong>
+    </article>
+    <article class="overview-card">
+      <span class="overview-label">Risk Level</span>
+      <strong>${riskLevel}</strong>
+    </article>
+  `;
+}
+
+function deriveHighlightsFromTrajectories(trajectories) {
+  const rounds = Array.isArray(trajectories) ? trajectories : [];
+  if (!rounds.length) return [];
+
+  const series = rounds.map((item, index) => ({
+    round: safeNumber(item?.round, index + 1),
+    overall: safeNumber(item?.overall_satisfaction, 0),
+    delta: safeNumber(item?.overall_delta, 0),
+    driver: String(item?.dominant_driver ?? "N/A"),
+  }));
+
+  const biggestRise = [...series].sort((a, b) => b.delta - a.delta)[0];
+  const biggestDrop = [...series].sort((a, b) => a.delta - b.delta)[0];
+  const trend = series.length >= 2
+    ? (series[series.length - 1].overall - series[series.length - 2].overall > 0.02 ? "rising"
+      : series[series.length - 1].overall - series[series.length - 2].overall < -0.02 ? "falling"
+        : "stable")
+    : "stable";
+
+  return [
+    { label: "Current momentum", value: trend, round: series[series.length - 1].round, driver: series[series.length - 1].driver },
+    { label: "Largest round gain", value: biggestRise.delta.toFixed(3), round: biggestRise.round, driver: biggestRise.driver },
+    { label: "Largest round drop", value: biggestDrop.delta.toFixed(3), round: biggestDrop.round, driver: biggestDrop.driver },
+  ];
+}
+
+function renderEvolutionHighlights(highlights, trajectories) {
+  const container = document.getElementById("evolution-highlights");
+  if (!container) return;
+
+  let data = Array.isArray(highlights) ? highlights : [];
+  if (!data.length) data = deriveHighlightsFromTrajectories(trajectories);
+
+  if (!data.length) {
+    container.innerHTML = '<div class="empty-hint">No evolution highlights available.</div>';
+    return;
+  }
+
+  container.innerHTML = data.slice(0, 4).map((item) => `
+    <article class="highlight-card">
+      <span class="highlight-label">${String(item?.label ?? "Highlight")}</span>
+      <strong>${String(item?.value ?? "N/A")}</strong>
+      <small>Round ${safeNumber(item?.round, 0)} · Driver: ${String(item?.driver ?? "N/A")}</small>
+    </article>
+  `).join("");
+}
+
+function buildExportText(reportRecommendation, report, reportText, conclusionLine) {
+  const summary = reportRecommendation?.executive_summary ?? {};
+  const blocks = summary?.four_block_summary ?? {};
+  const expanded = String(reportRecommendation?.expanded_analysis ?? report?.expanded_analysis ?? reportText ?? "").trim();
+
+  const lines = [
+    "# Executive Report",
+    String(summary?.headline ?? ""),
+    String(summary?.conclusion_line ?? conclusionLine ?? ""),
+    "",
+    "## Four-Block Summary",
+    `- Acceptance Outlook: ${String(blocks?.acceptance_outlook ?? "N/A")}`,
+    `- Polarization: ${String(blocks?.polarization ?? "N/A")}`,
+    `- Main Driver: ${String(blocks?.main_driver ?? "N/A")}`,
+    `- Recommended Action: ${String(blocks?.recommended_action ?? "N/A")}`,
+  ];
+
+  if (expanded) {
+    lines.push("", "## Expanded Analysis", expanded);
+  }
+  return lines.filter((line) => line !== "").join("\n");
+}
+
+function wireExportButton(exportText) {
+  const button = document.getElementById("export-report-btn");
+  if (!button) return;
+  button.disabled = !exportText;
+
+  button.onclick = null;
+  if (!exportText) return;
+
+  button.onclick = () => {
+    const blob = new Blob([exportText], { type: "text/plain;charset=utf-8" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "executive_report.txt";
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    URL.revokeObjectURL(link.href);
+  };
+}
+
+function renderStructuredReport(reportRecommendation, report, reportText, conclusionLine) {
+  const container = document.getElementById("report-structured");
+  if (!container) return;
+
+  const summary = reportRecommendation?.executive_summary ?? {};
+  const blocks = summary?.four_block_summary ?? {};
+  const action = String(reportRecommendation?.recommended_action ?? blocks?.recommended_action ?? "N/A");
+
+  container.innerHTML = `
+    <div class="structured-grid">
+      <div><span>Acceptance Outlook</span><strong>${String(blocks?.acceptance_outlook ?? "N/A")}</strong></div>
+      <div><span>Polarization</span><strong>${String(blocks?.polarization ?? "N/A")}</strong></div>
+      <div><span>Main Driver</span><strong>${String(blocks?.main_driver ?? "N/A")}</strong></div>
+      <div><span>Recommended Action</span><strong>${action}</strong></div>
+    </div>
+  `;
+
+  const exportText = buildExportText(reportRecommendation, report, reportText, conclusionLine);
+  wireExportButton(exportText);
+}
+
 function renderSimulationSummary(simulationResult) {
   const summary = document.getElementById("simulation-summary");
   if (!summary) return;
@@ -425,16 +609,25 @@ async function runBriefing(event) {
       payload.simulation_result?.initial_attitudes,
     );
     renderActivation(groups);
+    renderEvidenceLinks(payload.evidence_activation);
 
     setPipelineStep("simulation");
     announceStatus("Group activation complete. Rendering simulation evolution.");
+    renderExecutiveOverview(payload.executive_overview, payload.simulation_result);
     renderSimulationSummary(payload.simulation_result);
     renderTrendChart(payload.simulation_result?.trajectories ?? []);
     renderNetwork(payload.simulation_result?.trajectories ?? []);
+    renderEvolutionHighlights(payload.evolution_highlights, payload.simulation_result?.trajectories ?? []);
     renderRoundTimeline(payload.simulation_result?.trajectories ?? []);
 
     setPipelineStep("report");
     announceStatus("Simulation completed, generating report.");
+    renderStructuredReport(
+      payload.report_recommendation,
+      payload.report,
+      payload.report_text,
+      payload.conclusion_line,
+    );
     renderReport(payload.report, payload.report_text);
     renderConvergence(payload.convergence);
     updateTopBars(payload);

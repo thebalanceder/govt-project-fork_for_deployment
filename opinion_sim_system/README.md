@@ -1,218 +1,125 @@
-# Opinion Simulation System (Phase 1)
+# Opinion Simulation System (Phase 3)
 
-> **🔴 NEW: Real-Time Data Collection Available** - Collect real-world data from Reddit, News APIs, and public datasets. See [Real Data Pipeline](#real-data-pipeline) below.
+This package implements a **briefing-first simulation pipeline** for policy/product/culture cases:
 
-This directory implements the Phase 1 scope defined in `D:\gov-project\develop-phase.json`.
+`InputCase -> Semantic Evidence -> Group Evolution -> Decision Report`
 
-## Scope Delivered
+---
 
-1. Data scaffold and sample product comments
-2. Semantic modules:
-   - `models/embedding/embedder.py`
-   - `models/sentiment/sentiment_model.py`
-   - `models/topic/topic_model.py`
-3. Archetype modules:
-   - `archetypes/profiles.py`
-   - `archetypes/clustering.py`
-4. Simulation minimal rules:
-   - `simulation/update_rules.py`
-   - `simulation/network.py`
-5. Orchestration and JSON output:
-   - `simulation/runner.py`
-6. **Executive Visualization (NEW)**:
-   - `visualization/pm_dashboard.py` - Interactive Plotly dashboard
-   - `visualization/streamlit_app.py` - Streamlit executive app
-   - `visualization/briefing_report.py` - HTML briefing report generator
-7. **Real Data Collection (NEW)**:
-   - `data_collection/collector.py` - Reddit, NewsAPI, GNews integration
-   - `data_collection/run_pipeline.py` - End-to-end real data processing
+## Scope (Current)
+
+### In scope
+- Case-based input and semantic mapping (`InputCase`, `SemanticMapperV2`)
+- Structured expert evidence (`acceptance`, `sentiment`, `emotion`, `topic`, `conflict`, `frame`)
+- Round-based group evolution with explainable deltas and drivers
+- Stable briefing contracts for API/demo/dashboard/report
+- Layered reporting (deterministic summary + optional AI expansion)
+
+### Out of scope (for core positioning)
+- Treating this package primarily as a high-volume real-time monitoring platform
+- Defining success by number of upstream data sources
+- Expanding page count without improving briefing clarity
+
+---
 
 ## Quick Start
 
-### 1. Run Simulation
-
+### 1) Run simulation directly
 ```bash
 python -m opinion_sim_system.simulation.runner
 ```
 
-Output artifact: `opinion_sim_system/artifacts/phase1/milestone_m1_output.json`
-
-### 2. Generate PM Dashboard (Interactive)
-
+### 2) Run briefing API
 ```bash
-# Install visualization dependencies
-pip install plotly
-
-# Generate static HTML dashboard
-python -m opinion_sim_system.visualization.pm_dashboard
+python -m opinion_sim_system.flask_app
 ```
 
-Output: `opinion_sim_system/artifacts/phase1/pm_dashboard.html`
-
-### 3. Launch Streamlit Executive App (Recommended for PM)
-
+### 3) Launch dashboard
 ```bash
-# Install full visualization stack
-pip install streamlit plotly
-
-# Launch interactive dashboard
 streamlit run opinion_sim_system/visualization/streamlit_app.py
 ```
 
-Opens at: `http://localhost:8501`
-
-### 4. Generate Briefing Report (Printable)
-
+### 4) Generate HTML briefing report
 ```bash
 python -m opinion_sim_system.visualization.briefing_report
 ```
 
-Output: `opinion_sim_system/artifacts/phase1/pm_briefing_report.html`
-
----
-
-## Visualization Features for Leadership
-
-| Feature | Description | Output |
-|---------|-------------|--------|
-| **National Sentiment Gauge** | Real-time sentiment index with color-coded status | Dashboard |
-| **Population Segment Radar** | 6 archetype group attitudes visualization | Dashboard |
-| **Opinion Evolution Charts** | Trend analysis over simulation rounds | Dashboard |
-| **Risk Alerts Panel** | Early warning system for negative sentiment | Dashboard + Report |
-| **Topic Distribution** | Key issues driving public opinion | Dashboard + Report |
-| **Policy Recommendations** | AI-generated action items with priorities | Report |
-| **Printable Briefing** | One-page executive summary | HTML/PDF |
-
----
-
-## Installation
-
-### Minimal (Core Simulation Only)
+### 5) Run 3-case demo package
 ```bash
-pip install numpy
-```
-
-### With ML Features
-```bash
-pip install opinion-sim-system[semantic]
-# or
-pip install sentence-transformers transformers bertopic
-```
-
-### With Visualization (For PM Dashboard)
-```bash
-pip install opinion-sim-system[viz]
-# or
-pip install plotly matplotlib streamlit
-```
-
-### Full Installation (Recommended)
-```bash
-pip install opinion-sim-system[all]
+python -m opinion_sim_system.demo.run_demo
 ```
 
 ---
 
-## Real Data Pipeline
+## Four-Layer Dashboard Narrative
 
-### Collect Real-World Data for PM Dashboard
+The dashboard is organized into briefing-oriented stages:
+1. **Conclusion Overview**
+2. **Semantic Evidence -> Group Activation**
+3. **Group Evolution Mechanism**
+4. **Report & Recommendation**
 
-This system now supports **live data collection** from free APIs:
-
-| Source | What You Get | Free Tier |
-|--------|--------------|-----------|
-| **Reddit** | Public discussions, real-time sentiment | 60 req/min |
-| **NewsAPI** | News articles from 70,000+ sources | 100 req/day |
-| **GNews** | Global news coverage | 100 req/day |
-| **Public Datasets** | Pre-collected sentiment data | Unlimited |
-
-### Quick Setup (5 minutes)
-
-**1. Get API Keys:**
-- Reddit: https://www.reddit.com/prefs/apps (create "script" app)
-- NewsAPI: https://newsapi.org/register
-- GNews: https://gnews.io/
-
-**2. Configure Environment:**
-```bash
-cd opinion_sim_system
-cp .env.example .env
-# Edit .env and add your API keys
-```
-
-**3. Install Data Dependencies:**
-```bash
-pip install opinion-sim-system[data]
-```
-
-**4. Run Data Collection:**
-```bash
-python -m opinion_sim_system.data_collection.run_pipeline
-```
-
-### Output
-
-Generates real-time dashboards:
-- `artifacts/phase1/pm_dashboard_real.html` - Interactive dashboard
-- `artifacts/phase1/pm_briefing_real.html` - Printable briefing
-- `artifacts/phase1/real_data_analysis.json` - Analysis data
-
-### Detailed Setup Guide
-
-See `data_collection/SETUP.md` for complete instructions.
+This structure is designed for leadership communication rather than chart proliferation.
 
 ---
 
-## Backend Behavior (Optional Dependencies)
+## Briefing Contract Reference
 
-The system prefers these external backends when installed:
+See: `docs/briefing_contract.md`
 
-- Embedding: `sentence-transformers`
-- Sentiment: `transformers` pipeline
-- Topic: `BERTopic`
+Primary emitters/consumers:
+- `simulation/runner.py` (phase3 visualization payload)
+- `simulation/engine.py` (engine facade, version metadata)
+- `reporting/deepseek_reporter.py` + `reporting/report_builder.py`
+- `demo/run_demo.py` (phase2b demo envelope)
+- `flask_app.py` (`/api/briefing-run` envelope)
+- `visualization/*` consumers
 
-When these dependencies are unavailable, Phase 1 still runs offline with deterministic fallbacks:
+Contract-surface note:
+- **Runner artifact** (raw simulation output)
+- **Briefing API envelope** (`/api/briefing-run`)
+- **Demo package envelope** (`demo/run_demo.py`)
 
-- Embedding fallback: hash-based normalized vectors
-- Sentiment fallback: lexicon-based scorer
-- Topic fallback: keyword-based topic assignment
-
----
-
-## For Prime Minister's Office
-
-### Quick Workflow
-
-1. **Run Simulation**: `python -m opinion_sim_system.simulation.runner`
-2. **Launch Dashboard**: `streamlit run opinion_sim_system/visualization/streamlit_app.py`
-3. **Generate Report**: Click "Print Report" in dashboard or run `python -m opinion_sim_system.visualization.briefing_report`
-
-### Key Metrics Explained
-
-| Metric | Range | Interpretation |
-|--------|-------|----------------|
-| National Sentiment | -1 to 1 | >0.6 Positive, 0.4-0.6 Caution, <0.4 Critical |
-| Segment Attitudes | -1 to 1 | Per-population-group satisfaction |
-| Risk Alerts | Count | Number of issues requiring attention |
-
-### Security Classification
-
-Reports are marked `OFFICIAL USE ONLY` by default. Modify in `briefing_report.py` if needed.
+These three surfaces are aligned by narrative and shared fields, but they are not strictly identical in every top-level key.
 
 ---
 
-## Test
+## Reporting Model
 
+### Deterministic layer
+- Executive summary
+- Decision trace
+- Stable recommendation slots
+
+### AI expansion layer
+- DeepSeek live mode (when API key is configured)
+- Fallback deterministic expansion when unavailable
+
+This ensures report stability first, language richness second.
+
+Current rendering note:
+- API/demo generate full report envelopes via `DeepSeekReporter`.
+- Dashboard and HTML briefing views currently render deterministic view-model outputs by default.
+
+---
+
+## Contract-Oriented Tests
+
+- `tests/test_runner_e2e.py`
+- `tests/test_demo_contract.py`
+- `tests/test_deepseek_reporter.py`
+- `tests/test_engine_api.py`
+- `tests/test_flask_briefing_api.py`
+- `tests/test_view_model.py`
+- `tests/test_briefing_report.py`
+
+Run:
 ```bash
 python -m pytest opinion_sim_system/tests
 ```
 
 ---
 
-## Output Artifacts
+## Optional Dependencies
 
-| File | Description |
-|------|-------------|
-| `milestone_m1_output.json` | Raw simulation data |
-| `pm_dashboard.html` | Interactive executive dashboard |
-| `pm_briefing_report.html` | Printable one-page briefing |
+Some visualization and data-collection modules rely on optional packages (for example `streamlit`, `plotly`, `matplotlib`, and selected external connectors). The core briefing pipeline remains usable with deterministic fallbacks where designed.

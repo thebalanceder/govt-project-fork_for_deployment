@@ -271,6 +271,44 @@ select:focus {
   border-left: 4px solid #2563eb;
 }
 
+.evidence-links-panel {
+  margin-top: 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  padding: 0.75rem;
+}
+
+.evidence-links-panel h3 {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.evidence-links-panel p {
+  margin: 0.36rem 0 0.65rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.links-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+
+.links-table th,
+.links-table td {
+  padding: 0.4rem 0.45rem;
+  border-bottom: 1px solid #e2e8f0;
+  text-align: left;
+}
+
+.links-table th {
+  color: #334155;
+  background: #f8fafc;
+  font-weight: 700;
+}
+
 .group-title {
   font-weight: 700;
   margin-bottom: 0.4rem;
@@ -285,6 +323,34 @@ select:focus {
 .simulation-layout {
   display: grid;
   gap: 0.75rem;
+}
+
+.executive-overview-cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+
+.overview-card {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.7rem;
+  background: #eef2ff;
+}
+
+.overview-label {
+  display: block;
+  color: #475569;
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.24px;
+}
+
+.overview-card strong {
+  display: block;
+  margin-top: 0.24rem;
+  font-size: 1.05rem;
+  color: #1e3a8a;
 }
 
 .simulation-summary {
@@ -356,6 +422,36 @@ select:focus {
   gap: 0.5rem;
 }
 
+.evolution-highlights {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+
+.highlight-card {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  padding: 0.68rem;
+}
+
+.highlight-label {
+  color: var(--muted);
+  font-size: 0.77rem;
+  display: block;
+}
+
+.highlight-card strong {
+  display: block;
+  margin: 0.25rem 0;
+  color: #0f172a;
+}
+
+.highlight-card small {
+  color: #64748b;
+  font-size: 0.76rem;
+}
+
 .timeline-item {
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -392,6 +488,35 @@ select:focus {
   font-size: 0.82rem;
 }
 
+.report-structured {
+  margin-bottom: 0.65rem;
+}
+
+.structured-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+.structured-grid div {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  padding: 0.55rem 0.62rem;
+}
+
+.structured-grid span {
+  display: block;
+  color: #64748b;
+  font-size: 0.76rem;
+}
+
+.structured-grid strong {
+  display: block;
+  margin-top: 0.22rem;
+  font-size: 0.9rem;
+}
+
 .report-error {
   color: var(--danger);
 }
@@ -404,6 +529,29 @@ select:focus {
   color: #0f172a;
 }
 
+.btn-secondary {
+  margin-top: 0.7rem;
+  border: 1px solid #1d4ed8;
+  border-radius: 8px;
+  background: #eff6ff;
+  color: #1e40af;
+  font-weight: 650;
+  font-size: 0.86rem;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+}
+
+.btn-secondary:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.empty-hint {
+  color: #64748b;
+  font-size: 0.82rem;
+  padding: 0.4rem 0;
+}
+
 .sr-live {
   position: absolute;
   left: -9999px;
@@ -413,8 +561,12 @@ select:focus {
 }
 
 @media (max-width: 1100px) {
+  .executive-overview-cards,
   .semantic-cards,
   .group-activation {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .evolution-highlights {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .simulation-visuals {
@@ -431,6 +583,9 @@ select:focus {
     flex-direction: column;
   }
   .input-grid,
+  .executive-overview-cards,
+  .evolution-highlights,
+  .structured-grid,
   .simulation-summary,
   .semantic-cards,
   .group-activation,
