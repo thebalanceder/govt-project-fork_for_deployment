@@ -31,6 +31,28 @@ function announceStatus(message) {
   }
 }
 
+function setErrorBanner(message) {
+  const node = document.getElementById("error-banner");
+  if (!node) return;
+  const text = String(message ?? "").trim();
+  if (!text) {
+    node.hidden = true;
+    node.textContent = "";
+    return;
+  }
+  node.hidden = false;
+  node.textContent = `Pipeline error: ${text}`;
+}
+
+function normalizePipelineError(error) {
+  const raw = String(error?.message ?? error ?? "Unknown error").trim();
+  if (raw.toLowerCase().includes("failed to fetch")) {
+    const apiUrl = `${window.location.origin}/api/briefing-run`;
+    return `Cannot reach backend API (${apiUrl}). Please make sure Flask is running and retry.`;
+  }
+  return raw || "Unknown error";
+}
+
 function setPipelineStep(activeStep) {
   document.querySelectorAll(".pipeline-step").forEach((element) => {
     const step = element.dataset.step;
@@ -115,9 +137,34 @@ function safeNumber(value, fallback = 0) {
 
 function formatExpertText(entry) {
   const label = entry?.label ?? "N/A";
-  const score = safeNumber(entry?.score, 0);
-  const confidence = safeNumber(entry?.confidence, 0);
-  return `${label} · score ${score.toFixed(2)} · confidence ${confidence.toFixed(2)}`;
+  const backend = String(entry?.payload?.backend ?? "").toLowerCase();
+  if (backend.includes("fallback")) {
+    return `${label} · fallback`;
+  }
+  return label;
+}
+
+function renderSemanticConsensus(evidence) {
+  const container = document.getElementById("semantic-consensus");
+  if (!container) return;
+
+  const consensus = evidence?.fusion?.consensus ?? {};
+  const score = safeNumber(consensus?.score, NaN);
+  if (!Number.isFinite(score)) {
+    container.innerHTML = '<div class="empty-hint">Consensus score pending.</div>';
+    return;
+  }
+
+  const method = String(consensus?.method ?? "unknown");
+  const spread = safeNumber(consensus?.spread, 0);
+  const threshold = safeNumber(consensus?.threshold, 0.2);
+  container.innerHTML = `
+    <article class="consensus-card">
+      <span class="consensus-label">Unified score</span>
+      <strong>${score.toFixed(2)}</strong>
+      <small>Method: ${method} · spread ${spread.toFixed(2)} / ${threshold.toFixed(2)}</small>
+    </article>
+  `;
 }
 
 function buildPlaybackFrames(payload) {
@@ -210,6 +257,7 @@ function renderSemanticEvidence(evidence) {
     const status = FALLBACK_BACKENDS.has(backend) ? "fallback" : "completed";
     updateCardStatus(spec.key, status, formatExpertText(entry));
   }
+  renderSemanticConsensus(evidence);
 }
 
 function computeActivationGroups(evidence, initialAttitudes) {
@@ -727,12 +775,14 @@ function updateTopBars(payload) {
 async function runBriefing(event) {
   event.preventDefault();
   if (uiState.running) return;
+  setErrorBanner("");
 
   const text = document.getElementById("case-text")?.value.trim() ?? "";
   const target = document.getElementById("case-target")?.value.trim() ?? "";
   const domain = document.getElementById("case-domain")?.value ?? "policy";
   if (!text || !target) {
     announceStatus("Input is incomplete. Please provide case text and target.");
+    setErrorBanner("Input is incomplete. Please provide case text and target.");
     return;
   }
 
@@ -749,6 +799,11 @@ async function runBriefing(event) {
   announceStatus("Semantic experts started. Rendering progressive evidence cards.");
 
   try {
+    const health = await fetch(`${API_BASE}/api/status`, { method: "GET", cache: "no-store" });
+    if (!health.ok) {
+      throw new Error(`Backend health check failed with status ${health.status}.`);
+    }
+
     const response = await fetch(`${API_BASE}/api/briefing-run`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -805,7 +860,9 @@ async function runBriefing(event) {
     announceStatus("Report completed. Briefing output is ready for presentation.");
   } catch (error) {
     clearProgressTimers();
-    announceStatus(`Pipeline failed: ${error.message}`);
+    const friendlyError = normalizePipelineError(error);
+    announceStatus(`Pipeline failed: ${friendlyError}`);
+    setErrorBanner(friendlyError);
     for (const spec of EXPERT_ORDER) {
       updateCardStatus(spec.key, "failed", "Failed to retrieve semantic result.");
     }

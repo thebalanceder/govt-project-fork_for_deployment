@@ -36,6 +36,10 @@ def test_briefing_run_returns_phase3_view_layers() -> None:
         "report_recommendation",
     }
 
+    semantic_evidence = payload.get("semantic_evidence", {})
+    assert "fusion" in semantic_evidence
+    assert "consensus" in semantic_evidence["fusion"]
+
     overview = payload["executive_overview"]
     assert set(overview.keys()) >= {
         "overall_acceptance",

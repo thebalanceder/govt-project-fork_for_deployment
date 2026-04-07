@@ -13,7 +13,7 @@ from ..archetypes.profiles import derive_initial_attitudes, get_default_profiles
 from ..models.semantic_mapper_v2 import SemanticMapperV2
 from ..models.task_experts import InputCase
 from .network import build_network, neighbor_mean
-from .update_rules import UpdateConfig, update_attitude
+from .update_rules import UpdateConfig, update_attitude, heterogeneous_update_attitude
 
 
 def _compute_dispersion(group_attitudes: dict[str, float]) -> float:
@@ -141,10 +141,7 @@ def run_phase1_simulation(
         raise ValueError(msg)
 
     runtime = config or RunnerConfig()
-    texts = comments if comments else load_sample_comments()
-    if not texts:
-        msg = "no comments available for simulation"
-        raise ValueError(msg)
+    texts = comments if comments else [product_description]
 
     mapper = SemanticMapperV2.with_defaults()
 
@@ -166,6 +163,7 @@ def run_phase1_simulation(
     driver_summary = _build_driver_summary(semantic_evidence=semantic_evidence)
     activation_reasons = _build_activation_reasons(semantic_evidence=semantic_evidence)
 
+    profiles = get_default_profiles()
     initial_attitudes = derive_initial_attitudes(sentiment_signal)
     groups = list(initial_attitudes.keys())
     adjacency = build_network(groups, topology=runtime.topology)
@@ -178,15 +176,20 @@ def run_phase1_simulation(
 
     for round_index in range(1, runtime.rounds + 1):
         next_states: dict[str, float] = {}
+        round_attributions: dict[str, dict[str, float]] = {}
         for group in groups:
             n_mean = neighbor_mean(group, adjacency, current_states)
-            next_states[group] = update_attitude(
-                current_state=current_states[group],
-                input_state=semantic_state.stance,
-                mean_neighbor_state=n_mean,
+            profile = profiles.get(group, {})
+            new_state, attribution = heterogeneous_update_attitude(
+                agent_profile=profile,
+                agent_state=current_states[group],
+                neighbors_state=n_mean,
+                semantic_state=semantic_state,
                 config=runtime.update,
                 rng=rng,
             )
+            next_states[group] = new_state
+            round_attributions[group] = attribution
 
         current_states = next_states
         overall = sum(current_states.values()) / len(current_states)
@@ -207,6 +210,7 @@ def run_phase1_simulation(
                 "dominant_driver": driver_summary["dominant_driver"],
                 "dispersion": dispersion,
                 "activation_reasons": activation_reasons,
+                "attributions": round_attributions,
             }
         )
         previous_states = dict(current_states)

@@ -35,6 +35,7 @@
 
     <main class="briefing-main">
         <div id="live-status" class="sr-live" role="status" aria-live="polite" aria-atomic="true"></div>
+        <div id="error-banner" class="error-banner" hidden></div>
 
         <section class="stage stage-input" id="stage-input">
             <h2>Stage 1 · Input Case</h2>
@@ -67,6 +68,7 @@
         <section class="stage" id="stage-semantic">
             <h2>Stage 2 · Semantic Evidence</h2>
             <p class="stage-desc">Cards reveal status progressively: waiting → running → completed/fallback.</p>
+            <div id="semantic-consensus" class="semantic-consensus"></div>
             <div id="semantic-cards" class="semantic-cards"></div>
         </section>
 

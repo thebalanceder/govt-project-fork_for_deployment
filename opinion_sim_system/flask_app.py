@@ -14,6 +14,7 @@ Run with: python -m opinion_sim_system.flask_app
 from flask import Flask, render_template, jsonify, request
 from flask_cors import CORS
 import json
+import os
 import sys
 from pathlib import Path
 from datetime import datetime
@@ -535,4 +536,10 @@ if __name__ == '__main__':
     _safe_print("  - AI chatbot for Q&A")
     _safe_print("=" * 60)
     
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    debug_mode = os.getenv('FLASK_DEBUG', '0').strip() == '1'
+    app.run(
+        debug=debug_mode,
+        use_reloader=debug_mode,
+        host='0.0.0.0',
+        port=5000,
+    )

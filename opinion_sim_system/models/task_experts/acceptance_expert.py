@@ -74,15 +74,15 @@ class AcceptanceExpert:
 
     def analyze(self, data: TaskExpertInput) -> TaskExpertOutput:
         labels = [
-            "accepts this target",
-            "is cautious about this target",
-            "rejects this target",
+            "the public would accept this",
+            "the public is cautious about this",
+            "the public would reject this",
         ]
         text = data.merged_text() or data.text
         if self._classifier is None or not text:
             return self._fallback(data)
 
-        hypothesis_template = f"In the {data.domain} domain and target '{data.target}', this text is {{}}."
+        hypothesis_template = "Based on the content, {}."
         raw = self._classifier(
             text,
             candidate_labels=labels,
@@ -97,9 +97,9 @@ class AcceptanceExpert:
 
         top_label = ordered_labels[0]
         top_score = ordered_scores[0]
-        if "ACCEPTS" in top_label:
+        if "ACCEPT" in top_label:
             scalar = 1.0
-        elif "REJECTS" in top_label:
+        elif "REJECT" in top_label:
             scalar = 0.0
         else:
             scalar = 0.5

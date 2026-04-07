@@ -67,28 +67,35 @@ class TopicModel:
             return [], {}
 
         if self._model is not None:
-            topics, probabilities = self._model.fit_transform(docs)
-            info = self._model.get_topic_info()
-            topic_labels: dict[int, str] = {}
-            for _, row in info.iterrows():
-                topic_labels[int(row["Topic"])] = str(row["Name"])
+            try:
+                topics, probabilities = self._model.fit_transform(docs)
+            except Exception:
+                # BERTopic fails on very small corpora (UMAP needs more data
+                # points); fall through to keyword extraction.
+                self._model = None
+                self.backend = "keyword"
+            else:
+                info = self._model.get_topic_info()
+                topic_labels: dict[int, str] = {}
+                for _, row in info.iterrows():
+                    topic_labels[int(row["Topic"])] = str(row["Name"])
 
-            results: list[TopicResult] = []
-            for index, topic_id in enumerate(topics):
-                topic_prob = float(probabilities[index].max()) if probabilities is not None else 1.0
-                results.append(
-                    TopicResult(
-                        topic_id=int(topic_id),
-                        topic_label=topic_labels.get(int(topic_id), f"topic_{topic_id}"),
-                        probability=topic_prob,
+                results: list[TopicResult] = []
+                for index, topic_id in enumerate(topics):
+                    topic_prob = float(probabilities[index].max()) if probabilities is not None else 1.0
+                    results.append(
+                        TopicResult(
+                            topic_id=int(topic_id),
+                            topic_label=topic_labels.get(int(topic_id), f"topic_{topic_id}"),
+                            probability=topic_prob,
+                        )
                     )
-                )
 
-            topic_words: dict[int, list[str]] = {}
-            for topic_id in sorted(set(int(item) for item in topics if int(item) >= 0)):
-                words = self._model.get_topic(topic_id) or []
-                topic_words[topic_id] = [str(word) for word, _ in words[:5]]
-            return results, topic_words
+                topic_words: dict[int, list[str]] = {}
+                for topic_id in sorted(set(int(item) for item in topics if int(item) >= 0)):
+                    words = self._model.get_topic(topic_id) or []
+                    topic_words[topic_id] = [str(word) for word, _ in words[:5]]
+                return results, topic_words
 
         vocab = Counter()
         tokenized_docs: list[list[str]] = []

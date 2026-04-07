@@ -92,7 +92,7 @@ class SemanticMapperV2:
         )
         expert_outputs = self._collect_expert_outputs(data)
         pooled_embedding = self._pool_embedding(description=description, comments=normalized_comments)
-        return fuse_semantic_state(expert_outputs=expert_outputs, embedding=pooled_embedding)
+        return fuse_semantic_state(expert_outputs=expert_outputs, embedding=pooled_embedding, case_text=description)
 
     def build_from_case(self, case: InputCase, comments: list[str] | None = None) -> SemanticState:
         normalized_comments = [str(item) if item is not None else "" for item in (comments or [])]
@@ -104,4 +104,4 @@ class SemanticMapperV2:
         )
         expert_outputs = self._collect_expert_outputs(data)
         pooled_embedding = self._pool_embedding(description=data.text, comments=data.comments)
-        return fuse_semantic_state(expert_outputs=expert_outputs, embedding=pooled_embedding)
+        return fuse_semantic_state(expert_outputs=expert_outputs, embedding=pooled_embedding, case_text=data.text)

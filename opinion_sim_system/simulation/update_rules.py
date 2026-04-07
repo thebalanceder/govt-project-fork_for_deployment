@@ -40,24 +40,20 @@ def _bounded_step(target_state: float, current_state: float, max_delta: float) -
 
 
 def _semantic_target(semantic_state: SemanticState, agent_profile: dict[str, float]) -> float:
-    efficiency = float(agent_profile.get("efficiency", 0.5))
-    emotion = float(agent_profile.get("emotion", 0.5))
-    risk = float(agent_profile.get("risk", 0.5))
+    emotion_sensitivity = float(agent_profile.get("emotion", 0.5))
+    risk_aversion = float(agent_profile.get("risk", 0.5))
     conformity = float(agent_profile.get("conformity", 0.5))
 
-    embedding_signal = (semantic_state.embedding[0] + 1.0) / 2.0
-    topic_focus = max(semantic_state.topic.values()) if semantic_state.topic else 0.0
-    base = (
-        0.45 * semantic_state.stance
-        + 0.20 * ((semantic_state.sentiment + 1.0) / 2.0)
-        + 0.20 * topic_focus
-        + 0.15 * embedding_signal
-    )
+    sentiment_01 = (semantic_state.sentiment + 1.0) / 2.0
+    base = 0.55 * semantic_state.stance + 0.45 * sentiment_01
 
-    adjustment = 0.08 * (efficiency - 0.5) + 0.07 * (emotion - 0.5) - 0.05 * (risk - 0.5)
+    adjustment = (
+        0.10 * (emotion_sensitivity - 0.5) * (sentiment_01 - 0.5)
+        - 0.08 * (risk_aversion - 0.5)
+    )
     adjusted = base + adjustment
     if conformity > 0.8:
-        adjusted = 0.95 * adjusted + 0.05 * semantic_state.stance
+        adjusted = 0.90 * adjusted + 0.10 * semantic_state.stance
     return max(0.0, min(1.0, adjusted))
 
 

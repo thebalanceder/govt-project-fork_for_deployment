@@ -31,6 +31,10 @@ def test_semantic_mapper_v2_builds_state_with_trace() -> None:
         "risk",
         "value_frame",
     }
+    assert "consensus" in state.evidence_trace.get("fusion", {})
+    consensus = state.evidence_trace["fusion"]["consensus"]
+    assert 0.0 <= consensus["score"] <= 1.0
+    assert consensus["method"] in {"average", "deepseek", "fallback-average"}
 
 
 def test_semantic_mapper_v2_requires_input() -> None:
