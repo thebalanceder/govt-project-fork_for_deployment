@@ -325,6 +325,59 @@ select:focus {
   gap: 0.75rem;
 }
 
+.round-player {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  padding: 0.7rem 0.75rem;
+}
+
+.round-player .player-group {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.round-player .player-label {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.24px;
+}
+
+.round-player button {
+  border: 1px solid #1d4ed8;
+  border-radius: 8px;
+  background: #eff6ff;
+  color: #1e40af;
+  font-weight: 700;
+  font-size: 0.84rem;
+  padding: 0.48rem 0.7rem;
+  cursor: pointer;
+}
+
+.round-player button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.round-player input[type="range"] {
+  min-width: 240px;
+  accent-color: #1d4ed8;
+}
+
+.round-player .round-counter {
+  color: #1e3a8a;
+  font-weight: 700;
+  font-size: 0.86rem;
+}
+
 .executive-overview-cards {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));

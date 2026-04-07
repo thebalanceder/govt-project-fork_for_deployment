@@ -1,12 +1,12 @@
 const API_BASE = "";
 
 const EXPERT_ORDER = [
-  { key: "acceptance", title: "Acceptance", hint: "Target acceptance tendency" },
-  { key: "sentiment", title: "Sentiment", hint: "Overall positive/negative polarity" },
-  { key: "emotion", title: "Emotion", hint: "Affective profile intensity" },
-  { key: "topic", title: "Topic", hint: "Dominant semantic topic" },
-  { key: "conflict", title: "Conflict", hint: "Social conflict risk" },
-  { key: "frame", title: "Frame", hint: "Dominant value/policy frame" },
+  { key: "acceptance", title: "Public Acceptance Advisor / 接受度顾问", hint: "Judges whether people lean support, hold back, or reject" },
+  { key: "sentiment", title: "Public Mood Analyst / 舆情情绪分析师", hint: "Reads the overall mood as positive, negative, or neutral" },
+  { key: "emotion", title: "Emotional Response Specialist / 情绪反应专家", hint: "Identifies concern, anger, expectation, or approval" },
+  { key: "topic", title: "Issue Mapping Expert / 议题识别专家", hint: "Finds the key issue being discussed" },
+  { key: "conflict", title: "Social Risk Advisor / 社会冲突风险顾问", hint: "Estimates tension, dispute, and polarization risk" },
+  { key: "frame", title: "Policy Framing Expert / 政策框架顾问", hint: "Explains the dominant policy or value frame" },
 ];
 
 const FALLBACK_BACKENDS = new Set(["lexicon", "keyword", "fallback", "heuristic"]);
@@ -16,6 +16,12 @@ const uiState = {
   running: false,
   cards: {},
   revealTimers: [],
+  playback: {
+    frames: [],
+    activeIndex: 0,
+    isPlaying: false,
+    timer: null,
+  },
 };
 
 function announceStatus(message) {
@@ -112,6 +118,84 @@ function formatExpertText(entry) {
   const score = safeNumber(entry?.score, 0);
   const confidence = safeNumber(entry?.confidence, 0);
   return `${label} · score ${score.toFixed(2)} · confidence ${confidence.toFixed(2)}`;
+}
+
+function buildPlaybackFrames(payload) {
+  const trajectories = Array.isArray(payload?.simulation_result?.trajectories)
+    ? payload.simulation_result.trajectories
+    : [];
+  const roundDetails = Array.isArray(payload?.simulation_result?.visualization_payload?.rounds)
+    ? payload.simulation_result.visualization_payload.rounds
+    : Array.isArray(payload?.visualization_payload?.rounds)
+      ? payload.visualization_payload.rounds
+      : [];
+  const total = Math.max(trajectories.length, roundDetails.length);
+
+  return Array.from({ length: total }, (_, index) => {
+    const trajectory = trajectories[index] ?? {};
+    const detail = roundDetails[index] ?? {};
+    return {
+      round: safeNumber(detail.round ?? trajectory.round, index + 1),
+      overall_satisfaction: safeNumber(detail.overall_satisfaction ?? trajectory.overall_satisfaction, 0),
+      group_attitudes: trajectory.group_attitudes ?? detail.group_attitudes ?? {},
+      delta_by_group: detail.delta_by_group ?? trajectory.delta_by_group ?? {},
+      overall_delta: safeNumber(detail.overall_delta ?? trajectory.overall_delta, 0),
+      dominant_driver: String(detail.dominant_driver ?? trajectory.dominant_driver ?? "N/A"),
+      dispersion: safeNumber(detail.dispersion ?? trajectory.dispersion, 0),
+      activation_reasons: Array.isArray(detail.activation_reasons)
+        ? detail.activation_reasons
+        : Array.isArray(trajectory.activation_reasons)
+          ? trajectory.activation_reasons
+          : [],
+    };
+  });
+}
+
+function stopPlaybackTimer() {
+  if (uiState.playback.timer) {
+    window.clearInterval(uiState.playback.timer);
+    uiState.playback.timer = null;
+  }
+}
+
+function setPlaybackActiveIndex(nextIndex, payload, frames) {
+  const total = frames.length;
+  if (!total) return;
+  const activeIndex = Math.max(0, Math.min(nextIndex, total - 1));
+  uiState.playback.activeIndex = activeIndex;
+
+  const frame = frames[activeIndex];
+  renderSimulationSummary(frame, total);
+  renderTrendChart(frames, activeIndex);
+  renderNetwork(frame);
+  renderRoundTimeline(frames, activeIndex, payload);
+  renderPlaybackControls(frames, activeIndex, payload);
+}
+
+function togglePlayback(payload, frames) {
+  if (!frames.length) return;
+
+  if (uiState.playback.isPlaying) {
+    uiState.playback.isPlaying = false;
+    stopPlaybackTimer();
+    renderPlaybackControls(frames, uiState.playback.activeIndex, payload);
+    return;
+  }
+
+  uiState.playback.isPlaying = true;
+  stopPlaybackTimer();
+  uiState.playback.timer = window.setInterval(() => {
+    const next = uiState.playback.activeIndex + 1;
+    if (next >= frames.length) {
+      uiState.playback.isPlaying = false;
+      stopPlaybackTimer();
+      renderPlaybackControls(frames, uiState.playback.activeIndex, payload);
+      return;
+    }
+    setPlaybackActiveIndex(next, payload, frames);
+    renderPlaybackControls(frames, uiState.playback.activeIndex, payload);
+  }, 1400);
+  renderPlaybackControls(frames, uiState.playback.activeIndex, payload);
 }
 
 function renderSemanticEvidence(evidence) {
@@ -366,13 +450,18 @@ function renderStructuredReport(reportRecommendation, report, reportText, conclu
   wireExportButton(exportText);
 }
 
-function renderSimulationSummary(simulationResult) {
+function renderSimulationSummary(frame, totalRounds) {
   const summary = document.getElementById("simulation-summary");
   if (!summary) return;
-  const overall = safeNumber(simulationResult?.overall_final, 0);
-  const dispersion = safeNumber(simulationResult?.dispersion, 0);
-  const topGroups = simulationResult?.top_groups ?? [];
+  const overall = safeNumber(frame?.overall_satisfaction, 0);
+  const dispersion = safeNumber(frame?.dispersion, 0);
+  const groups = Object.entries(frame?.group_attitudes ?? {}).map(([group, attitude]) => ({ group, attitude: safeNumber(attitude, 0) }));
+  const topGroups = groups.sort((a, b) => b.attitude - a.attitude).slice(0, 3);
   summary.innerHTML = `
+    <div class="metric">
+      <span class="metric-label">Current Round</span>
+      <span class="metric-value">${safeNumber(frame?.round, 0).toFixed(0)} / ${safeNumber(totalRounds, 0).toFixed(0)}</span>
+    </div>
     <div class="metric">
       <span class="metric-label">Overall Acceptance</span>
       <span class="metric-value">${overall.toFixed(2)}</span>
@@ -382,7 +471,9 @@ function renderSimulationSummary(simulationResult) {
       <span class="metric-value">${dispersion.toFixed(2)}</span>
     </div>
     <div class="metric-list">
-      <span class="metric-label">Top Groups</span>
+      <span class="metric-label">Main Driver</span>
+      <div class="metric-driver">${String(frame?.dominant_driver ?? "N/A")}</div>
+      <span class="metric-label" style="margin-top:0.5rem;">Top Groups</span>
       <ul>
         ${topGroups.map((item) => `<li>${item.group}: ${safeNumber(item.attitude, 0).toFixed(2)}</li>`).join("")}
       </ul>
@@ -390,7 +481,7 @@ function renderSimulationSummary(simulationResult) {
   `;
 }
 
-function renderTrendChart(trajectories) {
+function renderTrendChart(frames, activeIndex = 0) {
   const svg = d3.select("#trend-chart");
   if (svg.empty()) return;
 
@@ -400,7 +491,7 @@ function renderTrendChart(trajectories) {
   svg.attr("viewBox", `0 0 ${width} ${height}`);
   svg.selectAll("*").remove();
 
-  const data = (trajectories ?? []).map((item) => ({
+  const data = (frames ?? []).map((item) => ({
     round: safeNumber(item.round, 0),
     value: safeNumber(item.overall_satisfaction, 0),
   }));
@@ -424,8 +515,21 @@ function renderTrendChart(trajectories) {
     .append("circle")
     .attr("cx", (d) => x(d.round))
     .attr("cy", (d) => y(d.value))
-    .attr("r", 4)
-    .attr("fill", "#0f172a");
+    .attr("r", (d, i) => (i === activeIndex ? 7 : 4))
+    .attr("fill", (d, i) => (i === activeIndex ? "#f59e0b" : "#0f172a"))
+    .attr("stroke", (d, i) => (i === activeIndex ? "#92400e" : "none"))
+    .attr("stroke-width", (d, i) => (i === activeIndex ? 2 : 0));
+
+  if (data[activeIndex]) {
+    svg.append("line")
+      .attr("x1", x(data[activeIndex].round))
+      .attr("x2", x(data[activeIndex].round))
+      .attr("y1", 18)
+      .attr("y2", height - 32)
+      .attr("stroke", "#f59e0b")
+      .attr("stroke-dasharray", "4 4")
+      .attr("stroke-width", 1.5);
+  }
 
   svg.append("g")
     .attr("transform", `translate(0, ${height - 32})`)
@@ -435,9 +539,8 @@ function renderTrendChart(trajectories) {
     .call(d3.axisLeft(y).ticks(5));
 }
 
-function renderNetwork(trajectories) {
-  const finalRound = (trajectories ?? []).at(-1);
-  const attitudes = finalRound?.group_attitudes ?? {};
+function renderNetwork(frame) {
+  const attitudes = frame?.group_attitudes ?? {};
   const groups = Object.keys(attitudes);
   const svg = d3.select("#simulation-network");
   if (svg.empty()) return;
@@ -505,18 +608,76 @@ function renderNetwork(trajectories) {
     .attr("font-size", 11)
     .attr("font-weight", 700)
     .attr("fill", "#0f172a");
+
+  svg.append("text")
+    .text(`Round ${safeNumber(frame?.round, 0)} · Driver ${String(frame?.dominant_driver ?? "N/A")}`)
+    .attr("x", 20)
+    .attr("y", 24)
+    .attr("font-size", 12)
+    .attr("font-weight", 700)
+    .attr("fill", "#1e3a8a");
 }
 
-function renderRoundTimeline(trajectories) {
+function renderPlaybackControls(frames, activeIndex, payload) {
+  const container = document.getElementById("round-player");
+  if (!container) return;
+
+  const total = frames.length;
+  const currentFrame = frames[activeIndex] ?? {};
+  const canPrev = activeIndex > 0;
+  const canNext = activeIndex < total - 1;
+
+  container.innerHTML = `
+    <div class="player-group">
+      <span class="player-label">Playback</span>
+      <button type="button" data-action="prev" ${canPrev ? "" : "disabled"}>Prev</button>
+      <button type="button" data-action="play">${uiState.playback.isPlaying ? "Pause" : "Play"}</button>
+      <button type="button" data-action="next" ${canNext ? "" : "disabled"}>Next</button>
+    </div>
+    <div class="player-group">
+      <span class="player-label">Round</span>
+      <input id="round-slider" type="range" min="0" max="${Math.max(total - 1, 0)}" step="1" value="${activeIndex}">
+      <span class="round-counter">${safeNumber(currentFrame?.round, activeIndex + 1).toFixed(0)} / ${total}</span>
+    </div>
+  `;
+
+  container.querySelector('[data-action="prev"]')?.addEventListener("click", () => {
+    setPlaybackActiveIndex(activeIndex - 1, payload, frames);
+    renderPlaybackControls(frames, uiState.playback.activeIndex, payload);
+  });
+  container.querySelector('[data-action="next"]')?.addEventListener("click", () => {
+    setPlaybackActiveIndex(activeIndex + 1, payload, frames);
+    renderPlaybackControls(frames, uiState.playback.activeIndex, payload);
+  });
+  container.querySelector('[data-action="play"]')?.addEventListener("click", () => {
+    togglePlayback(payload, frames);
+  });
+  container.querySelector('#round-slider')?.addEventListener("input", (event) => {
+    const next = Number.parseInt(String(event.target.value), 10);
+    setPlaybackActiveIndex(next, payload, frames);
+    renderPlaybackControls(frames, uiState.playback.activeIndex, payload);
+  });
+}
+
+function renderRoundTimeline(frames, activeIndex = 0, payload) {
   const container = document.getElementById("round-timeline");
   if (!container) return;
-  container.innerHTML = (trajectories ?? [])
-    .map((item) => {
+  container.innerHTML = (frames ?? [])
+    .map((item, index) => {
       const round = safeNumber(item.round, 0);
       const overall = safeNumber(item.overall_satisfaction, 0);
-      return `<div class="timeline-item"><span>Round ${round}</span><strong>${overall.toFixed(2)}</strong></div>`;
+      const active = index === activeIndex ? "active" : "";
+      return `<button type="button" class="timeline-item ${active}" data-round-index="${index}"><span>Round ${round}</span><strong>${overall.toFixed(2)}</strong></button>`;
     })
     .join("");
+
+  container.querySelectorAll("[data-round-index]").forEach((button) => {
+    button.addEventListener("click", (event) => {
+      const next = Number.parseInt(String(event.currentTarget.dataset.roundIndex), 10);
+      setPlaybackActiveIndex(next, payload, frames);
+      renderPlaybackControls(frames, uiState.playback.activeIndex, payload);
+    });
+  });
 }
 
 function renderReport(report, reportText) {
@@ -614,11 +775,21 @@ async function runBriefing(event) {
     setPipelineStep("simulation");
     announceStatus("Group activation complete. Rendering simulation evolution.");
     renderExecutiveOverview(payload.executive_overview, payload.simulation_result);
-    renderSimulationSummary(payload.simulation_result);
-    renderTrendChart(payload.simulation_result?.trajectories ?? []);
-    renderNetwork(payload.simulation_result?.trajectories ?? []);
+    const frames = buildPlaybackFrames(payload);
+    uiState.playback.frames = frames;
+    uiState.playback.activeIndex = 0;
+    uiState.playback.isPlaying = false;
+    stopPlaybackTimer();
+    if (frames.length) {
+      setPlaybackActiveIndex(0, payload, frames);
+    } else {
+      renderSimulationSummary(payload.simulation_result, 0);
+      renderTrendChart([], 0);
+      renderNetwork(payload.simulation_result?.trajectories?.at(-1) ?? {});
+      renderRoundTimeline([], 0, payload);
+      renderPlaybackControls([], 0, payload);
+    }
     renderEvolutionHighlights(payload.evolution_highlights, payload.simulation_result?.trajectories ?? []);
-    renderRoundTimeline(payload.simulation_result?.trajectories ?? []);
 
     setPipelineStep("report");
     announceStatus("Simulation completed, generating report.");
