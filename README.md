@@ -47,8 +47,11 @@ The project is optimized for **stable reporting and decision communication**, no
 5. **Presentation Layer**
    - briefing API, Streamlit dashboard, HTML briefing report
 
+**Orchestrator add-on (task-card workflow):** `opinion_sim_system/research_agents/` prepares **role-specific expert research briefs** from the case and evidence **before** `MiroFishDiscussion` runs. Dr. Helena Marlowe (chief coordinator) dispatches these cards, logs `research_*` phases in `agent_timeline.json`, and merges outputs into `briefing_report.*` with the existing simulation sections. DeepSeek remains optional for those briefs and for the final narrative expansion.
+
 ### Key entrypoints
 - Briefing API: `POST /api/briefing-run` via `python -m opinion_sim_system.flask_app`
+- Orchestrator API: `POST /api/orchestrator-run` (same app) — runs research briefs (six experts) then MiroFish, writes `artifacts/orchestrator_runs/<run_id>/`
 - Demo package: `python -m opinion_sim_system.demo.run_demo`
 - Streamlit dashboard: `streamlit run opinion_sim_system/visualization/streamlit_app.py`
 - HTML briefing report: `python -m opinion_sim_system.visualization.briefing_report`

@@ -58,11 +58,19 @@ class DeepSeekReporter:
         )
 
     def _call_deepseek(self, prompt: str, api_key: str) -> str:
+        return self.call_chat_completion(
+            system="You explain simulation outputs clearly and concretely.",
+            user=prompt,
+            api_key=api_key,
+        )
+
+    def call_chat_completion(self, *, system: str, user: str, api_key: str) -> str:
+        """Same transport as `_call_deepseek` but with a caller-defined system prompt (e.g. research briefs)."""
         payload = {
             "model": self.model,
             "messages": [
-                {"role": "system", "content": "You explain simulation outputs clearly and concretely."},
-                {"role": "user", "content": prompt},
+                {"role": "system", "content": system},
+                {"role": "user", "content": user},
             ],
             "temperature": 0.2,
         }

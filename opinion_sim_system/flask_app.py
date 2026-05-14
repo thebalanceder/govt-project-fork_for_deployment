@@ -228,6 +228,44 @@ def run_briefing_pipeline():
         return jsonify({'success': False, 'error': str(exc)}), 500
 
 
+@app.route('/api/orchestrator-run', methods=['POST'])
+def run_orchestrator_pipeline():
+    """Chief orchestrator: research briefs (six experts) then MiroFish per topic; writes artifact bundle."""
+    try:
+        from .orchestrator.runner import run_orchestrated_case
+
+        payload = request.get_json(silent=True) or {}
+        case = payload.get("case") if isinstance(payload.get("case"), dict) else payload
+        if not isinstance(case, dict):
+            return jsonify(
+                {"success": False, "error": "JSON body must be an object or include a 'case' object"}
+            ), 400
+        if not isinstance(case.get("data"), dict):
+            return jsonify({"success": False, "error": "case.data is required and must be an object"}), 400
+
+        num_rounds = int(payload.get("num_rounds", 3))
+        deepseek_mode = str(payload.get("deepseek_mode", "auto"))
+
+        result = run_orchestrated_case(
+            case,
+            num_rounds=num_rounds,
+            verbose=False,
+            deepseek_mode=deepseek_mode,
+        )
+        return jsonify(
+            {
+                "success": True,
+                "run_id": result["run_id"],
+                "topics": result["topics"],
+                "artifacts": result.get("artifacts", {}),
+            }
+        )
+    except ValueError as exc:
+        return jsonify({"success": False, "error": str(exc)}), 400
+    except Exception as exc:
+        return jsonify({"success": False, "error": str(exc)}), 500
+
+
 def _safe_print(line: str = "") -> None:
     # windows console can choke on emoji
     try:

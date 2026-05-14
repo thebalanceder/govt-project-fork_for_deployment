@@ -120,6 +120,66 @@ def build_expert_output_summary(
     return acc
 
 
+def build_expert_research_briefs_markdown(reports: list[dict[str, Any]]) -> str:
+    """Markdown block: Expert Research Briefs (insert before MiroFish consensus sections)."""
+    lines: list[str] = ["## Expert Research Briefs", ""]
+    for r in reports:
+        aid = str(r.get("agent_id", ""))
+        lines.append(f"### {r.get('display_name', '')} (`{aid}`)")
+        lines.append(f"- **Title:** {r.get('title', '')}")
+        lines.append(f"- **Status:** {r.get('status', '')}")
+        lines.append(f"- **Research focus:** {r.get('research_focus', '')}")
+        lines.append("- **Briefing text:**")
+        lines.append("")
+        lines.append(str(r.get("report_text", "")).strip())
+        if r.get("errors"):
+            lines.append("")
+            lines.append("- **Errors:**")
+            for e in r["errors"]:
+                lines.append(f"  - {e}")
+        lines.append("")
+    return "\n".join(lines).rstrip() + "\n"
+
+
+def build_research_reports_file_markdown(*, run_id: str, chief: dict[str, Any], reports: list[dict[str, Any]]) -> str:
+    """Standalone `research_reports.md` body."""
+    lines = [
+        "# Expert research briefs (pre-MiroFish)",
+        "",
+        f"**run_id:** `{run_id}`",
+        "",
+        f"**Chief:** {chief.get('display_name', '')} (`{chief.get('agent_id', '')}`)",
+        "",
+        "---",
+        "",
+    ]
+    lines.append(build_expert_research_briefs_markdown(reports).strip())
+    lines.append("")
+    return "\n".join(lines)
+
+
+def build_expert_research_briefs_html(reports: list[dict[str, Any]]) -> str:
+    def esc(x: Any) -> str:
+        return html_module.escape(str(x), quote=True)
+
+    parts = ["<h2>Expert Research Briefs</h2>"]
+    for r in reports:
+        aid = esc(r.get("agent_id", ""))
+        parts.append(f"<h3>{esc(r.get('display_name', ''))} (<code>{aid}</code>)</h3><ul>")
+        parts.append(f"<li><strong>Title:</strong> {esc(r.get('title', ''))}</li>")
+        parts.append(f"<li><strong>Status:</strong> {esc(r.get('status', ''))}</li>")
+        parts.append(f"<li><strong>Research focus:</strong> {esc(r.get('research_focus', ''))}</li>")
+        parts.append("</ul>")
+        parts.append("<p><strong>Briefing text:</strong></p>")
+        parts.append(f"<pre>{esc(r.get('report_text', ''))}</pre>")
+        if r.get("errors"):
+            parts.append("<p><strong>Errors:</strong></p><ul>")
+            for e in r["errors"]:
+                parts.append(f"<li>{esc(e)}</li>")
+            parts.append("</ul>")
+    return "".join(parts)
+
+
 def build_briefing_markdown(
     *,
     case_input: dict[str, Any],
@@ -129,6 +189,7 @@ def build_briefing_markdown(
     risks: list[str],
     expert_summary: dict[str, dict[str, Any]],
     deepseek_expansion: str | None,
+    research_reports: list[dict[str, Any]] | None = None,
 ) -> str:
     lines: list[str] = []
     lines.append("# Decision briefing (orchestrated run)")
@@ -149,6 +210,9 @@ def build_briefing_markdown(
         topic = n.topic or "—"
         lines.append(f"- `{n.task_id}` | type={n.task_type} | topic={topic} | depends=[{dep}] — {n.description}")
     lines.append("")
+    if research_reports:
+        lines.append(build_expert_research_briefs_markdown(research_reports).strip())
+        lines.append("")
     lines.append("## Each Dr. / domain expert output summary")
     for display_name in sorted(expert_summary.keys()):
         row = expert_summary[display_name]
@@ -201,6 +265,7 @@ def build_briefing_html(
     risks: list[str],
     expert_summary: dict[str, dict[str, Any]],
     deepseek_expansion: str | None,
+    research_reports: list[dict[str, Any]] | None = None,
 ) -> str:
     def esc(x: Any) -> str:
         return html_module.escape(str(x), quote=True)
@@ -224,6 +289,8 @@ def build_briefing_html(
             f"depends=[{esc(dep)}] — {esc(n.description)}</li>"
         )
     body_parts.append("</ul>")
+    if research_reports:
+        body_parts.append(build_expert_research_briefs_html(research_reports))
     body_parts.append("<h2>Expert output summary</h2>")
     for display_name in sorted(expert_summary.keys()):
         row = expert_summary[display_name]

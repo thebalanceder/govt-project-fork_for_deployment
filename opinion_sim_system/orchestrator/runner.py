@@ -15,6 +15,8 @@ from typing import Any, TextIO
 
 from ..mirofish.discussion import DiscussionResult, MiroFishDiscussion
 from ..reporting.deepseek_reporter import DeepSeekReporter
+from ..research_agents.profiles import all_research_profiles
+from ..research_agents.researcher import build_evidence_text, run_research_agent
 from .chief_profile import CHIEF_PROFILE
 from .planner import TaskGraph, build_task_graph
 from .registry import get_domain_expert_entries
@@ -23,6 +25,7 @@ from .reporting import (
     build_briefing_html,
     build_briefing_markdown,
     build_expert_output_summary,
+    build_research_reports_file_markdown,
     detect_conflicts,
     detect_risk_notes,
     serialize_discussion_result,
@@ -192,6 +195,82 @@ def run_orchestrated_case(
         }
     )
 
+    evidence_text = build_evidence_text(case_input)
+    research_reports_list: list[dict[str, Any]] = []
+    t_research_panel = time.perf_counter()
+    for profile in all_research_profiles():
+        tid = f"research_{profile.agent_id}"
+        _emit(
+            timeline,
+            t_ms=int((time.perf_counter() - t_wall0) * 1000),
+            agent_id=profile.agent_id,
+            display_name=profile.display_name,
+            phase="research_assigned",
+            message="Research briefing card assigned",
+            task_id=tid,
+            metadata={"focus": profile.research_focus},
+        )
+        _emit(
+            timeline,
+            t_ms=int((time.perf_counter() - t_wall0) * 1000),
+            agent_id=profile.agent_id,
+            display_name=profile.display_name,
+            phase="research_working",
+            message=f"Preparing {profile.title.lower()} evidence brief",
+            task_id=tid,
+            metadata={"focus": profile.research_focus},
+        )
+        row = run_research_agent(
+            profile,
+            case_input,
+            evidence_text,
+            model="deepseek-chat",
+            deepseek_mode=deepseek_mode,
+        )
+        research_reports_list.append(row)
+        end_phase = "research_failed" if row.get("status") == "failed" else "research_completed"
+        _emit(
+            timeline,
+            t_ms=int((time.perf_counter() - t_wall0) * 1000),
+            agent_id=profile.agent_id,
+            display_name=profile.display_name,
+            phase=end_phase,
+            message="Research brief finalized" if end_phase == "research_completed" else "Research brief used fallback after LLM error",
+            task_id=tid,
+            metadata={"status": row.get("status"), "errors": row.get("errors") or []},
+        )
+
+    research_doc: dict[str, Any] = {
+        "run_id": run_id,
+        "chief": {
+            "agent_id": CHIEF_PROFILE.agent_id,
+            "display_name": CHIEF_PROFILE.display_name,
+        },
+        "reports": research_reports_list,
+    }
+    write_json(out_dir / "research_reports.json", research_doc)
+    (out_dir / "research_reports.md").write_text(
+        build_research_reports_file_markdown(
+            run_id=run_id,
+            chief=research_doc["chief"],
+            reports=research_reports_list,
+        ),
+        encoding="utf-8",
+    )
+
+    task_records.append(
+        {
+            "task_id": "research_panel",
+            "task_type": "research_briefings",
+            "status": "completed",
+            "started_ms": int((t_research_panel - t_wall0) * 1000),
+            "ended_ms": int((time.perf_counter() - t_wall0) * 1000),
+            "error": None,
+            "input": {"evidence_chars": len(evidence_text)},
+            "output": {"reports": research_reports_list},
+        }
+    )
+
     sink: TextIO | None = io.StringIO() if not verbose else None
 
     for topic in graph.topics:
@@ -313,6 +392,7 @@ def run_orchestrated_case(
         risks=risks,
         expert_summary=expert_summary,
         deepseek_expansion=None,
+        research_reports=research_reports_list,
     )
     reporter = DeepSeekReporter(mode=deepseek_mode)
     exp = reporter.expand_orchestrator_briefing(briefing_core)
@@ -349,6 +429,7 @@ def run_orchestrated_case(
         risks=risks,
         expert_summary=expert_summary,
         deepseek_expansion=deepseek_expansion,
+        research_reports=research_reports_list,
     )
     briefing_html = build_briefing_html(
         case_input=case_input,
@@ -358,6 +439,7 @@ def run_orchestrated_case(
         risks=risks,
         expert_summary=expert_summary,
         deepseek_expansion=deepseek_expansion,
+        research_reports=research_reports_list,
     )
 
     (out_dir / "briefing_report.md").write_text(briefing_md, encoding="utf-8")
@@ -383,6 +465,7 @@ def run_orchestrated_case(
             "risk_notes": risks,
             "expert_summary": expert_summary,
         },
+        "research_reports": research_doc,
         "deepseek": deepseek_meta,
     }
     write_json(out_dir / "orchestration_trace.json", trace)
@@ -399,10 +482,22 @@ def run_orchestrated_case(
     if verbose:
         print(json.dumps({"run_id": run_id, "artifacts_dir": str(out_dir)}, indent=2), file=sys.stderr)
 
+    out_dir_s = str(out_dir)
+    artifacts = {
+        "run_dir": out_dir_s,
+        "trace_json": str(out_dir / "orchestration_trace.json"),
+        "timeline_json": str(out_dir / "agent_timeline.json"),
+        "research_reports_json": str(out_dir / "research_reports.json"),
+        "research_reports_md": str(out_dir / "research_reports.md"),
+        "report_md": str(out_dir / "briefing_report.md"),
+        "report_html": str(out_dir / "briefing_report.html"),
+    }
     return {
         "run_id": run_id,
-        "artifacts_dir": str(out_dir),
+        "artifacts_dir": out_dir_s,
+        "artifacts": artifacts,
         "topics": graph.topics,
         "topic_results": topic_results,
+        "research_reports": research_reports_list,
         "trace_path": str(out_dir / "orchestration_trace.json"),
     }
