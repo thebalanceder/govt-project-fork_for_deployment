@@ -39,6 +39,14 @@ def test_reporter_generate_returns_text_alias() -> None:
     assert text
 
 
+def test_expand_orchestrator_briefing_skips_without_api_key() -> None:
+    reporter = DeepSeekReporter(mode="auto", api_key="")
+    out = reporter.expand_orchestrator_briefing("# Title\n\nBody")
+    assert out["status"] == "skipped"
+    assert out["text"] == ""
+    assert out["errors"] == []
+
+
 def test_reporter_executive_summary_contains_core_slots() -> None:
     reporter = DeepSeekReporter(mode="fallback")
     report = reporter.generate_report(

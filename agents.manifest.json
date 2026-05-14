@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "repository": "govt-project",
+  "description": "Machine-readable agent roster. Display names must match opinion_sim_system/agents/six_agents.py.",
+  "chief": {
+    "agent_id": "chief_briefing_coordinator",
+    "display_name": "Dr. Helena Marlowe",
+    "title": "Chief Briefing Coordinator",
+    "role": "plan_decompose_dispatch_aggregate_brief",
+    "python_module": "opinion_sim_system.orchestrator"
+  },
+  "domain_experts": [
+    {
+      "agent_id": "economist_agent",
+      "display_name": "Dr. Lim Wei Chen",
+      "title": "Chief Economist",
+      "python_class": "EconomistAgent"
+    },
+    {
+      "agent_id": "policy_agent",
+      "display_name": "Datin Sri Aisha binti Abdullah",
+      "title": "Policy Advisor",
+      "python_class": "PolicyAgent"
+    },
+    {
+      "agent_id": "business_agent",
+      "display_name": "Encik Razak bin Ibrahim",
+      "title": "Business Leader",
+      "python_class": "BusinessAgent"
+    },
+    {
+      "agent_id": "sociologist_agent",
+      "display_name": "Dr. Muthu a/l Krishnan",
+      "title": "Sociologist",
+      "python_class": "SociologistAgent"
+    },
+    {
+      "agent_id": "ir_agent",
+      "display_name": "Ms. Wong Li Ming",
+      "title": "International Relations Expert",
+      "python_class": "IRAgent"
+    },
+    {
+      "agent_id": "public_agent",
+      "display_name": "Ahmad bin Hassan",
+      "title": "Public Representative",
+      "python_class": "PublicAgent"
+    }
+  ],
+  "orchestrator_cli": "python -m opinion_sim_system.orchestrator --case <case.json>",
+  "artifact_layout": "artifacts/orchestrator_runs/<run_id>/"
+}

@@ -1,0 +1,13 @@
+{
+  "case_id": "sample-minimal",
+  "text": "Deterministic smoke case with empty evidence buckets.",
+  "topics": ["economic"],
+  "data": {
+    "economic": [],
+    "political": [],
+    "cultural": [],
+    "social_media": [],
+    "news": [],
+    "nlp_summary": {}
+  }
+}

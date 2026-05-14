@@ -52,6 +52,7 @@ The project is optimized for **stable reporting and decision communication**, no
 - Demo package: `python -m opinion_sim_system.demo.run_demo`
 - Streamlit dashboard: `streamlit run opinion_sim_system/visualization/streamlit_app.py`
 - HTML briefing report: `python -m opinion_sim_system.visualization.briefing_report`
+- Chief orchestrator (multi-topic MiroFish + run artifacts): `python -m opinion_sim_system.orchestrator --case opinion_sim_system/orchestrator/sample_case.json` — see root `AGENTS.md`
 
 ---
 

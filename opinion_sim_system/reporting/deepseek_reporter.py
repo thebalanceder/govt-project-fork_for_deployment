@@ -157,3 +157,27 @@ class DeepSeekReporter:
         """Backward-compatible text-only API."""
         report = self.generate_report(model_evidence=model_evidence, simulation_result=simulation_result)
         return str(report.get("text", ""))
+
+    def expand_orchestrator_briefing(self, briefing_markdown: str) -> dict[str, Any]:
+        """
+        Optional narrative expansion for orchestrator Markdown briefings.
+
+        Does not affect deterministic planning or MiroFish outputs. Uses DEEPSEEK_API_KEY when
+        mode is auto|live and the key is present; otherwise returns skipped status.
+        """
+        api_key = self._resolve_api_key()
+        if self.mode == "off" or not api_key:
+            return {"status": "skipped", "text": "", "errors": []}
+        if self.mode not in {"auto", "live"}:
+            return {"status": "skipped", "text": "", "errors": []}
+        try:
+            prompt = (
+                "You are an analyst. Given the following deterministic executive briefing (Markdown), "
+                "write 4-6 crisp English sentences that elaborate key tensions and actionable watch-items. "
+                "Do not contradict numeric facts stated in the briefing; add texture only.\n\n"
+                + briefing_markdown
+            )
+            text = self._call_deepseek(prompt=prompt, api_key=api_key)
+            return {"status": "ok", "text": text, "errors": []}
+        except (RuntimeError, ValueError, json.JSONDecodeError, error.URLError, TimeoutError, OSError) as exc:
+            return {"status": "error", "text": "", "errors": [str(exc)]}
