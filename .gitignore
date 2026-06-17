@@ -8,3 +8,4 @@ venv/
 .hive/
 .sisyphus/
 artifacts/orchestrator_runs/
+logs/

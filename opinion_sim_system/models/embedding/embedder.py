@@ -12,6 +12,8 @@ from typing import Iterable
 
 import numpy as np
 
+from ..hf_runtime import hf_models_enabled
+
 
 def _normalize(text: str) -> list[str]:
     tokens = [tok.strip().lower() for tok in text.replace("\n", " ").split(" ")]
@@ -43,7 +45,9 @@ class Embedder:
 
     def __post_init__(self) -> None:
         self._model = None
-        use_transformer = self.backend in {"auto", "sentence-transformers"}
+        use_transformer = self.backend == "sentence-transformers" or (
+            self.backend == "auto" and hf_models_enabled()
+        )
         if use_transformer:
             try:
                 from sentence_transformers import SentenceTransformer  # type: ignore

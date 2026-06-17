@@ -62,6 +62,10 @@ class CollectorConfig:
     
     # GNews API credentials (get from https://gnews.io/)
     gnews_key: str = ""
+
+    # Economic data credentials
+    fred_api_key: str = ""
+    bls_api_key: str = ""
     
     # Collection parameters
     keywords: list[str] = field(default_factory=lambda: ["government", "policy", "public service"])
@@ -78,6 +82,8 @@ class CollectorConfig:
             reddit_user_agent=os.getenv("REDDIT_USER_AGENT", "PMOpinionDashboard/1.0"),
             newsapi_key=os.getenv("NEWSAPI_KEY", ""),
             gnews_key=os.getenv("GNEWS_KEY", ""),
+            fred_api_key=os.getenv("FRED_API_KEY", ""),
+            bls_api_key=os.getenv("BLS_API_KEY", ""),
         )
 
 

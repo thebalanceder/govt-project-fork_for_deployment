@@ -6,6 +6,7 @@ from dataclasses import dataclass, field
 import importlib
 from typing import Any, Callable, cast
 
+from ..hf_runtime import hf_models_enabled
 from .base import TaskExpertInput, TaskExpertOutput
 
 
@@ -51,6 +52,8 @@ class FrameExpert:
 
     def __post_init__(self) -> None:
         self._classifier = None
+        if not hf_models_enabled():
+            return
         try:
             transformers_mod = importlib.import_module("transformers")
             pipeline_factory = getattr(transformers_mod, "pipeline", None)

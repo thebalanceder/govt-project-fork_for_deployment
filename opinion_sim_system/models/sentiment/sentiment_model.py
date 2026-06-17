@@ -9,6 +9,8 @@ from dataclasses import dataclass
 import importlib
 from typing import Callable, Iterable, cast
 
+from ..hf_runtime import hf_models_enabled
+
 
 POSITIVE_TOKENS = {
     "great",
@@ -74,7 +76,8 @@ class SentimentModel:
         self.backend = backend
         self._pipeline: Callable[[list[str]], list[dict[str, object]]] | None = None
 
-        if backend in {"auto", "transformers"}:
+        use_transformer = backend == "transformers" or (backend == "auto" and hf_models_enabled())
+        if use_transformer:
             try:
                 transformers_mod = importlib.import_module("transformers")
                 pipeline_factory = getattr(transformers_mod, "pipeline", None)

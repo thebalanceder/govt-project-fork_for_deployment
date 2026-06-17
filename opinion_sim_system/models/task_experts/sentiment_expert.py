@@ -6,6 +6,7 @@ from dataclasses import dataclass, field
 import importlib
 from typing import Any, Callable, cast
 
+from ..hf_runtime import hf_models_enabled
 from ..sentiment.sentiment_model import SentimentModel
 from .base import TaskExpertInput, TaskExpertOutput
 
@@ -46,6 +47,8 @@ class SentimentExpert:
     def __post_init__(self) -> None:
         self._model = SentimentModel(backend=self.backend)
         self._classifier = None
+        if not hf_models_enabled():
+            return
         try:
             transformers_mod = importlib.import_module("transformers")
             pipeline_factory = getattr(transformers_mod, "pipeline", None)
