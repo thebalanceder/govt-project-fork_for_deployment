@@ -30,5 +30,8 @@ all = [
   "opinion-sim-system[semantic,viz,data]",
 ]
 
+[tool.setuptools.packages.find]
+include = ["opinion_sim_system*"]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
