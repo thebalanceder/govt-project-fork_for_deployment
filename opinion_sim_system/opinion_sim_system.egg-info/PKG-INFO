@@ -1,0 +1,22 @@
+Metadata-Version: 2.4
+Name: opinion-sim-system
+Version: 0.1.0
+Summary: Phase 1 minimal runnable core for product satisfaction simulation
+Requires-Python: >=3.10
+Requires-Dist: numpy>=1.24
+Provides-Extra: semantic
+Requires-Dist: sentence-transformers>=2.7.0; extra == "semantic"
+Requires-Dist: transformers>=4.40.0; extra == "semantic"
+Requires-Dist: bertopic>=0.16.0; extra == "semantic"
+Provides-Extra: viz
+Requires-Dist: plotly>=5.18.0; extra == "viz"
+Requires-Dist: matplotlib>=3.7.0; extra == "viz"
+Requires-Dist: streamlit>=1.30.0; extra == "viz"
+Provides-Extra: data
+Requires-Dist: praw>=7.7.0; extra == "data"
+Requires-Dist: requests>=2.31.0; extra == "data"
+Requires-Dist: python-dotenv>=1.0.0; extra == "data"
+Provides-Extra: dev
+Requires-Dist: pytest>=8.0.0; extra == "dev"
+Provides-Extra: all
+Requires-Dist: opinion-sim-system[data,semantic,viz]; extra == "all"

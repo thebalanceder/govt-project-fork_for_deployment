@@ -1,0 +1,2321 @@
+{
+  "schema_version": "phase2b.v1",
+  "demo": "phase2b",
+  "generated_by": {
+    "entrypoint": "run_demo",
+    "engine": "run_attitude_engine"
+  },
+  "cases": [
+    {
+      "case": "policy_case",
+      "title": "Tax Reduction Policy Acceptance Simulation",
+      "input": {
+        "text": "The policy is fair but implementation is too slow for citizens.",
+        "target": "public policy",
+        "domain": "policy"
+      },
+      "model_evidence": {
+        "experts": {
+          "sentiment": {
+            "label": "NEGATIVE",
+            "score": -0.3333333333333333,
+            "confidence": 0.3333333333333333,
+            "payload": {
+              "n_samples": 3,
+              "backend": "lexicon",
+              "target": "public policy",
+              "domain": "policy"
+            }
+          },
+          "acceptance": {
+            "label": "IS CAUTIOUS ABOUT THIS TARGET",
+            "score": 0.5,
+            "confidence": 0.2,
+            "payload": {
+              "backend": "lexical-fallback",
+              "target": "public policy",
+              "domain": "policy"
+            }
+          },
+          "emotion": {
+            "label": "neutral",
+            "score": 0.0,
+            "confidence": 0.1,
+            "payload": {
+              "backend": "lexical-fallback",
+              "distribution": {
+                "joy": 0.0,
+                "anger": 0.0,
+                "fear": 0.0,
+                "sadness": 0.0,
+                "surprise": 0.0
+              },
+              "target": "public policy",
+              "domain": "policy"
+            }
+          },
+          "topic": {
+            "label": "topic_0",
+            "score": 1.0,
+            "confidence": 0.7777777777777777,
+            "payload": {
+              "distribution": {
+                "topic_0": 1.0
+              },
+              "topic_words": {
+                "0": [
+                  "transparent"
+                ],
+                "1": [
+                  "fair"
+                ],
+                "2": [
+                  "process"
+                ]
+              },
+              "backend": "keyword",
+              "target": "public policy",
+              "domain": "policy"
+            }
+          },
+          "conflict": {
+            "label": "MEDIUM_CONFLICT",
+            "score": 0.5,
+            "confidence": 0.2,
+            "payload": {
+              "backend": "lexical-fallback",
+              "conflict_hits": 0,
+              "calm_hits": 0,
+              "target": "public policy",
+              "domain": "policy"
+            }
+          },
+          "frame": {
+            "label": "fairness",
+            "score": 1.0,
+            "confidence": 1.0,
+            "payload": {
+              "backend": "lexical-fallback",
+              "distribution": {
+                "economic": 0.0,
+                "health": 0.0,
+                "fairness": 1.0,
+                "security": 0.0,
+                "morality": 0.0
+              },
+              "target": "public policy",
+              "domain": "policy"
+            }
+          },
+          "stance": {
+            "label": "IS CAUTIOUS ABOUT THIS TARGET",
+            "score": 0.5,
+            "confidence": 0.2,
+            "payload": {
+              "backend": "lexical-fallback",
+              "target": "public policy",
+              "domain": "policy"
+            }
+          },
+          "risk": {
+            "label": "MEDIUM_CONFLICT",
+            "score": 0.5,
+            "confidence": 0.2,
+            "payload": {
+              "backend": "lexical-fallback",
+              "conflict_hits": 0,
+              "calm_hits": 0,
+              "target": "public policy",
+              "domain": "policy"
+            }
+          },
+          "value_frame": {
+            "label": "fairness",
+            "score": 1.0,
+            "confidence": 1.0,
+            "payload": {
+              "backend": "lexical-fallback",
+              "distribution": {
+                "economic": 0.0,
+                "health": 0.0,
+                "fairness": 1.0,
+                "security": 0.0,
+                "morality": 0.0
+              },
+              "target": "public policy",
+              "domain": "policy"
+            }
+          }
+        },
+        "fusion": {
+          "stance_components": {
+            "acceptance_expert": 0.5,
+            "sentiment_component": 0.33333333333333337,
+            "conflict_component": 0.5
+          },
+          "weights": {
+            "acceptance_expert": 0.5,
+            "sentiment_component": 0.3,
+            "conflict_component": 0.2
+          },
+          "consensus": {
+            "score": 0.5666666666666667,
+            "method": "fallback-average",
+            "spread": 0.6666666666666666,
+            "threshold": 0.2,
+            "source_scores": {
+              "sentiment": 0.33333333333333337,
+              "acceptance": 0.5,
+              "emotion": 0.5,
+              "conflict": 0.5,
+              "frame": 1.0
+            }
+          }
+        }
+      },
+      "simulation_result": {
+        "initial_attitudes": {
+          "rational_evaluator": 0.32366666666666666,
+          "budget_guardian": 0.3363333333333334,
+          "culture_seeker": 0.33866666666666667,
+          "emotional_resonator": 0.33333333333333337,
+          "social_follower": 0.33466666666666667,
+          "risk_averse": 0.32533333333333336
+        },
+        "trajectories": [
+          {
+            "round": 1,
+            "group_attitudes": {
+              "rational_evaluator": 0.3407686100751081,
+              "budget_guardian": 0.347811011326703,
+              "culture_seeker": 0.35290201610198013,
+              "emotional_resonator": 0.365901341168644,
+              "social_follower": 0.36439190099100893,
+              "risk_averse": 0.3072945983798475
+            },
+            "overall_satisfaction": 0.34651157967388196,
+            "topic_distribution": {
+              "topic_0": 1.0
+            },
+            "delta_by_group": {
+              "rational_evaluator": 0.017101943408441456,
+              "budget_guardian": 0.011477677993369628,
+              "culture_seeker": 0.01423534943531346,
+              "emotional_resonator": 0.03256800783531061,
+              "social_follower": 0.029725234324342265,
+              "risk_averse": -0.018038734953485847
+            },
+            "overall_delta": 0.014511579673881947,
+            "dominant_driver": "frame",
+            "dispersion": 0.05860674278879646,
+            "activation_reasons": [
+              {
+                "expert": "frame",
+                "label": "fairness",
+                "score": 1.0,
+                "confidence": 1.0,
+                "weight": 1.0
+              },
+              {
+                "expert": "acceptance",
+                "label": "IS CAUTIOUS ABOUT THIS TARGET",
+                "score": 0.5,
+                "confidence": 0.2,
+                "weight": 0.1
+              },
+              {
+                "expert": "conflict",
+                "label": "MEDIUM_CONFLICT",
+                "score": 0.5,
+                "confidence": 0.2,
+                "weight": 0.1
+              },
+              {
+                "expert": "sentiment",
+                "label": "NEGATIVE",
+                "score": -0.3333333333333333,
+                "confidence": 0.3333333333333333,
+                "weight": -0.1111111111111111
+              }
+            ],
+            "attributions": {
+              "rational_evaluator": {
+                "self": 0.19419999999999998,
+                "semantic": 0.11566666666666668,
+                "neighbor": 0.03378375,
+                "noise": -0.002881806591558567,
+                "self_contribution": 0.19419999999999998,
+                "semantic_contribution": 0.11566666666666668,
+                "neighbor_contribution": 0.03378375,
+                "noise_contribution": -0.002881806591558567
+              },
+              "budget_guardian": {
+                "self": 0.2018,
+                "semantic": 0.11345833333333334,
+                "neighbor": 0.03601075000000001,
+                "noise": -0.0034580720066303863,
+                "self_contribution": 0.2018,
+                "semantic_contribution": 0.11345833333333334,
+                "neighbor_contribution": 0.03601075000000001,
+                "noise_contribution": -0.0034580720066303863
+              },
+              "culture_seeker": {
+                "self": 0.2032,
+                "semantic": 0.11720833333333334,
+                "neighbor": 0.03472,
+                "noise": -0.0022263172313532493,
+                "self_contribution": 0.2032,
+                "semantic_contribution": 0.11720833333333334,
+                "neighbor_contribution": 0.03472,
+                "noise_contribution": -0.0022263172313532493
+              },
+              "emotional_resonator": {
+                "self": 0.2,
+                "semantic": 0.11454166666666668,
+                "neighbor": 0.03732,
+                "noise": 0.014039674501977262,
+                "self_contribution": 0.2,
+                "semantic_contribution": 0.11454166666666668,
+                "neighbor_contribution": 0.03732,
+                "noise_contribution": 0.014039674501977262
+              },
+              "social_follower": {
+                "self": 0.2008,
+                "semantic": 0.1176666666666667,
+                "neighbor": 0.048477,
+                "noise": -0.0025517656756577417,
+                "self_contribution": 0.2008,
+                "semantic_contribution": 0.1176666666666667,
+                "neighbor_contribution": 0.048477,
+                "noise_contribution": -0.0025517656756577417
+              },
+              "risk_averse": {
+                "self": 0.1952,
+                "semantic": 0.10704166666666669,
+                "neighbor": 0.035,
+                "noise": -0.02994706828681915,
+                "self_contribution": 0.1952,
+                "semantic_contribution": 0.10704166666666669,
+                "neighbor_contribution": 0.035,
+                "noise_contribution": -0.02994706828681915
+              }
+            }
+          },
+          {
+            "round": 2,
+            "group_attitudes": {
+              "rational_evaluator": 0.36197479216944156,
+              "budget_guardian": 0.3544530622104976,
+              "culture_seeker": 0.36085988601238506,
+              "emotional_resonator": 0.3749464501815497,
+              "social_follower": 0.3911020811281857,
+              "risk_averse": 0.35189687189949037
+            },
+            "overall_satisfaction": 0.3658721906002583,
+            "topic_distribution": {
+              "topic_0": 1.0
+            },
+            "delta_by_group": {
+              "rational_evaluator": 0.021206182094333448,
+              "budget_guardian": 0.0066420508837946035,
+              "culture_seeker": 0.007957869910404924,
+              "emotional_resonator": 0.009045109012905728,
+              "social_follower": 0.026710180137176742,
+              "risk_averse": 0.044602273519642854
+            },
+            "overall_delta": 0.01936061092637631,
+            "dominant_driver": "frame",
+            "dispersion": 0.039205209228695304,
+            "activation_reasons": [
+              {
+                "expert": "frame",
+                "label": "fairness",
+                "score": 1.0,
+                "confidence": 1.0,
+                "weight": 1.0
+              },
+              {
+                "expert": "acceptance",
+                "label": "IS CAUTIOUS ABOUT THIS TARGET",
+                "score": 0.5,
+                "confidence": 0.2,
+                "weight": 0.1
+              },
+              {
+                "expert": "conflict",
+                "label": "MEDIUM_CONFLICT",
+                "score": 0.5,
+                "confidence": 0.2,
+                "weight": 0.1
+              },
+              {
+                "expert": "sentiment",
+                "label": "NEGATIVE",
+                "score": -0.3333333333333333,
+                "confidence": 0.3333333333333333,
+                "weight": -0.1111111111111111
+              }
+            ],
+            "attributions": {
+              "rational_evaluator": {
+                "self": 0.20446116604506487,
+                "semantic": 0.11566666666666668,
+                "neighbor": 0.03520059257635572,
+                "noise": 0.006646366881354305,
+                "self_contribution": 0.20446116604506487,
+                "semantic_contribution": 0.11566666666666668,
+                "neighbor_contribution": 0.03520059257635572,
+                "noise_contribution": 0.006646366881354305
+              },
+              "budget_guardian": {
+                "self": 0.2086866067960218,
+                "semantic": 0.11345833333333334,
+                "neighbor": 0.03765487165108581,
+                "noise": -0.005346749569943365,
+                "self_contribution": 0.2086866067960218,
+                "semantic_contribution": 0.11345833333333334,
+                "neighbor_contribution": 0.03765487165108581,
+                "noise_contribution": -0.005346749569943365
+              },
+              "culture_seeker": {
+                "self": 0.21174120966118806,
+                "semantic": 0.11720833333333334,
+                "neighbor": 0.036249516700767544,
+                "noise": -0.0043391736829039,
+                "self_contribution": 0.21174120966118806,
+                "semantic_contribution": 0.11720833333333334,
+                "neighbor_contribution": 0.036249516700767544,
+                "noise_contribution": -0.0043391736829039
+              },
+              "emotional_resonator": {
+                "self": 0.2195408047011864,
+                "semantic": 0.11454166666666668,
+                "neighbor": 0.03854628307967957,
+                "noise": 0.0023176957340171017,
+                "self_contribution": 0.2195408047011864,
+                "semantic_contribution": 0.11454166666666668,
+                "neighbor_contribution": 0.03854628307967957,
+                "noise_contribution": 0.0023176957340171017
+              },
+              "social_follower": {
+                "self": 0.21863514059460534,
+                "semantic": 0.1176666666666667,
+                "neighbor": 0.050154319128779275,
+                "noise": 0.004645954738134417,
+                "self_contribution": 0.21863514059460534,
+                "semantic_contribution": 0.1176666666666667,
+                "neighbor_contribution": 0.050154319128779275,
+                "noise_contribution": 0.004645954738134417
+              },
+              "risk_averse": {
+                "self": 0.1843767590279085,
+                "semantic": 0.10704166666666669,
+                "neighbor": 0.037207272472932325,
+                "noise": 0.02327117373198286,
+                "self_contribution": 0.1843767590279085,
+                "semantic_contribution": 0.10704166666666669,
+                "neighbor_contribution": 0.037207272472932325,
+                "noise_contribution": 0.02327117373198286
+              }
+            }
+          },
+          {
+            "round": 3,
+            "group_attitudes": {
+              "rational_evaluator": 0.3831077537208052,
+              "budget_guardian": 0.36837728097876393,
+              "culture_seeker": 0.3574796713032404,
+              "emotional_resonator": 0.36017274002779215,
+              "social_follower": 0.41002559282514806,
+              "risk_averse": 0.3831114680561851
+            },
+            "overall_satisfaction": 0.3770457511519892,
+            "topic_distribution": {
+              "topic_0": 1.0
+            },
+            "delta_by_group": {
+              "rational_evaluator": 0.021132961551363627,
+              "budget_guardian": 0.013924218768266328,
+              "culture_seeker": -0.00338021470914468,
+              "emotional_resonator": -0.014773710153757558,
+              "social_follower": 0.01892351169696238,
+              "risk_averse": 0.03121459615669475
+            },
+            "overall_delta": 0.01117356055173091,
+            "dominant_driver": "frame",
+            "dispersion": 0.05254592152190768,
+            "activation_reasons": [
+              {
+                "expert": "frame",
+                "label": "fairness",
+                "score": 1.0,
+                "confidence": 1.0,
+                "weight": 1.0
+              },
+              {
+                "expert": "acceptance",
+                "label": "IS CAUTIOUS ABOUT THIS TARGET",
+                "score": 0.5,
+                "confidence": 0.2,
+                "weight": 0.1
+              },
+              {
+                "expert": "conflict",
+                "label": "MEDIUM_CONFLICT",
+                "score": 0.5,
+                "confidence": 0.2,
+                "weight": 0.1
+              },
+              {
+                "expert": "sentiment",
+                "label": "NEGATIVE",
+                "score": -0.3333333333333333,
+                "confidence": 0.3333333333333333,
+                "weight": -0.1111111111111111
+              }
+            ],
+            "attributions": {
+              "rational_evaluator": {
+                "self": 0.21718487530166494,
+                "semantic": 0.11566666666666668,
+                "neighbor": 0.03712348161650019,
+                "noise": 0.013132730135973379,
+                "self_contribution": 0.21718487530166494,
+                "semantic_contribution": 0.11566666666666668,
+                "neighbor_contribution": 0.03712348161650019,
+                "noise_contribution": 0.013132730135973379
+              },
+              "budget_guardian": {
+                "self": 0.21267183732629855,
+                "semantic": 0.11345833333333334,
+                "neighbor": 0.04003696677025539,
+                "noise": 0.002210143548876639,
+                "self_contribution": 0.21267183732629855,
+                "semantic_contribution": 0.11345833333333334,
+                "neighbor_contribution": 0.04003696677025539,
+                "noise_contribution": 0.002210143548876639
+              },
+              "culture_seeker": {
+                "self": 0.21651593160743102,
+                "semantic": 0.11720833333333334,
+                "neighbor": 0.03852183840937246,
+                "noise": -0.014766432046896412,
+                "self_contribution": 0.21651593160743102,
+                "semantic_contribution": 0.11720833333333334,
+                "neighbor_contribution": 0.03852183840937246,
+                "noise_contribution": -0.014766432046896412
+              },
+              "emotional_resonator": {
+                "self": 0.22496787010892982,
+                "semantic": 0.11454166666666668,
+                "neighbor": 0.04095645060195001,
+                "noise": -0.020293247349754344,
+                "self_contribution": 0.22496787010892982,
+                "semantic_contribution": 0.11454166666666668,
+                "neighbor_contribution": 0.04095645060195001,
+                "noise_contribution": -0.020293247349754344
+              },
+              "social_follower": {
+                "self": 0.2346612486769114,
+                "semantic": 0.1176666666666667,
+                "neighbor": 0.052770833577345896,
+                "noise": 0.00492684390422404,
+                "self_contribution": 0.2346612486769114,
+                "semantic_contribution": 0.1176666666666667,
+                "neighbor_contribution": 0.052770833577345896,
+                "noise_contribution": 0.00492684390422404
+              },
+              "risk_averse": {
+                "self": 0.2111381231396942,
+                "semantic": 0.10704166666666669,
+                "neighbor": 0.038710061705743246,
+                "noise": 0.026221616544080964,
+                "self_contribution": 0.2111381231396942,
+                "semantic_contribution": 0.10704166666666669,
+                "neighbor_contribution": 0.038710061705743246,
+                "noise_contribution": 0.026221616544080964
+              }
+            }
+          }
+        ],
+        "overall_final": 0.3770457511519892,
+        "dispersion": 0.05254592152190768,
+        "top_groups": [
+          {
+            "group": "social_follower",
+            "attitude": 0.41002559282514806
+          },
+          {
+            "group": "risk_averse",
+            "attitude": 0.3831114680561851
+          },
+          {
+            "group": "rational_evaluator",
+            "attitude": 0.3831077537208052
+          }
+        ],
+        "final_group_attitudes": {
+          "rational_evaluator": 0.3831077537208052,
+          "budget_guardian": 0.36837728097876393,
+          "culture_seeker": 0.3574796713032404,
+          "emotional_resonator": 0.36017274002779215,
+          "social_follower": 0.41002559282514806,
+          "risk_averse": 0.3831114680561851
+        },
+        "rounds": 3,
+        "visualization_payload": {
+          "schema_version": "phase3.v1",
+          "round_count": 3,
+          "rounds": [
+            {
+              "round": 1,
+              "overall_satisfaction": 0.34651157967388196,
+              "overall_delta": 0.014511579673881947,
+              "dispersion": 0.05860674278879646,
+              "dominant_driver": "frame",
+              "delta_by_group": {
+                "rational_evaluator": 0.017101943408441456,
+                "budget_guardian": 0.011477677993369628,
+                "culture_seeker": 0.01423534943531346,
+                "emotional_resonator": 0.03256800783531061,
+                "social_follower": 0.029725234324342265,
+                "risk_averse": -0.018038734953485847
+              },
+              "activation_reasons": [
+                {
+                  "expert": "frame",
+                  "label": "fairness",
+                  "score": 1.0,
+                  "confidence": 1.0,
+                  "weight": 1.0
+                },
+                {
+                  "expert": "acceptance",
+                  "label": "IS CAUTIOUS ABOUT THIS TARGET",
+                  "score": 0.5,
+                  "confidence": 0.2,
+                  "weight": 0.1
+                },
+                {
+                  "expert": "conflict",
+                  "label": "MEDIUM_CONFLICT",
+                  "score": 0.5,
+                  "confidence": 0.2,
+                  "weight": 0.1
+                },
+                {
+                  "expert": "sentiment",
+                  "label": "NEGATIVE",
+                  "score": -0.3333333333333333,
+                  "confidence": 0.3333333333333333,
+                  "weight": -0.1111111111111111
+                }
+              ]
+            },
+            {
+              "round": 2,
+              "overall_satisfaction": 0.3658721906002583,
+              "overall_delta": 0.01936061092637631,
+              "dispersion": 0.039205209228695304,
+              "dominant_driver": "frame",
+              "delta_by_group": {
+                "rational_evaluator": 0.021206182094333448,
+                "budget_guardian": 0.0066420508837946035,
+                "culture_seeker": 0.007957869910404924,
+                "emotional_resonator": 0.009045109012905728,
+                "social_follower": 0.026710180137176742,
+                "risk_averse": 0.044602273519642854
+              },
+              "activation_reasons": [
+                {
+                  "expert": "frame",
+                  "label": "fairness",
+                  "score": 1.0,
+                  "confidence": 1.0,
+                  "weight": 1.0
+                },
+                {
+                  "expert": "acceptance",
+                  "label": "IS CAUTIOUS ABOUT THIS TARGET",
+                  "score": 0.5,
+                  "confidence": 0.2,
+                  "weight": 0.1
+                },
+                {
+                  "expert": "conflict",
+                  "label": "MEDIUM_CONFLICT",
+                  "score": 0.5,
+                  "confidence": 0.2,
+                  "weight": 0.1
+                },
+                {
+                  "expert": "sentiment",
+                  "label": "NEGATIVE",
+                  "score": -0.3333333333333333,
+                  "confidence": 0.3333333333333333,
+                  "weight": -0.1111111111111111
+                }
+              ]
+            },
+            {
+              "round": 3,
+              "overall_satisfaction": 0.3770457511519892,
+              "overall_delta": 0.01117356055173091,
+              "dispersion": 0.05254592152190768,
+              "dominant_driver": "frame",
+              "delta_by_group": {
+                "rational_evaluator": 0.021132961551363627,
+                "budget_guardian": 0.013924218768266328,
+                "culture_seeker": -0.00338021470914468,
+                "emotional_resonator": -0.014773710153757558,
+                "social_follower": 0.01892351169696238,
+                "risk_averse": 0.03121459615669475
+              },
+              "activation_reasons": [
+                {
+                  "expert": "frame",
+                  "label": "fairness",
+                  "score": 1.0,
+                  "confidence": 1.0,
+                  "weight": 1.0
+                },
+                {
+                  "expert": "acceptance",
+                  "label": "IS CAUTIOUS ABOUT THIS TARGET",
+                  "score": 0.5,
+                  "confidence": 0.2,
+                  "weight": 0.1
+                },
+                {
+                  "expert": "conflict",
+                  "label": "MEDIUM_CONFLICT",
+                  "score": 0.5,
+                  "confidence": 0.2,
+                  "weight": 0.1
+                },
+                {
+                  "expert": "sentiment",
+                  "label": "NEGATIVE",
+                  "score": -0.3333333333333333,
+                  "confidence": 0.3333333333333333,
+                  "weight": -0.1111111111111111
+                }
+              ]
+            }
+          ],
+          "divergence_summary": {
+            "final_dispersion": 0.05254592152190768,
+            "max_dispersion": 0.05860674278879646,
+            "trend": "stable"
+          },
+          "driver_summary": {
+            "dominant_driver": "frame",
+            "scores": {
+              "acceptance": 0.5,
+              "sentiment": 0.33333333333333337,
+              "conflict": 0.5,
+              "frame": 1.0
+            }
+          },
+          "provenance_links": {
+            "semantic_evidence": "semantic_evidence",
+            "stance_components": "semantic_evidence.fusion.stance_components",
+            "trajectory_rounds": "trajectories"
+          }
+        }
+      },
+      "report": {
+        "schema_version": "phase2b.v1",
+        "status": "ok",
+        "provider": "deepseek",
+        "mode": "fallback",
+        "text": "[DeepSeek fallback] Projected acceptance is low (0.38) with low polarization (dispersion 0.05). Main driver is frame. Expert signals: acceptance=IS CAUTIOUS ABOUT THIS TARGET, conflict=MEDIUM_CONFLICT, frame=fairness. Recommended action: Prioritize confidence recovery with clear communication and fast feedback loops.",
+        "executive_summary": {
+          "headline": "Decision outlook: Low acceptance, low divergence, driver=frame.",
+          "conclusion_line": "Projected acceptance is low (0.38) with low polarization (dispersion 0.05).",
+          "four_block_summary": {
+            "acceptance_outlook": "low",
+            "polarization": "low",
+            "main_driver": "frame",
+            "recommended_action": "Prioritize confidence recovery with clear communication and fast feedback loops."
+          }
+        },
+        "expanded_analysis": "[DeepSeek fallback] Projected acceptance is low (0.38) with low polarization (dispersion 0.05). Main driver is frame. Expert signals: acceptance=IS CAUTIOUS ABOUT THIS TARGET, conflict=MEDIUM_CONFLICT, frame=fairness. Recommended action: Prioritize confidence recovery with clear communication and fast feedback loops.",
+        "decision_trace": {
+          "overall_final": 0.3770457511519892,
+          "dispersion": 0.05254592152190768,
+          "main_driver": "frame",
+          "top_groups": [
+            {
+              "group": "social_follower",
+              "attitude": 0.41002559282514806
+            },
+            {
+              "group": "risk_averse",
+              "attitude": 0.3831114680561851
+            },
+            {
+              "group": "rational_evaluator",
+              "attitude": 0.3831077537208052
+            }
+          ],
+          "acceptance": {
+            "label": "IS CAUTIOUS ABOUT THIS TARGET",
+            "score": 0.5
+          },
+          "conflict": {
+            "label": "MEDIUM_CONFLICT",
+            "score": 0.5
+          },
+          "frame": {
+            "label": "fairness",
+            "score": 1.0
+          }
+        },
+        "meta": {
+          "model": "deepseek-chat"
+        },
+        "errors": []
+      },
+      "report_text": "[DeepSeek fallback] Projected acceptance is low (0.38) with low polarization (dispersion 0.05). Main driver is frame. Expert signals: acceptance=IS CAUTIOUS ABOUT THIS TARGET, conflict=MEDIUM_CONFLICT, frame=fairness. Recommended action: Prioritize confidence recovery with clear communication and fast feedback loops."
+    },
+    {
+      "case": "product_case",
+      "title": "Premium Subscription Product Reaction Simulation",
+      "input": {
+        "text": "The product battery is excellent but setup remains confusing.",
+        "target": "smart home product",
+        "domain": "product"
+      },
+      "model_evidence": {
+        "experts": {
+          "sentiment": {
+            "label": "POSITIVE",
+            "score": 0.3333333333333333,
+            "confidence": 0.3333333333333333,
+            "payload": {
+              "n_samples": 3,
+              "backend": "lexicon",
+              "target": "smart home product",
+              "domain": "product"
+            }
+          },
+          "acceptance": {
+            "label": "IS CAUTIOUS ABOUT THIS TARGET",
+            "score": 0.5,
+            "confidence": 0.2,
+            "payload": {
+              "backend": "lexical-fallback",
+              "target": "smart home product",
+              "domain": "product"
+            }
+          },
+          "emotion": {
+            "label": "joy",
+            "score": 1.0,
+            "confidence": 1.0,
+            "payload": {
+              "backend": "lexical-fallback",
+              "distribution": {
+                "joy": 1.0,
+                "anger": 0.0,
+                "fear": 0.0,
+                "sadness": 0.0,
+                "surprise": 0.0
+              },
+              "target": "smart home product",
+              "domain": "product"
+            }
+          },
+          "topic": {
+            "label": "topic_0",
+            "score": 1.0,
+            "confidence": 0.7333333333333334,
+            "payload": {
+              "distribution": {
+                "topic_0": 1.0
+              },
+              "topic_words": {
+                "0": [
+                  "great"
+                ],
+                "1": [
+                  "battery"
+                ],
+                "2": [
+                  "life"
+                ]
+              },
+              "backend": "keyword",
+              "target": "smart home product",
+              "domain": "product"
+            }
+          },
+          "conflict": {
+            "label": "MEDIUM_CONFLICT",
+            "score": 0.5,
+            "confidence": 0.2,
+            "payload": {
+              "backend": "lexical-fallback",
+              "conflict_hits": 0,
+              "calm_hits": 0,
+              "target": "smart home product",
+              "domain": "product"
+            }
+          },
+          "frame": {
+            "label": "economic",
+            "score": 1.0,
+            "confidence": 1.0,
+            "payload": {
+              "backend": "lexical-fallback",
+              "distribution": {
+                "economic": 1.0,
+                "health": 0.0,
+                "fairness": 0.0,
+                "security": 0.0,
+                "morality": 0.0
+              },
+              "target": "smart home product",
+              "domain": "product"
+            }
+          },
+          "stance": {
+            "label": "IS CAUTIOUS ABOUT THIS TARGET",
+            "score": 0.5,
+            "confidence": 0.2,
+            "payload": {
+              "backend": "lexical-fallback",
+              "target": "smart home product",
+              "domain": "product"
+            }
+          },
+          "risk": {
+            "label": "MEDIUM_CONFLICT",
+            "score": 0.5,
+            "confidence": 0.2,
+            "payload": {
+              "backend": "lexical-fallback",
+              "conflict_hits": 0,
+              "calm_hits": 0,
+              "target": "smart home product",
+              "domain": "product"
+            }
+          },
+          "value_frame": {
+            "label": "economic",
+            "score": 1.0,
+            "confidence": 1.0,
+            "payload": {
+              "backend": "lexical-fallback",
+              "distribution": {
+                "economic": 1.0,
+                "health": 0.0,
+                "fairness": 0.0,
+                "security": 0.0,
+                "morality": 0.0
+              },
+              "target": "smart home product",
+              "domain": "product"
+            }
+          }
+        },
+        "fusion": {
+          "stance_components": {
+            "acceptance_expert": 0.5,
+            "sentiment_component": 0.6666666666666666,
+            "conflict_component": 0.5
+          },
+          "weights": {
+            "acceptance_expert": 0.5,
+            "sentiment_component": 0.3,
+            "conflict_component": 0.2
+          },
+          "consensus": {
+            "score": 0.7333333333333333,
+            "method": "fallback-average",
+            "spread": 0.5,
+            "threshold": 0.2,
+            "source_scores": {
+              "sentiment": 0.6666666666666666,
+              "acceptance": 0.5,
+              "emotion": 1.0,
+              "conflict": 0.5,
+              "frame": 1.0
+            }
+          }
+        }
+      },
+      "simulation_result": {
+        "initial_attitudes": {
+          "rational_evaluator": 0.6763333333333333,
+          "budget_guardian": 0.6636666666666666,
+          "culture_seeker": 0.6613333333333333,
+          "emotional_resonator": 0.6666666666666666,
+          "social_follower": 0.6653333333333333,
+          "risk_averse": 0.6746666666666666
+        },
+        "trajectories": [
+          {
+            "round": 1,
+            "group_attitudes": {
+              "rational_evaluator": 0.6768217523541509,
+              "budget_guardian": 0.650136433993981,
+              "culture_seeker": 0.6588992395342185,
+              "emotional_resonator": 0.6714065441349969,
+              "social_follower": 0.6571545926753369,
+              "risk_averse": 0.6097292370943931
+            },
+            "overall_satisfaction": 0.6540246332978462,
+            "topic_distribution": {
+              "topic_0": 1.0
+            },
+            "delta_by_group": {
+              "rational_evaluator": 0.0004884190208175321,
+              "budget_guardian": -0.013530232672685605,
+              "culture_seeker": -0.002434093799114856,
+              "emotional_resonator": 0.004739877468330267,
+              "social_follower": -0.008178740657996397,
+              "risk_averse": -0.06493742957227355
+            },
+            "overall_delta": -0.013975366702153824,
+            "dominant_driver": "frame",
+            "dispersion": 0.06709251525975779,
+            "activation_reasons": [
+              {
+                "expert": "frame",
+                "label": "economic",
+                "score": 1.0,
+                "confidence": 1.0,
+                "weight": 1.0
+              },
+              {
+                "expert": "sentiment",
+                "label": "POSITIVE",
+                "score": 0.3333333333333333,
+                "confidence": 0.3333333333333333,
+                "weight": 0.1111111111111111
+              },
+              {
+                "expert": "acceptance",
+                "label": "IS CAUTIOUS ABOUT THIS TARGET",
+                "score": 0.5,
+                "confidence": 0.2,
+                "weight": 0.1
+              },
+              {
+                "expert": "conflict",
+                "label": "MEDIUM_CONFLICT",
+                "score": 0.5,
+                "confidence": 0.2,
+                "weight": 0.1
+              }
+            ],
+            "attributions": {
+              "rational_evaluator": {
+                "self": 0.4058,
+                "semantic": 0.17358333333333334,
+                "neighbor": 0.06746625,
+                "noise": 0.02997216902081742,
+                "self_contribution": 0.4058,
+                "semantic_contribution": 0.17358333333333334,
+                "neighbor_contribution": 0.06746625,
+                "noise_contribution": 0.02997216902081742
+              },
+              "budget_guardian": {
+                "self": 0.39819999999999994,
+                "semantic": 0.17179166666666668,
+                "neighbor": 0.07273924999999999,
+                "noise": 0.007405517327314267,
+                "self_contribution": 0.39819999999999994,
+                "semantic_contribution": 0.17179166666666668,
+                "neighbor_contribution": 0.07273924999999999,
+                "noise_contribution": 0.007405517327314267
+              },
+              "culture_seeker": {
+                "self": 0.3968,
+                "semantic": 0.17804166666666668,
+                "neighbor": 0.07027999999999998,
+                "noise": 0.013777572867551813,
+                "self_contribution": 0.3968,
+                "semantic_contribution": 0.17804166666666668,
+                "neighbor_contribution": 0.07027999999999998,
+                "noise_contribution": 0.013777572867551813
+              },
+              "emotional_resonator": {
+                "self": 0.39999999999999997,
+                "semantic": 0.17870833333333333,
+                "neighbor": 0.07517999999999998,
+                "noise": 0.017518210801663606,
+                "self_contribution": 0.39999999999999997,
+                "semantic_contribution": 0.17870833333333333,
+                "neighbor_contribution": 0.07517999999999998,
+                "noise_contribution": 0.017518210801663606
+              },
+              "social_follower": {
+                "self": 0.3992,
+                "semantic": 0.17695833333333336,
+                "neighbor": 0.09777299999999997,
+                "noise": -0.01677674065799644,
+                "self_contribution": 0.3992,
+                "semantic_contribution": 0.17695833333333336,
+                "neighbor_contribution": 0.09777299999999997,
+                "noise_contribution": -0.01677674065799644
+              },
+              "risk_averse": {
+                "self": 0.4048,
+                "semantic": 0.16620833333333335,
+                "neighbor": 0.06999999999999999,
+                "noise": -0.03127909623894019,
+                "self_contribution": 0.4048,
+                "semantic_contribution": 0.16620833333333335,
+                "neighbor_contribution": 0.06999999999999999,
+                "noise_contribution": -0.03127909623894019
+              }
+            }
+          },
+          {
+            "round": 2,
+            "group_attitudes": {
+              "rational_evaluator": 0.6229539074039872,
+              "budget_guardian": 0.639892853466887,
+              "culture_seeker": 0.6630825102631824,
+              "emotional_resonator": 0.6572947920535568,
+              "social_follower": 0.639612022925488,
+              "risk_averse": 0.629759718797262
+            },
+            "overall_satisfaction": 0.642099300818394,
+            "topic_distribution": {
+              "topic_0": 1.0
+            },
+            "delta_by_group": {
+              "rational_evaluator": -0.053867844950163724,
+              "budget_guardian": -0.010243580527094065,
+              "culture_seeker": 0.0041832707289639615,
+              "emotional_resonator": -0.01411175208144011,
+              "social_follower": -0.017542569749848913,
+              "risk_averse": 0.02003048170286892
+            },
+            "overall_delta": -0.011925332479452266,
+            "dominant_driver": "frame",
+            "dispersion": 0.040128602859195284,
+            "activation_reasons": [
+              {
+                "expert": "frame",
+                "label": "economic",
+                "score": 1.0,
+                "confidence": 1.0,
+                "weight": 1.0
+              },
+              {
+                "expert": "sentiment",
+                "label": "POSITIVE",
+                "score": 0.3333333333333333,
+                "confidence": 0.3333333333333333,
+                "weight": 0.1111111111111111
+              },
+              {
+                "expert": "acceptance",
+                "label": "IS CAUTIOUS ABOUT THIS TARGET",
+                "score": 0.5,
+                "confidence": 0.2,
+                "weight": 0.1
+              },
+              {
+                "expert": "conflict",
+                "label": "MEDIUM_CONFLICT",
+                "score": 0.5,
+                "confidence": 0.2,
+                "weight": 0.1
+              }
+            ],
+            "attributions": {
+              "rational_evaluator": {
+                "self": 0.4060930514124905,
+                "semantic": 0.17358333333333334,
+                "neighbor": 0.06575835246051677,
+                "noise": -0.022480829802353483,
+                "self_contribution": 0.4060930514124905,
+                "semantic_contribution": 0.17358333333333334,
+                "neighbor_contribution": 0.06575835246051677,
+                "noise_contribution": -0.022480829802353483
+              },
+              "budget_guardian": {
+                "self": 0.3900818603963886,
+                "semantic": 0.17179166666666668,
+                "neighbor": 0.07120974720599985,
+                "noise": 0.006809579197831824,
+                "self_contribution": 0.3900818603963886,
+                "semantic_contribution": 0.17179166666666668,
+                "neighbor_contribution": 0.07120974720599985,
+                "noise_contribution": 0.006809579197831824
+              },
+              "culture_seeker": {
+                "self": 0.3953395437205311,
+                "semantic": 0.17804166666666668,
+                "neighbor": 0.06857021976531004,
+                "noise": 0.021131080110674536,
+                "self_contribution": 0.3953395437205311,
+                "semantic_contribution": 0.17804166666666668,
+                "neighbor_contribution": 0.06857021976531004,
+                "noise_contribution": 0.021131080110674536
+              },
+              "emotional_resonator": {
+                "self": 0.40284392648099815,
+                "semantic": 0.17870833333333333,
+                "neighbor": 0.0731866782521718,
+                "noise": 0.002555853987053539,
+                "self_contribution": 0.40284392648099815,
+                "semantic_contribution": 0.17870833333333333,
+                "neighbor_contribution": 0.0731866782521718,
+                "noise_contribution": 0.002555853987053539
+              },
+              "social_follower": {
+                "self": 0.39429275560520216,
+                "semantic": 0.17695833333333336,
+                "neighbor": 0.0955595513080184,
+                "noise": -0.02719861732106591,
+                "self_contribution": 0.39429275560520216,
+                "semantic_contribution": 0.17695833333333336,
+                "neighbor_contribution": 0.0955595513080184,
+                "noise_contribution": -0.02719861732106591
+              },
+              "risk_averse": {
+                "self": 0.36583754225663584,
+                "semantic": 0.16620833333333335,
+                "neighbor": 0.06960278981654637,
+                "noise": 0.028111053390746436,
+                "self_contribution": 0.36583754225663584,
+                "semantic_contribution": 0.16620833333333335,
+                "neighbor_contribution": 0.06960278981654637,
+                "noise_contribution": 0.028111053390746436
+              }
+            }
+          },
+          {
+            "round": 3,
+            "group_attitudes": {
+              "rational_evaluator": 0.5806482623139346,
+              "budget_guardian": 0.615839917741608,
+              "culture_seeker": 0.6314722903654975,
+              "emotional_resonator": 0.6499915625881473,
+              "social_follower": 0.6766481902800607,
+              "risk_averse": 0.5818886119094101
+            },
+            "overall_satisfaction": 0.6227481391997763,
+            "topic_distribution": {
+              "topic_0": 1.0
+            },
+            "delta_by_group": {
+              "rational_evaluator": -0.042305645090052524,
+              "budget_guardian": -0.024052935725279,
+              "culture_seeker": -0.03161021989768498,
+              "emotional_resonator": -0.007303229465409511,
+              "social_follower": 0.03703616735457271,
+              "risk_averse": -0.0478711068878519
+            },
+            "overall_delta": -0.019351161618617607,
+            "dominant_driver": "frame",
+            "dispersion": 0.09599992796612611,
+            "activation_reasons": [
+              {
+                "expert": "frame",
+                "label": "economic",
+                "score": 1.0,
+                "confidence": 1.0,
+                "weight": 1.0
+              },
+              {
+                "expert": "sentiment",
+                "label": "POSITIVE",
+                "score": 0.3333333333333333,
+                "confidence": 0.3333333333333333,
+                "weight": 0.1111111111111111
+              },
+              {
+                "expert": "acceptance",
+                "label": "IS CAUTIOUS ABOUT THIS TARGET",
+                "score": 0.5,
+                "confidence": 0.2,
+                "weight": 0.1
+              },
+              {
+                "expert": "conflict",
+                "label": "MEDIUM_CONFLICT",
+                "score": 0.5,
+                "confidence": 0.2,
+                "weight": 0.1
+              }
+            ],
+            "attributions": {
+              "rational_evaluator": {
+                "self": 0.37377234444239227,
+                "semantic": 0.17358333333333334,
+                "neighbor": 0.06540024842450412,
+                "noise": -0.0321076638862951,
+                "self_contribution": 0.37377234444239227,
+                "semantic_contribution": 0.17358333333333334,
+                "neighbor_contribution": 0.06540024842450412,
+                "noise_contribution": -0.0321076638862951
+              },
+              "budget_guardian": {
+                "self": 0.38393571208013216,
+                "semantic": 0.17179166666666668,
+                "neighbor": 0.06987628919389562,
+                "noise": -0.009763750199086608,
+                "self_contribution": 0.38393571208013216,
+                "semantic_contribution": 0.17179166666666668,
+                "neighbor_contribution": 0.06987628919389562,
+                "noise_contribution": -0.009763750199086608
+              },
+              "culture_seeker": {
+                "self": 0.3978495061579094,
+                "semantic": 0.17804166666666668,
+                "neighbor": 0.0669797791875908,
+                "noise": -0.011398661646669495,
+                "self_contribution": 0.3978495061579094,
+                "semantic_contribution": 0.17804166666666668,
+                "neighbor_contribution": 0.0669797791875908,
+                "noise_contribution": -0.011398661646669495
+              },
+              "emotional_resonator": {
+                "self": 0.39437687523213405,
+                "semantic": 0.17870833333333333,
+                "neighbor": 0.07189427278927814,
+                "noise": 0.005012081233401679,
+                "self_contribution": 0.39437687523213405,
+                "semantic_contribution": 0.17870833333333333,
+                "neighbor_contribution": 0.07189427278927814,
+                "noise_contribution": 0.005012081233401679
+              },
+              "social_follower": {
+                "self": 0.3837672137552928,
+                "semantic": 0.17695833333333336,
+                "neighbor": 0.09397977562305761,
+                "noise": 0.02194286756837688,
+                "self_contribution": 0.3837672137552928,
+                "semantic_contribution": 0.17695833333333336,
+                "neighbor_contribution": 0.09397977562305761,
+                "noise_contribution": 0.02194286756837688
+              },
+              "risk_averse": {
+                "self": 0.3778558312783572,
+                "semantic": 0.16620833333333335,
+                "neighbor": 0.06767955780837513,
+                "noise": -0.029855110510655595,
+                "self_contribution": 0.3778558312783572,
+                "semantic_contribution": 0.16620833333333335,
+                "neighbor_contribution": 0.06767955780837513,
+                "noise_contribution": -0.029855110510655595
+              }
+            }
+          }
+        ],
+        "overall_final": 0.6227481391997763,
+        "dispersion": 0.09599992796612611,
+        "top_groups": [
+          {
+            "group": "social_follower",
+            "attitude": 0.6766481902800607
+          },
+          {
+            "group": "emotional_resonator",
+            "attitude": 0.6499915625881473
+          },
+          {
+            "group": "culture_seeker",
+            "attitude": 0.6314722903654975
+          }
+        ],
+        "final_group_attitudes": {
+          "rational_evaluator": 0.5806482623139346,
+          "budget_guardian": 0.615839917741608,
+          "culture_seeker": 0.6314722903654975,
+          "emotional_resonator": 0.6499915625881473,
+          "social_follower": 0.6766481902800607,
+          "risk_averse": 0.5818886119094101
+        },
+        "rounds": 3,
+        "visualization_payload": {
+          "schema_version": "phase3.v1",
+          "round_count": 3,
+          "rounds": [
+            {
+              "round": 1,
+              "overall_satisfaction": 0.6540246332978462,
+              "overall_delta": -0.013975366702153824,
+              "dispersion": 0.06709251525975779,
+              "dominant_driver": "frame",
+              "delta_by_group": {
+                "rational_evaluator": 0.0004884190208175321,
+                "budget_guardian": -0.013530232672685605,
+                "culture_seeker": -0.002434093799114856,
+                "emotional_resonator": 0.004739877468330267,
+                "social_follower": -0.008178740657996397,
+                "risk_averse": -0.06493742957227355
+              },
+              "activation_reasons": [
+                {
+                  "expert": "frame",
+                  "label": "economic",
+                  "score": 1.0,
+                  "confidence": 1.0,
+                  "weight": 1.0
+                },
+                {
+                  "expert": "sentiment",
+                  "label": "POSITIVE",
+                  "score": 0.3333333333333333,
+                  "confidence": 0.3333333333333333,
+                  "weight": 0.1111111111111111
+                },
+                {
+                  "expert": "acceptance",
+                  "label": "IS CAUTIOUS ABOUT THIS TARGET",
+                  "score": 0.5,
+                  "confidence": 0.2,
+                  "weight": 0.1
+                },
+                {
+                  "expert": "conflict",
+                  "label": "MEDIUM_CONFLICT",
+                  "score": 0.5,
+                  "confidence": 0.2,
+                  "weight": 0.1
+                }
+              ]
+            },
+            {
+              "round": 2,
+              "overall_satisfaction": 0.642099300818394,
+              "overall_delta": -0.011925332479452266,
+              "dispersion": 0.040128602859195284,
+              "dominant_driver": "frame",
+              "delta_by_group": {
+                "rational_evaluator": -0.053867844950163724,
+                "budget_guardian": -0.010243580527094065,
+                "culture_seeker": 0.0041832707289639615,
+                "emotional_resonator": -0.01411175208144011,
+                "social_follower": -0.017542569749848913,
+                "risk_averse": 0.02003048170286892
+              },
+              "activation_reasons": [
+                {
+                  "expert": "frame",
+                  "label": "economic",
+                  "score": 1.0,
+                  "confidence": 1.0,
+                  "weight": 1.0
+                },
+                {
+                  "expert": "sentiment",
+                  "label": "POSITIVE",
+                  "score": 0.3333333333333333,
+                  "confidence": 0.3333333333333333,
+                  "weight": 0.1111111111111111
+                },
+                {
+                  "expert": "acceptance",
+                  "label": "IS CAUTIOUS ABOUT THIS TARGET",
+                  "score": 0.5,
+                  "confidence": 0.2,
+                  "weight": 0.1
+                },
+                {
+                  "expert": "conflict",
+                  "label": "MEDIUM_CONFLICT",
+                  "score": 0.5,
+                  "confidence": 0.2,
+                  "weight": 0.1
+                }
+              ]
+            },
+            {
+              "round": 3,
+              "overall_satisfaction": 0.6227481391997763,
+              "overall_delta": -0.019351161618617607,
+              "dispersion": 0.09599992796612611,
+              "dominant_driver": "frame",
+              "delta_by_group": {
+                "rational_evaluator": -0.042305645090052524,
+                "budget_guardian": -0.024052935725279,
+                "culture_seeker": -0.03161021989768498,
+                "emotional_resonator": -0.007303229465409511,
+                "social_follower": 0.03703616735457271,
+                "risk_averse": -0.0478711068878519
+              },
+              "activation_reasons": [
+                {
+                  "expert": "frame",
+                  "label": "economic",
+                  "score": 1.0,
+                  "confidence": 1.0,
+                  "weight": 1.0
+                },
+                {
+                  "expert": "sentiment",
+                  "label": "POSITIVE",
+                  "score": 0.3333333333333333,
+                  "confidence": 0.3333333333333333,
+                  "weight": 0.1111111111111111
+                },
+                {
+                  "expert": "acceptance",
+                  "label": "IS CAUTIOUS ABOUT THIS TARGET",
+                  "score": 0.5,
+                  "confidence": 0.2,
+                  "weight": 0.1
+                },
+                {
+                  "expert": "conflict",
+                  "label": "MEDIUM_CONFLICT",
+                  "score": 0.5,
+                  "confidence": 0.2,
+                  "weight": 0.1
+                }
+              ]
+            }
+          ],
+          "divergence_summary": {
+            "final_dispersion": 0.09599992796612611,
+            "max_dispersion": 0.09599992796612611,
+            "trend": "stable"
+          },
+          "driver_summary": {
+            "dominant_driver": "frame",
+            "scores": {
+              "acceptance": 0.5,
+              "sentiment": 0.6666666666666666,
+              "conflict": 0.5,
+              "frame": 1.0
+            }
+          },
+          "provenance_links": {
+            "semantic_evidence": "semantic_evidence",
+            "stance_components": "semantic_evidence.fusion.stance_components",
+            "trajectory_rounds": "trajectories"
+          }
+        }
+      },
+      "report": {
+        "schema_version": "phase2b.v1",
+        "status": "ok",
+        "provider": "deepseek",
+        "mode": "fallback",
+        "text": "[DeepSeek fallback] Projected acceptance is moderate (0.62) with low polarization (dispersion 0.10). Main driver is frame. Expert signals: acceptance=IS CAUTIOUS ABOUT THIS TARGET, conflict=MEDIUM_CONFLICT, frame=economic. Recommended action: Sustain current direction and monitor leading segments for early drift.",
+        "executive_summary": {
+          "headline": "Decision outlook: Moderate acceptance, low divergence, driver=frame.",
+          "conclusion_line": "Projected acceptance is moderate (0.62) with low polarization (dispersion 0.10).",
+          "four_block_summary": {
+            "acceptance_outlook": "moderate",
+            "polarization": "low",
+            "main_driver": "frame",
+            "recommended_action": "Sustain current direction and monitor leading segments for early drift."
+          }
+        },
+        "expanded_analysis": "[DeepSeek fallback] Projected acceptance is moderate (0.62) with low polarization (dispersion 0.10). Main driver is frame. Expert signals: acceptance=IS CAUTIOUS ABOUT THIS TARGET, conflict=MEDIUM_CONFLICT, frame=economic. Recommended action: Sustain current direction and monitor leading segments for early drift.",
+        "decision_trace": {
+          "overall_final": 0.6227481391997763,
+          "dispersion": 0.09599992796612611,
+          "main_driver": "frame",
+          "top_groups": [
+            {
+              "group": "social_follower",
+              "attitude": 0.6766481902800607
+            },
+            {
+              "group": "emotional_resonator",
+              "attitude": 0.6499915625881473
+            },
+            {
+              "group": "culture_seeker",
+              "attitude": 0.6314722903654975
+            }
+          ],
+          "acceptance": {
+            "label": "IS CAUTIOUS ABOUT THIS TARGET",
+            "score": 0.5
+          },
+          "conflict": {
+            "label": "MEDIUM_CONFLICT",
+            "score": 0.5
+          },
+          "frame": {
+            "label": "economic",
+            "score": 1.0
+          }
+        },
+        "meta": {
+          "model": "deepseek-chat"
+        },
+        "errors": []
+      },
+      "report_text": "[DeepSeek fallback] Projected acceptance is moderate (0.62) with low polarization (dispersion 0.10). Main driver is frame. Expert signals: acceptance=IS CAUTIOUS ABOUT THIS TARGET, conflict=MEDIUM_CONFLICT, frame=economic. Recommended action: Sustain current direction and monitor leading segments for early drift."
+    },
+    {
+      "case": "culture_case",
+      "title": "Cultural Trend Diffusion Risk Simulation",
+      "input": {
+        "text": "The cultural trend is innovative but may increase social conflict.",
+        "target": "cultural trend",
+        "domain": "culture"
+      },
+      "model_evidence": {
+        "experts": {
+          "sentiment": {
+            "label": "NEUTRAL",
+            "score": 0.0,
+            "confidence": 0.0,
+            "payload": {
+              "n_samples": 3,
+              "backend": "lexicon",
+              "target": "cultural trend",
+              "domain": "culture"
+            }
+          },
+          "acceptance": {
+            "label": "IS CAUTIOUS ABOUT THIS TARGET",
+            "score": 0.5,
+            "confidence": 0.2,
+            "payload": {
+              "backend": "lexical-fallback",
+              "target": "cultural trend",
+              "domain": "culture"
+            }
+          },
+          "emotion": {
+            "label": "neutral",
+            "score": 0.0,
+            "confidence": 0.1,
+            "payload": {
+              "backend": "lexical-fallback",
+              "distribution": {
+                "joy": 0.0,
+                "anger": 0.0,
+                "fear": 0.0,
+                "sadness": 0.0,
+                "surprise": 0.0
+              },
+              "target": "cultural trend",
+              "domain": "culture"
+            }
+          },
+          "topic": {
+            "label": "topic_0",
+            "score": 1.0,
+            "confidence": 0.7777777777777777,
+            "payload": {
+              "distribution": {
+                "topic_0": 1.0
+              },
+              "topic_words": {
+                "0": [
+                  "creative"
+                ],
+                "1": [
+                  "inspiring"
+                ],
+                "2": [
+                  "movement"
+                ]
+              },
+              "backend": "keyword",
+              "target": "cultural trend",
+              "domain": "culture"
+            }
+          },
+          "conflict": {
+            "label": "HIGH_CONFLICT",
+            "score": 1.0,
+            "confidence": 0.2,
+            "payload": {
+              "backend": "lexical-fallback",
+              "conflict_hits": 1,
+              "calm_hits": 0,
+              "target": "cultural trend",
+              "domain": "culture"
+            }
+          },
+          "frame": {
+            "label": "general",
+            "score": 1.0,
+            "confidence": 1.0,
+            "payload": {
+              "backend": "lexical-fallback",
+              "distribution": {
+                "general": 1.0
+              },
+              "target": "cultural trend",
+              "domain": "culture"
+            }
+          },
+          "stance": {
+            "label": "IS CAUTIOUS ABOUT THIS TARGET",
+            "score": 0.5,
+            "confidence": 0.2,
+            "payload": {
+              "backend": "lexical-fallback",
+              "target": "cultural trend",
+              "domain": "culture"
+            }
+          },
+          "risk": {
+            "label": "HIGH_CONFLICT",
+            "score": 1.0,
+            "confidence": 0.2,
+            "payload": {
+              "backend": "lexical-fallback",
+              "conflict_hits": 1,
+              "calm_hits": 0,
+              "target": "cultural trend",
+              "domain": "culture"
+            }
+          },
+          "value_frame": {
+            "label": "general",
+            "score": 1.0,
+            "confidence": 1.0,
+            "payload": {
+              "backend": "lexical-fallback",
+              "distribution": {
+                "general": 1.0
+              },
+              "target": "cultural trend",
+              "domain": "culture"
+            }
+          }
+        },
+        "fusion": {
+          "stance_components": {
+            "acceptance_expert": 0.5,
+            "sentiment_component": 0.5,
+            "conflict_component": 0.0
+          },
+          "weights": {
+            "acceptance_expert": 0.5,
+            "sentiment_component": 0.3,
+            "conflict_component": 0.2
+          },
+          "consensus": {
+            "score": 0.5,
+            "method": "fallback-average",
+            "spread": 1.0,
+            "threshold": 0.2,
+            "source_scores": {
+              "sentiment": 0.5,
+              "acceptance": 0.5,
+              "emotion": 0.5,
+              "conflict": 0.0,
+              "frame": 1.0
+            }
+          }
+        }
+      },
+      "simulation_result": {
+        "initial_attitudes": {
+          "rational_evaluator": 0.5,
+          "budget_guardian": 0.5,
+          "culture_seeker": 0.5,
+          "emotional_resonator": 0.5,
+          "social_follower": 0.5,
+          "risk_averse": 0.5
+        },
+        "trajectories": [
+          {
+            "round": 1,
+            "group_attitudes": {
+              "rational_evaluator": 0.4536466333340107,
+              "budget_guardian": 0.48996058489804295,
+              "culture_seeker": 0.4875713232187066,
+              "emotional_resonator": 0.4727437884292396,
+              "social_follower": 0.4988805171574886,
+              "risk_averse": 0.47330128864647847
+            },
+            "overall_satisfaction": 0.47935068928066116,
+            "topic_distribution": {
+              "topic_0": 1.0
+            },
+            "delta_by_group": {
+              "rational_evaluator": -0.046353366665989326,
+              "budget_guardian": -0.01003941510195705,
+              "culture_seeker": -0.01242867678129339,
+              "emotional_resonator": -0.027256211570760414,
+              "social_follower": -0.001119482842511399,
+              "risk_averse": -0.02669871135352153
+            },
+            "overall_delta": -0.020649310719338843,
+            "dominant_driver": "frame",
+            "dispersion": 0.04523388382347793,
+            "activation_reasons": [
+              {
+                "expert": "frame",
+                "label": "general",
+                "score": 1.0,
+                "confidence": 1.0,
+                "weight": 1.0
+              },
+              {
+                "expert": "conflict",
+                "label": "HIGH_CONFLICT",
+                "score": 1.0,
+                "confidence": 0.2,
+                "weight": 0.2
+              },
+              {
+                "expert": "acceptance",
+                "label": "IS CAUTIOUS ABOUT THIS TARGET",
+                "score": 0.5,
+                "confidence": 0.2,
+                "weight": 0.1
+              },
+              {
+                "expert": "sentiment",
+                "label": "NEUTRAL",
+                "score": 0.0,
+                "confidence": 0.0,
+                "weight": 0.0
+              }
+            ],
+            "attributions": {
+              "rational_evaluator": {
+                "self": 0.3,
+                "semantic": 0.124,
+                "neighbor": 0.050625,
+                "noise": -0.02097836666598929,
+                "self_contribution": 0.3,
+                "semantic_contribution": 0.124,
+                "neighbor_contribution": 0.050625,
+                "noise_contribution": -0.02097836666598929
+              },
+              "budget_guardian": {
+                "self": 0.3,
+                "semantic": 0.122,
+                "neighbor": 0.054375,
+                "noise": 0.013585584898042973,
+                "self_contribution": 0.3,
+                "semantic_contribution": 0.122,
+                "neighbor_contribution": 0.054375,
+                "noise_contribution": 0.013585584898042973
+              },
+              "culture_seeker": {
+                "self": 0.3,
+                "semantic": 0.127,
+                "neighbor": 0.0525,
+                "noise": 0.008071323218706614,
+                "self_contribution": 0.3,
+                "semantic_contribution": 0.127,
+                "neighbor_contribution": 0.0525,
+                "noise_contribution": 0.008071323218706614
+              },
+              "emotional_resonator": {
+                "self": 0.3,
+                "semantic": 0.126,
+                "neighbor": 0.056249999999999994,
+                "noise": -0.009506211570760347,
+                "self_contribution": 0.3,
+                "semantic_contribution": 0.126,
+                "neighbor_contribution": 0.056249999999999994,
+                "noise_contribution": -0.009506211570760347
+              },
+              "social_follower": {
+                "self": 0.3,
+                "semantic": 0.125,
+                "neighbor": 0.073125,
+                "noise": 0.000755517157488634,
+                "self_contribution": 0.3,
+                "semantic_contribution": 0.125,
+                "neighbor_contribution": 0.073125,
+                "noise_contribution": 0.000755517157488634
+              },
+              "risk_averse": {
+                "self": 0.3,
+                "semantic": 0.116,
+                "neighbor": 0.0525,
+                "noise": 0.004801288646478481,
+                "self_contribution": 0.3,
+                "semantic_contribution": 0.116,
+                "neighbor_contribution": 0.0525,
+                "noise_contribution": 0.004801288646478481
+              }
+            }
+          },
+          {
+            "round": 2,
+            "group_attitudes": {
+              "rational_evaluator": 0.44721970398850913,
+              "budget_guardian": 0.46965467271904365,
+              "culture_seeker": 0.4829892263758286,
+              "emotional_resonator": 0.4837272436971932,
+              "social_follower": 0.5245531343407435,
+              "risk_averse": 0.4484105238878421
+            },
+            "overall_satisfaction": 0.47609241750152664,
+            "topic_distribution": {
+              "topic_0": 1.0
+            },
+            "delta_by_group": {
+              "rational_evaluator": -0.006426929345501542,
+              "budget_guardian": -0.020305912178999297,
+              "culture_seeker": -0.004582096842878025,
+              "emotional_resonator": 0.010983455267953635,
+              "social_follower": 0.025672617183254864,
+              "risk_averse": -0.024890764758636386
+            },
+            "overall_delta": -0.003258271779134514,
+            "dominant_driver": "frame",
+            "dispersion": 0.07733343035223433,
+            "activation_reasons": [
+              {
+                "expert": "frame",
+                "label": "general",
+                "score": 1.0,
+                "confidence": 1.0,
+                "weight": 1.0
+              },
+              {
+                "expert": "conflict",
+                "label": "HIGH_CONFLICT",
+                "score": 1.0,
+                "confidence": 0.2,
+                "weight": 0.2
+              },
+              {
+                "expert": "acceptance",
+                "label": "IS CAUTIOUS ABOUT THIS TARGET",
+                "score": 0.5,
+                "confidence": 0.2,
+                "weight": 0.1
+              },
+              {
+                "expert": "sentiment",
+                "label": "NEUTRAL",
+                "score": 0.0,
+                "confidence": 0.0,
+                "weight": 0.0
+              }
+            ],
+            "attributions": {
+              "rational_evaluator": {
+                "self": 0.2721879800004064,
+                "semantic": 0.124,
+                "neighbor": 0.04905476442258661,
+                "noise": 0.0019769595655161525,
+                "self_contribution": 0.2721879800004064,
+                "semantic_contribution": 0.124,
+                "neighbor_contribution": 0.04905476442258661,
+                "noise_contribution": 0.0019769595655161525
+              },
+              "budget_guardian": {
+                "self": 0.29397635093882574,
+                "semantic": 0.122,
+                "neighbor": 0.05189862222959385,
+                "noise": 0.0017796995506240729,
+                "self_contribution": 0.29397635093882574,
+                "semantic_contribution": 0.122,
+                "neighbor_contribution": 0.05189862222959385,
+                "noise_contribution": 0.0017796995506240729
+              },
+              "culture_seeker": {
+                "self": 0.29254279393122395,
+                "semantic": 0.127,
+                "neighbor": 0.05015918906177046,
+                "noise": 0.013287243382834147,
+                "self_contribution": 0.29254279393122395,
+                "semantic_contribution": 0.127,
+                "neighbor_contribution": 0.05015918906177046,
+                "noise_contribution": 0.013287243382834147
+              },
+              "emotional_resonator": {
+                "self": 0.28364627305754375,
+                "semantic": 0.126,
+                "neighbor": 0.05407560781323136,
+                "noise": 0.02000536282641812,
+                "self_contribution": 0.28364627305754375,
+                "semantic_contribution": 0.126,
+                "neighbor_contribution": 0.05407560781323136,
+                "noise_contribution": 0.02000536282641812
+              },
+              "social_follower": {
+                "self": 0.29932831029449314,
+                "semantic": 0.125,
+                "neighbor": 0.06953379084189949,
+                "noise": 0.030691033204350796,
+                "self_contribution": 0.29932831029449314,
+                "semantic_contribution": 0.125,
+                "neighbor_contribution": 0.06953379084189949,
+                "noise_contribution": 0.030691033204350796
+              },
+              "risk_averse": {
+                "self": 0.28398077318788706,
+                "semantic": 0.116,
+                "neighbor": 0.050458859787787254,
+                "noise": -0.0020291090878322335,
+                "self_contribution": 0.28398077318788706,
+                "semantic_contribution": 0.116,
+                "neighbor_contribution": 0.050458859787787254,
+                "noise_contribution": -0.0020291090878322335
+              }
+            }
+          },
+          {
+            "round": 3,
+            "group_attitudes": {
+              "rational_evaluator": 0.4264017908539009,
+              "budget_guardian": 0.4698064039457907,
+              "culture_seeker": 0.4602331141187736,
+              "emotional_resonator": 0.4530498379876049,
+              "social_follower": 0.5423047709000479,
+              "risk_averse": 0.4527339782447285
+            },
+            "overall_satisfaction": 0.4674216493418078,
+            "topic_distribution": {
+              "topic_0": 1.0
+            },
+            "delta_by_group": {
+              "rational_evaluator": -0.020817913134608235,
+              "budget_guardian": 0.00015173122674705386,
+              "culture_seeker": -0.022756112257054983,
+              "emotional_resonator": -0.030677405709588323,
+              "social_follower": 0.01775163655930445,
+              "risk_averse": 0.004323454356886414
+            },
+            "overall_delta": -0.008670768159718845,
+            "dominant_driver": "frame",
+            "dispersion": 0.11590298004614702,
+            "activation_reasons": [
+              {
+                "expert": "frame",
+                "label": "general",
+                "score": 1.0,
+                "confidence": 1.0,
+                "weight": 1.0
+              },
+              {
+                "expert": "conflict",
+                "label": "HIGH_CONFLICT",
+                "score": 1.0,
+                "confidence": 0.2,
+                "weight": 0.2
+              },
+              {
+                "expert": "acceptance",
+                "label": "IS CAUTIOUS ABOUT THIS TARGET",
+                "score": 0.5,
+                "confidence": 0.2,
+                "weight": 0.1
+              },
+              {
+                "expert": "sentiment",
+                "label": "NEUTRAL",
+                "score": 0.0,
+                "confidence": 0.0,
+                "weight": 0.0
+              }
+            ],
+            "attributions": {
+              "rational_evaluator": {
+                "self": 0.2683318223931055,
+                "semantic": 0.124,
+                "neighbor": 0.04878902972066819,
+                "noise": -0.01471906125987276,
+                "self_contribution": 0.2683318223931055,
+                "semantic_contribution": 0.124,
+                "neighbor_contribution": 0.04878902972066819,
+                "noise_contribution": -0.01471906125987276
+              },
+              "budget_guardian": {
+                "self": 0.28179280363142617,
+                "semantic": 0.122,
+                "neighbor": 0.05191507135231003,
+                "noise": 0.014098528962054496,
+                "self_contribution": 0.28179280363142617,
+                "semantic_contribution": 0.122,
+                "neighbor_contribution": 0.05191507135231003,
+                "noise_contribution": 0.014098528962054496
+              },
+              "culture_seeker": {
+                "self": 0.28979353582549716,
+                "semantic": 0.127,
+                "neighbor": 0.04984487085129996,
+                "noise": -0.006405292558023512,
+                "self_contribution": 0.28979353582549716,
+                "semantic_contribution": 0.127,
+                "neighbor_contribution": 0.04984487085129996,
+                "noise_contribution": -0.006405292558023512
+              },
+              "emotional_resonator": {
+                "self": 0.2902363462183159,
+                "semantic": 0.126,
+                "neighbor": 0.053388613379519244,
+                "noise": -0.01657512161023021,
+                "self_contribution": 0.2902363462183159,
+                "semantic_contribution": 0.126,
+                "neighbor_contribution": 0.053388613379519244,
+                "noise_contribution": -0.01657512161023021
+              },
+              "social_follower": {
+                "self": 0.31473188060444607,
+                "semantic": 0.125,
+                "neighbor": 0.06821104009205117,
+                "noise": 0.03436185020355067,
+                "self_contribution": 0.31473188060444607,
+                "semantic_contribution": 0.125,
+                "neighbor_contribution": 0.06821104009205117,
+                "noise_contribution": 0.03436185020355067
+              },
+              "risk_averse": {
+                "self": 0.26904631433270526,
+                "semantic": 0.116,
+                "neighbor": 0.05057102360354768,
+                "noise": 0.017116640308475567,
+                "self_contribution": 0.26904631433270526,
+                "semantic_contribution": 0.116,
+                "neighbor_contribution": 0.05057102360354768,
+                "noise_contribution": 0.017116640308475567
+              }
+            }
+          }
+        ],
+        "overall_final": 0.4674216493418078,
+        "dispersion": 0.11590298004614702,
+        "top_groups": [
+          {
+            "group": "social_follower",
+            "attitude": 0.5423047709000479
+          },
+          {
+            "group": "budget_guardian",
+            "attitude": 0.4698064039457907
+          },
+          {
+            "group": "culture_seeker",
+            "attitude": 0.4602331141187736
+          }
+        ],
+        "final_group_attitudes": {
+          "rational_evaluator": 0.4264017908539009,
+          "budget_guardian": 0.4698064039457907,
+          "culture_seeker": 0.4602331141187736,
+          "emotional_resonator": 0.4530498379876049,
+          "social_follower": 0.5423047709000479,
+          "risk_averse": 0.4527339782447285
+        },
+        "rounds": 3,
+        "visualization_payload": {
+          "schema_version": "phase3.v1",
+          "round_count": 3,
+          "rounds": [
+            {
+              "round": 1,
+              "overall_satisfaction": 0.47935068928066116,
+              "overall_delta": -0.020649310719338843,
+              "dispersion": 0.04523388382347793,
+              "dominant_driver": "frame",
+              "delta_by_group": {
+                "rational_evaluator": -0.046353366665989326,
+                "budget_guardian": -0.01003941510195705,
+                "culture_seeker": -0.01242867678129339,
+                "emotional_resonator": -0.027256211570760414,
+                "social_follower": -0.001119482842511399,
+                "risk_averse": -0.02669871135352153
+              },
+              "activation_reasons": [
+                {
+                  "expert": "frame",
+                  "label": "general",
+                  "score": 1.0,
+                  "confidence": 1.0,
+                  "weight": 1.0
+                },
+                {
+                  "expert": "conflict",
+                  "label": "HIGH_CONFLICT",
+                  "score": 1.0,
+                  "confidence": 0.2,
+                  "weight": 0.2
+                },
+                {
+                  "expert": "acceptance",
+                  "label": "IS CAUTIOUS ABOUT THIS TARGET",
+                  "score": 0.5,
+                  "confidence": 0.2,
+                  "weight": 0.1
+                },
+                {
+                  "expert": "sentiment",
+                  "label": "NEUTRAL",
+                  "score": 0.0,
+                  "confidence": 0.0,
+                  "weight": 0.0
+                }
+              ]
+            },
+            {
+              "round": 2,
+              "overall_satisfaction": 0.47609241750152664,
+              "overall_delta": -0.003258271779134514,
+              "dispersion": 0.07733343035223433,
+              "dominant_driver": "frame",
+              "delta_by_group": {
+                "rational_evaluator": -0.006426929345501542,
+                "budget_guardian": -0.020305912178999297,
+                "culture_seeker": -0.004582096842878025,
+                "emotional_resonator": 0.010983455267953635,
+                "social_follower": 0.025672617183254864,
+                "risk_averse": -0.024890764758636386
+              },
+              "activation_reasons": [
+                {
+                  "expert": "frame",
+                  "label": "general",
+                  "score": 1.0,
+                  "confidence": 1.0,
+                  "weight": 1.0
+                },
+                {
+                  "expert": "conflict",
+                  "label": "HIGH_CONFLICT",
+                  "score": 1.0,
+                  "confidence": 0.2,
+                  "weight": 0.2
+                },
+                {
+                  "expert": "acceptance",
+                  "label": "IS CAUTIOUS ABOUT THIS TARGET",
+                  "score": 0.5,
+                  "confidence": 0.2,
+                  "weight": 0.1
+                },
+                {
+                  "expert": "sentiment",
+                  "label": "NEUTRAL",
+                  "score": 0.0,
+                  "confidence": 0.0,
+                  "weight": 0.0
+                }
+              ]
+            },
+            {
+              "round": 3,
+              "overall_satisfaction": 0.4674216493418078,
+              "overall_delta": -0.008670768159718845,
+              "dispersion": 0.11590298004614702,
+              "dominant_driver": "frame",
+              "delta_by_group": {
+                "rational_evaluator": -0.020817913134608235,
+                "budget_guardian": 0.00015173122674705386,
+                "culture_seeker": -0.022756112257054983,
+                "emotional_resonator": -0.030677405709588323,
+                "social_follower": 0.01775163655930445,
+                "risk_averse": 0.004323454356886414
+              },
+              "activation_reasons": [
+                {
+                  "expert": "frame",
+                  "label": "general",
+                  "score": 1.0,
+                  "confidence": 1.0,
+                  "weight": 1.0
+                },
+                {
+                  "expert": "conflict",
+                  "label": "HIGH_CONFLICT",
+                  "score": 1.0,
+                  "confidence": 0.2,
+                  "weight": 0.2
+                },
+                {
+                  "expert": "acceptance",
+                  "label": "IS CAUTIOUS ABOUT THIS TARGET",
+                  "score": 0.5,
+                  "confidence": 0.2,
+                  "weight": 0.1
+                },
+                {
+                  "expert": "sentiment",
+                  "label": "NEUTRAL",
+                  "score": 0.0,
+                  "confidence": 0.0,
+                  "weight": 0.0
+                }
+              ]
+            }
+          ],
+          "divergence_summary": {
+            "final_dispersion": 0.11590298004614702,
+            "max_dispersion": 0.11590298004614702,
+            "trend": "widening"
+          },
+          "driver_summary": {
+            "dominant_driver": "frame",
+            "scores": {
+              "acceptance": 0.5,
+              "sentiment": 0.5,
+              "conflict": 0.0,
+              "frame": 1.0
+            }
+          },
+          "provenance_links": {
+            "semantic_evidence": "semantic_evidence",
+            "stance_components": "semantic_evidence.fusion.stance_components",
+            "trajectory_rounds": "trajectories"
+          }
+        }
+      },
+      "report": {
+        "schema_version": "phase2b.v1",
+        "status": "ok",
+        "provider": "deepseek",
+        "mode": "fallback",
+        "text": "[DeepSeek fallback] Projected acceptance is low (0.47) with low polarization (dispersion 0.12). Main driver is conflict. Expert signals: acceptance=IS CAUTIOUS ABOUT THIS TARGET, conflict=HIGH_CONFLICT, frame=general. Recommended action: Prioritize confidence recovery with clear communication and fast feedback loops.",
+        "executive_summary": {
+          "headline": "Decision outlook: Low acceptance, low divergence, driver=conflict.",
+          "conclusion_line": "Projected acceptance is low (0.47) with low polarization (dispersion 0.12).",
+          "four_block_summary": {
+            "acceptance_outlook": "low",
+            "polarization": "low",
+            "main_driver": "conflict",
+            "recommended_action": "Prioritize confidence recovery with clear communication and fast feedback loops."
+          }
+        },
+        "expanded_analysis": "[DeepSeek fallback] Projected acceptance is low (0.47) with low polarization (dispersion 0.12). Main driver is conflict. Expert signals: acceptance=IS CAUTIOUS ABOUT THIS TARGET, conflict=HIGH_CONFLICT, frame=general. Recommended action: Prioritize confidence recovery with clear communication and fast feedback loops.",
+        "decision_trace": {
+          "overall_final": 0.4674216493418078,
+          "dispersion": 0.11590298004614702,
+          "main_driver": "conflict",
+          "top_groups": [
+            {
+              "group": "social_follower",
+              "attitude": 0.5423047709000479
+            },
+            {
+              "group": "budget_guardian",
+              "attitude": 0.4698064039457907
+            },
+            {
+              "group": "culture_seeker",
+              "attitude": 0.4602331141187736
+            }
+          ],
+          "acceptance": {
+            "label": "IS CAUTIOUS ABOUT THIS TARGET",
+            "score": 0.5
+          },
+          "conflict": {
+            "label": "HIGH_CONFLICT",
+            "score": 1.0
+          },
+          "frame": {
+            "label": "general",
+            "score": 1.0
+          }
+        },
+        "meta": {
+          "model": "deepseek-chat"
+        },
+        "errors": []
+      },
+      "report_text": "[DeepSeek fallback] Projected acceptance is low (0.47) with low polarization (dispersion 0.12). Main driver is conflict. Expert signals: acceptance=IS CAUTIOUS ABOUT THIS TARGET, conflict=HIGH_CONFLICT, frame=general. Recommended action: Prioritize confidence recovery with clear communication and fast feedback loops."
+    }
+  ]
+}

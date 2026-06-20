@@ -1,8 +1,8 @@
 {
   "input": {
-    "product_description": "A controversial plan to demolish low-cost housing estates and replace them with luxury condominiums, displacing\n    10,000 families with minimal compensation and no relocation plan",
+    "product_description": "The government proposes a new carbon tax on heavy industries starting 2026.",
     "n_comments": 1,
-    "target": "public policy",
+    "target": "Carbon tax policy",
     "domain": "policy"
   },
   "profiles": {
@@ -56,128 +56,128 @@
     }
   },
   "initial_attitudes": {
-    "rational_evaluator": 0.08119466996192931,
-    "budget_guardian": 0.11127898478507992,
-    "culture_seeker": 0.1168208322525024,
-    "emotional_resonator": 0.10415375232696533,
-    "social_follower": 0.1073205223083496,
-    "risk_averse": 0.08515313243865963
+    "rational_evaluator": 0.5,
+    "budget_guardian": 0.5,
+    "culture_seeker": 0.5,
+    "emotional_resonator": 0.5,
+    "social_follower": 0.5,
+    "risk_averse": 0.5
   },
   "trajectories": [
     {
       "round": 1,
       "group_attitudes": {
-        "rational_evaluator": 0.11579686566818942,
-        "budget_guardian": 0.13090913832618045,
-        "culture_seeker": 0.13700979374558114,
-        "emotional_resonator": 0.14173573593791514,
-        "social_follower": 0.13546455119932319,
-        "risk_averse": 0.08193267573626548
+        "rational_evaluator": 0.4717431934084414,
+        "budget_guardian": 0.4729169279933696,
+        "culture_seeker": 0.47727368276864673,
+        "emotional_resonator": 0.4962896745019772,
+        "social_follower": 0.49557323432434225,
+        "risk_averse": 0.4385529317131808
       },
-      "overall_satisfaction": 0.12380812676890914,
+      "overall_satisfaction": 0.4753916074516597,
       "topic_distribution": {
         "topic_0": 1.0
       },
       "delta_by_group": {
-        "rational_evaluator": 0.03460219570626011,
-        "budget_guardian": 0.019630153541100537,
-        "culture_seeker": 0.02018896149307875,
-        "emotional_resonator": 0.037581983610949804,
-        "social_follower": 0.028144028890973588,
-        "risk_averse": -0.0032204567023941533
+        "rational_evaluator": -0.028256806591558603,
+        "budget_guardian": -0.027083072006630404,
+        "culture_seeker": -0.022726317231353266,
+        "emotional_resonator": -0.003710325498022804,
+        "social_follower": -0.004426765675657751,
+        "risk_averse": -0.06144706828681917
       },
-      "overall_delta": 0.02282114442332811,
-      "dominant_driver": "acceptance",
-      "dispersion": 0.05980306020164966,
+      "overall_delta": -0.024608392548340297,
+      "dominant_driver": "frame",
+      "dispersion": 0.05773674278879637,
       "activation_reasons": [
         {
-          "expert": "conflict",
-          "label": "HIGH_CONFLICT",
-          "score": 0.8348928689956665,
-          "confidence": 0.8348928689956665,
-          "weight": 0.6970461026998152
+          "expert": "frame",
+          "label": "general",
+          "score": 1.0,
+          "confidence": 1.0,
+          "weight": 1.0
         },
         {
           "expert": "acceptance",
-          "label": "THE PUBLIC IS CAUTIOUS ABOUT THIS",
+          "label": "IS CAUTIOUS ABOUT THIS TARGET",
           "score": 0.5,
-          "confidence": 0.8787024617195129,
-          "weight": 0.43935123085975647
+          "confidence": 0.2,
+          "weight": 0.1
         },
         {
-          "expert": "frame",
-          "label": "economic",
-          "score": 0.39168643951416016,
-          "confidence": 0.39168643951416016,
-          "weight": 0.15341826689927984
+          "expert": "conflict",
+          "label": "MEDIUM_CONFLICT",
+          "score": 0.5,
+          "confidence": 0.2,
+          "weight": 0.1
         },
         {
           "expert": "sentiment",
-          "label": "NEGATIVE",
-          "score": -0.7916924953460693,
-          "confidence": 0.7916924953460693,
-          "weight": -0.626777007187286
+          "label": "NEUTRAL",
+          "score": 0.0,
+          "confidence": 0.0,
+          "weight": 0.0
         }
       ],
       "attributions": {
         "rational_evaluator": {
-          "self": 0.04871680197715759,
-          "semantic": 0.05933614399433136,
-          "neighbor": 0.010625726288259026,
+          "self": 0.3,
+          "semantic": 0.124,
+          "neighbor": 0.050625,
           "noise": -0.002881806591558567,
-          "self_contribution": 0.04871680197715759,
-          "semantic_contribution": 0.05933614399433136,
-          "neighbor_contribution": 0.010625726288259026,
+          "self_contribution": 0.3,
+          "semantic_contribution": 0.124,
+          "neighbor_contribution": 0.050625,
           "noise_contribution": -0.002881806591558567
         },
         "budget_guardian": {
-          "self": 0.06676739087104795,
-          "semantic": 0.05684133618474007,
-          "neighbor": 0.010758483277022836,
+          "self": 0.3,
+          "semantic": 0.122,
+          "neighbor": 0.054375,
           "noise": -0.0034580720066303863,
-          "self_contribution": 0.06676739087104795,
-          "semantic_contribution": 0.05684133618474007,
-          "neighbor_contribution": 0.010758483277022836,
+          "self_contribution": 0.3,
+          "semantic_contribution": 0.122,
+          "neighbor_contribution": 0.054375,
           "noise_contribution": -0.0034580720066303863
         },
         "culture_seeker": {
-          "self": 0.07009249935150143,
-          "semantic": 0.05887248932719231,
-          "neighbor": 0.01027112229824066,
+          "self": 0.3,
+          "semantic": 0.127,
+          "neighbor": 0.0525,
           "noise": -0.0022263172313532493,
-          "self_contribution": 0.07009249935150143,
-          "semantic_contribution": 0.05887248932719231,
-          "neighbor_contribution": 0.01027112229824066,
+          "self_contribution": 0.3,
+          "semantic_contribution": 0.127,
+          "neighbor_contribution": 0.0525,
           "noise_contribution": -0.0022263172313532493
         },
         "emotional_resonator": {
-          "self": 0.0624922513961792,
-          "semantic": 0.05391402685046196,
-          "neighbor": 0.011289783189296718,
+          "self": 0.3,
+          "semantic": 0.126,
+          "neighbor": 0.056249999999999994,
           "noise": 0.014039674501977262,
-          "self_contribution": 0.0624922513961792,
-          "semantic_contribution": 0.05391402685046196,
-          "neighbor_contribution": 0.011289783189296718,
+          "self_contribution": 0.3,
+          "semantic_contribution": 0.126,
+          "neighbor_contribution": 0.056249999999999994,
           "noise_contribution": 0.014039674501977262
         },
         "social_follower": {
-          "self": 0.06439231338500975,
-          "semantic": 0.05903991336584092,
-          "neighbor": 0.014584090124130243,
+          "self": 0.3,
+          "semantic": 0.125,
+          "neighbor": 0.073125,
           "noise": -0.0025517656756577417,
-          "self_contribution": 0.06439231338500975,
-          "semantic_contribution": 0.05903991336584092,
-          "neighbor_contribution": 0.014584090124130243,
+          "self_contribution": 0.3,
+          "semantic_contribution": 0.125,
+          "neighbor_contribution": 0.073125,
           "noise_contribution": -0.0025517656756577417
         },
         "risk_averse": {
-          "self": 0.05109187946319577,
-          "semantic": 0.049851720565557485,
-          "neighbor": 0.010936143994331356,
+          "self": 0.3,
+          "semantic": 0.116,
+          "neighbor": 0.0525,
           "noise": -0.02994706828681915,
-          "self_contribution": 0.05109187946319577,
-          "semantic_contribution": 0.049851720565557485,
-          "neighbor_contribution": 0.010936143994331356,
+          "self_contribution": 0.3,
+          "semantic_contribution": 0.116,
+          "neighbor_contribution": 0.0525,
           "noise_contribution": -0.02994706828681915
         }
       }
@@ -185,117 +185,117 @@
     {
       "round": 2,
       "group_attitudes": {
-        "rational_evaluator": 0.14815843114924096,
-        "budget_guardian": 0.14334975639525321,
-        "culture_seeker": 0.14946181019586244,
-        "emotional_resonator": 0.1547982072024278,
-        "social_follower": 0.16273058694893258,
-        "risk_averse": 0.13616173752172062
+        "rational_evaluator": 0.46189956356527484,
+        "budget_guardian": 0.45215606881466414,
+        "culture_seeker": 0.4589016311790517,
+        "emotional_resonator": 0.47910284976488293,
+        "social_follower": 0.49592560533651897,
+        "risk_averse": 0.45309266373282364
       },
-      "overall_satisfaction": 0.14911008823557292,
+      "overall_satisfaction": 0.46684639706553605,
       "topic_distribution": {
         "topic_0": 1.0
       },
       "delta_by_group": {
-        "rational_evaluator": 0.03236156548105154,
-        "budget_guardian": 0.012440618069072762,
-        "culture_seeker": 0.012452016450281295,
-        "emotional_resonator": 0.013062471264512654,
-        "social_follower": 0.027266035749609396,
-        "risk_averse": 0.05422906178545514
+        "rational_evaluator": -0.009843629843166557,
+        "budget_guardian": -0.02076085917870546,
+        "culture_seeker": -0.01837205158959504,
+        "emotional_resonator": -0.017186824737094264,
+        "social_follower": 0.00035237101217672206,
+        "risk_averse": 0.014539732019642815
       },
-      "overall_delta": 0.02530196146666379,
-      "dominant_driver": "acceptance",
-      "dispersion": 0.026568849427211966,
+      "overall_delta": -0.008545210386123658,
+      "dominant_driver": "frame",
+      "dispersion": 0.043769536521854835,
       "activation_reasons": [
         {
-          "expert": "conflict",
-          "label": "HIGH_CONFLICT",
-          "score": 0.8348928689956665,
-          "confidence": 0.8348928689956665,
-          "weight": 0.6970461026998152
+          "expert": "frame",
+          "label": "general",
+          "score": 1.0,
+          "confidence": 1.0,
+          "weight": 1.0
         },
         {
           "expert": "acceptance",
-          "label": "THE PUBLIC IS CAUTIOUS ABOUT THIS",
+          "label": "IS CAUTIOUS ABOUT THIS TARGET",
           "score": 0.5,
-          "confidence": 0.8787024617195129,
-          "weight": 0.43935123085975647
+          "confidence": 0.2,
+          "weight": 0.1
         },
         {
-          "expert": "frame",
-          "label": "economic",
-          "score": 0.39168643951416016,
-          "confidence": 0.39168643951416016,
-          "weight": 0.15341826689927984
+          "expert": "conflict",
+          "label": "MEDIUM_CONFLICT",
+          "score": 0.5,
+          "confidence": 0.2,
+          "weight": 0.1
         },
         {
           "expert": "sentiment",
-          "label": "NEGATIVE",
-          "score": -0.7916924953460693,
-          "confidence": 0.7916924953460693,
-          "weight": -0.626777007187286
+          "label": "NEUTRAL",
+          "score": 0.0,
+          "confidence": 0.0,
+          "weight": 0.0
         }
       ],
       "attributions": {
         "rational_evaluator": {
-          "self": 0.06947811940091365,
-          "semantic": 0.05933614399433136,
-          "neighbor": 0.012697800872641628,
+          "self": 0.28304591604506485,
+          "semantic": 0.124,
+          "neighbor": 0.04820728063885571,
           "noise": 0.006646366881354305,
-          "self_contribution": 0.06947811940091365,
-          "semantic_contribution": 0.05933614399433136,
-          "neighbor_contribution": 0.012697800872641628,
+          "self_contribution": 0.28304591604506485,
+          "semantic_contribution": 0.124,
+          "neighbor_contribution": 0.04820728063885571,
           "noise_contribution": 0.006646366881354305
         },
         "budget_guardian": {
-          "self": 0.07854548299570827,
-          "semantic": 0.05684133618474007,
-          "neighbor": 0.013309686784748217,
+          "self": 0.2837501567960217,
+          "semantic": 0.122,
+          "neighbor": 0.0517526615885858,
           "noise": -0.005346749569943365,
-          "self_contribution": 0.07854548299570827,
-          "semantic_contribution": 0.05684133618474007,
-          "neighbor_contribution": 0.013309686784748217,
+          "self_contribution": 0.2837501567960217,
+          "semantic_contribution": 0.122,
+          "neighbor_contribution": 0.0517526615885858,
           "noise_contribution": -0.005346749569943365
         },
         "culture_seeker": {
-          "self": 0.08220587624734868,
-          "semantic": 0.05887248932719231,
-          "neighbor": 0.012722618304225348,
+          "self": 0.28636420966118803,
+          "semantic": 0.127,
+          "neighbor": 0.04987659520076754,
           "noise": -0.0043391736829039,
-          "self_contribution": 0.08220587624734868,
-          "semantic_contribution": 0.05887248932719231,
-          "neighbor_contribution": 0.012722618304225348,
+          "self_contribution": 0.28636420966118803,
+          "semantic_contribution": 0.127,
+          "neighbor_contribution": 0.04987659520076754,
           "noise_contribution": -0.0043391736829039
         },
         "emotional_resonator": {
-          "self": 0.08504144156274908,
-          "semantic": 0.05391402685046196,
-          "neighbor": 0.013525043055199642,
+          "self": 0.2977738047011863,
+          "semantic": 0.126,
+          "neighbor": 0.05301134932967956,
           "noise": 0.0023176957340171017,
-          "self_contribution": 0.08504144156274908,
-          "semantic_contribution": 0.05391402685046196,
-          "neighbor_contribution": 0.013525043055199642,
+          "self_contribution": 0.2977738047011863,
+          "semantic_contribution": 0.126,
+          "neighbor_contribution": 0.05301134932967956,
           "noise_contribution": 0.0023176957340171017
         },
         "social_follower": {
-          "self": 0.0812787307195939,
-          "semantic": 0.05903991336584092,
-          "neighbor": 0.017765988125363348,
+          "self": 0.29734394059460534,
+          "semantic": 0.125,
+          "neighbor": 0.06893571000377925,
           "noise": 0.004645954738134417,
-          "self_contribution": 0.0812787307195939,
-          "semantic_contribution": 0.05903991336584092,
-          "neighbor_contribution": 0.017765988125363348,
+          "self_contribution": 0.29734394059460534,
+          "semantic_contribution": 0.125,
+          "neighbor_contribution": 0.06893571000377925,
           "noise_contribution": 0.004645954738134417
         },
         "risk_averse": {
-          "self": 0.049159605441759284,
-          "semantic": 0.049851720565557485,
-          "neighbor": 0.013879237782420974,
+          "self": 0.2631317590279085,
+          "semantic": 0.116,
+          "neighbor": 0.05068973097293232,
           "noise": 0.02327117373198286,
-          "self_contribution": 0.049159605441759284,
-          "semantic_contribution": 0.049851720565557485,
-          "neighbor_contribution": 0.013879237782420974,
+          "self_contribution": 0.2631317590279085,
+          "semantic_contribution": 0.116,
+          "neighbor_contribution": 0.05068973097293232,
           "noise_contribution": 0.02327117373198286
         }
       }
@@ -303,117 +303,117 @@
     {
       "round": 3,
       "group_attitudes": {
-        "rational_evaluator": 0.1764806003096993,
-        "budget_guardian": 0.16140234288391417,
-        "culture_seeker": 0.14943231650138245,
-        "emotional_resonator": 0.14314660607191199,
-        "social_follower": 0.1830140602565113,
-        "risk_averse": 0.17369885425239684
+        "rational_evaluator": 0.46164083935640404,
+        "budget_guardian": 0.4465928451580086,
+        "culture_seeker": 0.43676025843603206,
+        "emotional_resonator": 0.4454129119933129,
+        "social_follower": 0.49490792583504384,
+        "risk_averse": 0.46338491487564337
       },
-      "overall_satisfaction": 0.16452913004596934,
+      "overall_satisfaction": 0.45811661594240743,
       "topic_distribution": {
         "topic_0": 1.0
       },
       "delta_by_group": {
-        "rational_evaluator": 0.02832216916045835,
-        "budget_guardian": 0.018052586488660954,
-        "culture_seeker": -2.9493694479992838e-05,
-        "emotional_resonator": -0.011651601130515804,
-        "social_follower": 0.02028347330757871,
-        "risk_averse": 0.03753711673067622
+        "rational_evaluator": -0.0002587242088707975,
+        "budget_guardian": -0.005563223656655514,
+        "culture_seeker": -0.02214137274301964,
+        "emotional_resonator": -0.03368993777157003,
+        "social_follower": -0.0010176795014751328,
+        "risk_averse": 0.01029225114281973
       },
-      "overall_delta": 0.015419041810396411,
-      "dominant_driver": "acceptance",
-      "dispersion": 0.039867454184599305,
+      "overall_delta": -0.00872978112312861,
+      "dominant_driver": "frame",
+      "dispersion": 0.05814766739901178,
       "activation_reasons": [
         {
-          "expert": "conflict",
-          "label": "HIGH_CONFLICT",
-          "score": 0.8348928689956665,
-          "confidence": 0.8348928689956665,
-          "weight": 0.6970461026998152
+          "expert": "frame",
+          "label": "general",
+          "score": 1.0,
+          "confidence": 1.0,
+          "weight": 1.0
         },
         {
           "expert": "acceptance",
-          "label": "THE PUBLIC IS CAUTIOUS ABOUT THIS",
+          "label": "IS CAUTIOUS ABOUT THIS TARGET",
           "score": 0.5,
-          "confidence": 0.8787024617195129,
-          "weight": 0.43935123085975647
+          "confidence": 0.2,
+          "weight": 0.1
         },
         {
-          "expert": "frame",
-          "label": "economic",
-          "score": 0.39168643951416016,
-          "confidence": 0.39168643951416016,
-          "weight": 0.15341826689927984
+          "expert": "conflict",
+          "label": "MEDIUM_CONFLICT",
+          "score": 0.5,
+          "confidence": 0.2,
+          "weight": 0.1
         },
         {
           "expert": "sentiment",
-          "label": "NEGATIVE",
-          "score": -0.7916924953460693,
-          "confidence": 0.7916924953460693,
-          "weight": -0.626777007187286
+          "label": "NEUTRAL",
+          "score": 0.0,
+          "confidence": 0.0,
+          "weight": 0.0
         }
       ],
       "attributions": {
         "rational_evaluator": {
-          "self": 0.08889505868954457,
-          "semantic": 0.05933614399433136,
-          "neighbor": 0.01511666748984998,
+          "self": 0.27713973813916487,
+          "semantic": 0.124,
+          "neighbor": 0.04736837108126581,
           "noise": 0.013132730135973379,
-          "self_contribution": 0.08889505868954457,
-          "semantic_contribution": 0.05933614399433136,
-          "neighbor_contribution": 0.01511666748984998,
+          "self_contribution": 0.27713973813916487,
+          "semantic_contribution": 0.124,
+          "neighbor_contribution": 0.04736837108126581,
           "noise_contribution": 0.013132730135973379
         },
         "budget_guardian": {
-          "self": 0.08600985383715193,
-          "semantic": 0.05684133618474007,
-          "neighbor": 0.016341009313145513,
+          "self": 0.27129364128879846,
+          "semantic": 0.122,
+          "neighbor": 0.05108906032033351,
           "noise": 0.002210143548876639,
-          "self_contribution": 0.08600985383715193,
-          "semantic_contribution": 0.05684133618474007,
-          "neighbor_contribution": 0.016341009313145513,
+          "self_contribution": 0.27129364128879846,
+          "semantic_contribution": 0.122,
+          "neighbor_contribution": 0.05108906032033351,
           "noise_contribution": 0.002210143548876639
         },
         "culture_seeker": {
-          "self": 0.08967708611751746,
-          "semantic": 0.05887248932719231,
-          "neighbor": 0.015649173103569076,
+          "self": 0.275340978707431,
+          "semantic": 0.127,
+          "neighbor": 0.04918571177549745,
           "noise": -0.014766432046896412,
-          "self_contribution": 0.08967708611751746,
-          "semantic_contribution": 0.05887248932719231,
-          "neighbor_contribution": 0.015649173103569076,
+          "self_contribution": 0.275340978707431,
+          "semantic_contribution": 0.127,
+          "neighbor_contribution": 0.04918571177549745,
           "noise_contribution": -0.014766432046896412
         },
         "emotional_resonator": {
-          "self": 0.09287892432145667,
-          "semantic": 0.05391402685046196,
-          "neighbor": 0.01664690224974772,
+          "self": 0.28746170985892977,
+          "semantic": 0.126,
+          "neighbor": 0.05224444948413749,
           "noise": -0.020293247349754344,
-          "self_contribution": 0.09287892432145667,
-          "semantic_contribution": 0.05391402685046196,
-          "neighbor_contribution": 0.01664690224974772,
+          "self_contribution": 0.28746170985892977,
+          "semantic_contribution": 0.126,
+          "neighbor_contribution": 0.05224444948413749,
           "noise_contribution": -0.020293247349754344
         },
         "social_follower": {
-          "self": 0.09763835216935955,
-          "semantic": 0.05903991336584092,
-          "neighbor": 0.02140895081708677,
+          "self": 0.2975553632019114,
+          "semantic": 0.125,
+          "neighbor": 0.06742571872890839,
           "noise": 0.00492684390422404,
-          "self_contribution": 0.09763835216935955,
-          "semantic_contribution": 0.05903991336584092,
-          "neighbor_contribution": 0.02140895081708677,
+          "self_contribution": 0.2975553632019114,
+          "semantic_contribution": 0.125,
+          "neighbor_contribution": 0.06742571872890839,
           "noise_contribution": 0.00492684390422404
         },
         "risk_averse": {
-          "self": 0.08169704251303236,
-          "semantic": 0.049851720565557485,
-          "neighbor": 0.015928474629726058,
+          "self": 0.2718555982396942,
+          "semantic": 0.116,
+          "neighbor": 0.04930770009186824,
           "noise": 0.026221616544080964,
-          "self_contribution": 0.08169704251303236,
-          "semantic_contribution": 0.049851720565557485,
-          "neighbor_contribution": 0.015928474629726058,
+          "self_contribution": 0.2718555982396942,
+          "semantic_contribution": 0.116,
+          "neighbor_contribution": 0.04930770009186824,
           "noise_contribution": 0.026221616544080964
         }
       }
@@ -421,117 +421,117 @@
     {
       "round": 4,
       "group_attitudes": {
-        "rational_evaluator": 0.1824741986025325,
-        "budget_guardian": 0.16951682655294675,
-        "culture_seeker": 0.17675999537530226,
-        "emotional_resonator": 0.1297217184530234,
-        "social_follower": 0.18612450423742116,
-        "risk_averse": 0.18096127821535787
+        "rational_evaluator": 0.4481305827319454,
+        "budget_guardian": 0.43790006521768693,
+        "culture_seeker": 0.4482424076512233,
+        "emotional_resonator": 0.41600079386818956,
+        "social_follower": 0.48162261842535253,
+        "risk_averse": 0.45182980997361133
       },
-      "overall_satisfaction": 0.17092642023943064,
+      "overall_satisfaction": 0.4472877129780015,
       "topic_distribution": {
         "topic_0": 1.0
       },
       "delta_by_group": {
-        "rational_evaluator": 0.005993598292833191,
-        "budget_guardian": 0.008114483669032585,
-        "culture_seeker": 0.02732767887391982,
-        "emotional_resonator": -0.013424887618888576,
-        "social_follower": 0.0031104439809098716,
-        "risk_averse": 0.007262423962961034
+        "rational_evaluator": -0.01351025662445865,
+        "budget_guardian": -0.008692779940321693,
+        "culture_seeker": 0.01148214921519125,
+        "emotional_resonator": -0.029412118125123343,
+        "social_follower": -0.013285307409691305,
+        "risk_averse": -0.011555104902032043
       },
-      "overall_delta": 0.0063972901934613025,
-      "dominant_driver": "acceptance",
-      "dispersion": 0.05640278578439775,
+      "overall_delta": -0.010828902964405918,
+      "dominant_driver": "frame",
+      "dispersion": 0.06562182455716298,
       "activation_reasons": [
         {
-          "expert": "conflict",
-          "label": "HIGH_CONFLICT",
-          "score": 0.8348928689956665,
-          "confidence": 0.8348928689956665,
-          "weight": 0.6970461026998152
+          "expert": "frame",
+          "label": "general",
+          "score": 1.0,
+          "confidence": 1.0,
+          "weight": 1.0
         },
         {
           "expert": "acceptance",
-          "label": "THE PUBLIC IS CAUTIOUS ABOUT THIS",
+          "label": "IS CAUTIOUS ABOUT THIS TARGET",
           "score": 0.5,
-          "confidence": 0.8787024617195129,
-          "weight": 0.43935123085975647
+          "confidence": 0.2,
+          "weight": 0.1
         },
         {
-          "expert": "frame",
-          "label": "economic",
-          "score": 0.39168643951416016,
-          "confidence": 0.39168643951416016,
-          "weight": 0.15341826689927984
+          "expert": "conflict",
+          "label": "MEDIUM_CONFLICT",
+          "score": 0.5,
+          "confidence": 0.2,
+          "weight": 0.1
         },
         {
           "expert": "sentiment",
-          "label": "NEGATIVE",
-          "score": -0.7916924953460693,
-          "confidence": 0.7916924953460693,
-          "weight": -0.626777007187286
+          "label": "NEUTRAL",
+          "score": 0.0,
+          "confidence": 0.0,
+          "weight": 0.0
         }
       ],
       "attributions": {
         "rational_evaluator": {
-          "self": 0.10588836018581958,
-          "semantic": 0.05933614399433136,
-          "neighbor": 0.016416557144313868,
+          "self": 0.2769845036138424,
+          "semantic": 0.124,
+          "neighbor": 0.04631294184003532,
           "noise": 0.0008331372780676778,
-          "self_contribution": 0.10588836018581958,
-          "semantic_contribution": 0.05933614399433136,
-          "neighbor_contribution": 0.016416557144313868,
+          "self_contribution": 0.2769845036138424,
+          "semantic_contribution": 0.124,
+          "neighbor_contribution": 0.04631294184003532,
           "noise_contribution": 0.0008331372780676778
         },
         "budget_guardian": {
-          "self": 0.0968414057303485,
-          "semantic": 0.05684133618474007,
-          "neighbor": 0.017960550513273867,
+          "self": 0.26795570709480515,
+          "semantic": 0.122,
+          "neighbor": 0.05007082399829749,
           "noise": -0.0021264658754156854,
-          "self_contribution": 0.0968414057303485,
-          "semantic_contribution": 0.05684133618474007,
-          "neighbor_contribution": 0.017960550513273867,
+          "self_contribution": 0.26795570709480515,
+          "semantic_contribution": 0.122,
+          "neighbor_contribution": 0.05007082399829749,
           "noise_contribution": -0.0021264658754156854
         },
         "culture_seeker": {
-          "self": 0.08965938990082946,
-          "semantic": 0.05887248932719231,
-          "neighbor": 0.017592591739263107,
+          "self": 0.2620561550616192,
+          "semantic": 0.127,
+          "neighbor": 0.048550728181586664,
           "noise": 0.010635524408017386,
-          "self_contribution": 0.08965938990082946,
-          "semantic_contribution": 0.05887248932719231,
-          "neighbor_contribution": 0.017592591739263107,
+          "self_contribution": 0.2620561550616192,
+          "semantic_contribution": 0.127,
+          "neighbor_contribution": 0.048550728181586664,
           "noise_contribution": 0.010635524408017386
         },
         "emotional_resonator": {
-          "self": 0.08588796364314719,
-          "semantic": 0.05391402685046196,
-          "neighbor": 0.01899063391958784,
+          "self": 0.2672477471959877,
+          "semantic": 0.126,
+          "neighbor": 0.051823952632375464,
           "noise": -0.02907090596017356,
-          "self_contribution": 0.08588796364314719,
-          "semantic_contribution": 0.05391402685046196,
-          "neighbor_contribution": 0.01899063391958784,
+          "self_contribution": 0.2672477471959877,
+          "semantic_contribution": 0.126,
+          "neighbor_contribution": 0.051823952632375464,
           "noise_contribution": -0.02907090596017356
         },
         "social_follower": {
-          "self": 0.10980843615390677,
-          "semantic": 0.05903991336584092,
-          "neighbor": 0.023521701060564663,
+          "self": 0.2969447555010263,
+          "semantic": 0.125,
+          "neighbor": 0.06592340926721747,
           "noise": -0.006245546342891197,
-          "self_contribution": 0.10980843615390677,
-          "semantic_contribution": 0.05903991336584092,
-          "neighbor_contribution": 0.023521701060564663,
+          "self_contribution": 0.2969447555010263,
+          "semantic_contribution": 0.125,
+          "neighbor_contribution": 0.06592340926721747,
           "noise_contribution": -0.006245546342891197
         },
         "risk_averse": {
-          "self": 0.1042193125514381,
-          "semantic": 0.049851720565557485,
-          "neighbor": 0.017082994446491803,
+          "self": 0.278030948925386,
+          "semantic": 0.116,
+          "neighbor": 0.04799161039635483,
           "noise": 0.009807250651870495,
-          "self_contribution": 0.1042193125514381,
-          "semantic_contribution": 0.049851720565557485,
-          "neighbor_contribution": 0.017082994446491803,
+          "self_contribution": 0.278030948925386,
+          "semantic_contribution": 0.116,
+          "neighbor_contribution": 0.04799161039635483,
           "noise_contribution": 0.009807250651870495
         }
       }
@@ -539,117 +539,117 @@
     {
       "round": 5,
       "group_attitudes": {
-        "rational_evaluator": 0.20336120840082933,
-        "budget_guardian": 0.17235774552712455,
-        "culture_seeker": 0.1902852527734188,
-        "emotional_resonator": 0.1568676549759744,
-        "social_follower": 0.21091459708544197,
-        "risk_averse": 0.15390058531745449
+        "rational_evaluator": 0.4556172501732615,
+        "budget_guardian": 0.428774165802654,
+        "culture_seeker": 0.4504226030390447,
+        "emotional_resonator": 0.43158856869747797,
+        "social_follower": 0.49403163926798205,
+        "risk_averse": 0.4117032675249857
       },
-      "overall_satisfaction": 0.18128117401337393,
+      "overall_satisfaction": 0.4453562490842344,
       "topic_distribution": {
         "topic_0": 1.0
       },
       "delta_by_group": {
-        "rational_evaluator": 0.02088700979829683,
-        "budget_guardian": 0.002840918974177792,
-        "culture_seeker": 0.013525257398116525,
-        "emotional_resonator": 0.027145936522950997,
-        "social_follower": 0.024790092848020806,
-        "risk_averse": -0.027060692897903388
+        "rational_evaluator": 0.007486667441316097,
+        "budget_guardian": -0.009125899415032945,
+        "culture_seeker": 0.002180195387821382,
+        "emotional_resonator": 0.015587774829288414,
+        "social_follower": 0.012409020842629515,
+        "risk_averse": -0.040126542448625624
       },
-      "overall_delta": 0.010354753773943293,
-      "dominant_driver": "acceptance",
-      "dispersion": 0.05701401176798748,
+      "overall_delta": -0.001931463893767138,
+      "dominant_driver": "frame",
+      "dispersion": 0.08232837174299634,
       "activation_reasons": [
         {
-          "expert": "conflict",
-          "label": "HIGH_CONFLICT",
-          "score": 0.8348928689956665,
-          "confidence": 0.8348928689956665,
-          "weight": 0.6970461026998152
+          "expert": "frame",
+          "label": "general",
+          "score": 1.0,
+          "confidence": 1.0,
+          "weight": 1.0
         },
         {
           "expert": "acceptance",
-          "label": "THE PUBLIC IS CAUTIOUS ABOUT THIS",
+          "label": "IS CAUTIOUS ABOUT THIS TARGET",
           "score": 0.5,
-          "confidence": 0.8787024617195129,
-          "weight": 0.43935123085975647
+          "confidence": 0.2,
+          "weight": 0.1
         },
         {
-          "expert": "frame",
-          "label": "economic",
-          "score": 0.39168643951416016,
-          "confidence": 0.39168643951416016,
-          "weight": 0.15341826689927984
+          "expert": "conflict",
+          "label": "MEDIUM_CONFLICT",
+          "score": 0.5,
+          "confidence": 0.2,
+          "weight": 0.1
         },
         {
           "expert": "sentiment",
-          "label": "NEGATIVE",
-          "score": -0.7916924953460693,
-          "confidence": 0.7916924953460693,
-          "weight": -0.626777007187286
+          "label": "NEUTRAL",
+          "score": 0.0,
+          "confidence": 0.0,
+          "weight": 0.0
         }
       ],
       "attributions": {
         "rational_evaluator": {
-          "self": 0.1094845191615195,
-          "semantic": 0.05933614399433136,
-          "neighbor": 0.017072457537389545,
+          "self": 0.26887834963916724,
+          "semantic": 0.124,
+          "neighbor": 0.04527081282650529,
           "noise": 0.017468087707588936,
-          "self_contribution": 0.1094845191615195,
-          "semantic_contribution": 0.05933614399433136,
-          "neighbor_contribution": 0.017072457537389545,
+          "self_contribution": 0.26887834963916724,
+          "semantic_contribution": 0.124,
+          "neighbor_contribution": 0.04527081282650529,
           "noise_contribution": 0.017468087707588936
         },
         "budget_guardian": {
-          "self": 0.10171009593176805,
-          "semantic": 0.05684133618474007,
-          "neighbor": 0.018618906863719108,
+          "self": 0.26274003913061217,
+          "semantic": 0.122,
+          "neighbor": 0.04884672012514451,
           "noise": -0.0048125934531027086,
-          "self_contribution": 0.10171009593176805,
-          "semantic_contribution": 0.05684133618474007,
-          "neighbor_contribution": 0.018618906863719108,
+          "self_contribution": 0.26274003913061217,
+          "semantic_contribution": 0.122,
+          "neighbor_contribution": 0.04884672012514451,
           "noise_contribution": -0.0048125934531027086
         },
         "culture_seeker": {
-          "self": 0.10605599722518136,
-          "semantic": 0.05887248932719231,
-          "neighbor": 0.017824769047286915,
+          "self": 0.268945444590734,
+          "semantic": 0.127,
+          "neighbor": 0.0469451612745525,
           "noise": 0.0075319971737582035,
-          "self_contribution": 0.10605599722518136,
-          "semantic_contribution": 0.05887248932719231,
-          "neighbor_contribution": 0.017824769047286915,
+          "self_contribution": 0.268945444590734,
+          "semantic_contribution": 0.127,
+          "neighbor_contribution": 0.0469451612745525,
           "noise_contribution": 0.0075319971737582035
         },
         "emotional_resonator": {
-          "self": 0.07783303107181404,
-          "semantic": 0.05391402685046196,
-          "neighbor": 0.020156328067130108,
+          "self": 0.24960047632091373,
+          "semantic": 0.126,
+          "neighbor": 0.05102382338999593,
           "noise": 0.00496426898656829,
-          "self_contribution": 0.07783303107181404,
-          "semantic_contribution": 0.05391402685046196,
-          "neighbor_contribution": 0.020156328067130108,
+          "self_contribution": 0.24960047632091373,
+          "semantic_contribution": 0.126,
+          "neighbor_contribution": 0.05102382338999593,
           "noise_contribution": 0.00496426898656829
         },
         "social_follower": {
-          "self": 0.1116747025424527,
-          "semantic": 0.05903991336584092,
-          "neighbor": 0.024553445003075512,
+          "self": 0.2889735710552115,
+          "semantic": 0.125,
+          "neighbor": 0.06441153203869769,
           "noise": 0.015646536174072842,
-          "self_contribution": 0.1116747025424527,
-          "semantic_contribution": 0.05903991336584092,
-          "neighbor_contribution": 0.024553445003075512,
+          "self_contribution": 0.2889735710552115,
+          "semantic_contribution": 0.125,
+          "neighbor_contribution": 0.06441153203869769,
           "noise_contribution": 0.015646536174072842
         },
         "risk_averse": {
-          "self": 0.10857676692921472,
-          "semantic": 0.049851720565557485,
-          "neighbor": 0.017736542107645747,
+          "self": 0.2710978859841668,
+          "semantic": 0.116,
+          "neighbor": 0.046869825825782356,
           "noise": -0.022264444284963453,
-          "self_contribution": 0.10857676692921472,
-          "semantic_contribution": 0.049851720565557485,
-          "neighbor_contribution": 0.017736542107645747,
+          "self_contribution": 0.2710978859841668,
+          "semantic_contribution": 0.116,
+          "neighbor_contribution": 0.046869825825782356,
           "noise_contribution": -0.022264444284963453
         }
       }
@@ -657,167 +657,143 @@
   ],
   "semantic_summary": {
     "mapper_version": "v2",
-    "sentiment_signal": -0.7916924953460693,
-    "stance_signal": 0.332,
+    "sentiment_signal": 0.0,
+    "stance_signal": 0.5,
     "topic_distribution": {
       "topic_0": 1.0
     },
     "topic_words": {
       "0": [
-        "plan"
+        "government"
       ],
       "1": [
-        "with"
+        "proposes"
       ],
       "2": [
-        "controversial"
+        "new"
       ]
     },
     "semantic_trace": {
       "experts": {
         "sentiment": {
-          "label": "NEGATIVE",
-          "score": -0.7916924953460693,
-          "confidence": 0.7916924953460693,
+          "label": "NEUTRAL",
+          "score": 0.0,
+          "confidence": 0.0,
           "payload": {
             "n_samples": 1,
-            "backend": "hf-text-classification",
-            "model": "cardiffnlp/twitter-roberta-base-sentiment-latest",
-            "target": "public policy",
+            "backend": "lexicon",
+            "target": "Carbon tax policy",
             "domain": "policy"
           }
         },
         "acceptance": {
-          "label": "THE PUBLIC IS CAUTIOUS ABOUT THIS",
+          "label": "IS CAUTIOUS ABOUT THIS TARGET",
           "score": 0.5,
-          "confidence": 0.8787024617195129,
+          "confidence": 0.2,
           "payload": {
-            "backend": "hf-zero-shot",
-            "model": "facebook/bart-large-mnli",
-            "labels": [
-              "THE PUBLIC IS CAUTIOUS ABOUT THIS",
-              "THE PUBLIC WOULD REJECT THIS",
-              "THE PUBLIC WOULD ACCEPT THIS"
-            ],
-            "scores": [
-              0.8787024617195129,
-              0.1202264279127121,
-              0.001071180566214025
-            ],
-            "target": "public policy",
-            "domain": "policy",
-            "hypothesis_template": "Based on the content, {}."
+            "backend": "lexical-fallback",
+            "target": "Carbon tax policy",
+            "domain": "policy"
           }
         },
         "emotion": {
           "label": "neutral",
           "score": 0.0,
-          "confidence": 0.8076239228248596,
+          "confidence": 0.1,
           "payload": {
-            "backend": "hf-text-classification",
-            "model": "SamLowe/roberta-base-go_emotions",
+            "backend": "lexical-fallback",
             "distribution": {
-              "neutral": 0.8076239228248596
+              "joy": 0.0,
+              "anger": 0.0,
+              "fear": 0.0,
+              "sadness": 0.0,
+              "surprise": 0.0
             },
-            "target": "public policy",
+            "target": "Carbon tax policy",
             "domain": "policy"
           }
         },
         "topic": {
           "label": "topic_0",
           "score": 1.0,
-          "confidence": 0.09090909090909091,
+          "confidence": 0.1,
           "payload": {
             "distribution": {
               "topic_0": 1.0
             },
             "topic_words": {
               "0": [
-                "plan"
+                "government"
               ],
               "1": [
-                "with"
+                "proposes"
               ],
               "2": [
-                "controversial"
+                "new"
               ]
             },
             "backend": "keyword",
-            "target": "public policy",
+            "target": "Carbon tax policy",
             "domain": "policy"
           }
         },
         "conflict": {
-          "label": "HIGH_CONFLICT",
-          "score": 0.8348928689956665,
-          "confidence": 0.8348928689956665,
+          "label": "MEDIUM_CONFLICT",
+          "score": 0.5,
+          "confidence": 0.2,
           "payload": {
-            "backend": "hf-text-classification",
-            "model": "cardiffnlp/twitter-roberta-base-offensive",
-            "raw_top_label": "NON-OFFENSIVE",
-            "target": "public policy",
+            "backend": "lexical-fallback",
+            "conflict_hits": 0,
+            "calm_hits": 0,
+            "target": "Carbon tax policy",
             "domain": "policy"
           }
         },
         "frame": {
-          "label": "economic",
-          "score": 0.39168643951416016,
-          "confidence": 0.39168643951416016,
+          "label": "general",
+          "score": 1.0,
+          "confidence": 1.0,
           "payload": {
-            "backend": "hf-text-classification",
-            "model": "mattdr/sentence-frame-classifier",
+            "backend": "lexical-fallback",
             "distribution": {
-              "economic": 0.39168643951416016
+              "general": 1.0
             },
-            "target": "public policy",
+            "target": "Carbon tax policy",
             "domain": "policy"
           }
         },
         "stance": {
-          "label": "THE PUBLIC IS CAUTIOUS ABOUT THIS",
+          "label": "IS CAUTIOUS ABOUT THIS TARGET",
           "score": 0.5,
-          "confidence": 0.8787024617195129,
+          "confidence": 0.2,
           "payload": {
-            "backend": "hf-zero-shot",
-            "model": "facebook/bart-large-mnli",
-            "labels": [
-              "THE PUBLIC IS CAUTIOUS ABOUT THIS",
-              "THE PUBLIC WOULD REJECT THIS",
-              "THE PUBLIC WOULD ACCEPT THIS"
-            ],
-            "scores": [
-              0.8787024617195129,
-              0.1202264279127121,
-              0.001071180566214025
-            ],
-            "target": "public policy",
-            "domain": "policy",
-            "hypothesis_template": "Based on the content, {}."
+            "backend": "lexical-fallback",
+            "target": "Carbon tax policy",
+            "domain": "policy"
           }
         },
         "risk": {
-          "label": "HIGH_CONFLICT",
-          "score": 0.8348928689956665,
-          "confidence": 0.8348928689956665,
+          "label": "MEDIUM_CONFLICT",
+          "score": 0.5,
+          "confidence": 0.2,
           "payload": {
-            "backend": "hf-text-classification",
-            "model": "cardiffnlp/twitter-roberta-base-offensive",
-            "raw_top_label": "NON-OFFENSIVE",
-            "target": "public policy",
+            "backend": "lexical-fallback",
+            "conflict_hits": 0,
+            "calm_hits": 0,
+            "target": "Carbon tax policy",
             "domain": "policy"
           }
         },
         "value_frame": {
-          "label": "economic",
-          "score": 0.39168643951416016,
-          "confidence": 0.39168643951416016,
+          "label": "general",
+          "score": 1.0,
+          "confidence": 1.0,
           "payload": {
-            "backend": "hf-text-classification",
-            "model": "mattdr/sentence-frame-classifier",
+            "backend": "lexical-fallback",
             "distribution": {
-              "economic": 0.39168643951416016
+              "general": 1.0
             },
-            "target": "public policy",
+            "target": "Carbon tax policy",
             "domain": "policy"
           }
         }
@@ -825,8 +801,8 @@
       "fusion": {
         "stance_components": {
           "acceptance_expert": 0.5,
-          "sentiment_component": 0.10415375232696533,
-          "conflict_component": 0.1651071310043335
+          "sentiment_component": 0.5,
+          "conflict_component": 0.5
         },
         "weights": {
           "acceptance_expert": 0.5,
@@ -834,166 +810,142 @@
           "conflict_component": 0.2
         },
         "consensus": {
-          "score": 0.332,
+          "score": 0.5,
           "method": "deepseek",
-          "spread": 0.39584624767303467,
+          "spread": 0.5,
           "threshold": 0.2,
           "source_scores": {
-            "sentiment": 0.10415375232696533,
+            "sentiment": 0.5,
             "acceptance": 0.5,
             "emotion": 0.5,
-            "conflict": 0.1651071310043335,
-            "frame": 0.39168643951416016
+            "conflict": 0.5,
+            "frame": 1.0
           },
-          "deepseek_response": "{\n  \"final_score\": 0.332,\n  \"reason\": \"Strong negative sentiment and high conflict indicate public rejection, despite some neutral/cautious signals.\"\n}"
+          "deepseek_response": "{\"final_score\": 0.5, \"reason\": \"Expert scores are tightly clustered around 0.5 with low spread, indicating neutral public acceptance.\"}"
         }
       }
     },
     "semantic_evidence": {
       "experts": {
         "sentiment": {
-          "label": "NEGATIVE",
-          "score": -0.7916924953460693,
-          "confidence": 0.7916924953460693,
+          "label": "NEUTRAL",
+          "score": 0.0,
+          "confidence": 0.0,
           "payload": {
             "n_samples": 1,
-            "backend": "hf-text-classification",
-            "model": "cardiffnlp/twitter-roberta-base-sentiment-latest",
-            "target": "public policy",
+            "backend": "lexicon",
+            "target": "Carbon tax policy",
             "domain": "policy"
           }
         },
         "acceptance": {
-          "label": "THE PUBLIC IS CAUTIOUS ABOUT THIS",
+          "label": "IS CAUTIOUS ABOUT THIS TARGET",
           "score": 0.5,
-          "confidence": 0.8787024617195129,
+          "confidence": 0.2,
           "payload": {
-            "backend": "hf-zero-shot",
-            "model": "facebook/bart-large-mnli",
-            "labels": [
-              "THE PUBLIC IS CAUTIOUS ABOUT THIS",
-              "THE PUBLIC WOULD REJECT THIS",
-              "THE PUBLIC WOULD ACCEPT THIS"
-            ],
-            "scores": [
-              0.8787024617195129,
-              0.1202264279127121,
-              0.001071180566214025
-            ],
-            "target": "public policy",
-            "domain": "policy",
-            "hypothesis_template": "Based on the content, {}."
+            "backend": "lexical-fallback",
+            "target": "Carbon tax policy",
+            "domain": "policy"
           }
         },
         "emotion": {
           "label": "neutral",
           "score": 0.0,
-          "confidence": 0.8076239228248596,
+          "confidence": 0.1,
           "payload": {
-            "backend": "hf-text-classification",
-            "model": "SamLowe/roberta-base-go_emotions",
+            "backend": "lexical-fallback",
             "distribution": {
-              "neutral": 0.8076239228248596
+              "joy": 0.0,
+              "anger": 0.0,
+              "fear": 0.0,
+              "sadness": 0.0,
+              "surprise": 0.0
             },
-            "target": "public policy",
+            "target": "Carbon tax policy",
             "domain": "policy"
           }
         },
         "topic": {
           "label": "topic_0",
           "score": 1.0,
-          "confidence": 0.09090909090909091,
+          "confidence": 0.1,
           "payload": {
             "distribution": {
               "topic_0": 1.0
             },
             "topic_words": {
               "0": [
-                "plan"
+                "government"
               ],
               "1": [
-                "with"
+                "proposes"
               ],
               "2": [
-                "controversial"
+                "new"
               ]
             },
             "backend": "keyword",
-            "target": "public policy",
+            "target": "Carbon tax policy",
             "domain": "policy"
           }
         },
         "conflict": {
-          "label": "HIGH_CONFLICT",
-          "score": 0.8348928689956665,
-          "confidence": 0.8348928689956665,
+          "label": "MEDIUM_CONFLICT",
+          "score": 0.5,
+          "confidence": 0.2,
           "payload": {
-            "backend": "hf-text-classification",
-            "model": "cardiffnlp/twitter-roberta-base-offensive",
-            "raw_top_label": "NON-OFFENSIVE",
-            "target": "public policy",
+            "backend": "lexical-fallback",
+            "conflict_hits": 0,
+            "calm_hits": 0,
+            "target": "Carbon tax policy",
             "domain": "policy"
           }
         },
         "frame": {
-          "label": "economic",
-          "score": 0.39168643951416016,
-          "confidence": 0.39168643951416016,
+          "label": "general",
+          "score": 1.0,
+          "confidence": 1.0,
           "payload": {
-            "backend": "hf-text-classification",
-            "model": "mattdr/sentence-frame-classifier",
+            "backend": "lexical-fallback",
             "distribution": {
-              "economic": 0.39168643951416016
+              "general": 1.0
             },
-            "target": "public policy",
+            "target": "Carbon tax policy",
             "domain": "policy"
           }
         },
         "stance": {
-          "label": "THE PUBLIC IS CAUTIOUS ABOUT THIS",
+          "label": "IS CAUTIOUS ABOUT THIS TARGET",
           "score": 0.5,
-          "confidence": 0.8787024617195129,
+          "confidence": 0.2,
           "payload": {
-            "backend": "hf-zero-shot",
-            "model": "facebook/bart-large-mnli",
-            "labels": [
-              "THE PUBLIC IS CAUTIOUS ABOUT THIS",
-              "THE PUBLIC WOULD REJECT THIS",
-              "THE PUBLIC WOULD ACCEPT THIS"
-            ],
-            "scores": [
-              0.8787024617195129,
-              0.1202264279127121,
-              0.001071180566214025
-            ],
-            "target": "public policy",
-            "domain": "policy",
-            "hypothesis_template": "Based on the content, {}."
+            "backend": "lexical-fallback",
+            "target": "Carbon tax policy",
+            "domain": "policy"
           }
         },
         "risk": {
-          "label": "HIGH_CONFLICT",
-          "score": 0.8348928689956665,
-          "confidence": 0.8348928689956665,
+          "label": "MEDIUM_CONFLICT",
+          "score": 0.5,
+          "confidence": 0.2,
           "payload": {
-            "backend": "hf-text-classification",
-            "model": "cardiffnlp/twitter-roberta-base-offensive",
-            "raw_top_label": "NON-OFFENSIVE",
-            "target": "public policy",
+            "backend": "lexical-fallback",
+            "conflict_hits": 0,
+            "calm_hits": 0,
+            "target": "Carbon tax policy",
             "domain": "policy"
           }
         },
         "value_frame": {
-          "label": "economic",
-          "score": 0.39168643951416016,
-          "confidence": 0.39168643951416016,
+          "label": "general",
+          "score": 1.0,
+          "confidence": 1.0,
           "payload": {
-            "backend": "hf-text-classification",
-            "model": "mattdr/sentence-frame-classifier",
+            "backend": "lexical-fallback",
             "distribution": {
-              "economic": 0.39168643951416016
+              "general": 1.0
             },
-            "target": "public policy",
+            "target": "Carbon tax policy",
             "domain": "policy"
           }
         }
@@ -1001,8 +953,8 @@
       "fusion": {
         "stance_components": {
           "acceptance_expert": 0.5,
-          "sentiment_component": 0.10415375232696533,
-          "conflict_component": 0.1651071310043335
+          "sentiment_component": 0.5,
+          "conflict_component": 0.5
         },
         "weights": {
           "acceptance_expert": 0.5,
@@ -1010,560 +962,176 @@
           "conflict_component": 0.2
         },
         "consensus": {
-          "score": 0.332,
+          "score": 0.5,
           "method": "deepseek",
-          "spread": 0.39584624767303467,
+          "spread": 0.5,
           "threshold": 0.2,
           "source_scores": {
-            "sentiment": 0.10415375232696533,
+            "sentiment": 0.5,
             "acceptance": 0.5,
             "emotion": 0.5,
-            "conflict": 0.1651071310043335,
-            "frame": 0.39168643951416016
+            "conflict": 0.5,
+            "frame": 1.0
           },
-          "deepseek_response": "{\n  \"final_score\": 0.332,\n  \"reason\": \"Strong negative sentiment and high conflict indicate public rejection, despite some neutral/cautious signals.\"\n}"
+          "deepseek_response": "{\"final_score\": 0.5, \"reason\": \"Expert scores are tightly clustered around 0.5 with low spread, indicating neutral public acceptance.\"}"
         }
       }
     }
   },
   "semantic_state": {
-    "sentiment": -0.7916924953460693,
-    "stance": 0.332,
+    "sentiment": 0.0,
+    "stance": 0.5,
     "topic": {
       "topic_0": 1.0
     },
     "embedding": [
-      0.03324201331082984,
-      0.01734693162425242,
-      0.040860338143196485,
-      0.016864602456748375,
-      -0.06767649204639122,
-      -0.014567183798684593,
-      -0.0533005036500321,
-      0.002737594768850015,
-      -0.05674232170908239,
-      0.01256794249843234,
-      0.07346475125553457,
-      0.03640041314657223,
-      0.038234828046219665,
-      0.012394391002285817,
-      -0.026594012980016176,
-      0.06972231344522042,
-      0.005080473842925249,
-      0.016133400614202247,
-      -0.02053919062352303,
-      0.07887237892837072,
-      0.0028036473090661727,
-      -0.012768830640454705,
-      -0.02019894402802542,
-      -0.003342817305199356,
-      0.10437518359927433,
-      0.045190380893543755,
-      0.07542596013580108,
-      0.07509808243541895,
-      -0.028705569920140166,
-      0.010914853775785579,
-      0.1209331192272809,
-      0.05208952166986906,
-      0.03958204948055505,
-      0.040621625266122535,
-      0.09766197578706579,
-      0.10631164910137442,
-      -0.012970073616378058,
-      -0.0211776206304289,
-      -0.0017058026281164627,
-      -0.05618819781561214,
-      0.052878854804886986,
-      0.023141225803680276,
-      0.016282053666973665,
-      -0.04071435705489208,
-      -0.035342440014862794,
-      0.04734907672578957,
-      -0.03944917768881306,
-      -0.01840695180298119,
-      0.005641454366021576,
-      -0.011706719642545582,
-      0.08922801168223435,
-      0.021556342955457854,
-      0.0009904308828272757,
-      -0.019834290261810893,
-      -0.024848810401128234,
-      0.011490467006345999,
-      -0.01353879040327233,
-      -0.057313254112382035,
-      0.0136938192903906,
-      -0.019816641699019064,
-      0.05416039378331436,
-      0.0514429416591114,
-      -0.04467246868442559,
-      -0.010286056438270519,
-      0.0005867053406335554,
-      0.018806237730460997,
-      0.05537475087648835,
-      -0.014235867189695136,
-      0.004412466428028642,
-      0.001799896417943937,
-      -0.02594395634208691,
-      -0.006786304527134276,
-      -0.04236816056761497,
-      0.017068459655139097,
-      0.019026749770456278,
-      0.048285603531104254,
-      -0.004441342317289933,
-      0.04073463194734475,
-      -0.031421579425674806,
-      -0.033115120610017854,
-      0.04226447083743073,
-      -0.03243961930802339,
-      -0.09306059034191504,
-      -0.03003192227822017,
-      -0.07022370026657193,
-      0.03768373840169801,
-      -0.028854782697779018,
-      -0.058317536497656156,
-      0.05971933716016318,
-      -0.026837665592026688,
-      -0.021638228561521658,
-      -0.017765029336419942,
-      0.09163829685747284,
-      0.014642706608917588,
-      -0.06282913685866393,
-      0.04274635390142146,
-      -0.04165864177725457,
-      -0.10055412353719836,
-      -0.05943258480203761,
-      0.06764401869085424,
-      -0.022791499275694113,
-      -0.006834870903932576,
-      -0.01687782816863264,
-      -0.06837539375939927,
-      -0.09182795883717897,
-      -0.09690700845505676,
-      0.026639997963467863,
-      0.006257738686252711,
-      -0.08765881510013873,
-      -0.03742439114165752,
-      -0.06269147248095219,
-      -0.07694374398647927,
-      -0.026301074777349,
-      0.03942878917500626,
-      -0.0038988852181291098,
-      -0.015502783938037381,
-      0.04812808894403393,
-      -0.027180797424860924,
-      0.04340488650610367,
-      -0.06346597523528952,
-      0.07860938460912745,
-      -0.04172987491570819,
-      -0.044401867322391625,
-      -0.007085806458477765,
-      -0.02552612591949835,
-      0.048569077633766645,
-      -0.07218289749007693,
-      1.5276108828768167e-33,
-      -0.007087634877522677,
-      0.04237511195931303,
-      -0.0270869135900664,
-      0.07813000307757254,
-      0.021683645438202743,
-      -0.07079708204824321,
-      -0.022742995064677682,
-      0.028540206146409706,
-      0.03355277143964261,
-      0.04505816289024925,
-      0.10683412106581865,
-      -0.04503846914308323,
-      -0.015496717768446638,
-      0.017291822473535737,
-      0.018477497625374633,
-      -0.06698502601282008,
-      -0.007358319592927085,
-      0.09958616645763045,
-      0.00029766326775025576,
-      0.003462735331248915,
-      0.00684158480837407,
-      0.17538364234437692,
-      0.05737208017149461,
-      0.020169441591501955,
-      -0.054887561136466596,
-      -0.026935469363538408,
-      -0.044119056321402464,
-      -0.012420482935540485,
-      -0.028177388016990046,
-      -0.004081473919295204,
-      -0.0425304472515584,
-      0.10475737975750717,
-      -0.02937376872182589,
-      -0.051986835905420414,
-      0.007266985253680984,
-      0.08106802032715754,
-      -0.006263998105277719,
-      -0.02933342848449986,
-      -0.032661728566234394,
-      0.0006272477331659684,
-      -0.09330066667523844,
-      -0.02542833984311555,
-      0.004289357690837932,
-      0.012766681147952144,
-      0.10835198314759312,
-      0.013902037872398958,
-      0.10190579296815083,
-      -0.02533970121706211,
-      -0.030850002547153428,
-      -0.00267788954122686,
-      0.015780849384846817,
-      -0.005626270781254508,
-      -0.11733900385022411,
-      -0.0064872039958205115,
-      -0.014952179978238464,
-      -0.06338861958222938,
-      0.020206714983589277,
-      -0.03908253089228853,
-      0.03988770582430324,
-      -0.011598669925727565,
-      0.03603275307108636,
-      -0.04864145629898723,
-      -0.0768573396032827,
-      0.06495332718951463,
-      0.021605883728500006,
-      -0.0450453870071686,
-      0.03909460828343811,
-      0.10323372112402734,
-      0.04203698039738272,
-      0.0010631324841506593,
-      0.03944751620933967,
-      0.0014668906226344965,
-      0.011895448437031792,
-      -0.018788957040086197,
-      -0.04830043204913969,
-      -0.045822966851292966,
-      0.021859486590899327,
-      0.07145971060960925,
-      0.035510489722898886,
-      0.01678595599059961,
-      0.08543013037639918,
-      0.11851587148447344,
-      -0.008861441166649433,
-      0.022263744849605815,
-      0.19067054244995432,
-      -0.009995517322555943,
-      0.03311437555195804,
-      0.009038572201112071,
-      -0.013574547136546643,
-      -0.04723821394913447,
-      0.023732237521691894,
-      0.015556625093068517,
-      -0.05290247128273792,
-      -0.06593994797348088,
-      0.05824458413772952,
-      -2.9360385771753783e-33,
-      -0.05609323271530831,
-      -0.012357637753856504,
-      -0.018411405387533726,
-      -0.06969332696140339,
-      -0.04803426564520676,
-      -0.03993729502611928,
-      -0.0034730486810265614,
-      -0.03550555930118807,
-      0.05232062936679746,
-      -0.0009556915321544048,
-      -0.14877958598171448,
-      -0.032896909868104826,
-      0.10661491008346032,
-      -0.04228543863387903,
-      -0.11681048201433421,
-      -0.026103639048111294,
-      0.0034241410909199316,
-      -0.1466856524586728,
-      0.0005584316387283426,
-      0.015907302501403518,
-      0.057846318939791655,
-      0.11438379066061861,
-      -0.044422006241748385,
-      0.013833196835978626,
-      0.012559069322601247,
-      -0.003737969441015738,
-      -0.06404503435937658,
-      0.07941397653321035,
-      0.03745942749692025,
-      -0.016812912191203663,
-      -0.05026157387418081,
-      -0.040289761505120404,
-      0.010552037509011068,
-      -0.006249223603951617,
-      0.03646897525188142,
-      0.007097346476501702,
-      0.025125453252704714,
-      0.07424389944687484,
-      -0.045460322879194784,
-      -0.04329291359293945,
-      0.01128510898162604,
-      -0.047099124647883336,
-      -0.041416469968137935,
-      -0.009957457428554231,
-      0.03272957169051586,
-      0.02555566840289253,
-      -0.05627766066214425,
-      -0.07969812305077173,
-      0.0536185205069926,
-      0.030207078908824306,
-      0.05369256996491231,
-      0.05653106794680287,
-      -0.020473498854389274,
-      0.007554586046672172,
-      0.04938514158932553,
-      -0.07194815577246179,
-      0.05145361834110853,
-      0.004264994525112674,
-      0.016858141872047216,
-      0.03724548034975451,
-      0.026115979072226955,
-      0.10850482808327355,
-      -0.016925120728979302,
-      0.09652394057889394,
-      -0.007345787716361022,
-      0.005938302493688267,
-      -0.09724957870037841,
-      -0.11434866862367901,
-      -0.045831946663558866,
-      -0.036269666632945854,
-      -0.036088746046926495,
-      -0.09494223447197404,
-      -0.04077824019558564,
-      -0.14594948294151286,
-      0.052468951800054835,
-      -0.03521988727724922,
-      -0.011724505575417193,
-      0.06809698418889845,
-      -0.018084469254274683,
-      0.03000351042043176,
-      0.013375313489078349,
-      -0.04791801051084376,
-      -0.0022373262330801663,
-      -0.0501918792806207,
-      0.015671219679280708,
-      -0.037856779998734845,
-      -0.03863335587712361,
-      -0.04227671214135346,
-      0.03675256856383338,
-      0.10925865547645107,
-      -0.03276460990842374,
-      -0.01471550576628068,
-      0.09275183828192832,
-      -0.031509853904601516,
-      0.005061608740020127,
-      -2.974913471604635e-08,
-      0.024855272848474542,
-      0.03445541859233242,
-      0.03135619499299073,
-      -0.07295323164456961,
-      0.007954508533131831,
-      -0.08235454933194052,
-      -0.00010917444526013682,
-      0.1368149295671679,
-      0.016411746854767977,
-      0.02946009487392618,
-      -0.0044554725762249395,
-      0.01228281203857072,
-      0.025518722836351527,
-      0.02432436496414808,
-      -0.10041942076527438,
-      -0.007631053217995981,
-      0.04116858356370253,
-      0.005449910881883777,
-      -0.037727931520515845,
-      0.052281228833949374,
-      -0.05182305538006706,
-      0.01801768411243815,
-      -0.02387570590168958,
-      0.005646436243304648,
-      0.021329270679245917,
-      -0.026020748544989317,
-      -0.019442304971994687,
-      0.004048057366820637,
-      0.04314089753435055,
-      -0.00917189102768995,
-      0.014883830214476323,
-      -0.014808322771065809,
-      -0.018410944382859215,
-      0.02166128252053744,
-      -0.03647432104346058,
-      0.0010746454356122667,
-      -0.049246527262587526,
-      0.06554668770305981,
-      -0.012834877243489449,
-      -0.06814701483761493,
-      -0.049560442574928754,
-      0.03531094082273903,
-      -0.0686545409373793,
-      0.030858522286067395,
-      0.029441215102690505,
-      -0.03658901900647857,
-      -0.09821316228913521,
-      -0.05176882819182868,
-      0.05092015490763691,
-      -0.04282925278644661,
-      -0.04039673321605813,
-      0.046513590969256495,
-      -0.10731326045350412,
-      0.006972124568388846,
-      0.00605964986705945,
-      0.004174816190012502,
-      0.02653207071556843,
-      0.054149754354220224,
-      -0.05223457329824385,
-      0.0458913464173775,
-      0.052312033259432365,
-      0.005653271918172793,
-      0.011412232650436569,
-      0.01693131588674665
+      -0.5345224838248488,
+      -0.2672612419124244,
+      0.2672612419124244,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.2672612419124244,
+      0.0,
+      -0.2672612419124244,
+      0.2672612419124244,
+      0.2672612419124244,
+      0.0,
+      -0.2672612419124244,
+      0.0,
+      0.0,
+      0.0,
+      -0.2672612419124244,
+      0.0,
+      -0.2672612419124244,
+      0.0,
+      0.0,
+      0.0,
+      -0.2672612419124244
     ]
   },
   "semantic_trace": {
     "experts": {
       "sentiment": {
-        "label": "NEGATIVE",
-        "score": -0.7916924953460693,
-        "confidence": 0.7916924953460693,
+        "label": "NEUTRAL",
+        "score": 0.0,
+        "confidence": 0.0,
         "payload": {
           "n_samples": 1,
-          "backend": "hf-text-classification",
-          "model": "cardiffnlp/twitter-roberta-base-sentiment-latest",
-          "target": "public policy",
+          "backend": "lexicon",
+          "target": "Carbon tax policy",
           "domain": "policy"
         }
       },
       "acceptance": {
-        "label": "THE PUBLIC IS CAUTIOUS ABOUT THIS",
+        "label": "IS CAUTIOUS ABOUT THIS TARGET",
         "score": 0.5,
-        "confidence": 0.8787024617195129,
+        "confidence": 0.2,
         "payload": {
-          "backend": "hf-zero-shot",
-          "model": "facebook/bart-large-mnli",
-          "labels": [
-            "THE PUBLIC IS CAUTIOUS ABOUT THIS",
-            "THE PUBLIC WOULD REJECT THIS",
-            "THE PUBLIC WOULD ACCEPT THIS"
-          ],
-          "scores": [
-            0.8787024617195129,
-            0.1202264279127121,
-            0.001071180566214025
-          ],
-          "target": "public policy",
-          "domain": "policy",
-          "hypothesis_template": "Based on the content, {}."
+          "backend": "lexical-fallback",
+          "target": "Carbon tax policy",
+          "domain": "policy"
         }
       },
       "emotion": {
         "label": "neutral",
         "score": 0.0,
-        "confidence": 0.8076239228248596,
+        "confidence": 0.1,
         "payload": {
-          "backend": "hf-text-classification",
-          "model": "SamLowe/roberta-base-go_emotions",
+          "backend": "lexical-fallback",
           "distribution": {
-            "neutral": 0.8076239228248596
+            "joy": 0.0,
+            "anger": 0.0,
+            "fear": 0.0,
+            "sadness": 0.0,
+            "surprise": 0.0
           },
-          "target": "public policy",
+          "target": "Carbon tax policy",
           "domain": "policy"
         }
       },
       "topic": {
         "label": "topic_0",
         "score": 1.0,
-        "confidence": 0.09090909090909091,
+        "confidence": 0.1,
         "payload": {
           "distribution": {
             "topic_0": 1.0
           },
           "topic_words": {
             "0": [
-              "plan"
+              "government"
             ],
             "1": [
-              "with"
+              "proposes"
             ],
             "2": [
-              "controversial"
+              "new"
             ]
           },
           "backend": "keyword",
-          "target": "public policy",
+          "target": "Carbon tax policy",
           "domain": "policy"
         }
       },
       "conflict": {
-        "label": "HIGH_CONFLICT",
-        "score": 0.8348928689956665,
-        "confidence": 0.8348928689956665,
+        "label": "MEDIUM_CONFLICT",
+        "score": 0.5,
+        "confidence": 0.2,
         "payload": {
-          "backend": "hf-text-classification",
-          "model": "cardiffnlp/twitter-roberta-base-offensive",
-          "raw_top_label": "NON-OFFENSIVE",
-          "target": "public policy",
+          "backend": "lexical-fallback",
+          "conflict_hits": 0,
+          "calm_hits": 0,
+          "target": "Carbon tax policy",
           "domain": "policy"
         }
       },
       "frame": {
-        "label": "economic",
-        "score": 0.39168643951416016,
-        "confidence": 0.39168643951416016,
+        "label": "general",
+        "score": 1.0,
+        "confidence": 1.0,
         "payload": {
-          "backend": "hf-text-classification",
-          "model": "mattdr/sentence-frame-classifier",
+          "backend": "lexical-fallback",
           "distribution": {
-            "economic": 0.39168643951416016
+            "general": 1.0
           },
-          "target": "public policy",
+          "target": "Carbon tax policy",
           "domain": "policy"
         }
       },
       "stance": {
-        "label": "THE PUBLIC IS CAUTIOUS ABOUT THIS",
+        "label": "IS CAUTIOUS ABOUT THIS TARGET",
         "score": 0.5,
-        "confidence": 0.8787024617195129,
+        "confidence": 0.2,
         "payload": {
-          "backend": "hf-zero-shot",
-          "model": "facebook/bart-large-mnli",
-          "labels": [
-            "THE PUBLIC IS CAUTIOUS ABOUT THIS",
-            "THE PUBLIC WOULD REJECT THIS",
-            "THE PUBLIC WOULD ACCEPT THIS"
-          ],
-          "scores": [
-            0.8787024617195129,
-            0.1202264279127121,
-            0.001071180566214025
-          ],
-          "target": "public policy",
-          "domain": "policy",
-          "hypothesis_template": "Based on the content, {}."
+          "backend": "lexical-fallback",
+          "target": "Carbon tax policy",
+          "domain": "policy"
         }
       },
       "risk": {
-        "label": "HIGH_CONFLICT",
-        "score": 0.8348928689956665,
-        "confidence": 0.8348928689956665,
+        "label": "MEDIUM_CONFLICT",
+        "score": 0.5,
+        "confidence": 0.2,
         "payload": {
-          "backend": "hf-text-classification",
-          "model": "cardiffnlp/twitter-roberta-base-offensive",
-          "raw_top_label": "NON-OFFENSIVE",
-          "target": "public policy",
+          "backend": "lexical-fallback",
+          "conflict_hits": 0,
+          "calm_hits": 0,
+          "target": "Carbon tax policy",
           "domain": "policy"
         }
       },
       "value_frame": {
-        "label": "economic",
-        "score": 0.39168643951416016,
-        "confidence": 0.39168643951416016,
+        "label": "general",
+        "score": 1.0,
+        "confidence": 1.0,
         "payload": {
-          "backend": "hf-text-classification",
-          "model": "mattdr/sentence-frame-classifier",
+          "backend": "lexical-fallback",
           "distribution": {
-            "economic": 0.39168643951416016
+            "general": 1.0
           },
-          "target": "public policy",
+          "target": "Carbon tax policy",
           "domain": "policy"
         }
       }
@@ -1571,8 +1139,8 @@
     "fusion": {
       "stance_components": {
         "acceptance_expert": 0.5,
-        "sentiment_component": 0.10415375232696533,
-        "conflict_component": 0.1651071310043335
+        "sentiment_component": 0.5,
+        "conflict_component": 0.5
       },
       "weights": {
         "acceptance_expert": 0.5,
@@ -1580,166 +1148,142 @@
         "conflict_component": 0.2
       },
       "consensus": {
-        "score": 0.332,
+        "score": 0.5,
         "method": "deepseek",
-        "spread": 0.39584624767303467,
+        "spread": 0.5,
         "threshold": 0.2,
         "source_scores": {
-          "sentiment": 0.10415375232696533,
+          "sentiment": 0.5,
           "acceptance": 0.5,
           "emotion": 0.5,
-          "conflict": 0.1651071310043335,
-          "frame": 0.39168643951416016
+          "conflict": 0.5,
+          "frame": 1.0
         },
-        "deepseek_response": "{\n  \"final_score\": 0.332,\n  \"reason\": \"Strong negative sentiment and high conflict indicate public rejection, despite some neutral/cautious signals.\"\n}"
+        "deepseek_response": "{\"final_score\": 0.5, \"reason\": \"Expert scores are tightly clustered around 0.5 with low spread, indicating neutral public acceptance.\"}"
       }
     }
   },
   "semantic_evidence": {
     "experts": {
       "sentiment": {
-        "label": "NEGATIVE",
-        "score": -0.7916924953460693,
-        "confidence": 0.7916924953460693,
+        "label": "NEUTRAL",
+        "score": 0.0,
+        "confidence": 0.0,
         "payload": {
           "n_samples": 1,
-          "backend": "hf-text-classification",
-          "model": "cardiffnlp/twitter-roberta-base-sentiment-latest",
-          "target": "public policy",
+          "backend": "lexicon",
+          "target": "Carbon tax policy",
           "domain": "policy"
         }
       },
       "acceptance": {
-        "label": "THE PUBLIC IS CAUTIOUS ABOUT THIS",
+        "label": "IS CAUTIOUS ABOUT THIS TARGET",
         "score": 0.5,
-        "confidence": 0.8787024617195129,
+        "confidence": 0.2,
         "payload": {
-          "backend": "hf-zero-shot",
-          "model": "facebook/bart-large-mnli",
-          "labels": [
-            "THE PUBLIC IS CAUTIOUS ABOUT THIS",
-            "THE PUBLIC WOULD REJECT THIS",
-            "THE PUBLIC WOULD ACCEPT THIS"
-          ],
-          "scores": [
-            0.8787024617195129,
-            0.1202264279127121,
-            0.001071180566214025
-          ],
-          "target": "public policy",
-          "domain": "policy",
-          "hypothesis_template": "Based on the content, {}."
+          "backend": "lexical-fallback",
+          "target": "Carbon tax policy",
+          "domain": "policy"
         }
       },
       "emotion": {
         "label": "neutral",
         "score": 0.0,
-        "confidence": 0.8076239228248596,
+        "confidence": 0.1,
         "payload": {
-          "backend": "hf-text-classification",
-          "model": "SamLowe/roberta-base-go_emotions",
+          "backend": "lexical-fallback",
           "distribution": {
-            "neutral": 0.8076239228248596
+            "joy": 0.0,
+            "anger": 0.0,
+            "fear": 0.0,
+            "sadness": 0.0,
+            "surprise": 0.0
           },
-          "target": "public policy",
+          "target": "Carbon tax policy",
           "domain": "policy"
         }
       },
       "topic": {
         "label": "topic_0",
         "score": 1.0,
-        "confidence": 0.09090909090909091,
+        "confidence": 0.1,
         "payload": {
           "distribution": {
             "topic_0": 1.0
           },
           "topic_words": {
             "0": [
-              "plan"
+              "government"
             ],
             "1": [
-              "with"
+              "proposes"
             ],
             "2": [
-              "controversial"
+              "new"
             ]
           },
           "backend": "keyword",
-          "target": "public policy",
+          "target": "Carbon tax policy",
           "domain": "policy"
         }
       },
       "conflict": {
-        "label": "HIGH_CONFLICT",
-        "score": 0.8348928689956665,
-        "confidence": 0.8348928689956665,
+        "label": "MEDIUM_CONFLICT",
+        "score": 0.5,
+        "confidence": 0.2,
         "payload": {
-          "backend": "hf-text-classification",
-          "model": "cardiffnlp/twitter-roberta-base-offensive",
-          "raw_top_label": "NON-OFFENSIVE",
-          "target": "public policy",
+          "backend": "lexical-fallback",
+          "conflict_hits": 0,
+          "calm_hits": 0,
+          "target": "Carbon tax policy",
           "domain": "policy"
         }
       },
       "frame": {
-        "label": "economic",
-        "score": 0.39168643951416016,
-        "confidence": 0.39168643951416016,
+        "label": "general",
+        "score": 1.0,
+        "confidence": 1.0,
         "payload": {
-          "backend": "hf-text-classification",
-          "model": "mattdr/sentence-frame-classifier",
+          "backend": "lexical-fallback",
           "distribution": {
-            "economic": 0.39168643951416016
+            "general": 1.0
           },
-          "target": "public policy",
+          "target": "Carbon tax policy",
           "domain": "policy"
         }
       },
       "stance": {
-        "label": "THE PUBLIC IS CAUTIOUS ABOUT THIS",
+        "label": "IS CAUTIOUS ABOUT THIS TARGET",
         "score": 0.5,
-        "confidence": 0.8787024617195129,
+        "confidence": 0.2,
         "payload": {
-          "backend": "hf-zero-shot",
-          "model": "facebook/bart-large-mnli",
-          "labels": [
-            "THE PUBLIC IS CAUTIOUS ABOUT THIS",
-            "THE PUBLIC WOULD REJECT THIS",
-            "THE PUBLIC WOULD ACCEPT THIS"
-          ],
-          "scores": [
-            0.8787024617195129,
-            0.1202264279127121,
-            0.001071180566214025
-          ],
-          "target": "public policy",
-          "domain": "policy",
-          "hypothesis_template": "Based on the content, {}."
+          "backend": "lexical-fallback",
+          "target": "Carbon tax policy",
+          "domain": "policy"
         }
       },
       "risk": {
-        "label": "HIGH_CONFLICT",
-        "score": 0.8348928689956665,
-        "confidence": 0.8348928689956665,
+        "label": "MEDIUM_CONFLICT",
+        "score": 0.5,
+        "confidence": 0.2,
         "payload": {
-          "backend": "hf-text-classification",
-          "model": "cardiffnlp/twitter-roberta-base-offensive",
-          "raw_top_label": "NON-OFFENSIVE",
-          "target": "public policy",
+          "backend": "lexical-fallback",
+          "conflict_hits": 0,
+          "calm_hits": 0,
+          "target": "Carbon tax policy",
           "domain": "policy"
         }
       },
       "value_frame": {
-        "label": "economic",
-        "score": 0.39168643951416016,
-        "confidence": 0.39168643951416016,
+        "label": "general",
+        "score": 1.0,
+        "confidence": 1.0,
         "payload": {
-          "backend": "hf-text-classification",
-          "model": "mattdr/sentence-frame-classifier",
+          "backend": "lexical-fallback",
           "distribution": {
-            "economic": 0.39168643951416016
+            "general": 1.0
           },
-          "target": "public policy",
+          "target": "Carbon tax policy",
           "domain": "policy"
         }
       }
@@ -1747,8 +1291,8 @@
     "fusion": {
       "stance_components": {
         "acceptance_expert": 0.5,
-        "sentiment_component": 0.10415375232696533,
-        "conflict_component": 0.1651071310043335
+        "sentiment_component": 0.5,
+        "conflict_component": 0.5
       },
       "weights": {
         "acceptance_expert": 0.5,
@@ -1756,18 +1300,18 @@
         "conflict_component": 0.2
       },
       "consensus": {
-        "score": 0.332,
+        "score": 0.5,
         "method": "deepseek",
-        "spread": 0.39584624767303467,
+        "spread": 0.5,
         "threshold": 0.2,
         "source_scores": {
-          "sentiment": 0.10415375232696533,
+          "sentiment": 0.5,
           "acceptance": 0.5,
           "emotion": 0.5,
-          "conflict": 0.1651071310043335,
-          "frame": 0.39168643951416016
+          "conflict": 0.5,
+          "frame": 1.0
         },
-        "deepseek_response": "{\n  \"final_score\": 0.332,\n  \"reason\": \"Strong negative sentiment and high conflict indicate public rejection, despite some neutral/cautious signals.\"\n}"
+        "deepseek_response": "{\"final_score\": 0.5, \"reason\": \"Expert scores are tightly clustered around 0.5 with low spread, indicating neutral public acceptance.\"}"
       }
     }
   },
@@ -1777,242 +1321,242 @@
     "rounds": [
       {
         "round": 1,
-        "overall_satisfaction": 0.12380812676890914,
-        "overall_delta": 0.02282114442332811,
-        "dispersion": 0.05980306020164966,
-        "dominant_driver": "acceptance",
+        "overall_satisfaction": 0.4753916074516597,
+        "overall_delta": -0.024608392548340297,
+        "dispersion": 0.05773674278879637,
+        "dominant_driver": "frame",
         "delta_by_group": {
-          "rational_evaluator": 0.03460219570626011,
-          "budget_guardian": 0.019630153541100537,
-          "culture_seeker": 0.02018896149307875,
-          "emotional_resonator": 0.037581983610949804,
-          "social_follower": 0.028144028890973588,
-          "risk_averse": -0.0032204567023941533
+          "rational_evaluator": -0.028256806591558603,
+          "budget_guardian": -0.027083072006630404,
+          "culture_seeker": -0.022726317231353266,
+          "emotional_resonator": -0.003710325498022804,
+          "social_follower": -0.004426765675657751,
+          "risk_averse": -0.06144706828681917
         },
         "activation_reasons": [
           {
-            "expert": "conflict",
-            "label": "HIGH_CONFLICT",
-            "score": 0.8348928689956665,
-            "confidence": 0.8348928689956665,
-            "weight": 0.6970461026998152
+            "expert": "frame",
+            "label": "general",
+            "score": 1.0,
+            "confidence": 1.0,
+            "weight": 1.0
           },
           {
             "expert": "acceptance",
-            "label": "THE PUBLIC IS CAUTIOUS ABOUT THIS",
+            "label": "IS CAUTIOUS ABOUT THIS TARGET",
             "score": 0.5,
-            "confidence": 0.8787024617195129,
-            "weight": 0.43935123085975647
+            "confidence": 0.2,
+            "weight": 0.1
           },
           {
-            "expert": "frame",
-            "label": "economic",
-            "score": 0.39168643951416016,
-            "confidence": 0.39168643951416016,
-            "weight": 0.15341826689927984
+            "expert": "conflict",
+            "label": "MEDIUM_CONFLICT",
+            "score": 0.5,
+            "confidence": 0.2,
+            "weight": 0.1
           },
           {
             "expert": "sentiment",
-            "label": "NEGATIVE",
-            "score": -0.7916924953460693,
-            "confidence": 0.7916924953460693,
-            "weight": -0.626777007187286
+            "label": "NEUTRAL",
+            "score": 0.0,
+            "confidence": 0.0,
+            "weight": 0.0
           }
         ]
       },
       {
         "round": 2,
-        "overall_satisfaction": 0.14911008823557292,
-        "overall_delta": 0.02530196146666379,
-        "dispersion": 0.026568849427211966,
-        "dominant_driver": "acceptance",
+        "overall_satisfaction": 0.46684639706553605,
+        "overall_delta": -0.008545210386123658,
+        "dispersion": 0.043769536521854835,
+        "dominant_driver": "frame",
         "delta_by_group": {
-          "rational_evaluator": 0.03236156548105154,
-          "budget_guardian": 0.012440618069072762,
-          "culture_seeker": 0.012452016450281295,
-          "emotional_resonator": 0.013062471264512654,
-          "social_follower": 0.027266035749609396,
-          "risk_averse": 0.05422906178545514
+          "rational_evaluator": -0.009843629843166557,
+          "budget_guardian": -0.02076085917870546,
+          "culture_seeker": -0.01837205158959504,
+          "emotional_resonator": -0.017186824737094264,
+          "social_follower": 0.00035237101217672206,
+          "risk_averse": 0.014539732019642815
         },
         "activation_reasons": [
           {
-            "expert": "conflict",
-            "label": "HIGH_CONFLICT",
-            "score": 0.8348928689956665,
-            "confidence": 0.8348928689956665,
-            "weight": 0.6970461026998152
+            "expert": "frame",
+            "label": "general",
+            "score": 1.0,
+            "confidence": 1.0,
+            "weight": 1.0
           },
           {
             "expert": "acceptance",
-            "label": "THE PUBLIC IS CAUTIOUS ABOUT THIS",
+            "label": "IS CAUTIOUS ABOUT THIS TARGET",
             "score": 0.5,
-            "confidence": 0.8787024617195129,
-            "weight": 0.43935123085975647
+            "confidence": 0.2,
+            "weight": 0.1
           },
           {
-            "expert": "frame",
-            "label": "economic",
-            "score": 0.39168643951416016,
-            "confidence": 0.39168643951416016,
-            "weight": 0.15341826689927984
+            "expert": "conflict",
+            "label": "MEDIUM_CONFLICT",
+            "score": 0.5,
+            "confidence": 0.2,
+            "weight": 0.1
           },
           {
             "expert": "sentiment",
-            "label": "NEGATIVE",
-            "score": -0.7916924953460693,
-            "confidence": 0.7916924953460693,
-            "weight": -0.626777007187286
+            "label": "NEUTRAL",
+            "score": 0.0,
+            "confidence": 0.0,
+            "weight": 0.0
           }
         ]
       },
       {
         "round": 3,
-        "overall_satisfaction": 0.16452913004596934,
-        "overall_delta": 0.015419041810396411,
-        "dispersion": 0.039867454184599305,
-        "dominant_driver": "acceptance",
+        "overall_satisfaction": 0.45811661594240743,
+        "overall_delta": -0.00872978112312861,
+        "dispersion": 0.05814766739901178,
+        "dominant_driver": "frame",
         "delta_by_group": {
-          "rational_evaluator": 0.02832216916045835,
-          "budget_guardian": 0.018052586488660954,
-          "culture_seeker": -2.9493694479992838e-05,
-          "emotional_resonator": -0.011651601130515804,
-          "social_follower": 0.02028347330757871,
-          "risk_averse": 0.03753711673067622
+          "rational_evaluator": -0.0002587242088707975,
+          "budget_guardian": -0.005563223656655514,
+          "culture_seeker": -0.02214137274301964,
+          "emotional_resonator": -0.03368993777157003,
+          "social_follower": -0.0010176795014751328,
+          "risk_averse": 0.01029225114281973
         },
         "activation_reasons": [
           {
-            "expert": "conflict",
-            "label": "HIGH_CONFLICT",
-            "score": 0.8348928689956665,
-            "confidence": 0.8348928689956665,
-            "weight": 0.6970461026998152
+            "expert": "frame",
+            "label": "general",
+            "score": 1.0,
+            "confidence": 1.0,
+            "weight": 1.0
           },
           {
             "expert": "acceptance",
-            "label": "THE PUBLIC IS CAUTIOUS ABOUT THIS",
+            "label": "IS CAUTIOUS ABOUT THIS TARGET",
             "score": 0.5,
-            "confidence": 0.8787024617195129,
-            "weight": 0.43935123085975647
+            "confidence": 0.2,
+            "weight": 0.1
           },
           {
-            "expert": "frame",
-            "label": "economic",
-            "score": 0.39168643951416016,
-            "confidence": 0.39168643951416016,
-            "weight": 0.15341826689927984
+            "expert": "conflict",
+            "label": "MEDIUM_CONFLICT",
+            "score": 0.5,
+            "confidence": 0.2,
+            "weight": 0.1
           },
           {
             "expert": "sentiment",
-            "label": "NEGATIVE",
-            "score": -0.7916924953460693,
-            "confidence": 0.7916924953460693,
-            "weight": -0.626777007187286
+            "label": "NEUTRAL",
+            "score": 0.0,
+            "confidence": 0.0,
+            "weight": 0.0
           }
         ]
       },
       {
         "round": 4,
-        "overall_satisfaction": 0.17092642023943064,
-        "overall_delta": 0.0063972901934613025,
-        "dispersion": 0.05640278578439775,
-        "dominant_driver": "acceptance",
+        "overall_satisfaction": 0.4472877129780015,
+        "overall_delta": -0.010828902964405918,
+        "dispersion": 0.06562182455716298,
+        "dominant_driver": "frame",
         "delta_by_group": {
-          "rational_evaluator": 0.005993598292833191,
-          "budget_guardian": 0.008114483669032585,
-          "culture_seeker": 0.02732767887391982,
-          "emotional_resonator": -0.013424887618888576,
-          "social_follower": 0.0031104439809098716,
-          "risk_averse": 0.007262423962961034
+          "rational_evaluator": -0.01351025662445865,
+          "budget_guardian": -0.008692779940321693,
+          "culture_seeker": 0.01148214921519125,
+          "emotional_resonator": -0.029412118125123343,
+          "social_follower": -0.013285307409691305,
+          "risk_averse": -0.011555104902032043
         },
         "activation_reasons": [
           {
-            "expert": "conflict",
-            "label": "HIGH_CONFLICT",
-            "score": 0.8348928689956665,
-            "confidence": 0.8348928689956665,
-            "weight": 0.6970461026998152
+            "expert": "frame",
+            "label": "general",
+            "score": 1.0,
+            "confidence": 1.0,
+            "weight": 1.0
           },
           {
             "expert": "acceptance",
-            "label": "THE PUBLIC IS CAUTIOUS ABOUT THIS",
+            "label": "IS CAUTIOUS ABOUT THIS TARGET",
             "score": 0.5,
-            "confidence": 0.8787024617195129,
-            "weight": 0.43935123085975647
+            "confidence": 0.2,
+            "weight": 0.1
           },
           {
-            "expert": "frame",
-            "label": "economic",
-            "score": 0.39168643951416016,
-            "confidence": 0.39168643951416016,
-            "weight": 0.15341826689927984
+            "expert": "conflict",
+            "label": "MEDIUM_CONFLICT",
+            "score": 0.5,
+            "confidence": 0.2,
+            "weight": 0.1
           },
           {
             "expert": "sentiment",
-            "label": "NEGATIVE",
-            "score": -0.7916924953460693,
-            "confidence": 0.7916924953460693,
-            "weight": -0.626777007187286
+            "label": "NEUTRAL",
+            "score": 0.0,
+            "confidence": 0.0,
+            "weight": 0.0
           }
         ]
       },
       {
         "round": 5,
-        "overall_satisfaction": 0.18128117401337393,
-        "overall_delta": 0.010354753773943293,
-        "dispersion": 0.05701401176798748,
-        "dominant_driver": "acceptance",
+        "overall_satisfaction": 0.4453562490842344,
+        "overall_delta": -0.001931463893767138,
+        "dispersion": 0.08232837174299634,
+        "dominant_driver": "frame",
         "delta_by_group": {
-          "rational_evaluator": 0.02088700979829683,
-          "budget_guardian": 0.002840918974177792,
-          "culture_seeker": 0.013525257398116525,
-          "emotional_resonator": 0.027145936522950997,
-          "social_follower": 0.024790092848020806,
-          "risk_averse": -0.027060692897903388
+          "rational_evaluator": 0.007486667441316097,
+          "budget_guardian": -0.009125899415032945,
+          "culture_seeker": 0.002180195387821382,
+          "emotional_resonator": 0.015587774829288414,
+          "social_follower": 0.012409020842629515,
+          "risk_averse": -0.040126542448625624
         },
         "activation_reasons": [
           {
-            "expert": "conflict",
-            "label": "HIGH_CONFLICT",
-            "score": 0.8348928689956665,
-            "confidence": 0.8348928689956665,
-            "weight": 0.6970461026998152
+            "expert": "frame",
+            "label": "general",
+            "score": 1.0,
+            "confidence": 1.0,
+            "weight": 1.0
           },
           {
             "expert": "acceptance",
-            "label": "THE PUBLIC IS CAUTIOUS ABOUT THIS",
+            "label": "IS CAUTIOUS ABOUT THIS TARGET",
             "score": 0.5,
-            "confidence": 0.8787024617195129,
-            "weight": 0.43935123085975647
+            "confidence": 0.2,
+            "weight": 0.1
           },
           {
-            "expert": "frame",
-            "label": "economic",
-            "score": 0.39168643951416016,
-            "confidence": 0.39168643951416016,
-            "weight": 0.15341826689927984
+            "expert": "conflict",
+            "label": "MEDIUM_CONFLICT",
+            "score": 0.5,
+            "confidence": 0.2,
+            "weight": 0.1
           },
           {
             "expert": "sentiment",
-            "label": "NEGATIVE",
-            "score": -0.7916924953460693,
-            "confidence": 0.7916924953460693,
-            "weight": -0.626777007187286
+            "label": "NEUTRAL",
+            "score": 0.0,
+            "confidence": 0.0,
+            "weight": 0.0
           }
         ]
       }
     ],
     "divergence_summary": {
-      "final_dispersion": 0.05701401176798748,
-      "max_dispersion": 0.05980306020164966,
+      "final_dispersion": 0.08232837174299634,
+      "max_dispersion": 0.08232837174299634,
       "trend": "stable"
     },
     "driver_summary": {
-      "dominant_driver": "acceptance",
+      "dominant_driver": "frame",
       "scores": {
         "acceptance": 0.5,
-        "sentiment": 0.10415375232696533,
-        "conflict": 0.1651071310043335,
-        "frame": 0.39168643951416016
+        "sentiment": 0.5,
+        "conflict": 0.5,
+        "frame": 1.0
       }
     },
     "provenance_links": {
@@ -2024,7 +1568,7 @@
   "coverage_validation": {
     "n_samples": 2,
     "n_clusters": 6,
-    "non_empty_clusters": 2,
-    "coverage_ratio": 0.3333333333333333
+    "non_empty_clusters": 1,
+    "coverage_ratio": 0.16666666666666666
   }
 }

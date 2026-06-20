@@ -1,0 +1,1276 @@
+{
+  "input": {
+    "product_description": "The product battery is excellent but setup remains confusing.",
+    "n_comments": 3,
+    "target": "smart home product",
+    "domain": "product"
+  },
+  "profiles": {
+    "rational_evaluator": {
+      "efficiency": 0.95,
+      "cost": 0.65,
+      "culture": 0.2,
+      "emotion": 0.2,
+      "conformity": 0.35,
+      "risk": 0.55
+    },
+    "budget_guardian": {
+      "efficiency": 0.5,
+      "cost": 0.95,
+      "culture": 0.15,
+      "emotion": 0.25,
+      "conformity": 0.45,
+      "risk": 0.65
+    },
+    "culture_seeker": {
+      "efficiency": 0.35,
+      "cost": 0.4,
+      "culture": 0.95,
+      "emotion": 0.55,
+      "conformity": 0.4,
+      "risk": 0.4
+    },
+    "emotional_resonator": {
+      "efficiency": 0.25,
+      "cost": 0.3,
+      "culture": 0.55,
+      "emotion": 0.95,
+      "conformity": 0.5,
+      "risk": 0.45
+    },
+    "social_follower": {
+      "efficiency": 0.4,
+      "cost": 0.45,
+      "culture": 0.5,
+      "emotion": 0.6,
+      "conformity": 0.95,
+      "risk": 0.5
+    },
+    "risk_averse": {
+      "efficiency": 0.65,
+      "cost": 0.65,
+      "culture": 0.25,
+      "emotion": 0.35,
+      "conformity": 0.4,
+      "risk": 0.95
+    }
+  },
+  "initial_attitudes": {
+    "rational_evaluator": 0.6763333333333333,
+    "budget_guardian": 0.6636666666666666,
+    "culture_seeker": 0.6613333333333333,
+    "emotional_resonator": 0.6666666666666666,
+    "social_follower": 0.6653333333333333,
+    "risk_averse": 0.6746666666666666
+  },
+  "trajectories": [
+    {
+      "round": 1,
+      "group_attitudes": {
+        "rational_evaluator": 0.6768217523541509,
+        "budget_guardian": 0.650136433993981,
+        "culture_seeker": 0.6588992395342185,
+        "emotional_resonator": 0.6714065441349969,
+        "social_follower": 0.6571545926753369,
+        "risk_averse": 0.6097292370943931
+      },
+      "overall_satisfaction": 0.6540246332978462,
+      "topic_distribution": {
+        "topic_0": 1.0
+      },
+      "delta_by_group": {
+        "rational_evaluator": 0.0004884190208175321,
+        "budget_guardian": -0.013530232672685605,
+        "culture_seeker": -0.002434093799114856,
+        "emotional_resonator": 0.004739877468330267,
+        "social_follower": -0.008178740657996397,
+        "risk_averse": -0.06493742957227355
+      },
+      "overall_delta": -0.013975366702153824,
+      "dominant_driver": "frame",
+      "dispersion": 0.06709251525975779,
+      "activation_reasons": [
+        {
+          "expert": "frame",
+          "label": "economic",
+          "score": 1.0,
+          "confidence": 1.0,
+          "weight": 1.0
+        },
+        {
+          "expert": "sentiment",
+          "label": "POSITIVE",
+          "score": 0.3333333333333333,
+          "confidence": 0.3333333333333333,
+          "weight": 0.1111111111111111
+        },
+        {
+          "expert": "acceptance",
+          "label": "IS CAUTIOUS ABOUT THIS TARGET",
+          "score": 0.5,
+          "confidence": 0.2,
+          "weight": 0.1
+        },
+        {
+          "expert": "conflict",
+          "label": "MEDIUM_CONFLICT",
+          "score": 0.5,
+          "confidence": 0.2,
+          "weight": 0.1
+        }
+      ],
+      "attributions": {
+        "rational_evaluator": {
+          "self": 0.4058,
+          "semantic": 0.17358333333333334,
+          "neighbor": 0.06746625,
+          "noise": 0.02997216902081742,
+          "self_contribution": 0.4058,
+          "semantic_contribution": 0.17358333333333334,
+          "neighbor_contribution": 0.06746625,
+          "noise_contribution": 0.02997216902081742
+        },
+        "budget_guardian": {
+          "self": 0.39819999999999994,
+          "semantic": 0.17179166666666668,
+          "neighbor": 0.07273924999999999,
+          "noise": 0.007405517327314267,
+          "self_contribution": 0.39819999999999994,
+          "semantic_contribution": 0.17179166666666668,
+          "neighbor_contribution": 0.07273924999999999,
+          "noise_contribution": 0.007405517327314267
+        },
+        "culture_seeker": {
+          "self": 0.3968,
+          "semantic": 0.17804166666666668,
+          "neighbor": 0.07027999999999998,
+          "noise": 0.013777572867551813,
+          "self_contribution": 0.3968,
+          "semantic_contribution": 0.17804166666666668,
+          "neighbor_contribution": 0.07027999999999998,
+          "noise_contribution": 0.013777572867551813
+        },
+        "emotional_resonator": {
+          "self": 0.39999999999999997,
+          "semantic": 0.17870833333333333,
+          "neighbor": 0.07517999999999998,
+          "noise": 0.017518210801663606,
+          "self_contribution": 0.39999999999999997,
+          "semantic_contribution": 0.17870833333333333,
+          "neighbor_contribution": 0.07517999999999998,
+          "noise_contribution": 0.017518210801663606
+        },
+        "social_follower": {
+          "self": 0.3992,
+          "semantic": 0.17695833333333336,
+          "neighbor": 0.09777299999999997,
+          "noise": -0.01677674065799644,
+          "self_contribution": 0.3992,
+          "semantic_contribution": 0.17695833333333336,
+          "neighbor_contribution": 0.09777299999999997,
+          "noise_contribution": -0.01677674065799644
+        },
+        "risk_averse": {
+          "self": 0.4048,
+          "semantic": 0.16620833333333335,
+          "neighbor": 0.06999999999999999,
+          "noise": -0.03127909623894019,
+          "self_contribution": 0.4048,
+          "semantic_contribution": 0.16620833333333335,
+          "neighbor_contribution": 0.06999999999999999,
+          "noise_contribution": -0.03127909623894019
+        }
+      }
+    },
+    {
+      "round": 2,
+      "group_attitudes": {
+        "rational_evaluator": 0.6229539074039872,
+        "budget_guardian": 0.639892853466887,
+        "culture_seeker": 0.6630825102631824,
+        "emotional_resonator": 0.6572947920535568,
+        "social_follower": 0.639612022925488,
+        "risk_averse": 0.629759718797262
+      },
+      "overall_satisfaction": 0.642099300818394,
+      "topic_distribution": {
+        "topic_0": 1.0
+      },
+      "delta_by_group": {
+        "rational_evaluator": -0.053867844950163724,
+        "budget_guardian": -0.010243580527094065,
+        "culture_seeker": 0.0041832707289639615,
+        "emotional_resonator": -0.01411175208144011,
+        "social_follower": -0.017542569749848913,
+        "risk_averse": 0.02003048170286892
+      },
+      "overall_delta": -0.011925332479452266,
+      "dominant_driver": "frame",
+      "dispersion": 0.040128602859195284,
+      "activation_reasons": [
+        {
+          "expert": "frame",
+          "label": "economic",
+          "score": 1.0,
+          "confidence": 1.0,
+          "weight": 1.0
+        },
+        {
+          "expert": "sentiment",
+          "label": "POSITIVE",
+          "score": 0.3333333333333333,
+          "confidence": 0.3333333333333333,
+          "weight": 0.1111111111111111
+        },
+        {
+          "expert": "acceptance",
+          "label": "IS CAUTIOUS ABOUT THIS TARGET",
+          "score": 0.5,
+          "confidence": 0.2,
+          "weight": 0.1
+        },
+        {
+          "expert": "conflict",
+          "label": "MEDIUM_CONFLICT",
+          "score": 0.5,
+          "confidence": 0.2,
+          "weight": 0.1
+        }
+      ],
+      "attributions": {
+        "rational_evaluator": {
+          "self": 0.4060930514124905,
+          "semantic": 0.17358333333333334,
+          "neighbor": 0.06575835246051677,
+          "noise": -0.022480829802353483,
+          "self_contribution": 0.4060930514124905,
+          "semantic_contribution": 0.17358333333333334,
+          "neighbor_contribution": 0.06575835246051677,
+          "noise_contribution": -0.022480829802353483
+        },
+        "budget_guardian": {
+          "self": 0.3900818603963886,
+          "semantic": 0.17179166666666668,
+          "neighbor": 0.07120974720599985,
+          "noise": 0.006809579197831824,
+          "self_contribution": 0.3900818603963886,
+          "semantic_contribution": 0.17179166666666668,
+          "neighbor_contribution": 0.07120974720599985,
+          "noise_contribution": 0.006809579197831824
+        },
+        "culture_seeker": {
+          "self": 0.3953395437205311,
+          "semantic": 0.17804166666666668,
+          "neighbor": 0.06857021976531004,
+          "noise": 0.021131080110674536,
+          "self_contribution": 0.3953395437205311,
+          "semantic_contribution": 0.17804166666666668,
+          "neighbor_contribution": 0.06857021976531004,
+          "noise_contribution": 0.021131080110674536
+        },
+        "emotional_resonator": {
+          "self": 0.40284392648099815,
+          "semantic": 0.17870833333333333,
+          "neighbor": 0.0731866782521718,
+          "noise": 0.002555853987053539,
+          "self_contribution": 0.40284392648099815,
+          "semantic_contribution": 0.17870833333333333,
+          "neighbor_contribution": 0.0731866782521718,
+          "noise_contribution": 0.002555853987053539
+        },
+        "social_follower": {
+          "self": 0.39429275560520216,
+          "semantic": 0.17695833333333336,
+          "neighbor": 0.0955595513080184,
+          "noise": -0.02719861732106591,
+          "self_contribution": 0.39429275560520216,
+          "semantic_contribution": 0.17695833333333336,
+          "neighbor_contribution": 0.0955595513080184,
+          "noise_contribution": -0.02719861732106591
+        },
+        "risk_averse": {
+          "self": 0.36583754225663584,
+          "semantic": 0.16620833333333335,
+          "neighbor": 0.06960278981654637,
+          "noise": 0.028111053390746436,
+          "self_contribution": 0.36583754225663584,
+          "semantic_contribution": 0.16620833333333335,
+          "neighbor_contribution": 0.06960278981654637,
+          "noise_contribution": 0.028111053390746436
+        }
+      }
+    },
+    {
+      "round": 3,
+      "group_attitudes": {
+        "rational_evaluator": 0.5806482623139346,
+        "budget_guardian": 0.615839917741608,
+        "culture_seeker": 0.6314722903654975,
+        "emotional_resonator": 0.6499915625881473,
+        "social_follower": 0.6766481902800607,
+        "risk_averse": 0.5818886119094101
+      },
+      "overall_satisfaction": 0.6227481391997763,
+      "topic_distribution": {
+        "topic_0": 1.0
+      },
+      "delta_by_group": {
+        "rational_evaluator": -0.042305645090052524,
+        "budget_guardian": -0.024052935725279,
+        "culture_seeker": -0.03161021989768498,
+        "emotional_resonator": -0.007303229465409511,
+        "social_follower": 0.03703616735457271,
+        "risk_averse": -0.0478711068878519
+      },
+      "overall_delta": -0.019351161618617607,
+      "dominant_driver": "frame",
+      "dispersion": 0.09599992796612611,
+      "activation_reasons": [
+        {
+          "expert": "frame",
+          "label": "economic",
+          "score": 1.0,
+          "confidence": 1.0,
+          "weight": 1.0
+        },
+        {
+          "expert": "sentiment",
+          "label": "POSITIVE",
+          "score": 0.3333333333333333,
+          "confidence": 0.3333333333333333,
+          "weight": 0.1111111111111111
+        },
+        {
+          "expert": "acceptance",
+          "label": "IS CAUTIOUS ABOUT THIS TARGET",
+          "score": 0.5,
+          "confidence": 0.2,
+          "weight": 0.1
+        },
+        {
+          "expert": "conflict",
+          "label": "MEDIUM_CONFLICT",
+          "score": 0.5,
+          "confidence": 0.2,
+          "weight": 0.1
+        }
+      ],
+      "attributions": {
+        "rational_evaluator": {
+          "self": 0.37377234444239227,
+          "semantic": 0.17358333333333334,
+          "neighbor": 0.06540024842450412,
+          "noise": -0.0321076638862951,
+          "self_contribution": 0.37377234444239227,
+          "semantic_contribution": 0.17358333333333334,
+          "neighbor_contribution": 0.06540024842450412,
+          "noise_contribution": -0.0321076638862951
+        },
+        "budget_guardian": {
+          "self": 0.38393571208013216,
+          "semantic": 0.17179166666666668,
+          "neighbor": 0.06987628919389562,
+          "noise": -0.009763750199086608,
+          "self_contribution": 0.38393571208013216,
+          "semantic_contribution": 0.17179166666666668,
+          "neighbor_contribution": 0.06987628919389562,
+          "noise_contribution": -0.009763750199086608
+        },
+        "culture_seeker": {
+          "self": 0.3978495061579094,
+          "semantic": 0.17804166666666668,
+          "neighbor": 0.0669797791875908,
+          "noise": -0.011398661646669495,
+          "self_contribution": 0.3978495061579094,
+          "semantic_contribution": 0.17804166666666668,
+          "neighbor_contribution": 0.0669797791875908,
+          "noise_contribution": -0.011398661646669495
+        },
+        "emotional_resonator": {
+          "self": 0.39437687523213405,
+          "semantic": 0.17870833333333333,
+          "neighbor": 0.07189427278927814,
+          "noise": 0.005012081233401679,
+          "self_contribution": 0.39437687523213405,
+          "semantic_contribution": 0.17870833333333333,
+          "neighbor_contribution": 0.07189427278927814,
+          "noise_contribution": 0.005012081233401679
+        },
+        "social_follower": {
+          "self": 0.3837672137552928,
+          "semantic": 0.17695833333333336,
+          "neighbor": 0.09397977562305761,
+          "noise": 0.02194286756837688,
+          "self_contribution": 0.3837672137552928,
+          "semantic_contribution": 0.17695833333333336,
+          "neighbor_contribution": 0.09397977562305761,
+          "noise_contribution": 0.02194286756837688
+        },
+        "risk_averse": {
+          "self": 0.3778558312783572,
+          "semantic": 0.16620833333333335,
+          "neighbor": 0.06767955780837513,
+          "noise": -0.029855110510655595,
+          "self_contribution": 0.3778558312783572,
+          "semantic_contribution": 0.16620833333333335,
+          "neighbor_contribution": 0.06767955780837513,
+          "noise_contribution": -0.029855110510655595
+        }
+      }
+    }
+  ],
+  "semantic_summary": {
+    "mapper_version": "v2",
+    "sentiment_signal": 0.3333333333333333,
+    "stance_signal": 0.7333333333333333,
+    "topic_distribution": {
+      "topic_0": 1.0
+    },
+    "topic_words": {
+      "0": [
+        "great"
+      ],
+      "1": [
+        "battery"
+      ],
+      "2": [
+        "life"
+      ]
+    },
+    "semantic_trace": {
+      "experts": {
+        "sentiment": {
+          "label": "POSITIVE",
+          "score": 0.3333333333333333,
+          "confidence": 0.3333333333333333,
+          "payload": {
+            "n_samples": 3,
+            "backend": "lexicon",
+            "target": "smart home product",
+            "domain": "product"
+          }
+        },
+        "acceptance": {
+          "label": "IS CAUTIOUS ABOUT THIS TARGET",
+          "score": 0.5,
+          "confidence": 0.2,
+          "payload": {
+            "backend": "lexical-fallback",
+            "target": "smart home product",
+            "domain": "product"
+          }
+        },
+        "emotion": {
+          "label": "joy",
+          "score": 1.0,
+          "confidence": 1.0,
+          "payload": {
+            "backend": "lexical-fallback",
+            "distribution": {
+              "joy": 1.0,
+              "anger": 0.0,
+              "fear": 0.0,
+              "sadness": 0.0,
+              "surprise": 0.0
+            },
+            "target": "smart home product",
+            "domain": "product"
+          }
+        },
+        "topic": {
+          "label": "topic_0",
+          "score": 1.0,
+          "confidence": 0.7333333333333334,
+          "payload": {
+            "distribution": {
+              "topic_0": 1.0
+            },
+            "topic_words": {
+              "0": [
+                "great"
+              ],
+              "1": [
+                "battery"
+              ],
+              "2": [
+                "life"
+              ]
+            },
+            "backend": "keyword",
+            "target": "smart home product",
+            "domain": "product"
+          }
+        },
+        "conflict": {
+          "label": "MEDIUM_CONFLICT",
+          "score": 0.5,
+          "confidence": 0.2,
+          "payload": {
+            "backend": "lexical-fallback",
+            "conflict_hits": 0,
+            "calm_hits": 0,
+            "target": "smart home product",
+            "domain": "product"
+          }
+        },
+        "frame": {
+          "label": "economic",
+          "score": 1.0,
+          "confidence": 1.0,
+          "payload": {
+            "backend": "lexical-fallback",
+            "distribution": {
+              "economic": 1.0,
+              "health": 0.0,
+              "fairness": 0.0,
+              "security": 0.0,
+              "morality": 0.0
+            },
+            "target": "smart home product",
+            "domain": "product"
+          }
+        },
+        "stance": {
+          "label": "IS CAUTIOUS ABOUT THIS TARGET",
+          "score": 0.5,
+          "confidence": 0.2,
+          "payload": {
+            "backend": "lexical-fallback",
+            "target": "smart home product",
+            "domain": "product"
+          }
+        },
+        "risk": {
+          "label": "MEDIUM_CONFLICT",
+          "score": 0.5,
+          "confidence": 0.2,
+          "payload": {
+            "backend": "lexical-fallback",
+            "conflict_hits": 0,
+            "calm_hits": 0,
+            "target": "smart home product",
+            "domain": "product"
+          }
+        },
+        "value_frame": {
+          "label": "economic",
+          "score": 1.0,
+          "confidence": 1.0,
+          "payload": {
+            "backend": "lexical-fallback",
+            "distribution": {
+              "economic": 1.0,
+              "health": 0.0,
+              "fairness": 0.0,
+              "security": 0.0,
+              "morality": 0.0
+            },
+            "target": "smart home product",
+            "domain": "product"
+          }
+        }
+      },
+      "fusion": {
+        "stance_components": {
+          "acceptance_expert": 0.5,
+          "sentiment_component": 0.6666666666666666,
+          "conflict_component": 0.5
+        },
+        "weights": {
+          "acceptance_expert": 0.5,
+          "sentiment_component": 0.3,
+          "conflict_component": 0.2
+        },
+        "consensus": {
+          "score": 0.7333333333333333,
+          "method": "fallback-average",
+          "spread": 0.5,
+          "threshold": 0.2,
+          "source_scores": {
+            "sentiment": 0.6666666666666666,
+            "acceptance": 0.5,
+            "emotion": 1.0,
+            "conflict": 0.5,
+            "frame": 1.0
+          }
+        }
+      }
+    },
+    "semantic_evidence": {
+      "experts": {
+        "sentiment": {
+          "label": "POSITIVE",
+          "score": 0.3333333333333333,
+          "confidence": 0.3333333333333333,
+          "payload": {
+            "n_samples": 3,
+            "backend": "lexicon",
+            "target": "smart home product",
+            "domain": "product"
+          }
+        },
+        "acceptance": {
+          "label": "IS CAUTIOUS ABOUT THIS TARGET",
+          "score": 0.5,
+          "confidence": 0.2,
+          "payload": {
+            "backend": "lexical-fallback",
+            "target": "smart home product",
+            "domain": "product"
+          }
+        },
+        "emotion": {
+          "label": "joy",
+          "score": 1.0,
+          "confidence": 1.0,
+          "payload": {
+            "backend": "lexical-fallback",
+            "distribution": {
+              "joy": 1.0,
+              "anger": 0.0,
+              "fear": 0.0,
+              "sadness": 0.0,
+              "surprise": 0.0
+            },
+            "target": "smart home product",
+            "domain": "product"
+          }
+        },
+        "topic": {
+          "label": "topic_0",
+          "score": 1.0,
+          "confidence": 0.7333333333333334,
+          "payload": {
+            "distribution": {
+              "topic_0": 1.0
+            },
+            "topic_words": {
+              "0": [
+                "great"
+              ],
+              "1": [
+                "battery"
+              ],
+              "2": [
+                "life"
+              ]
+            },
+            "backend": "keyword",
+            "target": "smart home product",
+            "domain": "product"
+          }
+        },
+        "conflict": {
+          "label": "MEDIUM_CONFLICT",
+          "score": 0.5,
+          "confidence": 0.2,
+          "payload": {
+            "backend": "lexical-fallback",
+            "conflict_hits": 0,
+            "calm_hits": 0,
+            "target": "smart home product",
+            "domain": "product"
+          }
+        },
+        "frame": {
+          "label": "economic",
+          "score": 1.0,
+          "confidence": 1.0,
+          "payload": {
+            "backend": "lexical-fallback",
+            "distribution": {
+              "economic": 1.0,
+              "health": 0.0,
+              "fairness": 0.0,
+              "security": 0.0,
+              "morality": 0.0
+            },
+            "target": "smart home product",
+            "domain": "product"
+          }
+        },
+        "stance": {
+          "label": "IS CAUTIOUS ABOUT THIS TARGET",
+          "score": 0.5,
+          "confidence": 0.2,
+          "payload": {
+            "backend": "lexical-fallback",
+            "target": "smart home product",
+            "domain": "product"
+          }
+        },
+        "risk": {
+          "label": "MEDIUM_CONFLICT",
+          "score": 0.5,
+          "confidence": 0.2,
+          "payload": {
+            "backend": "lexical-fallback",
+            "conflict_hits": 0,
+            "calm_hits": 0,
+            "target": "smart home product",
+            "domain": "product"
+          }
+        },
+        "value_frame": {
+          "label": "economic",
+          "score": 1.0,
+          "confidence": 1.0,
+          "payload": {
+            "backend": "lexical-fallback",
+            "distribution": {
+              "economic": 1.0,
+              "health": 0.0,
+              "fairness": 0.0,
+              "security": 0.0,
+              "morality": 0.0
+            },
+            "target": "smart home product",
+            "domain": "product"
+          }
+        }
+      },
+      "fusion": {
+        "stance_components": {
+          "acceptance_expert": 0.5,
+          "sentiment_component": 0.6666666666666666,
+          "conflict_component": 0.5
+        },
+        "weights": {
+          "acceptance_expert": 0.5,
+          "sentiment_component": 0.3,
+          "conflict_component": 0.2
+        },
+        "consensus": {
+          "score": 0.7333333333333333,
+          "method": "fallback-average",
+          "spread": 0.5,
+          "threshold": 0.2,
+          "source_scores": {
+            "sentiment": 0.6666666666666666,
+            "acceptance": 0.5,
+            "emotion": 1.0,
+            "conflict": 0.5,
+            "frame": 1.0
+          }
+        }
+      }
+    }
+  },
+  "semantic_state": {
+    "sentiment": 0.3333333333333333,
+    "stance": 0.7333333333333333,
+    "topic": {
+      "topic_0": 1.0
+    },
+    "embedding": [
+      0.0,
+      -0.2030794578873895,
+      -0.13108722639244835,
+      -0.393261679177345,
+      -0.2621744527848967,
+      0.0,
+      0.0,
+      0.4652539106722862,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.32109681645819843,
+      0.0,
+      0.0,
+      -0.2030794578873895,
+      0.0,
+      -0.3341666842798378,
+      -0.2030794578873895,
+      0.0,
+      0.0,
+      0.0,
+      0.4521840428506468
+    ]
+  },
+  "semantic_trace": {
+    "experts": {
+      "sentiment": {
+        "label": "POSITIVE",
+        "score": 0.3333333333333333,
+        "confidence": 0.3333333333333333,
+        "payload": {
+          "n_samples": 3,
+          "backend": "lexicon",
+          "target": "smart home product",
+          "domain": "product"
+        }
+      },
+      "acceptance": {
+        "label": "IS CAUTIOUS ABOUT THIS TARGET",
+        "score": 0.5,
+        "confidence": 0.2,
+        "payload": {
+          "backend": "lexical-fallback",
+          "target": "smart home product",
+          "domain": "product"
+        }
+      },
+      "emotion": {
+        "label": "joy",
+        "score": 1.0,
+        "confidence": 1.0,
+        "payload": {
+          "backend": "lexical-fallback",
+          "distribution": {
+            "joy": 1.0,
+            "anger": 0.0,
+            "fear": 0.0,
+            "sadness": 0.0,
+            "surprise": 0.0
+          },
+          "target": "smart home product",
+          "domain": "product"
+        }
+      },
+      "topic": {
+        "label": "topic_0",
+        "score": 1.0,
+        "confidence": 0.7333333333333334,
+        "payload": {
+          "distribution": {
+            "topic_0": 1.0
+          },
+          "topic_words": {
+            "0": [
+              "great"
+            ],
+            "1": [
+              "battery"
+            ],
+            "2": [
+              "life"
+            ]
+          },
+          "backend": "keyword",
+          "target": "smart home product",
+          "domain": "product"
+        }
+      },
+      "conflict": {
+        "label": "MEDIUM_CONFLICT",
+        "score": 0.5,
+        "confidence": 0.2,
+        "payload": {
+          "backend": "lexical-fallback",
+          "conflict_hits": 0,
+          "calm_hits": 0,
+          "target": "smart home product",
+          "domain": "product"
+        }
+      },
+      "frame": {
+        "label": "economic",
+        "score": 1.0,
+        "confidence": 1.0,
+        "payload": {
+          "backend": "lexical-fallback",
+          "distribution": {
+            "economic": 1.0,
+            "health": 0.0,
+            "fairness": 0.0,
+            "security": 0.0,
+            "morality": 0.0
+          },
+          "target": "smart home product",
+          "domain": "product"
+        }
+      },
+      "stance": {
+        "label": "IS CAUTIOUS ABOUT THIS TARGET",
+        "score": 0.5,
+        "confidence": 0.2,
+        "payload": {
+          "backend": "lexical-fallback",
+          "target": "smart home product",
+          "domain": "product"
+        }
+      },
+      "risk": {
+        "label": "MEDIUM_CONFLICT",
+        "score": 0.5,
+        "confidence": 0.2,
+        "payload": {
+          "backend": "lexical-fallback",
+          "conflict_hits": 0,
+          "calm_hits": 0,
+          "target": "smart home product",
+          "domain": "product"
+        }
+      },
+      "value_frame": {
+        "label": "economic",
+        "score": 1.0,
+        "confidence": 1.0,
+        "payload": {
+          "backend": "lexical-fallback",
+          "distribution": {
+            "economic": 1.0,
+            "health": 0.0,
+            "fairness": 0.0,
+            "security": 0.0,
+            "morality": 0.0
+          },
+          "target": "smart home product",
+          "domain": "product"
+        }
+      }
+    },
+    "fusion": {
+      "stance_components": {
+        "acceptance_expert": 0.5,
+        "sentiment_component": 0.6666666666666666,
+        "conflict_component": 0.5
+      },
+      "weights": {
+        "acceptance_expert": 0.5,
+        "sentiment_component": 0.3,
+        "conflict_component": 0.2
+      },
+      "consensus": {
+        "score": 0.7333333333333333,
+        "method": "fallback-average",
+        "spread": 0.5,
+        "threshold": 0.2,
+        "source_scores": {
+          "sentiment": 0.6666666666666666,
+          "acceptance": 0.5,
+          "emotion": 1.0,
+          "conflict": 0.5,
+          "frame": 1.0
+        }
+      }
+    }
+  },
+  "semantic_evidence": {
+    "experts": {
+      "sentiment": {
+        "label": "POSITIVE",
+        "score": 0.3333333333333333,
+        "confidence": 0.3333333333333333,
+        "payload": {
+          "n_samples": 3,
+          "backend": "lexicon",
+          "target": "smart home product",
+          "domain": "product"
+        }
+      },
+      "acceptance": {
+        "label": "IS CAUTIOUS ABOUT THIS TARGET",
+        "score": 0.5,
+        "confidence": 0.2,
+        "payload": {
+          "backend": "lexical-fallback",
+          "target": "smart home product",
+          "domain": "product"
+        }
+      },
+      "emotion": {
+        "label": "joy",
+        "score": 1.0,
+        "confidence": 1.0,
+        "payload": {
+          "backend": "lexical-fallback",
+          "distribution": {
+            "joy": 1.0,
+            "anger": 0.0,
+            "fear": 0.0,
+            "sadness": 0.0,
+            "surprise": 0.0
+          },
+          "target": "smart home product",
+          "domain": "product"
+        }
+      },
+      "topic": {
+        "label": "topic_0",
+        "score": 1.0,
+        "confidence": 0.7333333333333334,
+        "payload": {
+          "distribution": {
+            "topic_0": 1.0
+          },
+          "topic_words": {
+            "0": [
+              "great"
+            ],
+            "1": [
+              "battery"
+            ],
+            "2": [
+              "life"
+            ]
+          },
+          "backend": "keyword",
+          "target": "smart home product",
+          "domain": "product"
+        }
+      },
+      "conflict": {
+        "label": "MEDIUM_CONFLICT",
+        "score": 0.5,
+        "confidence": 0.2,
+        "payload": {
+          "backend": "lexical-fallback",
+          "conflict_hits": 0,
+          "calm_hits": 0,
+          "target": "smart home product",
+          "domain": "product"
+        }
+      },
+      "frame": {
+        "label": "economic",
+        "score": 1.0,
+        "confidence": 1.0,
+        "payload": {
+          "backend": "lexical-fallback",
+          "distribution": {
+            "economic": 1.0,
+            "health": 0.0,
+            "fairness": 0.0,
+            "security": 0.0,
+            "morality": 0.0
+          },
+          "target": "smart home product",
+          "domain": "product"
+        }
+      },
+      "stance": {
+        "label": "IS CAUTIOUS ABOUT THIS TARGET",
+        "score": 0.5,
+        "confidence": 0.2,
+        "payload": {
+          "backend": "lexical-fallback",
+          "target": "smart home product",
+          "domain": "product"
+        }
+      },
+      "risk": {
+        "label": "MEDIUM_CONFLICT",
+        "score": 0.5,
+        "confidence": 0.2,
+        "payload": {
+          "backend": "lexical-fallback",
+          "conflict_hits": 0,
+          "calm_hits": 0,
+          "target": "smart home product",
+          "domain": "product"
+        }
+      },
+      "value_frame": {
+        "label": "economic",
+        "score": 1.0,
+        "confidence": 1.0,
+        "payload": {
+          "backend": "lexical-fallback",
+          "distribution": {
+            "economic": 1.0,
+            "health": 0.0,
+            "fairness": 0.0,
+            "security": 0.0,
+            "morality": 0.0
+          },
+          "target": "smart home product",
+          "domain": "product"
+        }
+      }
+    },
+    "fusion": {
+      "stance_components": {
+        "acceptance_expert": 0.5,
+        "sentiment_component": 0.6666666666666666,
+        "conflict_component": 0.5
+      },
+      "weights": {
+        "acceptance_expert": 0.5,
+        "sentiment_component": 0.3,
+        "conflict_component": 0.2
+      },
+      "consensus": {
+        "score": 0.7333333333333333,
+        "method": "fallback-average",
+        "spread": 0.5,
+        "threshold": 0.2,
+        "source_scores": {
+          "sentiment": 0.6666666666666666,
+          "acceptance": 0.5,
+          "emotion": 1.0,
+          "conflict": 0.5,
+          "frame": 1.0
+        }
+      }
+    }
+  },
+  "visualization_payload": {
+    "schema_version": "phase3.v1",
+    "round_count": 3,
+    "rounds": [
+      {
+        "round": 1,
+        "overall_satisfaction": 0.6540246332978462,
+        "overall_delta": -0.013975366702153824,
+        "dispersion": 0.06709251525975779,
+        "dominant_driver": "frame",
+        "delta_by_group": {
+          "rational_evaluator": 0.0004884190208175321,
+          "budget_guardian": -0.013530232672685605,
+          "culture_seeker": -0.002434093799114856,
+          "emotional_resonator": 0.004739877468330267,
+          "social_follower": -0.008178740657996397,
+          "risk_averse": -0.06493742957227355
+        },
+        "activation_reasons": [
+          {
+            "expert": "frame",
+            "label": "economic",
+            "score": 1.0,
+            "confidence": 1.0,
+            "weight": 1.0
+          },
+          {
+            "expert": "sentiment",
+            "label": "POSITIVE",
+            "score": 0.3333333333333333,
+            "confidence": 0.3333333333333333,
+            "weight": 0.1111111111111111
+          },
+          {
+            "expert": "acceptance",
+            "label": "IS CAUTIOUS ABOUT THIS TARGET",
+            "score": 0.5,
+            "confidence": 0.2,
+            "weight": 0.1
+          },
+          {
+            "expert": "conflict",
+            "label": "MEDIUM_CONFLICT",
+            "score": 0.5,
+            "confidence": 0.2,
+            "weight": 0.1
+          }
+        ]
+      },
+      {
+        "round": 2,
+        "overall_satisfaction": 0.642099300818394,
+        "overall_delta": -0.011925332479452266,
+        "dispersion": 0.040128602859195284,
+        "dominant_driver": "frame",
+        "delta_by_group": {
+          "rational_evaluator": -0.053867844950163724,
+          "budget_guardian": -0.010243580527094065,
+          "culture_seeker": 0.0041832707289639615,
+          "emotional_resonator": -0.01411175208144011,
+          "social_follower": -0.017542569749848913,
+          "risk_averse": 0.02003048170286892
+        },
+        "activation_reasons": [
+          {
+            "expert": "frame",
+            "label": "economic",
+            "score": 1.0,
+            "confidence": 1.0,
+            "weight": 1.0
+          },
+          {
+            "expert": "sentiment",
+            "label": "POSITIVE",
+            "score": 0.3333333333333333,
+            "confidence": 0.3333333333333333,
+            "weight": 0.1111111111111111
+          },
+          {
+            "expert": "acceptance",
+            "label": "IS CAUTIOUS ABOUT THIS TARGET",
+            "score": 0.5,
+            "confidence": 0.2,
+            "weight": 0.1
+          },
+          {
+            "expert": "conflict",
+            "label": "MEDIUM_CONFLICT",
+            "score": 0.5,
+            "confidence": 0.2,
+            "weight": 0.1
+          }
+        ]
+      },
+      {
+        "round": 3,
+        "overall_satisfaction": 0.6227481391997763,
+        "overall_delta": -0.019351161618617607,
+        "dispersion": 0.09599992796612611,
+        "dominant_driver": "frame",
+        "delta_by_group": {
+          "rational_evaluator": -0.042305645090052524,
+          "budget_guardian": -0.024052935725279,
+          "culture_seeker": -0.03161021989768498,
+          "emotional_resonator": -0.007303229465409511,
+          "social_follower": 0.03703616735457271,
+          "risk_averse": -0.0478711068878519
+        },
+        "activation_reasons": [
+          {
+            "expert": "frame",
+            "label": "economic",
+            "score": 1.0,
+            "confidence": 1.0,
+            "weight": 1.0
+          },
+          {
+            "expert": "sentiment",
+            "label": "POSITIVE",
+            "score": 0.3333333333333333,
+            "confidence": 0.3333333333333333,
+            "weight": 0.1111111111111111
+          },
+          {
+            "expert": "acceptance",
+            "label": "IS CAUTIOUS ABOUT THIS TARGET",
+            "score": 0.5,
+            "confidence": 0.2,
+            "weight": 0.1
+          },
+          {
+            "expert": "conflict",
+            "label": "MEDIUM_CONFLICT",
+            "score": 0.5,
+            "confidence": 0.2,
+            "weight": 0.1
+          }
+        ]
+      }
+    ],
+    "divergence_summary": {
+      "final_dispersion": 0.09599992796612611,
+      "max_dispersion": 0.09599992796612611,
+      "trend": "stable"
+    },
+    "driver_summary": {
+      "dominant_driver": "frame",
+      "scores": {
+        "acceptance": 0.5,
+        "sentiment": 0.6666666666666666,
+        "conflict": 0.5,
+        "frame": 1.0
+      }
+    },
+    "provenance_links": {
+      "semantic_evidence": "semantic_evidence",
+      "stance_components": "semantic_evidence.fusion.stance_components",
+      "trajectory_rounds": "trajectories"
+    }
+  },
+  "coverage_validation": {
+    "n_samples": 4,
+    "n_clusters": 6,
+    "non_empty_clusters": 4,
+    "coverage_ratio": 0.6666666666666666
+  }
+}
