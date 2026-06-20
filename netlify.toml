@@ -1,15 +1,6 @@
 [build]
   command = "pip install -r requirements.txt"
   functions = "functions"
-  publish = "opinion_sim_system/flask_app/static"
-
-[functions]
-  node_bundler = "none"
-
-[[redirects]]
-  from = "/static/*"
-  to = "/static/:splat"
-  status = 200
 
 [[redirects]]
   from = "/*"
