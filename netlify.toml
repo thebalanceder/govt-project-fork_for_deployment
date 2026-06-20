@@ -3,6 +3,11 @@
   functions = "functions"
 
 [[redirects]]
+  from = "/ping"
+  to = "/.netlify/functions/ping"
+  status = 200
+
+[[redirects]]
   from = "/*"
   to = "/.netlify/functions/api"
   status = 200
