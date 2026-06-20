@@ -9,3 +9,6 @@ venv/
 .sisyphus/
 artifacts/orchestrator_runs/
 logs/
+
+# Local Netlify folder
+.netlify
